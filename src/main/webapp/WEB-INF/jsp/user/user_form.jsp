@@ -12,7 +12,7 @@
 </head>
 <body>
  <spring:url value="/user/save" var="saveURL" />
- <form:form modelAttribute="userForm" method="post" action="${saveURL }" >
+ <form:form modelAttribute="userForm" method="post" action="${saveURL }">
   <form:hidden path="id"/>
   <table>
    <tr>
