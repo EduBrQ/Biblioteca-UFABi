@@ -75,10 +75,11 @@ public class AnaisCongressoDAO {
 	/**
 	 * Deleta um AnaisCongresso
 	 * @param Id
+	 * 
 	 */
 	public void deleteAnaisCongresso(int Id) {
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement("delete from anaisCongressos where id=?");
+			PreparedStatement preparedStatement = connection.prepareStatement("delete from anaiscongressos where id=?");
 			// Parameters start with 1
 			preparedStatement.setInt(1, Id);
 			preparedStatement.executeUpdate();
@@ -100,8 +101,9 @@ public class AnaisCongressoDAO {
 			// Parameters start with 1
 			
 			preparedStatement.setString(1, newAnaisCongresso.getTipo());
-			preparedStatement.setString(2, anaisCongresso.getNomeCongresso());
+			preparedStatement.setString(2, newAnaisCongresso.getNomeCongresso());
 			preparedStatement.setString(3, newAnaisCongresso.getLocal());
+			preparedStatement.setString(4, anaisCongresso.getNomeCongresso());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -117,7 +119,7 @@ public class AnaisCongressoDAO {
 		List<AnaisCongresso> anaisCongressos = new ArrayList<AnaisCongresso>();
 		try {
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("select * from anaisCongressos");
+			ResultSet rs = statement.executeQuery("select * from anaiscongressos");
 			while (rs.next()) {
 				AnaisCongresso anaisCongresso = new AnaisCongresso();
 				anaisCongresso.setId(rs.getInt("id"));
@@ -147,9 +149,10 @@ public class AnaisCongressoDAO {
 
 			if (rs.next()) {
 				anaisCongresso.setId(rs.getInt("id"));
-				anaisCongresso.setTipo(rs.getString("Tipo"));
-				anaisCongresso.setNomeCongresso(rs.getString("NomeCongresso"));
-				anaisCongresso.setLocal(rs.getString("Local"));
+				System.out.println(rs.getString("tipo"));
+				anaisCongresso.setTipo(rs.getString("tipo"));
+				anaisCongresso.setNomeCongresso(rs.getString("nomeCongresso"));
+				anaisCongresso.setLocal(rs.getString("local"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

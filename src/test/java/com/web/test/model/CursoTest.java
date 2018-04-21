@@ -1,6 +1,7 @@
 package com.web.test.model;
 
 import static org.junit.Assert.*;
+import static org.junit.Assume.assumeNoException;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -14,25 +15,29 @@ public class CursoTest {
 	@Before
 	public void setUp() throws Exception {
 		curso = new Curso();
-		curso.setArea("Exatas");
-		curso.setNivel("Graduação");
-		curso.setNome("Matematica");
-		curso.setSigla("MA");
+		curso.setArea		("Exatas");
+		curso.setNivel		("Graduação");
+		curso.setNome		("Matematica");
+		curso.setSigla		("MA");
+		curso.setId			(1);
 	}
 
 	@Test
 	public void test() {
-		assertEquals("Exatas", curso.getArea());
-		assertEquals("Matematica", curso.getNome());
-		assertEquals("MA", curso.getSigla());
+		assertEquals(1				, curso.getId(), 1);
+		assertEquals("Exatas"		, curso.getArea());
+		assertEquals("Matematica"	, curso.getNome());
+		assertEquals("MA"			, curso.getSigla());
 		
-		assertEquals("Graduação", curso.getNivel());
+		assertEquals("Graduação"	, curso.getNivel());
 		
 		curso.setNivel("G");
-		assertEquals("Graduação", curso.getNivel());
+		assertEquals("Graduação"	, curso.getNivel());
 		
 		curso.setNivel(0);
-		assertEquals("Graduação", curso.getNivel());
+		assertEquals("Graduação"	, curso.getNivel());
+		
+		
 	}
 
 }

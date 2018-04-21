@@ -2,44 +2,8 @@ package com.web.resources;
 
 import java.util.List;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
-/**
- * Classe utilitária com diversas funções helpers
- * 
- * @author Aleksandro, Eduardo e Thiago
- *
- */
-
 public class Ferramentas {
 	
-	private static final Logger logger = LogManager.getLogger(Ferramentas.class);
-
-	private void runMe(String parameter) {
-
-		if (logger.isDebugEnabled()) {
-			logger.debug("This is debug : " + parameter);
-		}
-
-		if (logger.isInfoEnabled()) {
-			logger.info("This is info : " + parameter);
-		}
-
-		logger.warn("This is warn : " + parameter);
-		logger.error("This is error : " + parameter);
-		logger.fatal("This is fatal : " + parameter);
-
-	}
-	
-	public Ferramentas() {
-		this.runMe("Ferramentas");
-	}
-	/**
-	 * Transforma lista em string
-	 * @param lista
-	 * @return
-	 */
 	public static String listToString(List<String> lista) {
 		String str = "";
 		
@@ -54,11 +18,6 @@ public class Ferramentas {
 		return str;
 	}
 	
-	/**
-	 * lista em string em uma linha
-	 * @param lista
-	 * @return
-	 */
 	public static String listToStringInline(List<String> lista) {
 		String str = "";
 		
@@ -74,12 +33,6 @@ public class Ferramentas {
 	}
 	
 	
-	/**
-	 * Verifica os tipos
-	 * @param tipo
-	 * @param tipos
-	 * @return
-	 */
 	public static boolean verificaTipos(String tipo, String[] tipos) {
 		for(int i=0; i < tipos.length; i++) {
 			if(tipo == tipos[i]) {
@@ -89,11 +42,6 @@ public class Ferramentas {
 		return false;
 	}
 	
-	/**
-	 * Verifica se é um cpf válido
-	 * @param cpfEntrada
-	 * @return
-	 */
 	public static boolean verificaCPF(String cpfEntrada) {
 		
 		String cpfA = cpfEntrada.replace(".", "");

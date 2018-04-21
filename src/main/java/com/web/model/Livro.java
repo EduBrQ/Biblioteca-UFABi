@@ -2,36 +2,9 @@ package com.web.model;
 
 import java.util.ArrayList;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
 import com.web.resources.Ferramentas;
 
-/**
- * Classe que representa a entidade Livro 
- * Onde é efetuada toda a lógica de negócio
- * 
- * @author Aleksandro, Eduardo e Thiago
- *
- */
 public class Livro {
-	private static final Logger logger = LogManager.getLogger(Livro.class);
-
-	private void runMe(String parameter) {
-
-		if (logger.isDebugEnabled()) {
-			logger.debug("This is debug : " + parameter);
-		}
-
-		if (logger.isInfoEnabled()) {
-			logger.info("This is info : " + parameter);
-		}
-
-		logger.warn("This is warn : " + parameter);
-		logger.error("This is error : " + parameter);
-		logger.fatal("This is fatal : " + parameter);
-
-	}
 
 	protected int id;
 	protected String isbn;
@@ -45,7 +18,6 @@ public class Livro {
 	protected String tema;
 	
 	public Livro() {
-		this.runMe("Livro");
 		autores = new ArrayList<String>();
 	}
 
@@ -69,6 +41,10 @@ public class Livro {
 	
 	public String getAutores() {
 		return Ferramentas.listToStringInline(this.autores);
+	}
+	
+	public String getArrayAutores() {
+		return Ferramentas.listToString(this.autores);
 	}
 	
 	public String getIsbn() {

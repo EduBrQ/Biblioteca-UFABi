@@ -8,50 +8,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
-import com.web.model.User;
-
-/**
- * Classe utilitaria DbUtil 
- * Responsável por auxiliar na conexão com o banco
- * 
- * @author Aleksandro, Eduardo e Thiago
- *
- */
-
 public class DbUtil {
-	
-	private static final Logger logger = LogManager.getLogger(DbUtil.class);
-
-	private void runMe(String parameter) {
-
-		if (logger.isDebugEnabled()) {
-			logger.debug("This is debug : " + parameter);
-		}
-
-		if (logger.isInfoEnabled()) {
-			logger.info("This is info : " + parameter);
-		}
-
-		logger.warn("This is warn : " + parameter);
-		logger.error("This is error : " + parameter);
-		logger.fatal("This is fatal : " + parameter);
-
-	}
-	
-	public DbUtil() {
-		this.runMe("DbUtil");
-	}
-
 
 	private static Connection connection = null;
 
-	/**
-	 * Método responsável por adicionar uma nova conexão com o banco de dados
-	 * @return
-	 */
 	public static Connection getConnection() {
 		if (connection != null)
 			return connection;

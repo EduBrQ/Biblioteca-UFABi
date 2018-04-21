@@ -17,19 +17,21 @@ public class AdministradorTest {
 		admin = new Administrador();
 		
 		/* Setters **/
-		admin.setFirstname("Admin");
-		admin.setLastname("SobreNome do Admin");
-		admin.setAddress("Rua do administrador");
-		
+		admin.setFirstname	("Admin");
+		admin.setLastname	("SobreNome do Admin");
+		admin.setAddress	("Rua do administrador");
+		admin.setId			(2);
 		// O nivel de acesso é definido automaticamente, portanto não é necessario testar
 	}
 
 	@Test
 	public void testGetters() {
-		assertEquals("Admin", 						admin.getFirstname());
-		assertEquals("SobreNome do Admin", 			admin.getLastname());
-		assertEquals("Admin SobreNome do Admin", 	admin.getFullName());
-		assertEquals(1, 							admin.getNivelAcesso(), 0);
+		assertEquals(2								, admin.getId(), 0);
+		assertEquals("Admin"						, admin.getFirstname());
+		assertEquals("SobreNome do Admin"			, admin.getLastname());
+		assertEquals("Admin SobreNome do Admin"		, admin.getFullName());
+		assertEquals("Rua do administrador"			, admin.getAddress());
+		assertEquals(1								, admin.getNivelAcesso(), 0);
 	}
 	
 }

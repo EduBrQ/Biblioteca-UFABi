@@ -56,14 +56,14 @@ public class RevistaDAO {
 	public void addRevista(Revista revista) {
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(
-					"insert into revistas(titulo, editora, dataPublicacao, edicao, numPaginas) values (?, ?, ?, ?, ?)");
+					"insert into revistas(editora, edicao, numPaginas, titulo, dataPublicacao) values (?, ?, ?, ?, ?)");
 			// Parameters start with 1
 
-			preparedStatement.setString(1, revista.getTitulo());
-			preparedStatement.setString(2, revista.getEditora());
-			preparedStatement.setString(3, revista.getDataPublicacao());
-			preparedStatement.setInt(4, revista.getEdicao());
-			preparedStatement.setInt(5, revista.getNumPaginas());
+			preparedStatement.setString		(1, revista.getEditora());
+			preparedStatement.setInt		(2, revista.getEdicao());
+			preparedStatement.setInt		(3, revista.getNumPaginas());
+			preparedStatement.setString		(4, revista.getTitulo());
+			preparedStatement.setString		(5, revista.getDataPublicacao());
 
 			preparedStatement.executeUpdate();
 
@@ -71,17 +71,18 @@ public class RevistaDAO {
 			e.printStackTrace();
 		}
 	}
-
+	
 	/**
 	 * Deleta Revistas
 	 * 
 	 * @param Titulo
 	 */
-	public void deleteRevista(String Titulo) {
+	public void deleteRevista(Revista revista) {
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement("delete from revistas where Titulo=?");
+			PreparedStatement preparedStatement = connection.prepareStatement("delete from revistas where Titulo=? and Edicao=?");
 			// Parameters start with 1
-			preparedStatement.setString(1, Titulo);
+			preparedStatement.setString		(1, revista.getTitulo());
+			preparedStatement.setInt		(2, revista.getEdicao());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -99,14 +100,16 @@ public class RevistaDAO {
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(
 					"update revistas set titulo=?, editora=?, dataPublicacao=?, edicao=?, numPaginas=?"
-							+ "where titulo=?");
+							+ " where titulo=? and edicao=?");
 			// Parameters start with 1
 
-			preparedStatement.setString(1, newRevista.getTitulo());
-			preparedStatement.setString(2, newRevista.getEditora());
-			preparedStatement.setString(3, newRevista.getDataPublicacao());
-			preparedStatement.setInt(4, newRevista.getEdicao());
-			preparedStatement.setInt(5, newRevista.getNumPaginas());
+			preparedStatement.setString			(1, newRevista.getTitulo());
+			preparedStatement.setString			(2, newRevista.getEditora());
+			preparedStatement.setString			(3, newRevista.getDataPublicacao());
+			preparedStatement.setInt			(4, newRevista.getEdicao());
+			preparedStatement.setInt			(5, newRevista.getNumPaginas());
+			preparedStatement.setString			(6, revista.getTitulo());
+			preparedStatement.setInt			(7, revista.getEdicao());
 
 			preparedStatement.executeUpdate();
 
@@ -115,6 +118,7 @@ public class RevistaDAO {
 		}
 	}
 
+	
 	/**
 	 * Retorna todas as revistas
 	 * 
@@ -128,12 +132,12 @@ public class RevistaDAO {
 			while (rs.next()) {
 
 				Revista revista = new Revista();
-				revista.setId(rs.getInt("id"));
-				revista.setTitulo(rs.getString("Titulo"));
-				revista.setEditora(rs.getString("Editora"));
-				revista.setDataPublicacao(rs.getString("DataPublicacao"));
-				revista.setEdicao(rs.getInt("Edicao"));
-				revista.setNumPaginas(rs.getInt("NumPaginas"));
+				revista.setId				(rs.getInt("id"));
+				revista.setTitulo			(rs.getString("Titulo"));
+				revista.setEditora			(rs.getString("Editora"));
+				revista.setDataPublicacao	(rs.getString("DataPublicacao"));
+				revista.setEdicao			(rs.getInt("Edicao"));
+				revista.setNumPaginas		(rs.getInt("NumPaginas"));
 
 				revistas.add(revista);
 
@@ -159,13 +163,12 @@ public class RevistaDAO {
 			ResultSet rs = preparedStatement.executeQuery();
 
 			if (rs.next()) {
-				revista.setId(rs.getInt("id"));
-				revista.setTitulo(rs.getString("Titulo"));
-				revista.setEditora(rs.getString("Editora"));
-				revista.setDataPublicacao(rs.getString("DataPublicacao"));
-				revista.setEdicao(rs.getInt("Edicao"));
-				revista.setNumPaginas(rs.getInt("NumPaginas"));
-
+				revista.setId				(rs.getInt("id"));
+				revista.setTitulo			(rs.getString("Titulo"));
+				revista.setEditora			(rs.getString("Editora"));
+				revista.setDataPublicacao	(rs.getString("DataPublicacao"));
+				revista.setEdicao			(rs.getInt("Edicao"));
+				revista.setNumPaginas		(rs.getInt("NumPaginas"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

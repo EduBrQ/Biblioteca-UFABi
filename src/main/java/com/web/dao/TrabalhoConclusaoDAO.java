@@ -54,15 +54,15 @@ public class TrabalhoConclusaoDAO {
 	public void addTrabalhoConclusao(TrabalhosConclusao trabalhoConclusao) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into trabalhoConclusaos(titulo, autor, orientador, tipo, anoDefesa, local) values (?, ?, ?, ?, ?, ?)");
+					.prepareStatement("insert into trabalhosConclusao(tipo, local, titulo, autor, orientador, anoDefesa) values (?, ?, ?, ?, ?, ?)");
 			// Parameters start with 1
 			
-			preparedStatement.setString(1, trabalhoConclusao.getTitulo());
-			preparedStatement.setString(2, trabalhoConclusao.getAutor());
-			preparedStatement.setString(3, trabalhoConclusao.getOrientador());
-			preparedStatement.setString(4, trabalhoConclusao.getTipo());
-			preparedStatement.setInt(5, trabalhoConclusao.getAnoDefesa());
-			preparedStatement.setString(6, trabalhoConclusao.getLocal());
+			preparedStatement.setString		(1, trabalhoConclusao.getTipo());
+			preparedStatement.setString		(2, trabalhoConclusao.getLocal());
+			preparedStatement.setString		(3, trabalhoConclusao.getTitulo());
+			preparedStatement.setString		(4, trabalhoConclusao.getAutor());
+			preparedStatement.setString		(5, trabalhoConclusao.getOrientador());
+			preparedStatement.setInt		(6, trabalhoConclusao.getAnoDefesa());
 		
 			preparedStatement.executeUpdate();
 			
@@ -75,11 +75,12 @@ public class TrabalhoConclusaoDAO {
 	 * Deleta um TrabalhoConclusao
 	 * @param Titulo
 	 */
-	public void deleteTrabalhoConclusao(String Titulo) {
+	public void deleteTrabalhoConclusao(TrabalhosConclusao trabalho) {
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement("delete from trabalhoConclusaos where Titulo=?");
+			PreparedStatement preparedStatement = connection.prepareStatement("delete from trabalhosConclusao where Titulo=? and Autor=?");
 			// Parameters start with 1
-			preparedStatement.setString(1, Titulo);
+			preparedStatement.setString(1, trabalho.getTitulo());
+			preparedStatement.setString(2, trabalho.getAutor());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -95,16 +96,17 @@ public class TrabalhoConclusaoDAO {
 	public void updateTrabalhoConclusao(TrabalhosConclusao newTrabalhoConclusao, TrabalhosConclusao trabalhoConclusao) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("update trabalhoConclusaos set titulo=?, autor=?, orientador=?, tipo=?, anoDefesa=?, local=?" + "where titulo=?");
+					.prepareStatement("update trabalhosConclusao set titulo=?, autor=?, orientador=?, tipo=?, anoDefesa=?, local=? where Titulo=? and Autor=?");
 			// Parameters start with 1
 			
-			preparedStatement.setString(1, newTrabalhoConclusao.getTitulo());
-			preparedStatement.setString(2, newTrabalhoConclusao.getAutor());
-			preparedStatement.setString(3, newTrabalhoConclusao.getOrientador());
-			preparedStatement.setString(4, newTrabalhoConclusao.getTipo());
-			preparedStatement.setInt(5, newTrabalhoConclusao.getAnoDefesa());
-			preparedStatement.setString(6, newTrabalhoConclusao.getLocal());
-			
+			preparedStatement.setString		(1, newTrabalhoConclusao.getTitulo());
+			preparedStatement.setString		(2, newTrabalhoConclusao.getAutor());
+			preparedStatement.setString		(3, newTrabalhoConclusao.getOrientador());
+			preparedStatement.setString		(4, newTrabalhoConclusao.getTipo());
+			preparedStatement.setInt		(5, newTrabalhoConclusao.getAnoDefesa());
+			preparedStatement.setString		(6, newTrabalhoConclusao.getLocal());
+			preparedStatement.setString		(7, trabalhoConclusao.getTitulo());
+			preparedStatement.setString		(8, trabalhoConclusao.getAutor());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -120,7 +122,7 @@ public class TrabalhoConclusaoDAO {
 		List<TrabalhosConclusao> trabalhoConclusaos = new ArrayList<TrabalhosConclusao>();
 		try {
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("select * from trabalhoConclusaos");
+			ResultSet rs = statement.executeQuery("select * from trabalhosConclusao");
 			while (rs.next()) {
 				
 				TrabalhosConclusao trabalhoConclusao = new TrabalhosConclusao();
@@ -149,7 +151,7 @@ public class TrabalhoConclusaoDAO {
 	public TrabalhosConclusao getTrabalhoConclusaoById(int Id) {
 		TrabalhosConclusao trabalhoConclusao = new TrabalhosConclusao();
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement("select * from trabalhoConclusaos where id=?");
+			PreparedStatement preparedStatement = connection.prepareStatement("select * from trabalhosConclusao where id=?");
 			preparedStatement.setInt(1, Id);
 			ResultSet rs = preparedStatement.executeQuery();
 
