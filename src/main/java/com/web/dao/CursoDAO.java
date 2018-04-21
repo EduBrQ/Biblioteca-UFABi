@@ -55,12 +55,13 @@ public class CursoDAO {
 	public void addCurso(Curso curso) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into cursos(nome, area, nivel) values (?, ?, ?)");
+					.prepareStatement("insert into cursos(nome, area, nivel, sigla) values (?, ?, ?, ?)");
 			// Parameters start with 1
 
 			preparedStatement.setString(1, curso.getNome());
 			preparedStatement.setString(2, curso.getArea());
 			preparedStatement.setString(3, curso.getNivel());
+			preparedStatement.setString(4, curso.getSigla());
 			
 			preparedStatement.executeUpdate();
 			
@@ -74,7 +75,7 @@ public class CursoDAO {
 	 * @param nome
 	 * @param nivelAcesso
 	 */
-	public void deleteCurso(String nome, int nivelAcesso) {
+	public void deleteCurso(Curso curso, int nivelAcesso) {
 		/* Sprint2 - Colocando nivel de acesso para efetuar a operação
 		 * Niveis:
 		 * 0 - root
@@ -85,7 +86,7 @@ public class CursoDAO {
 			try {
 				PreparedStatement preparedStatement = connection.prepareStatement("delete from cursos where nome=?");
 				// Parameters start with 1
-				preparedStatement.setString(1, nome);
+				preparedStatement.setString(1, curso.getNome());
 				preparedStatement.executeUpdate();
 	
 			} catch (SQLException e) {
@@ -104,12 +105,15 @@ public class CursoDAO {
 	public void updateCurso(Curso newCurso, Curso curso) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("update cursos set nome=?, area=?, nivel=?" + "where nome=?");
+					.prepareStatement("update cursos set nome=?, area=?, nivel=?, sigla=?" + "where nome=? and nivel=?");
 			// Parameters start with 1
 			
-			preparedStatement.setString(1, curso.getNome());
-			preparedStatement.setString(2, curso.getArea());
-			preparedStatement.setString(3, curso.getNivel());
+			preparedStatement.setString(1, newCurso.getNome());
+			preparedStatement.setString(2, newCurso.getArea());
+			preparedStatement.setString(3, newCurso.getNivel());
+			preparedStatement.setString(4, newCurso.getSigla());
+			preparedStatement.setString(5, curso.getNome());
+			preparedStatement.setString(6, curso.getNivel());
 			
 			preparedStatement.executeUpdate();
 
@@ -130,9 +134,10 @@ public class CursoDAO {
 			while (rs.next()) {
 				Curso curso = new Curso();
 				curso.setId(rs.getInt("id"));
-				curso.setNome(rs.getString("Nome"));
-				curso.setArea(rs.getString("Area"));
-				curso.setNivel(rs.getString("Nivel"));
+				curso.setNome(rs.getString("nome"));
+				curso.setArea(rs.getString("area"));
+				curso.setNivel(rs.getString("nivel"));
+				curso.setSigla(rs.getString("sigla"));
 				
 				cursos.add(curso);
 			}
@@ -162,6 +167,7 @@ public class CursoDAO {
 				curso.setNome(rs.getString("Nome"));
 				curso.setArea(rs.getString("Area"));
 				curso.setNivel(rs.getString("Nivel"));
+				curso.setSigla(rs.getString("Sigla"));
 				
 			}
 		} catch (SQLException e) {

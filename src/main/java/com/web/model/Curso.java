@@ -1,36 +1,8 @@
 package com.web.model;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
 import com.web.resources.Ferramentas;
 
-/**
- * Classe que representa a entidade Curso 
- * Onde é efetuada toda a lógica de negócio
- * 
- * @author Aleksandro, Eduardo e Thiago
- *
- */
 public class Curso {
-	private static final Logger logger = LogManager.getLogger(Curso.class);
-
-	private void runMe(String parameter) {
-
-		if (logger.isDebugEnabled()) {
-			logger.debug("This is debug : " + parameter);
-		}
-
-		if (logger.isInfoEnabled()) {
-			logger.info("This is info : " + parameter);
-		}
-
-		logger.warn("This is warn : " + parameter);
-		logger.error("This is error : " + parameter);
-		logger.fatal("This is fatal : " + parameter);
-
-	}
-
 
 	protected int id;
 	protected String nome;
@@ -38,7 +10,7 @@ public class Curso {
 	protected String nivel;
 	protected String sigla;
 	
-	private String[] niveis = new String[] {"Graduação", "Especialização","Mestrado","Douturado"};
+	private String[] niveis = new String[] {"Graduação", "Especialização","Mestrado","Doutorado"};
 	/* Niveis:
 	 * 0 - Graduação
 	 * 1 - Especialização
@@ -47,7 +19,6 @@ public class Curso {
 	 * */
 	
 	public Curso() {
-		this.runMe("Curso");
 	}
 	
 	
@@ -79,7 +50,10 @@ public class Curso {
 	public void setNivel(String n) {
 		String nivelRes = "";
 		
+		
+		
 		if(n.length()==1) {
+			n= n.toUpperCase();
 			for (int i=0; i< this.niveis.length; i++) {
 				if(n.equals(this.niveis[i].substring(0, 1))) {
 					nivelRes = this.niveis[i];
@@ -89,11 +63,7 @@ public class Curso {
 		} else {
 			nivelRes = n;
 		}
-		if(Ferramentas.verificaTipos(nivelRes,this.niveis)) {
-			this.nivel = nivelRes;
-		} else {
-			throw new IllegalArgumentException("Deve informar um nivel valido!");
-		}
+		this.nivel = nivelRes;
 	}
 	
 	public void setNivel(int nivel) {

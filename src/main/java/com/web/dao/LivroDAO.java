@@ -54,17 +54,18 @@ public class LivroDAO {
 	public void addLivro(Livro livro) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into livros(isbn, editora, titulo, autores, edicao, anoPublicacao, numPaginas, areaConhecimento) values (?, ?, ?, ?, ?, ?, ?, ?)");
+					.prepareStatement("insert into livros(isbn, editora, titulo, autores, edicao, anoPublicacao, numPaginas, areaConhecimento, tema) values (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			// Parameters start with 1
 
-			preparedStatement.setString(1, livro.getIsbn());
-			preparedStatement.setString(2, livro.getEditora());
-			preparedStatement.setString(3, livro.getTitulo());
-			preparedStatement.setString(1, livro.getAutores());
-			preparedStatement.setInt(1, livro.getEdicao());
-			preparedStatement.setInt(1, livro.getAnoPublicacao());
-			preparedStatement.setInt(1, livro.getNumPaginas());
-			preparedStatement.setString(1, livro.getAreaConhecimento());
+			preparedStatement.setString			(1, livro.getIsbn());
+			preparedStatement.setString			(2, livro.getEditora());
+			preparedStatement.setString			(3, livro.getTitulo());
+			preparedStatement.setString			(4, livro.getAutores());
+			preparedStatement.setInt			(5, livro.getEdicao());
+			preparedStatement.setInt			(6, livro.getAnoPublicacao());
+			preparedStatement.setInt			(7, livro.getNumPaginas());
+			preparedStatement.setString			(8, livro.getAreaConhecimento());
+			preparedStatement.setString			(9, livro.getTema());
 			preparedStatement.executeUpdate();
 			
 		} catch (SQLException e) { 
@@ -76,11 +77,12 @@ public class LivroDAO {
 	 * Deleta um livro
 	 * @param Titulo
 	 */
-	public void deleteLivro(String Titulo) {
+	public void deleteLivro(Livro livro) {
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement("delete from livros where Titulo=?");
+			PreparedStatement preparedStatement = connection.prepareStatement("delete from livros where Titulo=? and Edicao=?");
 			// Parameters start with 1
-			preparedStatement.setString(1, Titulo);
+			preparedStatement.setString		(1, livro.getTitulo());
+			preparedStatement.setInt		(2, livro.getEdicao());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -96,17 +98,20 @@ public class LivroDAO {
 	public void updateLivro(Livro newLivro, Livro livro) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("update livros set isbn=?, editora=?, titulo=?, autores=?, edicao=?, anoPublicacao=?, numPaginas=?, areaConhecimento=?" + "where titulo=?");
+					.prepareStatement("update livros set isbn=?, editora=?, titulo=?, autores=?, edicao=?, anoPublicacao=?, numPaginas=?, areaConhecimento=?, tema=?" + "where titulo=? and edicao=?");
 			// Parameters start with 1
 			
-			preparedStatement.setString(1, newLivro.getIsbn());
-			preparedStatement.setString(2, newLivro.getEditora());
-			preparedStatement.setString(3, livro.getTitulo());
-			preparedStatement.setString(1, newLivro.getAutores());
-			preparedStatement.setInt(1, newLivro.getEdicao());
-			preparedStatement.setInt(1, newLivro.getAnoPublicacao());
-			preparedStatement.setInt(1, newLivro.getNumPaginas());
-			preparedStatement.setString(1, newLivro.getAreaConhecimento());
+			preparedStatement.setString		(1, newLivro.getIsbn());
+			preparedStatement.setString		(2, newLivro.getEditora());
+			preparedStatement.setString		(3, newLivro.getTitulo());
+			preparedStatement.setString		(4, newLivro.getAutores());
+			preparedStatement.setInt		(5, newLivro.getEdicao());
+			preparedStatement.setInt		(6, newLivro.getAnoPublicacao());
+			preparedStatement.setInt		(7, newLivro.getNumPaginas());
+			preparedStatement.setString		(8, newLivro.getAreaConhecimento());
+			preparedStatement.setString		(9, newLivro.getTema());
+			preparedStatement.setString		(10, livro.getTitulo());
+			preparedStatement.setInt		(11, livro.getEdicao());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -125,15 +130,17 @@ public class LivroDAO {
 			ResultSet rs = statement.executeQuery("select * from livros");
 			while (rs.next()) {
 				Livro livro = new Livro();
-				livro.setId(rs.getInt("id"));
-				livro.setIsbn(rs.getString("Isbn"));
-				livro.setEditora(rs.getString("Editora"));
-				livro.setTitulo(rs.getString("Titulo"));
-				livro.setEdicao(rs.getInt("Edicao"));
-				livro.setAnoPublicacao(rs.getInt("AnoPublicacao"));
-				livro.setNumPaginas(rs.getInt("NumPaginas"));
-				livro.setAreaConhecimento(rs.getString("AreaConhecimento"));
-				livro.addAutores(rs.getString("Autores").split(";"));
+				livro.setId						(rs.getInt("id"));
+				livro.setIsbn					(rs.getString("Isbn"));
+				livro.setEditora				(rs.getString("Editora"));
+				livro.setTitulo					(rs.getString("Titulo"));
+				livro.addAutores				(rs.getString("Autores").split(";"));
+				livro.setEdicao					(rs.getInt("Edicao"));
+				livro.setAnoPublicacao			(rs.getInt("AnoPublicacao"));
+				livro.setNumPaginas				(rs.getInt("NumPaginas"));
+				livro.setAreaConhecimento		(rs.getString("AreaConhecimento"));
+				livro.setTema					(rs.getString("Tema"));
+				
 				livros.add(livro);
 			}
 		} catch (SQLException e) {
@@ -156,15 +163,16 @@ public class LivroDAO {
 			ResultSet rs = preparedStatement.executeQuery();
 
 			if (rs.next()) {
-				livro.setId(rs.getInt("id"));
-				livro.setIsbn(rs.getString("Isbn"));
-				livro.setEditora(rs.getString("Editora"));
-				livro.setTitulo(rs.getString("Titulo"));
-				livro.setEdicao(rs.getInt("Edicao"));
-				livro.setAnoPublicacao(rs.getInt("AnoPublicacao"));
-				livro.setNumPaginas(rs.getInt("NumPaginas"));
-				livro.setAreaConhecimento(rs.getString("AreaConhecimento"));
-				livro.addAutores(rs.getString("Autores").split(";"));
+				livro.setId						(rs.getInt("id"));
+				livro.setIsbn					(rs.getString("Isbn"));
+				livro.setEditora				(rs.getString("Editora"));
+				livro.setTitulo					(rs.getString("Titulo"));
+				livro.addAutores				(rs.getString("Autores").split(";"));
+				livro.setEdicao					(rs.getInt("Edicao"));
+				livro.setAnoPublicacao			(rs.getInt("AnoPublicacao"));
+				livro.setNumPaginas				(rs.getInt("NumPaginas"));
+				livro.setAreaConhecimento		(rs.getString("AreaConhecimento"));
+				livro.setTema					(rs.getString("Tema"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

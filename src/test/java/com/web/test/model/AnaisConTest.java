@@ -16,16 +16,18 @@ public class AnaisConTest {
 		aCon = new AnaisCongresso();
 		
 		/* Setters **/
-		aCon.setTipo("artigo");
-		aCon.setLocal("Local");
-		aCon.setNomeCongresso("Grande congresso");
+		aCon.setId				(3);
+		aCon.setTipo			("artigo");
+		aCon.setLocal			("Local");
+		aCon.setNomeCongresso	("Grande congresso");
 	}
 
 	@Test
 	public void testGetters() {
-		assertEquals("artigo", aCon.getTipo());
-		assertEquals("Local", aCon.getLocal());
-		assertEquals("Grande congresso", aCon.getNomeCongresso());
+		assertEquals(3						, aCon.getId(), 0);
+		assertEquals("artigo"				, aCon.getTipo());
+		assertEquals("Local"				, aCon.getLocal());
+		assertEquals("Grande congresso"		, aCon.getNomeCongresso());
 	}
 	
 

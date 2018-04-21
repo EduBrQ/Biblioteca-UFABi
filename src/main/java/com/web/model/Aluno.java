@@ -2,38 +2,10 @@
 
 import java.io.IOException;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
 import com.web.resources.Ferramentas;
 
-/**
- * Classe que representa a entidade Aluno 
- * Onde é efetuada toda a lógica de negócio
- * 
- * @author Aleksandro, Eduardo e Thiago
- *
- */
 public class Aluno {
 	
-	private static final Logger logger = LogManager.getLogger(Aluno.class);
-
-	private void runMe(String parameter) {
-
-		if (logger.isDebugEnabled()) {
-			logger.debug("This is debug : " + parameter);
-		}
-
-		if (logger.isInfoEnabled()) {
-			logger.info("This is info : " + parameter);
-		}
-
-		logger.warn("This is warn : " + parameter);
-		logger.error("This is error : " + parameter);
-		logger.fatal("This is fatal : " + parameter);
-
-	}
-
 	protected int id;
 	protected String nomeCompleto;
 	protected String telefone;
@@ -45,7 +17,6 @@ public class Aluno {
 	protected String naturalidade;
 	
 	public Aluno() {
-		this.runMe("Aluno");
 	}
 	
 	public int getId() {

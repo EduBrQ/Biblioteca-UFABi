@@ -14,6 +14,8 @@ public class LivroTest {
 	@Before
 	public void setUp() throws Exception {
 		livro = new Livro();
+		
+		livro.setId					(2);
 		livro.setAnoPublicacao		(1999);
 		livro.setAreaConhecimento	("Astronomia");
 		livro.setEdicao				(1);
@@ -30,16 +32,17 @@ public class LivroTest {
 
 	@Test
 	public void testGetters() {
-		assertEquals(1999, 						livro.getAnoPublicacao(), 0);
-		assertEquals("Astronomia", 				livro.getAreaConhecimento());
-		assertEquals(1, 						livro.getEdicao(), 0);
-		assertEquals("Grilo Editora", 			livro.getEditora());
-		assertEquals("Nao sei o que e isso", 	livro.getIsbn());
-		assertEquals(300, 						livro.getNumPaginas(), 0);
-		assertEquals("Explodindo estrelas", 	livro.getTema());
-		assertEquals("Hoje é ontem", 			livro.getTitulo());
+		assertEquals(2							, livro.getId(), 0);
+		assertEquals(1999						, livro.getAnoPublicacao(), 0);
+		assertEquals("Astronomia"				, livro.getAreaConhecimento());
+		assertEquals(1							, livro.getEdicao(), 0);
+		assertEquals("Grilo Editora"			, livro.getEditora());
+		assertEquals("Nao sei o que e isso"		, livro.getIsbn());
+		assertEquals(300						, livro.getNumPaginas(), 0);
+		assertEquals("Explodindo estrelas"		, livro.getTema());
+		assertEquals("Hoje é ontem"				, livro.getTitulo());
 		
-		assertEquals("Joao, Pedro, Maria", livro.getAutores());
+		assertEquals("Joao, Pedro, Maria"		, livro.getAutores());
 		
 		livro.addAutores(new String[]{"Ze", "Jumbo", "Cabe"});
 		assertEquals("Joao, Pedro, Maria, Ze, Jumbo, Cabe", livro.getAutores());

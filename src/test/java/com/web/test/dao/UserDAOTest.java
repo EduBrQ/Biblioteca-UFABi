@@ -17,7 +17,6 @@ public class UserDAOTest {
 	@Before
 	public void setUp() throws Exception {
 		user = new User();
-		
 		user.setFirstname("Nome");
 		user.setLastname("SobreNome da Pessoa");
 		user.setAddress("Rua Nome da rua");
