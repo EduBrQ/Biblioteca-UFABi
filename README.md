@@ -68,7 +68,7 @@ Substitua por:
                     username="root" 
                      password="root" 
                      driverClassName="com.mysql.jdbc.Driver"
-                     url="jdbc:mysql://localhost:3306/jack_rutorial_demo"
+                     url="jdbc:mysql://localhost:3306/web"
                      maxActive="5" 
                      maxIdle="3" 
                       />
