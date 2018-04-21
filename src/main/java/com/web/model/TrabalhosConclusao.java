@@ -13,8 +13,6 @@ public class TrabalhosConclusao {
 	protected String orientador;
 	protected int anoDefesa;
 	
-	private String[] tipos = new String[] {"monografia", "tese", "dissertação"};
-	
 	
 	
 	public int getId() {
@@ -64,11 +62,7 @@ public class TrabalhosConclusao {
 	}
 
 	public void setTipo(String tipo) {
-		if(Ferramentas.verificaTipos(tipo, this.tipos)) {
-			this.tipo = tipo;
-		} else {
-			throw new IllegalArgumentException("Deve informar um tipo valido!");
-		}
+		this.tipo = tipo;
 	}
 
 	public String getLocal() {

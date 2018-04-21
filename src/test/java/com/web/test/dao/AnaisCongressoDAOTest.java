@@ -1,7 +1,12 @@
 package com.web.test.dao;
 import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.ListableBeanFactory;
 
 import com.web.dao.AnaisCongressoDAO;
 import com.web.model.AnaisCongresso;
@@ -9,30 +14,18 @@ import com.web.model.AnaisCongresso;
 public class AnaisCongressoDAOTest {
 
 
-<<<<<<< HEAD
 		AnaisCongressoDAO dao = new AnaisCongressoDAO();
 		AnaisCongresso anaisCongresso;
 
 	
-=======
-		AnaisCongressoDAO uDAO = new AnaisCongressoDAO();
-		AnaisCongresso anaisCongresso;
-
->>>>>>> ca010b164675a97ea148118b95fded66341d51e3
 		@Before
 		public void setUp() throws Exception {
 
 			anaisCongresso = new AnaisCongresso();
-
-<<<<<<< HEAD
+			
 			anaisCongresso.setTipo					("artigo");
 			anaisCongresso.setNomeCongresso			("NomeCongresso");
 			anaisCongresso.setLocal					("Local");
-=======
-			anaisCongresso.setTipo("Tipo");
-			anaisCongresso.setNomeCongresso("NomeCongresso");
-			anaisCongresso.setLocal("Local");
->>>>>>> ca010b164675a97ea148118b95fded66341d51e3
 
 		}
 
@@ -41,7 +34,6 @@ public class AnaisCongressoDAOTest {
 			AnaisCongresso anaisCongressoTest = new AnaisCongresso();
 
 			// Testando o addAnaisCongresso
-<<<<<<< HEAD
 			dao.addAnaisCongresso(this.anaisCongresso);
 
 			
@@ -72,34 +64,21 @@ public class AnaisCongressoDAOTest {
 
 			assertEquals(null					, anaisCongressoTest.getLocal());
 			
-=======
-			uDAO.addAnaisCongresso(this.anaisCongresso);
-
-			// Testando o getAnaisCongresso
-			anaisCongressoTest = uDAO.getAnaisCongressoById(1);
-			assertEquals("Tipo", anaisCongressoTest.getTipo());
-			assertEquals("NomeCongresso", anaisCongressoTest.getNomeCongresso());
-			assertEquals("Local", anaisCongressoTest.getLocal());
-
-			// Testando o update
-			AnaisCongresso newAnaisCongresso = new AnaisCongresso();
-			newAnaisCongresso.setTipo("Tipo");
-			newAnaisCongresso.setNomeCongresso("NomeCongresso");
-			newAnaisCongresso.setLocal("Local");
-
-			uDAO.updateAnaisCongresso(newAnaisCongresso, anaisCongresso);
-			anaisCongressoTest = uDAO.getAnaisCongressoById(1);
-
-			assertEquals("Tipo", anaisCongressoTest.getTipo());
-			assertEquals("NomeCongresso", anaisCongressoTest.getNomeCongresso());
-			assertEquals("Local", anaisCongressoTest.getLocal());
-
-			// Testando o delete e verificando se ainda existe
-			uDAO.deleteAnaisCongresso(1);
-			anaisCongressoTest = uDAO.getAnaisCongressoById(1);
-
-			assertEquals(null, anaisCongressoTest.getId());
->>>>>>> ca010b164675a97ea148118b95fded66341d51e3
+			// Testando o List adicionando vários itens
+			List<AnaisCongresso> list = new ArrayList<AnaisCongresso>();
+			
+			for(int i=0; i<5; i++) {
+				list.add(this.anaisCongresso);
+				dao.addAnaisCongresso(list.get(i));
+			}
+			
+			List<AnaisCongresso> list2 = dao.getAllAnaisCongressos();
+			
+			for(int i=0; i< list.size(); i++) {
+				assertEquals(list.get(i).getLocal()				, list2.get(i).getLocal());
+				assertEquals(list.get(i).getNomeCongresso()		, list2.get(i).getNomeCongresso());
+				assertEquals(list.get(i).getTipo()				, list2.get(i).getTipo());
+			}
 		}
 
 	}

@@ -23,16 +23,6 @@ public class FerramentasTest {
 	}
 	
 	@Test
-	public void testVerificaTipos() {
-		String[] tipos = new String[]{"tipo1", "tipo2"," tipo3"};
-		String tipo_correto = "tipo1";
-		String tipo_incorreto = "tipoA";
-		
-		assertEquals(true, Ferramentas.verificaTipos(tipo_correto, tipos));
-		assertEquals(false, Ferramentas.verificaTipos(tipo_incorreto, tipos));
-	}
-	
-	@Test
 	public void testVerificaCPF() {
 		String[] cpfs_validos = {"175.777.950-70", "767.298.550-70"};
 		String[] cpfs_invalidos = {"172.777.950-70", "711.298.520-70"};

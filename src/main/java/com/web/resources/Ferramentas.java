@@ -33,15 +33,6 @@ public class Ferramentas {
 	}
 	
 	
-	public static boolean verificaTipos(String tipo, String[] tipos) {
-		for(int i=0; i < tipos.length; i++) {
-			if(tipo == tipos[i]) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
 	public static boolean verificaCPF(String cpfEntrada) {
 		
 		String cpfA = cpfEntrada.replace(".", "");
