@@ -7,17 +7,50 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import com.web.model.TrabalhosConclusao;
 import com.web.resources.DbUtil;
 
+/**
+ * Classe TrabalhoConclusaoDAO responsável criar, 
+ * editar mostrar e deletar os anais de crongressos
+ * 
+ * @author Aleksandro, Eduardo e Thiago
+ *
+ */
 public class TrabalhoConclusaoDAO {
 
 	private Connection connection;
+	
+	private static final Logger logger = LogManager.getLogger(TrabalhoConclusaoDAO.class);
+
+	private void runMe(String parameter) {
+
+		if (logger.isDebugEnabled()) {
+			logger.debug("This is debug : " + parameter);
+		}
+
+		if (logger.isInfoEnabled()) {
+			logger.info("This is info : " + parameter);
+		}
+
+		logger.warn("This is warn : " + parameter);
+		logger.error("This is error : " + parameter);
+		logger.fatal("This is fatal : " + parameter);
+
+	}
 
 	public TrabalhoConclusaoDAO() {
+		this.runMe("TrabalhoConclusaoDAO");
 		connection = DbUtil.getConnection();
 	}
 
+	/**Adiciona um TrabalhosConclusao
+	 * @param trabalhoConclusao
+	 */
 	public void addTrabalhoConclusao(TrabalhosConclusao trabalhoConclusao) {
 		try {
 			PreparedStatement preparedStatement = connection
@@ -38,6 +71,10 @@ public class TrabalhoConclusaoDAO {
 		}
 	}
 
+	/**
+	 * Deleta um TrabalhoConclusao
+	 * @param Titulo
+	 */
 	public void deleteTrabalhoConclusao(String Titulo) {
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement("delete from trabalhoConclusaos where Titulo=?");
@@ -50,6 +87,11 @@ public class TrabalhoConclusaoDAO {
 		}
 	}
 
+	/**
+	 * Atualiza um TrabalhoConclusao
+	 * @param newTrabalhoConclusao
+	 * @param trabalhoConclusao
+	 */
 	public void updateTrabalhoConclusao(TrabalhosConclusao newTrabalhoConclusao, TrabalhosConclusao trabalhoConclusao) {
 		try {
 			PreparedStatement preparedStatement = connection
@@ -70,6 +112,10 @@ public class TrabalhoConclusaoDAO {
 		}
 	}
 
+	/**
+	 * Retorna todos TrabalhoConclusao
+	 * @return
+	 */
 	public List<TrabalhosConclusao> getAllTrabalhoConclusaos() {
 		List<TrabalhosConclusao> trabalhoConclusaos = new ArrayList<TrabalhosConclusao>();
 		try {
@@ -96,6 +142,10 @@ public class TrabalhoConclusaoDAO {
 		return trabalhoConclusaos;
 	}
 
+	/**Retorna um TrabalhoConclusao
+	 * @param Id
+	 * @return
+	 */
 	public TrabalhosConclusao getTrabalhoConclusaoById(int Id) {
 		TrabalhosConclusao trabalhoConclusao = new TrabalhosConclusao();
 		try {

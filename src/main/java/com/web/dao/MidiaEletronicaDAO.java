@@ -7,17 +7,53 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import com.web.model.MidiasEletronicas;
 import com.web.resources.DbUtil;
 
+
+/**
+ * Classe MidiaEletronicaDAO responsável criar, 
+ * editar mostrar e deletar os anais de crongressos
+ * 
+ * @author Aleksandro, Eduardo e Thiago
+ *
+ */
 public class MidiaEletronicaDAO {
 
 	private Connection connection;
+	
+	private static final Logger logger = LogManager.getLogger(MidiaEletronicaDAO.class); 
+	
+	private void runMe(String parameter){
+		
+		if(logger.isDebugEnabled()){
+			logger.debug("This is debug : " + parameter);
+		}
+		
+		if(logger.isInfoEnabled()){
+			logger.info("This is info : " + parameter);
+		}
+		
+		logger.warn("This is warn : " + parameter);
+		logger.error("This is error : " + parameter);
+		logger.fatal("This is fatal : " + parameter);
+		
+	}
+
 
 	public MidiaEletronicaDAO() {
+		this.runMe("MidiaEletronicaDAO");
 		connection = DbUtil.getConnection();
 	}
 
+	/**
+	 * Adiciona MidiaEletronica
+	 * @param midiaEletronica
+	 */
 	public void addMidiaEletronica(MidiasEletronicas midiaEletronica) {
 		try {
 			PreparedStatement preparedStatement = connection
@@ -35,6 +71,11 @@ public class MidiaEletronicaDAO {
 		}
 	}
 
+	
+	/**
+	 * Deleta Mídias Eletrônica
+	 * @param Titulo
+	 */
 	public void deleteMidiaEletronica(String Titulo) {
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement("delete from midiaEletronicas where Titulo=?");
@@ -47,6 +88,11 @@ public class MidiaEletronicaDAO {
 		}
 	}
 
+	/**
+	 * Atualiza MidiaEletronica
+	 * @param newMidiaEletronica
+	 * @param midiaEletronica
+	 */
 	public void updateMidiaEletronica(MidiasEletronicas newMidiaEletronica, MidiasEletronicas midiaEletronica) {
 		try {
 			PreparedStatement preparedStatement = connection
@@ -65,6 +111,11 @@ public class MidiaEletronicaDAO {
 		}
 	}
 
+	
+	/**
+	 * Recupera todas as MidiaEletronica
+	 * @return
+	 */
 	public List<MidiasEletronicas> getAllMidiaEletronicas() {
 		List<MidiasEletronicas> midiaEletronicas = new ArrayList<MidiasEletronicas>();
 		try {
@@ -87,6 +138,11 @@ public class MidiaEletronicaDAO {
 		return midiaEletronicas;
 	}
 
+	/**
+	 * Recupera uma MidiaEletronica
+	 * @param Id
+	 * @return
+	 */
 	public MidiasEletronicas getMidiaEletronicaById(int Id) {
 		MidiasEletronicas midiaEletronica = new MidiasEletronicas();
 		try {

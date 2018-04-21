@@ -7,17 +7,50 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import com.web.model.Livro;
 import com.web.resources.DbUtil;
 
+/**
+ * Classe LivroDAO responsável criar, 
+ * editar mostrar e deletar os anais de crongressos
+ * 
+ * @author Aleksandro, Eduardo e Thiago
+ *
+ */
 public class LivroDAO {
 
 	private Connection connection;
+	
+	private static final Logger logger = LogManager.getLogger(LivroDAO.class); 
+	
+	private void runMe(String parameter){
+		
+		if(logger.isDebugEnabled()){
+			logger.debug("This is debug : " + parameter);
+		}
+		
+		if(logger.isInfoEnabled()){
+			logger.info("This is info : " + parameter);
+		}
+		
+		logger.warn("This is warn : " + parameter);
+		logger.error("This is error : " + parameter);
+		logger.fatal("This is fatal : " + parameter);
+		
+	}
 
 	public LivroDAO() {
+		this.runMe("LivroDAO");
 		connection = DbUtil.getConnection();
 	}
 
+	/** Adiciona um livro
+	 * @param livro
+	 */
 	public void addLivro(Livro livro) {
 		try {
 			PreparedStatement preparedStatement = connection
@@ -39,6 +72,10 @@ public class LivroDAO {
 		}
 	}
 
+	/**
+	 * Deleta um livro
+	 * @param Titulo
+	 */
 	public void deleteLivro(String Titulo) {
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement("delete from livros where Titulo=?");
@@ -51,6 +88,11 @@ public class LivroDAO {
 		}
 	}
 
+	/**
+	 * Atualiza os livros
+	 * @param newLivro
+	 * @param livro
+	 */
 	public void updateLivro(Livro newLivro, Livro livro) {
 		try {
 			PreparedStatement preparedStatement = connection
@@ -72,6 +114,10 @@ public class LivroDAO {
 		}
 	}
 
+	/**
+	 * Recupera todos os livros
+	 * @return
+	 */
 	public List<Livro> getAllLivros() {
 		List<Livro> livros = new ArrayList<Livro>();
 		try {
@@ -97,6 +143,11 @@ public class LivroDAO {
 		return livros;
 	}
 
+	/**
+	 * Recupera um livro especifíco
+	 * @param Id
+	 * @return
+	 */
 	public Livro getLivroById(int Id) {
 		Livro livro = new Livro();
 		try {

@@ -7,17 +7,55 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import com.web.model.AnaisCongresso;
 import com.web.resources.DbUtil;
 
+
+/**
+ * Classe AnaisCongressoDAO responsável criar, 
+ * editar mostrar e deletar os anais de crongressos
+ * 
+ * @author Aleksandro, Eduardo e Thiago
+ *
+ */
 public class AnaisCongressoDAO {
 
+	private static final Logger logger = LogManager.getLogger(AnaisCongressoDAO.class); 
+	
+	private void runMe(String parameter){
+		
+		if(logger.isDebugEnabled()){
+			logger.debug("This is debug : " + parameter);
+		}
+		
+		if(logger.isInfoEnabled()){
+			logger.info("This is info : " + parameter);
+		}
+		
+		logger.warn("This is warn : " + parameter);
+		logger.error("This is error : " + parameter);
+		logger.fatal("This is fatal : " + parameter);
+		
+	}
+	
 	private Connection connection;
 
+	/**
+	 * Instancia a conexão com o banco
+	 */
 	public AnaisCongressoDAO() {
+		this.runMe("AnaisCongressoDAO");
 		connection = DbUtil.getConnection();
 	}
 
+	/**
+	 * Adiciona novo AnaisCongresso
+	 * @param anaisCongresso
+	 */
 	public void addAnaisCongresso(AnaisCongresso anaisCongresso) {
 		try {
 			PreparedStatement preparedStatement = connection
@@ -34,6 +72,10 @@ public class AnaisCongressoDAO {
 		}
 	}
 
+	/**
+	 * Deleta um AnaisCongresso
+	 * @param Id
+	 */
 	public void deleteAnaisCongresso(int Id) {
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement("delete from anaisCongressos where id=?");
@@ -46,6 +88,11 @@ public class AnaisCongressoDAO {
 		}
 	}
 
+	/**
+	 * Atualiza um AnaisCongresso
+	 * @param newAnaisCongresso
+	 * @param anaisCongresso
+	 */
 	public void updateAnaisCongresso(AnaisCongresso newAnaisCongresso, AnaisCongresso anaisCongresso) {
 		try {
 			PreparedStatement preparedStatement = connection
@@ -62,6 +109,10 @@ public class AnaisCongressoDAO {
 		}
 	}
 
+	/**
+	 * Recupera todos AnaisCongresso
+	 * @return
+	 */
 	public List<AnaisCongresso> getAllAnaisCongressos() {
 		List<AnaisCongresso> anaisCongressos = new ArrayList<AnaisCongresso>();
 		try {
@@ -82,6 +133,11 @@ public class AnaisCongressoDAO {
 		return anaisCongressos;
 	}
 
+	/**
+	 * Recupera um AnaisCongresso
+	 * @param Id
+	 * @return
+	 */
 	public AnaisCongresso getAnaisCongressoById(int Id) {
 		AnaisCongresso anaisCongresso = new AnaisCongresso();
 		try {

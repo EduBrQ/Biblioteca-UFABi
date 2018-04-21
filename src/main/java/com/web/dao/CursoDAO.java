@@ -7,17 +7,51 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import com.web.model.Curso;
 import com.web.resources.DbUtil;
 
+/**
+ * Classe CursoDAO responsável criar, 
+ * editar mostrar e deletar os anais de crongressos
+ * 
+ * @author Aleksandro, Eduardo e Thiago
+ *
+ */
 public class CursoDAO {
 
 	private Connection connection;
+	
+	private static final Logger logger = LogManager.getLogger(CursoDAO.class); 
+	
+	private void runMe(String parameter){
+		
+		if(logger.isDebugEnabled()){
+			logger.debug("This is debug : " + parameter);
+		}
+		
+		if(logger.isInfoEnabled()){
+			logger.info("This is info : " + parameter);
+		}
+		
+		logger.warn("This is warn : " + parameter);
+		logger.error("This is error : " + parameter);
+		logger.fatal("This is fatal : " + parameter);
+		
+	}
 
 	public CursoDAO() {
+		this.runMe("CursoDAO");
 		connection = DbUtil.getConnection();
 	}
 
+	/**
+	 * Adciona  um novo curso
+	 * @param curso
+	 */
 	public void addCurso(Curso curso) {
 		try {
 			PreparedStatement preparedStatement = connection
@@ -35,6 +69,11 @@ public class CursoDAO {
 		}
 	}
 
+	/**
+	 * Deleta um curso se for admin ou root
+	 * @param nome
+	 * @param nivelAcesso
+	 */
 	public void deleteCurso(String nome, int nivelAcesso) {
 		/* Sprint2 - Colocando nivel de acesso para efetuar a operação
 		 * Niveis:
@@ -57,6 +96,11 @@ public class CursoDAO {
 		}
 	}
 
+	/**
+	 * Atualiza um Curso
+	 * @param newCurso
+	 * @param curso
+	 */
 	public void updateCurso(Curso newCurso, Curso curso) {
 		try {
 			PreparedStatement preparedStatement = connection
@@ -74,6 +118,10 @@ public class CursoDAO {
 		}
 	}
 
+	/**
+	 * Lista todos os cursos
+	 * @return
+	 */
 	public List<Curso> getAllCursos() {
 		List<Curso> cursos = new ArrayList<Curso>();
 		try {
@@ -94,7 +142,14 @@ public class CursoDAO {
 
 		return cursos;
 	}
+	
+	
 
+	/**
+	 * Recupera um curso
+	 * @param id
+	 * @return
+	 */
 	public Curso getCursoById(int id) {
 		Curso curso = new Curso();
 		try {

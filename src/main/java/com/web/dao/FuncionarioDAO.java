@@ -7,17 +7,51 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import com.web.model.Funcionario;
 import com.web.resources.DbUtil;
 
+/**
+ * Classe FuncionarioDAO responsável criar, 
+ * editar mostrar e deletar os anais de crongressos
+ * 
+ * @author Aleksandro, Eduardo e Thiago
+ *
+ */
 public class FuncionarioDAO {
 
 	private Connection connection;
+	
+	private static final Logger logger = LogManager.getLogger(FuncionarioDAO.class); 
+	
+	private void runMe(String parameter){
+		
+		if(logger.isDebugEnabled()){
+			logger.debug("This is debug : " + parameter);
+		}
+		
+		if(logger.isInfoEnabled()){
+			logger.info("This is info : " + parameter);
+		}
+		
+		logger.warn("This is warn : " + parameter);
+		logger.error("This is error : " + parameter);
+		logger.fatal("This is fatal : " + parameter);
+		
+	}
 
 	public FuncionarioDAO() {
+		this.runMe("FuncionarioDAO");
 		connection = DbUtil.getConnection();
 	}
 
+	/**
+	 * Adiciona um funcionário
+	 * @param funcionario
+	 */
 	public void addFuncionario(Funcionario funcionario) {
 		try {
 			PreparedStatement preparedStatement = connection
@@ -39,6 +73,10 @@ public class FuncionarioDAO {
 		}
 	}
 
+	/**
+	 * Deleta um funcionário apenas se for admin ou root
+	 * @param nome
+	 */
 	public void deleteFuncionario(String nome) {
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement("delete from funcionarios where nome=?");
@@ -51,6 +89,12 @@ public class FuncionarioDAO {
 		}
 	}
 
+	
+	/**
+	 * Atualiza funcionário
+	 * @param newFuncionario
+	 * @param funcionario
+	 */
 	public void updateFuncionario(Funcionario newFuncionario, Funcionario funcionario) {
 		try {
 			PreparedStatement preparedStatement = connection
@@ -72,6 +116,10 @@ public class FuncionarioDAO {
 		}
 	}
 
+	/**
+	 * Recupera todos os funcionários
+	 * @return
+	 */
 	public List<Funcionario> getAllFuncionarios() {
 		List<Funcionario> funcionarios = new ArrayList<Funcionario>();
 		try {
@@ -96,6 +144,12 @@ public class FuncionarioDAO {
 		return funcionarios;
 	}
 
+	
+	/**
+	 * Recupera um funcionário
+	 * @param id
+	 * @return
+	 */
 	public Funcionario getFuncionarioById(int id) {
 		Funcionario funcionario = new Funcionario();
 		try {

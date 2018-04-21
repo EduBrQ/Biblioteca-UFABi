@@ -11,17 +11,49 @@ import java.util.List;
 import javax.management.Query;
 import javax.swing.JComboBox.KeySelectionManager;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import com.web.model.User;
 import com.web.resources.DbUtil;
 
+/**
+ * Classe UserDAO responsável criar, 
+ * editar mostrar e deletar os anais de crongressos
+ * 
+ * @author Aleksandro, Eduardo e Thiago
+ *
+ */
 public class UserDAO {
 
 	private Connection connection;
 
+	private static final Logger logger = LogManager.getLogger(UserDAO.class);
+
+	private void runMe(String parameter) {
+
+		if (logger.isDebugEnabled()) {
+			logger.debug("This is debug : " + parameter);
+		}
+
+		if (logger.isInfoEnabled()) {
+			logger.info("This is info : " + parameter);
+		}
+
+		logger.warn("This is warn : " + parameter);
+		logger.error("This is error : " + parameter);
+		logger.fatal("This is fatal : " + parameter);
+
+	}
+	
 	public UserDAO() {
+		this.runMe("UserDAO");
 		connection = DbUtil.getConnection();
 	}
 
+	/**Adiciona um User
+	 * @param user
+	 */
 	public void addUser(User user) {
 		try {
 			
@@ -41,6 +73,9 @@ public class UserDAO {
 		
 	}
 
+	/**Deleta um usuário se for admin ou root 
+	 * @param userId
+	 */
 	public void deleteUser(int userId) {
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement("delete from users where id=?");
@@ -53,6 +88,10 @@ public class UserDAO {
 		}
 	}
 
+	/**Atualiza um User
+	 * @param newUser
+	 * @param user
+	 */
 	public void updateUser(User newUser, User user) {
 		try {
 			PreparedStatement preparedStatement = connection
@@ -71,6 +110,9 @@ public class UserDAO {
 		}
 	}
 
+	/**Recupera todos os usuários
+	 * @return
+	 */
 	public List<User> getAllUsers() {
 		List<User> users = new ArrayList<User>();
 		try {
@@ -91,6 +133,10 @@ public class UserDAO {
 		return users;
 	}
 
+	/**Recupera um User
+	 * @param userId
+	 * @return
+	 */
 	public User getUserById(int userId) {
 		User user = new User();
 		try {
