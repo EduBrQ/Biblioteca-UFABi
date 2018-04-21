@@ -25,7 +25,10 @@ public class TrabalhosConcTest {
 		trabalhoConclusao.setOrientador		("Skymarchante");
 	}
 
+<<<<<<< HEAD
 	
+=======
+>>>>>>> ca010b164675a97ea148118b95fded66341d51e3
 	@Test
 	public void test() {
 		assertEquals(4									, trabalhoConclusao.getId(), 0);

@@ -9,7 +9,11 @@ import com.web.model.Curso;
 
 public class CursoDAOTest {
 
+<<<<<<< HEAD
 	CursoDAO dao = new CursoDAO();
+=======
+	CursoDAO uDAO = new CursoDAO();
+>>>>>>> ca010b164675a97ea148118b95fded66341d51e3
 	Curso curso;
 
 	@Before
@@ -17,11 +21,18 @@ public class CursoDAOTest {
 
 		curso = new Curso();
 
+<<<<<<< HEAD
 		curso.setNome		("Matematica");
 		curso.setArea		("Exatas");
 		curso.setNivel		("Graduação");
 		curso.setSigla		("MA");
 		
+=======
+		curso.setNome("Nome");
+		curso.setArea("Area");
+		curso.setNivel("Nivel");
+
+>>>>>>> ca010b164675a97ea148118b95fded66341d51e3
 	}
 
 	@Test
@@ -29,6 +40,7 @@ public class CursoDAOTest {
 		Curso cursoTest = new Curso();
 
 		// Testando o addCurso
+<<<<<<< HEAD
 		dao.addCurso(this.curso);
 
 		// Testando o getCurso
@@ -59,6 +71,34 @@ public class CursoDAOTest {
 		cursoTest = dao.getCursoById(1);
 
 		assertEquals(null						, cursoTest.getNome());
+=======
+		uDAO.addCurso(this.curso);
+
+		// Testando o getCurso
+		cursoTest = uDAO.getCursoById(1);
+		assertEquals("Nome", cursoTest.getNome());
+		assertEquals("Area", cursoTest.getArea());
+		assertEquals("Nivel", cursoTest.getNivel());
+
+		// Testando o update
+		Curso newCurso = new Curso();
+		newCurso.setArea("Nome");
+		newCurso.setArea("Area");
+		newCurso.setNivel("Nivel");
+
+		uDAO.updateCurso(newCurso, curso);
+		cursoTest = uDAO.getCursoById(1);
+
+		assertEquals("Nome", cursoTest.getNome());
+		assertEquals("Area", cursoTest.getArea());
+		assertEquals("Nivel", cursoTest.getNivel());
+
+		// Testando o delete e verificando se ainda existe
+		uDAO.deleteCurso("Nome");
+		cursoTest = uDAO.getCursoById(1);
+
+		assertEquals(null, cursoTest.getNome());
+>>>>>>> ca010b164675a97ea148118b95fded66341d51e3
 	}
 
 }

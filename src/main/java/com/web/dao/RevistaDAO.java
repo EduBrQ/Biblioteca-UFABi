@@ -100,7 +100,11 @@ public class RevistaDAO {
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(
 					"update revistas set titulo=?, editora=?, dataPublicacao=?, edicao=?, numPaginas=?"
+<<<<<<< HEAD
 							+ " where titulo=? and edicao=?");
+=======
+							+ "where titulo=? and edicao=?");
+>>>>>>> ca010b164675a97ea148118b95fded66341d51e3
 			// Parameters start with 1
 
 			preparedStatement.setString			(1, newRevista.getTitulo());
