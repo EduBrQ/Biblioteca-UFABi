@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.web.dao.CursoDAO;
+import com.web.model.Administrador;
 import com.web.model.Curso;
 
 public class CursoDAOTest {
@@ -59,11 +60,18 @@ public class CursoDAOTest {
 		assertEquals("HI"						, cursoTest.getSigla());
 
 		// Testando o delete e verificando se ainda existe
-		dao.deleteCurso(cursoTest, 1);
+		
+		// Para verificar se apenas administrador esta deletando, precisa-se criar um novo administrador
+		Administrador admin = new Administrador();
+		admin.setAddress(""); admin.setFirstname(""); admin.setLastname(""); 
+		
+		dao.deleteCurso(cursoTest, admin.getNivelAcesso());
 		cursoTest = dao.getCursoById(1);
 
 		assertEquals(null						, cursoTest.getNome());
 		
+		
+		// Testando pegando todos os cursos
 		List<Curso> list = new ArrayList<Curso>();
 		
 		for(int i=0; i<5; i++) {
@@ -71,10 +79,13 @@ public class CursoDAOTest {
 			dao.addCurso(this.curso);
 		}
 		
-		List<Curso> lista2 = dao.getAllCursos();
+		List<Curso> list2 = dao.getAllCursos();
 		
 		for(int i=0; i<list.size(); i++) {
-		
+			assertEquals(list.get(i).getArea()		, list2.get(i).getArea());
+			assertEquals(list.get(i).getNivel()		, list2.get(i).getNivel());
+			assertEquals(list.get(i).getNome()		, list2.get(i).getNome());
+			assertEquals(list.get(i).getSigla()		, list2.get(i).getSigla());
 		}
 	}
 

@@ -1,7 +1,8 @@
 package com.web.test.dao;
 import static org.junit.Assert.*;
 
-import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -71,6 +72,26 @@ public class TrabalhoConclusaoDAOTest {
 		trabalhoConclusaoTest = dao.getTrabalhoConclusaoById(1);
 		
 		assertEquals(null, 	trabalhoConclusaoTest.getTitulo());
+		
+		// Testando pegando todos os trabalhos
+		
+		List<TrabalhosConclusao> list = new ArrayList<TrabalhosConclusao>();
+		
+		for(int i=0; i<5; i++) {
+			list.add(this.trabalhoConclusao);
+			dao.addTrabalhoConclusao(this.trabalhoConclusao);
+		}
+		
+		List<TrabalhosConclusao> list2 = dao.getAllTrabalhoConclusaos();
+		
+		for(int i=0; i<list.size(); i++) {
+			assertEquals(list.get(i).getAnoDefesa()		, list2.get(i).getAnoDefesa());
+			assertEquals(list.get(i).getAutor()			, list2.get(i).getAutor());
+			assertEquals(list.get(i).getLocal()			, list2.get(i).getLocal());
+			assertEquals(list.get(i).getOrientador()	, list2.get(i).getOrientador());
+			assertEquals(list.get(i).getTipo()			, list2.get(i).getTipo());
+			assertEquals(list.get(i).getTitulo()		, list2.get(i).getTitulo());
+		}
 	}
 
 

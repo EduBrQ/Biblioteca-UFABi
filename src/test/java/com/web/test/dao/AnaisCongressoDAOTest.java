@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.beans.factory.ListableBeanFactory;
 
 import com.web.dao.AnaisCongressoDAO;
 import com.web.model.AnaisCongresso;

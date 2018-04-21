@@ -1,7 +1,8 @@
 package com.web.test.dao;
 import static org.junit.Assert.*;
 
-import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -84,6 +85,30 @@ public class LivroDAOTest {
 	 		livroTest = dao.getLivroById(1);
 	 		
 	 		assertEquals(null, 	livroTest.getTitulo());
+	 		
+	 		
+	 		// Testando pegando todos os Livros
+	 		
+	 		List<Livro> list = new ArrayList<Livro>();
+	 		
+	 		for(int i=0; i<5; i++) {
+	 			list.add(this.livro);
+	 			dao.addLivro(this.livro);
+	 		}
+	 		
+	 		List<Livro> list2 = dao.getAllLivros();
+	 		
+	 		for(int i=0; i<list.size(); i++) {
+	 			assertEquals(list.get(i).getAnoPublicacao()			, list2.get(i).getAnoPublicacao());
+	 			assertEquals(list.get(i).getAreaConhecimento()		, list2.get(i).getAreaConhecimento());
+	 			assertEquals(list.get(i).getAutores()				, list2.get(i).getAutores());
+	 			assertEquals(list.get(i).getEdicao()				, list2.get(i).getEdicao());
+	 			assertEquals(list.get(i).getEditora()				, list2.get(i).getEditora());
+	 			assertEquals(list.get(i).getIsbn()					, list2.get(i).getIsbn());
+	 			assertEquals(list.get(i).getNumPaginas()			, list2.get(i).getNumPaginas());
+	 			assertEquals(list.get(i).getTema()					, list2.get(i).getTema());
+	 			assertEquals(list.get(i).getTitulo()				, list2.get(i).getTitulo());
+	 		}
 	 	}
 
 }

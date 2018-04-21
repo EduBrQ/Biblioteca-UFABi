@@ -8,9 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.management.Query;
-import javax.swing.JComboBox.KeySelectionManager;
-
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 

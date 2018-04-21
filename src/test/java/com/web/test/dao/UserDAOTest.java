@@ -2,6 +2,9 @@ package com.web.test.dao;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,7 +14,7 @@ import com.web.model.User;
 
 public class UserDAOTest {
 
-	UserDAO uDAO = new UserDAO();
+	UserDAO dao = new UserDAO();
 	User user;
 	
 	@Before
@@ -29,10 +32,10 @@ public class UserDAOTest {
 		User userTest = new User();
 		
 		//Testando o addUser
-		uDAO.addUser(this.user);
+		dao.addUser(this.user);
 		
 		//Testando o getUser
-		userTest = uDAO.getUserById(1);
+		userTest = dao.getUserById(1);
 		assertEquals("Nome", 							userTest.getFirstname());
 		assertEquals("SobreNome da Pessoa", 			userTest.getLastname());
 		assertEquals("Nome SobreNome da Pessoa", 		userTest.getFullName());
@@ -44,8 +47,8 @@ public class UserDAOTest {
 		newUser.setFirstname("Nome");
 		newUser.setLastname("SobreNome da Pessoa");
 		newUser.setAddress("Mudei o nome da minha rua");
-		uDAO.updateUser(newUser, user);
-		userTest =  uDAO.getUserById(1);
+		dao.updateUser(newUser, user);
+		userTest =  dao.getUserById(1);
 		
 		assertEquals("Nome", 							userTest.getFirstname());
 		assertEquals("SobreNome da Pessoa", 			userTest.getLastname());
@@ -55,10 +58,28 @@ public class UserDAOTest {
 		assertEquals(2, 								userTest.getNivelAcesso(), 0);
 		
 		// Testando o delete e verificando se ainda existe
-		uDAO.deleteUser(1);
-		userTest = uDAO.getUserById(1);
+		dao.deleteUser(1);
+		userTest = dao.getUserById(1);
 		
 		assertEquals(null, 	userTest.getFirstname());
+		
+		// Testando o delete e verificando se ainda existe
+		
+		List<User> list = new ArrayList<User>();
+		
+		for(int i=0; i<5; i++) {
+			list.add(this.user);
+			dao.addUser(this.user);
+		}
+		
+		List<User> list2 = dao.getAllUsers();
+		
+		for(int i=0; i<list.size(); i++) {
+			assertEquals(list.get(i).getAddress(), list2.get(i).getAddress());
+			assertEquals(list.get(i).getFirstname(), list2.get(i).getFirstname());
+			assertEquals(list.get(i).getLastname(), list2.get(i).getLastname());
+			assertEquals(list.get(i).getNivelAcesso(), list2.get(i).getNivelAcesso());
+		}
 	}
 
 

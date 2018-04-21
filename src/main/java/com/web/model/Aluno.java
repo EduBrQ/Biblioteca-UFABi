@@ -1,7 +1,5 @@
 	package com.web.model;
 
-import java.io.IOException;
-
 import com.web.resources.Ferramentas;
 
 public class Aluno {

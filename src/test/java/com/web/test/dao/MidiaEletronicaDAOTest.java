@@ -1,7 +1,8 @@
 package com.web.test.dao;
 import static org.junit.Assert.*;
 
-import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -58,6 +59,23 @@ public class MidiaEletronicaDAOTest {
 		midiaTest = dao.getMidiaEletronicaById(1);
 		
 		assertEquals(null, 	midiaTest.getTitulo());
+		
+		// Testando pegando todas as midias eletronicas
+		
+		List<MidiasEletronicas> list = new ArrayList<MidiasEletronicas>();
+		
+		for(int i=0; i < 5; i++) {
+			list.add(this.midia);
+			dao.addMidiaEletronica(this.midia);
+		}
+		
+		List<MidiasEletronicas> list2 = dao.getAllMidiaEletronicas();
+		
+		for(int i=0; i<list.size(); i++) {
+			assertEquals(list.get(i).getDataGravacao(), list2.get(i).getDataGravacao());
+			assertEquals(list.get(i).getTipo(), list2.get(i).getTipo());
+			assertEquals(list.get(i).getTitulo(), list2.get(i).getTitulo());
+		}
 	}
 
 

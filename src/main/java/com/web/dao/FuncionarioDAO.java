@@ -1,5 +1,6 @@
 package com.web.dao;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -55,9 +56,8 @@ public class FuncionarioDAO {
 	public void addFuncionario(Funcionario funcionario) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into funcionarios(nome, senha, cpf, naturalidade, endereco, telefone, email) values (?, ?, ?, ?, ?, ?, ?)");
-			// Parameters start with 1
-
+				.prepareStatement("insert into funcionarios(nome, senha, cpf, naturalidade, endereco, telefone, email) values (?, ?, ?, ?, ?, ?, ?)");
+			
 			preparedStatement.setString(1, funcionario.getNome());
 			preparedStatement.setString(2, funcionario.getSenha());
 			preparedStatement.setString(3, funcionario.getCpf());
@@ -77,11 +77,13 @@ public class FuncionarioDAO {
 	 * Deleta um funcionário apenas se for admin ou root
 	 * @param nome
 	 */
-	public void deleteFuncionario(String nome) {
+	public void deleteFuncionario(int id) {
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement("delete from funcionarios where nome=?");
-			// Parameters start with 1
-			preparedStatement.setString(1, nome);
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("delete from funcionarios where id=?");
+			
+			preparedStatement.setInt(1,id);
+			
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -98,16 +100,17 @@ public class FuncionarioDAO {
 	public void updateFuncionario(Funcionario newFuncionario, Funcionario funcionario) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("update funcionarios set Nome=?, Senha=?, Cpf=?, Naturalidade=?, Endereco=?, Telefone=?, Email=?" + "where Nome=?");
-			// Parameters start with 1
-			
-			preparedStatement.setString(1, funcionario.getNome());
-			preparedStatement.setString(2, funcionario.getSenha());
+					.prepareStatement("update funcionarios set Nome=?, Senha=?, Cpf=?, Naturalidade=?, Endereco=?, Telefone=?, Email=? where Nome=? and Cpf=?");
+						
+			preparedStatement.setString(1, newFuncionario.getNome());
+			preparedStatement.setString(2, newFuncionario.getSenha());
 			preparedStatement.setString(3, newFuncionario.getCpf());
 			preparedStatement.setString(4, newFuncionario.getNaturalidade());
 			preparedStatement.setString(5, newFuncionario.getEndereco());
 			preparedStatement.setString(6, newFuncionario.getTelefone());
 			preparedStatement.setString(7, newFuncionario.getEmail());
+			preparedStatement.setString(8, funcionario.getNome());
+			preparedStatement.setString(9, funcionario.getCpf());
 			
 			preparedStatement.executeUpdate();
 
@@ -119,8 +122,9 @@ public class FuncionarioDAO {
 	/**
 	 * Recupera todos os funcionários
 	 * @return
+	 * @throws IOException 
 	 */
-	public List<Funcionario> getAllFuncionarios() {
+	public List<Funcionario> getAllFuncionarios() throws IOException {
 		List<Funcionario> funcionarios = new ArrayList<Funcionario>();
 		try {
 			Statement statement = connection.createStatement();
@@ -130,6 +134,7 @@ public class FuncionarioDAO {
 				funcionario.setId(rs.getInt("id"));
 				funcionario.setNome(rs.getString("Nome"));
 				funcionario.setSenha(rs.getString("Senha"));
+				funcionario.setCpf(rs.getString("Cpf"));
 				funcionario.setNaturalidade(rs.getString("Naturalidade"));
 				funcionario.setEndereco(rs.getString("Endereco"));
 				funcionario.setTelefone(rs.getString("Telefone"));
@@ -149,12 +154,16 @@ public class FuncionarioDAO {
 	 * Recupera um funcionário
 	 * @param id
 	 * @return
+	 * @throws IOException 
 	 */
-	public Funcionario getFuncionarioById(int id) {
+	public Funcionario getFuncionarioById(int id) throws IOException {
 		Funcionario funcionario = new Funcionario();
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement("select * from funcionarios where id=?");
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("select * from funcionarios where id=?");
+			
 			preparedStatement.setInt(1, id);
+			
 			ResultSet rs = preparedStatement.executeQuery();
 
 			if (rs.next()) {
@@ -162,6 +171,7 @@ public class FuncionarioDAO {
 				funcionario.setId(rs.getInt("id"));
 				funcionario.setNome(rs.getString("Nome"));
 				funcionario.setSenha(rs.getString("Senha"));
+				funcionario.setCpf(rs.getString("Cpf"));
 				funcionario.setNaturalidade(rs.getString("Naturalidade"));
 				funcionario.setEndereco(rs.getString("Endereco"));
 				funcionario.setTelefone(rs.getString("Telefone"));

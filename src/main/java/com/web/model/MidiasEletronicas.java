@@ -1,7 +1,5 @@
 package com.web.model;
 
-import com.web.resources.Ferramentas;
-
 public class MidiasEletronicas {
 
 	protected int id;
