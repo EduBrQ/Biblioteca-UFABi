@@ -6,7 +6,7 @@ Sistema que permitira o controle de emprestimos de livro
 
 - Baixe o repositorio
 
-- Exporte o Banco de Dados
+- Importe o Banco de Dados
 ```bash
 Obs.: arquivo "dbweb.sql" esta localizado na raiz do projeto
 ```
