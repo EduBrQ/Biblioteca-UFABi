@@ -2,7 +2,7 @@
 
 Sistema que permitirá o controle de empréstimos de livro
 
-## Instruções
+## Instrucoes
 
 - Baixe o repositório
 
