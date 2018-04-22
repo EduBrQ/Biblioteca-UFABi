@@ -11,7 +11,7 @@ Sistema que permitira o controle de emprestimos de livro
 Obs.: arquivo "dbweb.sql" esta localizado na raiz do projeto
 ```
 
-- Execute os Teste
+- Execute os Testes
 ```bash
 Obs.: como os testes sempre irão interagir com o elemento de id=1, 
 é necessário limpar as tabelas para zerar o autoincrement.
