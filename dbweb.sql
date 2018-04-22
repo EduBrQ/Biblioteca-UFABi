@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `alunos` (
   `cpf` varchar(50) NOT NULL DEFAULT '0',
   `rg` varchar(50) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 -- Dumping structure for table web.anaiscongressos
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `anaiscongressos` (
   `nomeCongresso` varchar(50) NOT NULL DEFAULT '0',
   `local` varchar(50) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 -- Dumping structure for table web.cursos
@@ -49,7 +49,21 @@ CREATE TABLE IF NOT EXISTS `cursos` (
   `nivel` varchar(50) NOT NULL DEFAULT '0',
   `sigla` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- Data exporting was unselected.
+-- Dumping structure for table web.funcionarios
+CREATE TABLE IF NOT EXISTS `funcionarios` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `senha` varchar(50) NOT NULL,
+  `cpf` varchar(50) NOT NULL,
+  `naturalidade` varchar(50) NOT NULL,
+  `endereco` varchar(50) NOT NULL,
+  `telefone` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `nome` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 -- Dumping structure for table web.livros
@@ -65,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `livros` (
   `areaConhecimento` varchar(50) DEFAULT '0',
   `tema` varchar(50) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 -- Dumping structure for table web.midiaseletronicas
@@ -75,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `midiaseletronicas` (
   `titulo` varchar(50) DEFAULT '0',
   `dataGravacao` varchar(50) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 -- Dumping structure for table web.rdm
@@ -89,9 +103,7 @@ CREATE TABLE IF NOT EXISTS `rdm` (
   `idCurso` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idAluno` (`idAluno`),
-  KEY `FK_rdm_cursos` (`idCurso`),
-  CONSTRAINT `FK_rdm_cursos` FOREIGN KEY (`idCurso`) REFERENCES `cursos` (`id`),
-  CONSTRAINT `idAluno` FOREIGN KEY (`idAluno`) REFERENCES `alunos` (`id`)
+  KEY `FK_rdm_cursos` (`idCurso`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
@@ -104,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `revistas` (
   `titulo` varchar(50) DEFAULT '0',
   `dataPublicacao` varchar(50) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 -- Dumping structure for table web.trabalhosconclusao
@@ -117,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `trabalhosconclusao` (
   `orientador` varchar(50) NOT NULL DEFAULT '0',
   `anoDefesa` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 -- Dumping structure for table web.users

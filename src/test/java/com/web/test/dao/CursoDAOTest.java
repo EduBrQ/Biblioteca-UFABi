@@ -88,5 +88,33 @@ public class CursoDAOTest {
 			assertEquals(list.get(i).getSigla()		, list2.get(i).getSigla());
 		}
 	}
+	
+	@Test
+	public void testCompare() {
+		// Compare TRUE
+		Curso curso1 = new Curso();
+		curso1.setNome		("Matematica");
+		curso1.setArea		("Exatas");
+		curso1.setNivel		("Graduação");
+		curso1.setSigla		("MA");
+		
+		Curso curso2 = new Curso();
+		curso2.setNome		("Matematica");
+		curso2.setArea		("Exatas");
+		curso2.setNivel		("Graduação");
+		curso2.setSigla		("MA");
+		
+		assertEquals(true, dao.compare(curso1, curso2));
+		
+		// Compare FALSE
+		Curso curso3 = new Curso();
+		curso3.setNome		("Portugues");
+		curso3.setArea		("Humanas");
+		curso3.setNivel		("Graduação");
+		curso3.setSigla		("PT");
+		
+		assertEquals(false, dao.compare(curso2, curso3));
+		
+	}
 
 }

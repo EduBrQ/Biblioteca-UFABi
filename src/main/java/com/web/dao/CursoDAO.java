@@ -176,4 +176,18 @@ public class CursoDAO {
 
 		return curso;
 	}
+	
+	public boolean compare(Curso curso1, Curso curso2) {
+		int semelhancas = 0;
+		semelhancas += curso1.getArea() == curso2.getArea() ? 1 : 0;
+		semelhancas += curso1.getNivel() == curso2.getNivel() ? 1 : 0;
+		semelhancas += curso1.getNome() == curso2.getNome() ? 1 : 0;
+		semelhancas += curso1.getSigla() == curso2.getSigla() ? 1 : 0;
+		
+		if(semelhancas == 4) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

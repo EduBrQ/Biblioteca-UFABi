@@ -36,9 +36,10 @@ public class AnaisCongressoDAO {
 			logger.info("This is info : " + parameter);
 		}
 		
-		logger.warn("This is warn : " + parameter);
+		
 		logger.error("This is error : " + parameter);
-		logger.fatal("This is fatal : " + parameter);
+		//logger.warn("This is warn : " + parameter);
+		//logger.fatal("This is fatal : " + parameter);
 		
 	}
 	
@@ -48,7 +49,7 @@ public class AnaisCongressoDAO {
 	 * Instancia a conexão com o banco
 	 */
 	public AnaisCongressoDAO() {
-		this.runMe("AnaisCongressoDAO");
+		//this.runMe("AnaisCongressoDAO");
 		connection = DbUtil.getConnection();
 	}
 
@@ -68,6 +69,7 @@ public class AnaisCongressoDAO {
 			preparedStatement.executeUpdate();
 			
 		} catch (SQLException e) { 
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -85,6 +87,7 @@ public class AnaisCongressoDAO {
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -107,6 +110,7 @@ public class AnaisCongressoDAO {
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -129,6 +133,7 @@ public class AnaisCongressoDAO {
 				anaisCongressos.add(anaisCongresso);
 			}
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 
@@ -155,6 +160,7 @@ public class AnaisCongressoDAO {
 				anaisCongresso.setLocal(rs.getString("local"));
 			}
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 

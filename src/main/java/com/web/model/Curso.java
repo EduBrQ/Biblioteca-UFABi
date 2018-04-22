@@ -46,6 +46,9 @@ public class Curso {
 	public String getNivel() {
 		return nivel;
 	}
+	public String getLetraNivel() {
+		return nivel.substring(0,1);
+	}
 	public void setNivel(String n) {
 		String nivelRes = "";
 		
