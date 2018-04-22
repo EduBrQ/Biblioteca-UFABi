@@ -15,7 +15,7 @@ import com.web.model.Curso;
 import com.web.resources.DbUtil;
 
 /**
- * Classe CursoDAO responsável criar, 
+ * Classe CursoDAO responsï¿½vel criar, 
  * editar mostrar e deletar os anais de crongressos
  * 
  * @author Aleksandro, Eduardo e Thiago
@@ -38,8 +38,8 @@ public class CursoDAO {
 		}
 		
 		logger.warn("This is warn : " + parameter);
-		logger.error("This is error : " + parameter);
-		logger.fatal("This is fatal : " + parameter);
+		//logger.error("This is error : " + parameter);
+		//logger.fatal("This is fatal : " + parameter);
 		
 	}
 
@@ -66,6 +66,7 @@ public class CursoDAO {
 			preparedStatement.executeUpdate();
 			
 		} catch (SQLException e) { 
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -76,7 +77,7 @@ public class CursoDAO {
 	 * @param nivelAcesso
 	 */
 	public void deleteCurso(Curso curso, int nivelAcesso) {
-		/* Sprint2 - Colocando nivel de acesso para efetuar a operação
+		/* Sprint2 - Colocando nivel de acesso para efetuar a operaï¿½ï¿½o
 		 * Niveis:
 		 * 0 - root
 		 * 1 - admin
@@ -93,7 +94,9 @@ public class CursoDAO {
 				e.printStackTrace();
 			}
 		} else {
-			throw new IllegalAccessError("Você não possui permissão para esta operação!");
+			
+			throw new IllegalAccessError("Vocï¿½ nï¿½o possui permissï¿½o para esta operaï¿½ï¿½o!");
+			
 		}
 	}
 
@@ -118,6 +121,7 @@ public class CursoDAO {
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -142,6 +146,7 @@ public class CursoDAO {
 				cursos.add(curso);
 			}
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 
@@ -171,6 +176,7 @@ public class CursoDAO {
 				
 			}
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 

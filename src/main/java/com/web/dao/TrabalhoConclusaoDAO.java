@@ -15,7 +15,7 @@ import com.web.model.TrabalhosConclusao;
 import com.web.resources.DbUtil;
 
 /**
- * Classe TrabalhoConclusaoDAO responsável criar, 
+ * Classe TrabalhoConclusaoDAO responsï¿½vel criar, 
  * editar mostrar e deletar os anais de crongressos
  * 
  * @author Aleksandro, Eduardo e Thiago
@@ -38,8 +38,8 @@ public class TrabalhoConclusaoDAO {
 		}
 
 		logger.warn("This is warn : " + parameter);
-		logger.error("This is error : " + parameter);
-		logger.fatal("This is fatal : " + parameter);
+		//logger.error("This is error : " + parameter);
+		//logger.fatal("This is fatal : " + parameter);
 
 	}
 
@@ -67,6 +67,7 @@ public class TrabalhoConclusaoDAO {
 			preparedStatement.executeUpdate();
 			
 		} catch (SQLException e) { 
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -84,6 +85,7 @@ public class TrabalhoConclusaoDAO {
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -110,6 +112,7 @@ public class TrabalhoConclusaoDAO {
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -138,6 +141,7 @@ public class TrabalhoConclusaoDAO {
 				
 			}
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 
@@ -166,6 +170,7 @@ public class TrabalhoConclusaoDAO {
 
 			}
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 

@@ -15,7 +15,7 @@ import com.web.model.User;
 import com.web.resources.DbUtil;
 
 /**
- * Classe UserDAO responsável criar, 
+ * Classe UserDAO responsï¿½vel criar, 
  * editar mostrar e deletar os anais de crongressos
  * 
  * @author Aleksandro, Eduardo e Thiago
@@ -38,8 +38,8 @@ public class UserDAO {
 		}
 
 		logger.warn("This is warn : " + parameter);
-		logger.error("This is error : " + parameter);
-		logger.fatal("This is fatal : " + parameter);
+		//logger.error("This is error : " + parameter);
+		//logger.fatal("This is fatal : " + parameter);
 
 	}
 	
@@ -65,12 +65,13 @@ public class UserDAO {
 			
 			
 		} catch (SQLException e) { 
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 		
 	}
 
-	/**Deleta um usuário se for admin ou root 
+	/**Deleta um usuï¿½rio se for admin ou root 
 	 * @param userId
 	 */
 	public void deleteUser(int userId) {
@@ -81,6 +82,7 @@ public class UserDAO {
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -103,11 +105,12 @@ public class UserDAO {
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 	}
 
-	/**Recupera todos os usuários
+	/**Recupera todos os usuï¿½rios
 	 * @return
 	 */
 	public List<User> getAllUsers() {
@@ -124,6 +127,7 @@ public class UserDAO {
 				users.add(user);
 			}
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 
@@ -149,6 +153,7 @@ public class UserDAO {
 				
 			}
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 

@@ -15,7 +15,7 @@ import com.web.model.Revista;
 import com.web.resources.DbUtil;
 
 /**
- * Classe RevistaDAO responsável criar, editar mostrar e deletar os anais de
+ * Classe RevistaDAO responsï¿½vel criar, editar mostrar e deletar os anais de
  * crongressos
  * 
  * @author Aleksandro, Eduardo e Thiago
@@ -38,8 +38,8 @@ public class RevistaDAO {
 		}
 
 		logger.warn("This is warn : " + parameter);
-		logger.error("This is error : " + parameter);
-		logger.fatal("This is fatal : " + parameter);
+		//logger.error("This is error : " + parameter);
+		//logger.fatal("This is fatal : " + parameter);
 
 	}
 
@@ -68,6 +68,7 @@ public class RevistaDAO {
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -86,6 +87,7 @@ public class RevistaDAO {
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -114,6 +116,7 @@ public class RevistaDAO {
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -143,6 +146,7 @@ public class RevistaDAO {
 
 			}
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 
@@ -171,6 +175,7 @@ public class RevistaDAO {
 				revista.setNumPaginas		(rs.getInt("NumPaginas"));
 			}
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 

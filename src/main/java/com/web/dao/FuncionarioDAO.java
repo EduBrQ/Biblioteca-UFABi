@@ -16,7 +16,7 @@ import com.web.model.Funcionario;
 import com.web.resources.DbUtil;
 
 /**
- * Classe FuncionarioDAO responsável criar, 
+ * Classe FuncionarioDAO responsï¿½vel criar, 
  * editar mostrar e deletar os anais de crongressos
  * 
  * @author Aleksandro, Eduardo e Thiago
@@ -39,8 +39,8 @@ public class FuncionarioDAO {
 		}
 		
 		logger.warn("This is warn : " + parameter);
-		logger.error("This is error : " + parameter);
-		logger.fatal("This is fatal : " + parameter);
+		//logger.error("This is error : " + parameter);
+		//logger.fatal("This is fatal : " + parameter);
 		
 	}
 
@@ -50,7 +50,7 @@ public class FuncionarioDAO {
 	}
 
 	/**
-	 * Adiciona um funcionário
+	 * Adiciona um funcionï¿½rio
 	 * @param funcionario
 	 */
 	public void addFuncionario(Funcionario funcionario) {
@@ -69,12 +69,13 @@ public class FuncionarioDAO {
 			preparedStatement.executeUpdate();
 			
 		} catch (SQLException e) { 
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 	}
 
 	/**
-	 * Deleta um funcionário apenas se for admin ou root
+	 * Deleta um funcionï¿½rio apenas se for admin ou root
 	 * @param nome
 	 */
 	public void deleteFuncionario(int id) {
@@ -87,13 +88,14 @@ public class FuncionarioDAO {
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 	}
 
 	
 	/**
-	 * Atualiza funcionário
+	 * Atualiza funcionï¿½rio
 	 * @param newFuncionario
 	 * @param funcionario
 	 */
@@ -115,12 +117,13 @@ public class FuncionarioDAO {
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 	}
 
 	/**
-	 * Recupera todos os funcionários
+	 * Recupera todos os funcionï¿½rios
 	 * @return
 	 * @throws IOException 
 	 */
@@ -143,6 +146,7 @@ public class FuncionarioDAO {
 				funcionarios.add(funcionario);
 			}
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 
@@ -151,7 +155,7 @@ public class FuncionarioDAO {
 
 	
 	/**
-	 * Recupera um funcionário
+	 * Recupera um funcionï¿½rio
 	 * @param id
 	 * @return
 	 * @throws IOException 
@@ -179,6 +183,7 @@ public class FuncionarioDAO {
 				
 			}
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 

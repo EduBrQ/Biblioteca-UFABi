@@ -15,7 +15,7 @@ import com.web.model.Livro;
 import com.web.resources.DbUtil;
 
 /**
- * Classe LivroDAO responsável criar, 
+ * Classe LivroDAO responsï¿½vel criar, 
  * editar mostrar e deletar os anais de crongressos
  * 
  * @author Aleksandro, Eduardo e Thiago
@@ -38,8 +38,8 @@ public class LivroDAO {
 		}
 		
 		logger.warn("This is warn : " + parameter);
-		logger.error("This is error : " + parameter);
-		logger.fatal("This is fatal : " + parameter);
+		//logger.error("This is error : " + parameter);
+		//logger.fatal("This is fatal : " + parameter);
 		
 	}
 
@@ -69,6 +69,7 @@ public class LivroDAO {
 			preparedStatement.executeUpdate();
 			
 		} catch (SQLException e) { 
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -86,6 +87,7 @@ public class LivroDAO {
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -115,6 +117,7 @@ public class LivroDAO {
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -144,6 +147,7 @@ public class LivroDAO {
 				livros.add(livro);
 			}
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 
@@ -151,7 +155,7 @@ public class LivroDAO {
 	}
 
 	/**
-	 * Recupera um livro especifíco
+	 * Recupera um livro especifï¿½co
 	 * @param Id
 	 * @return
 	 */
@@ -175,6 +179,7 @@ public class LivroDAO {
 				livro.setTema					(rs.getString("Tema"));
 			}
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 

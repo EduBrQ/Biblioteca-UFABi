@@ -16,7 +16,7 @@ import com.web.resources.DbUtil;
 
 
 /**
- * Classe MidiaEletronicaDAO responsável criar, 
+ * Classe MidiaEletronicaDAO responsï¿½vel criar, 
  * editar mostrar e deletar os anais de crongressos
  * 
  * @author Aleksandro, Eduardo e Thiago
@@ -39,8 +39,8 @@ public class MidiaEletronicaDAO {
 		}
 		
 		logger.warn("This is warn : " + parameter);
-		logger.error("This is error : " + parameter);
-		logger.fatal("This is fatal : " + parameter);
+		//logger.error("This is error : " + parameter);
+		//logger.fatal("This is fatal : " + parameter);
 	}
 
 	public MidiaEletronicaDAO() {
@@ -65,13 +65,14 @@ public class MidiaEletronicaDAO {
 			preparedStatement.executeUpdate();
 			
 		} catch (SQLException e) { 
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 	}
 
 	
 	/**
-	 * Deleta Mídias Eletrônica
+	 * Deleta Mï¿½dias Eletrï¿½nica
 	 * @param Titulo
 	 */
 	public void deleteMidiaEletronica(MidiasEletronicas midia) {
@@ -83,6 +84,7 @@ public class MidiaEletronicaDAO {
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -106,6 +108,7 @@ public class MidiaEletronicaDAO {
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -131,6 +134,7 @@ public class MidiaEletronicaDAO {
 				midiaEletronicas.add(midiaEletronica);
 			}
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 
@@ -156,6 +160,7 @@ public class MidiaEletronicaDAO {
 				midiaEletronica.setTipo				(rs.getString("Tipo"));
 			}
 		} catch (SQLException e) {
+			this.runMe(e.getMessage());
 			e.printStackTrace();
 		}
 
