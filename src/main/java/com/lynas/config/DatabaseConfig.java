@@ -7,6 +7,7 @@ import com.lynas.model.Curso;
 import com.lynas.model.Funcionario;
 import com.lynas.model.Livro;
 import com.lynas.model.MidiasEletronicas;
+import com.lynas.model.Rdm;
 import com.lynas.model.Revista;
 import com.lynas.model.TrabalhosConclusao;
 import com.lynas.model.UserRole;
@@ -51,25 +52,6 @@ public class DatabaseConfig {
         return dataSource;
     }
     
-    
-//    @Bean(name = "DataSource")
-//    public HikariDataSource getDataSource(){
-//        HikariConfig config = new HikariConfig();
-//        config.setDataSourceClassName("org.h2.jdbcx.JdbcDataSource");
-//        config.setConnectionTestQuery("VALUES 1");
-//        config.addDataSourceProperty("URL", "jdbc:h2:~/testdb;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=false;MODE=MSSQLServer");
-//        config.addDataSourceProperty("user", "sa");
-//        config.addDataSourceProperty("password", "sa");
-//        HikariDataSource ds = new HikariDataSource(config);
-//
-//        HikariDataSource dataSource = new HikariDataSource(config);
-//
-//        return dataSource;
-//    }
-
-
-
-
     @Bean
     public HibernateTransactionManager transactionManager() {
         HibernateTransactionManager manager = new HibernateTransactionManager();
@@ -91,12 +73,12 @@ public class DatabaseConfig {
                 Revista.class,
                 TrabalhosConclusao.class,
                 Livro.class,
-                Funcionario.class
+                Funcionario.class,
+                Rdm.class
         );
 
         Properties properties = new Properties();
         properties.put("hibernate.dialect","org.hibernate.dialect.MySQLDialect");
-        //properties.put("hibernate.current_session_context_class","thread");
         properties.put("hibernate.hbm2ddl.auto","update");
         properties.put("hibernate.show_sql","true");
 

@@ -69,7 +69,7 @@ public class AlunoController {
 		Aluno aluno = alunoService.getAluno(alunoId);		
 		Principal principal = new Principal();		
 		ModelAndView model = new ModelAndView();		
-		model = principal.userDetail(model, "alunos/index");
+		model = principal.userDetail(model, "alunos/form");
 		model.addObject("aluno", aluno);
 		return model;
 	}

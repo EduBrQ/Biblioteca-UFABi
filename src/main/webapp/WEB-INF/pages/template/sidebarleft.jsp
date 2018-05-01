@@ -5,7 +5,9 @@
 		id="main-menu-wrapper">
 		<div class="user-info-wrapper sm">
 			<div class="profile-wrapper sm">
-				<img src="${pageContext.request.contextPath}/resources/webarch/assets/img/profiles/avatar.jpg" alt=""
+				<img
+					src="${pageContext.request.contextPath}/resources/webarch/assets/img/profiles/avatar.jpg"
+					alt=""
 					data-src="${pageContext.request.contextPath}/resources/webarch/assets/img/profiles/avatar.jpg"
 					data-src-retina="${pageContext.request.contextPath}/resources/webarch/assets/img/profiles/avatar2x.jpg"
 					width="69" height="69" />
@@ -29,37 +31,43 @@
 					<span class="title">Início</span> <span
 					class="label label-important bubble-only pull-right "></span>
 			</a></li>
-			<li><a href="/ROOT/livros"> <i
-					class="material-icons">panorama_horizontal</i> <span class="title">Livros</span>
-					<span class="label label-important bubble-only pull-right "></span>
+			<li><a href="/ROOT/rdms"> <i class="material-icons">panorama_horizontal</i>
+					<span class="title">RDMS</span> <span
+					class="label label-important bubble-only pull-right "></span>
+			</a></li>
+			<li><a href="/ROOT/livros"> <i class="material-icons">panorama_horizontal</i>
+					<span class="title">Livros</span> <span
+					class="label label-important bubble-only pull-right "></span>
 			</a></li>
 			<li><a href="/ROOT/anaisCongresso"> <i
-					class="material-icons">panorama_horizontal</i> <span class="title">Anais de Congressos</span>
-					<span class="label label-important bubble-only pull-right "></span>
+					class="material-icons">panorama_horizontal</i> <span class="title">Anais
+						de Congressos</span> <span
+					class="label label-important bubble-only pull-right "></span>
 			</a></li>
 			<li><a href="/ROOT/midiasEletronicas"> <i
-					class="material-icons">panorama_horizontal</i> <span class="title">Midias Eletrônicas</span>
-					<span class="label label-important bubble-only pull-right "></span>
+					class="material-icons">panorama_horizontal</i> <span class="title">Midias
+						Eletrônicas</span> <span
+					class="label label-important bubble-only pull-right "></span>
 			</a></li>
 			<li><a href="/ROOT/trabalhosConclusao"> <i
 					class="material-icons">panorama_horizontal</i> <span class="title">Trabalhos</span>
 					<span class="label label-important bubble-only pull-right "></span>
 			</a></li>
-			<li><a href="/ROOT/revistas"> <i
-					class="material-icons">panorama_horizontal</i> <span class="title">Revistas</span>
-					<span class="label label-important bubble-only pull-right "></span>
+			<li><a href="/ROOT/revistas"> <i class="material-icons">panorama_horizontal</i>
+					<span class="title">Revistas</span> <span
+					class="label label-important bubble-only pull-right "></span>
 			</a></li>
-			<li><a href="/ROOT/cursos"> <i
-					class="material-icons">panorama_horizontal</i> <span class="title">Cursos</span>
-					<span class="label label-important bubble-only pull-right "></span>
+			<li><a href="/ROOT/cursos"> <i class="material-icons">panorama_horizontal</i>
+					<span class="title">Cursos</span> <span
+					class="label label-important bubble-only pull-right "></span>
 			</a></li>
-			<li><a href="/ROOT/alunos"> <i
-					class="material-icons">panorama_horizontal</i> <span class="title">Alunos</span>
-					<span class="label label-important bubble-only pull-right "></span>
+			<li><a href="/ROOT/alunos"> <i class="material-icons">panorama_horizontal</i>
+					<span class="title">Alunos</span> <span
+					class="label label-important bubble-only pull-right "></span>
 			</a></li>
-			<li><a href="/ROOT/funcionarios"> <i
-					class="material-icons">panorama_horizontal</i> <span class="title">Funcionários</span>
-					<span class="label label-important bubble-only pull-right "></span>
+			<li><a href="/ROOT/funcionarios"> <i class="material-icons">panorama_horizontal</i>
+					<span class="title">Funcionários</span> <span
+					class="label label-important bubble-only pull-right "></span>
 			</a></li>
 		</ul>
 
