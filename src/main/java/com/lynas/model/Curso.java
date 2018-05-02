@@ -33,9 +33,16 @@ public class Curso implements Serializable {
 	@Column
 	private String nivel;
 
-	@ManyToMany
-	@JoinTable(name = "RDM", joinColumns = @JoinColumn(name = "curso_id"), inverseJoinColumns = @JoinColumn(name = "aluno_id"))
-	private List<Aluno> alunos;
+	@ManyToMany(mappedBy = "cursos")
+	private List<Rdm> rdms;
+	
+	public List<Rdm> getRdms() {
+		return rdms;
+	}
+
+	public void setRdms(List<Rdm> rdms) {
+		this.rdms = rdms;
+	}
 
 	public int getId() {
 		return id;
