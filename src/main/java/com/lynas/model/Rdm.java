@@ -26,9 +26,6 @@ public class Rdm implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column
-	private int curso_id;
-	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Aluno aluno;
 	
@@ -54,14 +51,6 @@ public class Rdm implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getCurso_id() {
-		return curso_id;
-	}
-
-	public void setCurso_id(int curso_id) {
-		this.curso_id = curso_id;
 	}
 
 	public String getMatricula() {

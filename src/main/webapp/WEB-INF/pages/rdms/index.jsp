@@ -28,8 +28,7 @@
 					<h3>
 						Controle de Biblioteca - <span class="semi-bold">Rdms</span>
 					</h3>
-					<a class="btn btn-info float-rigth" href="newRdm">Cadastrar
-						Rdm</a>
+					<a class="btn btn-info float-rigth" href="newRdm">Cadastrar Rdm</a>
 				</div>
 
 				<div class="row-fluid">
@@ -45,6 +44,8 @@
 									<thead>
 										<tr>
 											<th>ID</th>
+										
+											<th>Matrícula</th>
 											<th>Ações</th>
 										</tr>
 									</thead>
@@ -53,10 +54,12 @@
 											<tr>
 												<td>${rdm.id}</td>
 											
-										
+												<td>${rdm.matricula}</td>
+
+
+
 												<td><a href="editRdm?id=${rdm.id}">Edit</a>
-													&nbsp;&nbsp;&nbsp;&nbsp; <a
-													href="deleteRdm?id=${rdm.id}">Delete</a></td>
+													&nbsp;&nbsp;&nbsp;&nbsp; <a href="deleteRdm?id=${rdm.id}">Delete</a></td>
 
 											</tr>
 										</c:forEach>

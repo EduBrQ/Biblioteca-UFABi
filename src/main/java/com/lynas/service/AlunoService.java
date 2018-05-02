@@ -12,7 +12,7 @@ public interface AlunoService {
 
 	public void deleteAluno(Integer alunoId);
 
-	public Aluno getAluno(int alunoid);
+	public Aluno getAluno(int alunoId);
 
 	public Aluno updateAluno(Aluno aluno);
 }

@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.lynas.model.Aluno;
 import com.lynas.model.Rdm;
+import com.lynas.service.AlunoService;
 import com.lynas.service.RdmService;
 import com.lynas.util.Principal;
 
@@ -28,6 +30,9 @@ public class RdmController {
 
 	@Autowired
 	private RdmService rdmService;
+	
+	@Autowired
+	private AlunoService alunoService;
 
 	@RequestMapping(value = "/rdms")
 	public ModelAndView listRdm(ModelAndView model, Principal principal) throws IOException {
@@ -38,9 +43,12 @@ public class RdmController {
 	}
 	
 	@RequestMapping(value = "/newRdm", method = RequestMethod.GET)
-	public ModelAndView newContact(ModelAndView model, Principal principal) {
+	public ModelAndView newContact(ModelAndView model, Principal principal, HttpServletRequest request) {
+		int alunoId = Integer.parseInt(request.getParameter("id"));
+		Aluno aluno = alunoService.getAluno(alunoId);	
 		Rdm rdm = new Rdm();
 		model = principal.userDetail(model, "rdms/form");
+		model.addObject("aluno", aluno);
 		model.addObject("rdm", rdm);
 		return model;
 	}
