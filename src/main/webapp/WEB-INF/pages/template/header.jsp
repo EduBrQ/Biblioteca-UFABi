@@ -18,6 +18,7 @@
     <link href="${pageContext.request.contextPath}/resources/webarch/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href="${pageContext.request.contextPath}/resources/webarch/assets/css/animate.min.css" rel="stylesheet" type="text/css" />
     <link href="${pageContext.request.contextPath}/resources/webarch/assets/css/jquery.scrollbar.css" rel="stylesheet" type="text/css" />
+    <link href="${pageContext.request.contextPath}/resources/webarch/assets/css/select2.css" rel="stylesheet" type="text/css" media="screen" />
     <!-- END PLUGIN CSS -->
     <!-- BEGIN CORE CSS FRAMEWORK -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

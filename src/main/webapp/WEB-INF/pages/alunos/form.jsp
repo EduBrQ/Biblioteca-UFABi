@@ -1,4 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <html>
 <head>
 <jsp:include page="../template/header.jsp" />
@@ -36,9 +38,10 @@
 						</div>
 						<div class="grid-body no-border">
 							<div class="row">
-								<div class="col-md-8 col-sm-8 col-xs-8">
-									<form:form method="POST" action="saveAluno"
-										modelAttribute="aluno">
+
+								<form:form method="POST" action="saveAluno"
+									modelAttribute="aluno">
+									<div class="col-md-6 col-sm-6 col-xs-6">
 										<form:hidden path="id" />
 
 										<div class="form-group">
@@ -78,6 +81,16 @@
 										</div>
 
 										<div class="form-group">
+											<label class="form-label">Naturalidade</label>
+											<div class="controls">
+												<form:input class="form-control" path="naturalidade" />
+											</div>
+										</div>
+
+									</div>
+
+									<div class="col-md-6 col-sm-6 col-xs-6">
+										<div class="form-group">
 											<label class="form-label">Nome da Mãe</label>
 											<div class="controls">
 												<form:input class="form-control" path="nomeMae" />
@@ -92,20 +105,48 @@
 										</div>
 
 										<div class="form-group">
-											<label class="form-label">Naturalidade</label>
+											<label class="form-label">Ano</label>
 											<div class="controls">
-												<form:input class="form-control" path="naturalidade" />
+												<form:input class="form-control" path="ano" />
 											</div>
 										</div>
+
 										<div class="form-group">
-
+											<label class="form-label">Periodo</label>
 											<div class="controls">
-												<input type="submit" class="btn btn-info" value="Enviar" />
+												<form:input class="form-control" path="periodo" />
 											</div>
 										</div>
 
-									</form:form>
-								</div>
+										<div class="form-group">
+											<label class="form-label">Senha</label>
+											<div class="controls">
+												<form:input class="form-control" path="senha" />
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="form-label">Curso</label>
+											<div class="controls">
+												<select style="width: 100%" class="select2-container" name="curso_id"  id="source">
+													<option value="">** Selecione o Curso **</option>
+													<c:forEach items="${cursos}" var="curso">
+														<option value="${curso.id}"><c:out
+																value="${curso.nome}"></c:out>
+														</option>
+													</c:forEach>
+												</select>
+											</div>
+										</div>
+									</div>
+
+
+
+									<input type="submit" class="btn btn-info pull-left"
+										value="Enviar" />
+
+								</form:form>
+
 							</div>
 						</div>
 					</div>
@@ -114,6 +155,7 @@
 		</div>
 	</div>
 	<jsp:include page="../template/footer.jsp" />
+
 </body>
 </html>
 

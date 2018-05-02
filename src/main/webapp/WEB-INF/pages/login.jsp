@@ -24,7 +24,7 @@
 					<div>
 						<input class="btn btn-primary float-left" type="submit" value="Entrar" />
 						
-						<a style="float: right;margin-top: 10px;"href="/ROOT/signup">Cadastrar</a>
+						<a style="float: right;margin-top: 10px;"href="/ControleBiblioteca/signup">Cadastrar</a>
 					</div>
 				</form:form>
 				

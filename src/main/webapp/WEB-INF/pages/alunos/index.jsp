@@ -68,8 +68,7 @@
 												<td>${aluno.nomeMae}</td>
 												<td>${aluno.nomePai}</td>
 												<td>${aluno.naturalidade}</td>
-												<td><a href="newRdm?id=${aluno.id}">RDM</a>
-													&nbsp;&nbsp;&nbsp;&nbsp;<a href="editAluno?id=${aluno.id}">Edit</a>
+												<td><a href="editAluno?id=${aluno.id}">Edit</a>
 													&nbsp;&nbsp;&nbsp;&nbsp; <a
 													href="deleteAluno?id=${aluno.id}">Delete</a></td>
 

@@ -1,0 +1,251 @@
+SDVAQ
+
+#ID	Usuário	Email	Telefone	Rua	Bairro	Cep	Número	Cidade	Estado
+#20111162	Jonatan Silveira de Souza	jjonatansouza@gmail.com	79 99938 2548	Av. Capitão José Narciso, 147	Centro	49490-000		Poço Verde	SE
+#20111163	José Maria Miranda	josemariamiranda@outlook.com.br	81 99207 1985	Av. Boa Viagem, 998 - Ap 101	Boa Viagem	51011-000		Recife	PE
+#20111164	Hudson Silvestre Beserra	hbincoporacoes@gmail.com	84 99674 7111	Rua Lambari, 4336	Neopolis	59086-420		Natal	RN
+#20161161	Tyrone Cunha Jucá	karinacdr@gmail.com	85 99701 9634	Rua Juazeiro, 09	Sabiaguaba	60835-115		Fortaleza	CE
+#20181001	José Carlos Fernandes Nunes Júnior	carlosfernandesnj@me.com	87 99970.0626	Rua Profª Beatriz Nogueira, nº 292	Centro	56850-000		Flores	PE
+#20181002	Antonio Ruy Guerra Barreto Filho	ruyguerra_filho@hotmail.com	81 99278.8895	Rua Julio Pires Ferreira, 520 - AP 301	Maurício de Nassau	55014-285		Caruaru	PE
+#20181003	Saul Morais Teixeira de Souza	saulmts@gmail.com	84 98713.3683	Trav. 7 de Setembro, 323	Centro	59330-000		Jucurutu	RN
+#20181004	Victor de Medeiros Tito	filippitito@yahoo.com.br	84 99988.2820	Rua Dr José Bezerra,  905 - AP 603	Barro Vermelho	59022-120		Natal	RN
+#20181005	Rogério Martins Rosa	rogerio@terrabrasillogistica.com.br	81 99279.6433	Av. Presidente Castelo Branco, 3341	Candeias	54400-050		Jaboatão dos Guararapes	PE
+#20181006	Antonio Terto Junior	anterto@gmail.com	86 99480.7417	Rua Crescêncio Ferreira, 1493	Morada do Sol	64056-440		Teresina	PI
+#20181007	Carlos Alberto Cavalcante da Silva	parquerumeirao@gmail.com	61 981768751	Sqs Quadra 407 - Bloco S - AP 206	Asa Sul	70256-190		Brasília	DF
+#20181008	Rodrigo Bradley	rodrigobradley@hotmail.com	87 99998.0057	Rua João Isidoro de Souza, 17	Sucupira	56500-000		Arcoverde	PE
+#20181009	José Arimatea Catunda Fonseca Filho	arimatea79@hotmail.com	85 98938.6252	Av. Desembargador Moreira, 2020	Aldeota	60170-002		Fortaleza	CE
+#20181010	Mailton Vale Gomes	mailtonvale@maiscimentao.com.br	83 981737603	Av. Aragão e Melo ,309	Torre	58040-100		João Pessoa	PB
+#20181011	Alberto Inacio Moreira	albertoinac@hotmail.com	88 99921 0499	Rua Vereador Batista Dandô, 210	Sol Nascente	63260-000		Brejo Santo	CE
+#20181012	Wagner Ferreira de Souza Gadelha Simas	gadelhawagner@gmail.com	84 99987.3539	Av.Rui Barbosa, 828 - Ap 601	Tirol	59015-290		Natal	RN
+#20181013	Guilherme Alencar Viana	laisaalencar22@hotmail.com	89 99935.0239	Rua Antonia Viana, 36	Passagem das Pedras	64600-406		Picos	PI
+#20181014	Adamo Pinheiro Martins Fontes	adamomartinsrm@hotmail.com	66 98442.3527	Rua Severiano Luis das Neves, 332	Centro	78665-000		Alto Boa Vista	MT
+#20181015	João Sebastião Silvestre Júnior	jr_joao@hotmail.com	81 99621 5778	Rua Nizoete da Silva Lima, 206	São Sebastião	55750-000		Surubim	PE
+#20181016	Mário Ticiano Severiano de Araújo	pma.secretariadetransporte@gmail.com	88 99764 6255	Av Luiz Vieira, 311	Parque São José	60730-230		Fortaleza	CE
+#20181017	Susshunmo Ferreira Araújo Alves	susshunmo_adv@hotmail.com	66 99601 9197	Rua Azulona, 31	Setor Primavera	78665-000		Alto Boa Vista	MT
+#20181018	Antonio Fernandes Ferreira	shirlei_teles@hotmail.com	88 99648.2785	Rua Karole, 419	Muriti	63132-085		Crato	CE
+#20181019	Flaviano Sampaio Costa	flavianojoaoflavio@hotmail.com	88 99618 0531	Av Maria Inês  Pires de Sabóia, 308	Liberdade	63640-000		Independência	CE
+#20181020	Mateus Dias de Lira	socioabvaq@gmail.com	83 99197 6976	Rua Padre Cícero, S/N	Centro	58900-000		Cajazeiras	PB
+#20181021	Chayender de Medeiros Costa	chayendercosta@gmail.com	84 99675 2239 - 99860 1896	Rua Padre Luís Gonzaga Monte, 323	Emaús	59148-845		Parnamirim	RN
+#20181022	Alex da Silva Alves	alexsilvagp@gmail.com	88 99685 1672	Rua São Jorge, 255	São Miguel	63010-473		Juazeiro do Norte	CE
+#20181023	Ismael do Nascimento	ismaeldonascimento@97998.com.br	88 99607 6236	Lagoa da Cruz, S/N	Zona Rural	62800-000		Aracati	CE
+#20181024	Francisco Wagner Urbano Ribeiro	urbano-0705@hotmail.com	85 99962 6090	Rua Margarida de Queiroz, 730 - AP 03 - BL 03	Cidade dos Funcionários	60822-530		Fortaleza	CE
+#20181025	Rildo Antunes Moreira de Alencar	socioabvaq@gmail.com	87 996617830 - 99902.1804	Rua Deum Peixoto, 17	Centro	56230-000		Exu	PE
+#20181026	Vinicius Vitório de Souza	victorio180@hotmail.com	79 99961 4258	Rua Doutor Jardim, 270 - BL A - AP O2	Santo Antonio	55293-280		Garanhuns	PE
+#20181027	Samuel Lima de Souza	socioabvaq@gmail.com	94 99202 6900	Rua Tiradentes, 471	Centro	68380-000		Rondon do Pará	PA
+#20181028	Rodrigo Lordelo Andrade de Andrade	rodrigo_andrade_lordelo@hotmail.com	71 99934 1324	Rua Emilio Odebrechet, 79	Pituba	41830-300		Salvador	BA
+#20181029	Macio José Pinheiro Cruz	haras_josepinheiro@hotmail.com	11 98293 1350	Sítio Barra Nova	Zona Rural	58920-000		Triunfo	PB
+#20181030	Flavio Gomes de Souza	branco.ureinha@gmail.com	62 99948.7914	Rua SC, 2. 00 QD 19 LT 01	Goiania II	74665-580		Goiânia	GO
+#20181031	Jaime Badaro Sobral	sobral.jaime2015@gmail.com	21 96496.5549	Av Mascarenhas de Moraes, 1060	Chácara Rio Petrópolis	25230-030		Duque de Caxias	RJ
+#20181032	Ricardo César Gomes da Silva	ricardocesargomes@gmail.com	81 99580.7020	Rua Francisco Amorim de  Souza, 332	Bairro Indianópolis	55024-230		Caruaru	PE
+#20181033	Júnior Melo	jjunior.melo@hotmail.com	87 99614.0899	Rua José Pereira de Siqueira, 33	Centro	55395-000		Jupi	PE
+#20181034	Robson Bruno Medeiros da Silva	rbrunomedeiros123@gmail.com	83 99613 9502	Rua Francisco Hozano de Sousa, 125	Batalhão	58884-000		Catolé do Rocha	PB
+#20181035	Edvaldo Godofredo Dantas Gama sobrinho	balrp@hotmail.com	75 99946 1917	Av. F, Zona Sul, 1016	Centro	48400-000		Ribeira do Pombal	BA
+#20181036	Nathan Eryck Torquato de Queiroz	nathanetq@me.com	94 99152 5636	Av. Brasil, 809	Alto Paraná	68550-325		Redenção	PA
+#20181037	Mauricio Feitosa Ibiapino de Moura	mauriciofeitosapi@hotmail.com	89 99443.0568	Rua Tiradentes, 471	Centro	68380-000		Rondon do Pará	PA
+#20181038	Leandro Vieira da Silva	leandrovaqueiroce@gmail.com	88 99652 0821	Av. Alfredo Fernandes Franco, S/N	Centro	63605-000		Piquet Carneiro	CE
+#20181039	Rafael Fiuza Aquino	socioabvaq@gmail.com	38 99858 7177	Rua José Nunes, 476	São Vicente	39480 000		Januária	MG
+#20181040	Antonio Lucilanio a Diogenes	laninhodiogenes@gmail.com	88 99974 6167	Av. Veriado Sobrinho, 1106	Centro	63490-000		Jaguaribara	CE
+#20181041	Carlos Henrique Peixoto Diogenes	laninhodiogenes@gmail.com	88 99974 6167	Av. Veriado Sobrinho, 1106	Centro	63490-000		Jaguaribara	CE
+#20181042	Marcelo Augusto Rosendo Soares	marcelo_augusto@hotmail.com	1308 1989	Rua Antonio Lotero, 1000	Alto alegre	63740-000		Novo Oriente	CE
+#20181043	Alan Viana	laisaalencar22@hotmail.com	89 99935 0239	Rua Antonia Viana, 36	Passagem das Pedras	64600-406		Picos	PI
+#20181044	Adolfo Saraiva de Miranda Luna	adolfo.htg@hotmail.com	83 99926 3711	Rua Juiz Roberto Guimarães, 121	Centro	55920-000		Itambé	PE
+#20181045	Fábio Salim Lima Nobre	fabiosln0712@gmail.com	91 99313 6402	Trav. Quintino Bocaiúva, 981-Ed. Baía do Guajará, AP 2000	Reduto	66053-240		Belém	PA
+#20181046	Carlos Armando Carvalho Figueirôa	armandocfigueiroa@hotmail.com	81 99981 1660	Av. Portugal, 587 - AP 308	Universitário	55016-400		Caruaru	PE
+#20181047	Lucas José Abreu Guimarães	lucasabreu80@hotmail.com	71 99192 8976	Rua Lino Costa, 230	Cruzeiro	48120-000		Pojuca	BA
+#20181048	José Severino do Ramos Paiva de Melo Júnior	csgitabaiana@hotmail.com	83 99626 7007	Rua José Silveira, 50	Centro	58360-000		Itabaiana	PB
+#20181049	Gilson Sampaio dos Santos	elane_sampaio@icloud.com	81 981694044	R. Amilton Saraiva Dantas, 7438	Gurupi	64091-070		Teresina	PI
+#20181050	Murillo de Oliveira Ponta e Silva		87 98155.1460	Rua Francisco de Oliveira Porto, 579 - Ed Oliveira Lucena, AP 401	Jardim Luna	58033-390		João Pessoa	PB
+#20181051	Rafael Carter Ferreira		83 98858.4346	Rua Monsenhor Luiz Ferreira Lima, 77	Centro	55750-000		Surubim	PE
+#20181052	Edeilton Ramos de Paula	edeiltonramos@hotmail.com	81 99919.6020	Av. Sete de Setembro, 81	Nova Gamelheira	55530-000		Gameleira	PE
+#20181053	Bruno Calzerra Campos	bruno06@gmail.com	81 98886.4464	Rua Copacabana, 85 - Ap 201	Boa Viagem	51030-590		Recife	PE
+#20181054	João Bertulino da Silva Neto	joao_bertulino@hotmail.com	81 99774.1942	Av. João Manoel da Silva, 26	Centro	55125-000		Toritama	PE
+#20181055	William da Silva Santos	santoswill2015@gmail.com	81 99663.8649	Rua Ana Barbosa de Sousa Chaves, 76	Lot. Chaves	55715-000		Feira Nova	PE
+#20181056	Pedro de Araújo Militão e Nóbrega	pedro.militao@hotmail.com	83 99647.7500	Av. João Cancio da Silva, 1634	Manaíra	58038-342		João Pessoa	PB
+#20181057	Pedro Henrique da Silva Tavares	phdst97@gmail.com	81 99774.1925	Av. João Manoel da Silva, 26	Centro	55125-000		Toritama	PE
+#20181058	Edgar Vieira de Araujo Neto	netoedgar87@gmail.com	82 98202 9603	Av João Manoel da Silva, 26	Centro	55125-000		Toritama	PE
+#20181059	Washington Luiz Araujo Gadelha Silmas	wlsimas@simas.ind.br	84 99982.3935	Av Rui Barbosa, 828 - Ap 601	Tirol	59015-290		Natal	RN
+#20181060	Manoel Francisco de Melo Cavalcanti	manoelcavalcanti@hotmail.com	83 99547.1556	Rua Davi Ferreira Luna,	Jardim Luna	58033-090		João Pessoa	PB
+#20181061	João Pedro Moraes Moura	joaopedromoraesmoura@hotmail.com	81,998,400,203	Rua Maria da Dores Souza, 60 -Ap 2503	Altiplano	58046-095		João Pessoa	PB
+#20181062	Eugenio Sergio Tavares Urbano		85 99663.4374	Av Manoel Mavignier, 5860 - casa 03	Sabiaguaba	60835-025		Fortaleza	CE
+#20181063	David Pdrosa Brandão Sá	david@organnact.com.br	82 99321.4335	Ru Doutor José Correia Filho, 308- AP 1003	Pajussara	57035-130		Maceió	AL
+#20181064	Gustavo Lopes Monteiro	gustavo@rocomarketing.com.br	19 3808.1375	Rua Washington Luiz, 365	Centro	13900-020		Amparo	SP
+#20181065	Markum Nilo da Costa	nilocapitao@hotmail.com	38 99968.8822	Rua Francisco Sá, 221	Centro	39472-000		Capitão Enéas	MG
+#20181066	Emiliano Franco Tolentino		38 99941 1113	Rua Cesário Martins, 335 - Ap 301	Curiango	35790-000		Curvelo	MG
+#20181067	Thiago Santana Figueredo Guimarães	thiagochefao@yahoo.com	38 99984 9896	Rod BR 135 - km 10	Posto Chefão	35790-000		Curvelo	MG
+#20181068	Marcelo Santiago Vieira	marcelosvieira2009@hotmail.com	83 98804 0803	Av. D. Pedro I, 881	Centro	58013-021		João Pessoa	PB
+#20181069	Valtemir Mauricio Bezerra		83 98184 0866	Rua do Açude, 71	Centro	55747-000		Caruaru	PE
+#20181070	Adeilson Adão Joaquim Alves	adeilson.invicta@gmail.com	79 9960.4525	Rua J, 26	Boa Viagem	49160-000		Nossa Senhora do Socorro	SE
+#20181071	Ruan Maskel Roque	ruanmaskel@gmail.com	81 99982.8793	Rua José Antonio da Silva, 101	Centro	55490-000		Altinho	PE
+#20181072	Celso Vitório dos Santos		82 99948.6867	Sítio Varginha, 08	Zona Rural			Arapiraca	AL
+#20181073	João Silvestre Rohleder Júnior	jsrohleder@hhotmail.com	85 98698.5600	Rua Pereira Valente, 271 - Ap 31	Meireles	60160-250		Fortaleza	CE
+#20181074	Sabino Patrocínio Neto	binonetos@hotmail.com	85 99994.9812	Rua Luiza Miranda Coelho, 50 - BL 04-Ap 305	Luciano Cavalcante	60811-110		Fortaleza	CE
+#20181075	Francisco de Agatonio Romero Fialho	agatonio@hotmail.com	85 98687 8028	Rua Coronel Linhares, 2481 - Ap 202	Dionísio Torres	60170-241		Fortaleza	CE
+#20181076	Ronan Lima Ferreira		98 99902 8209	Av. dos Holandeses, 2000	Calhau	65071-380		São Luís	MA
+#20181077	Carlos Rommel Batista Cosme	rommel@ccaestrategias.com.br	84 98853 0029	Rua Presidente Quaresma, 851	Alecrim	59031-410		Natal	RN
+#20181078	Maviael Araújo Pereira	flaviomaia13@gmail.com	83 99144.2120	Rua Salomão Pereira de Almeida, 303	Jardim Paulistano	58414-743		Campina Grande	PB
+#20181079	Flavio Souza Maia	flaviomaia13@gmail.com	83 99654 2124	Rua Salomão Pereira de Almeida, 303	Jarrdim Paulistano	58414-743		Campina Grande	PB
+#20181080	Ítalo Nobrega de Almeida	riacho_pb@hotmail.com	83 99688 4904	Av. Deputado Gevásio Maia, 63	Centro	58870-000		Riacho dos Cavalos	PB
+#20181081	Aldo Fernandes de Souza Neto	aldo@fernandesassociados.net.com.br	84 99441 3430	Av. Alberto Moronha, 185	Centro	59600-185		Mossoró	RN
+#20181082	Francisco Igor Noberto da SIlva	inmoia@hotmail.com	85 98690 4141	Rua N, 1001	Pq D. Pedro	61880-000		Itatinga	CE
+#20181083	Ailton Gonçalves da Silva		83 99822 5805	Rua Firmino Florentino, S/n	Centro	58375-000		Mogeiro	PB
+#20181084	Avy Almeida Barbosa	avy-almeida@hotmail.com	81 98822 9317	Rua Gonçalves Ledo, 1100 - Ap1303	Maurício de Nassau	55014-340		Caruaru	PE
+#20181085	Pauluca Moura	paulucagmoura@hotmail.com	81 99963 0563	Engenho Pangauá, S/N	Zona Rural	55900-000		Goiana	PE
+#20181086	Roberto Santana Rocha	robertosarocha@hotmail.com	81 99744 7900	Rua Tracunhaém, 396	Boa Vista II	55038-550		Caruaru	PE
+#20181087	José Osório Galvão de Oliveira Filho	osorio.f@hotmail.com	87 99161 8299	Av. Severino José Freire, 1208	Centro	56505-230		Arcoverde	PE
+#20181088	José Osório Galvão de Oliveira	joseosorio37@hotmail.com	87 99634 0574	Av. Severiano José Freire,1208	Centro	56505-230		Arcoverde	PE
+#20181089	Fernando Sergio de Araújo Pinheiro		81 99969 8898	Av. Bernardo Vieira de Melo, 4012 - Ap 1202	Candeias	54440-620		Jaboatão dos Guararapes	PE
+#20181090	Gustavo Costa	gusthavocost@hotmail.com	83 99911 3880	Antônio Barbosa de Menezes, 305 - AP 503	Mirante	58407-673		Campina Grande	PB
+#20181091	Thiago Silva de Araujo	thiagoaraujo_100@outlook.com	84 99403 9353	Rua Monte Azul, 4443	Neopolis	59084-510		Natal	RN
+#20181092	Geandro de Farias Ferreira	geandroferreira@hotmail.com	83 99831 2755	Rua Ana de Fátima Gama Cabral, 701	Portal do Sol	58046-780		João Pessoa	PB
+#20181093	Paulo Américo de Miranda Neto	paulonetomiranda@gmail.com	82 99436 3636	Rua Dr Luiz de Mascarenhas, 18- Ap 1605	Farol	57055-030		Maceió	AL
+#20181094	Lucas Leal Saraiva	lucasleal90@hotmail.com	81 99921 4819	Rua Quarenta e Oito, 462	Espinheiro	52020-060		Recife	PE
+#20181095	Michel Medeiros	vitalino@bol.com.br	81 99963 1418	Rua Visconde de Pelotas, 146	Petrópolis	55030-330		Caruaru	PE
+#20181096	Lucas Batista de Miranda	lbm111195@gmail.com	84 999836789	Rua Praia de Camurupim, 2106 - AP 602	Ponta Negra	59094-420		Natal	RN
+#20181097	Leirson Magalhães Lisboa	drleirsonmagalhaes@gmail.com	87 98166 0655	Rua José Joaquim de Lima , 400	AABB	56912-290		Serra Talhada	PE
+#20181098	Rodrigo Hudson	rhudson@hotmail.com	81 99655 9698	Rua Dhalia 304/801	Boa Viagem	51020-290		Recife	PE
+#20181099	Heriberto Bezerra Dantas de Araújo	betotitico20155@gmail.com	84 99949 4977 / 84 9-86389005	Av. Getúlio Vargas, 161	Centro	59380-000		Currais Novos	RN
+#20181100	Leonaldo Fontes Gonçalves	tufinhofontes@hotmail.com.br	66 999224342	Rua Frederico Westphalen, 144	Centro	78850-000		Primavera do Leste	MT
+#20181101	Daniel Andrade Lima Luna	danielluna-@hotmail.com	81 99802 3137	Rua Ceará, 44 AP 1403	Encruzilhada	52041-130		Recife	PE
+#20181102	Pedro Alcantar Dias Braga	padbraga@gmail.com	86 99934 4353	Av. Zequinha Freire, 2209 - Sala 06	Santa Lia	64058-730		Teresina	PI
+#20181103	Ayron Ferraz Gomes Filho	ayronferraz@gmail.com	81 9 9673-0054	Rua Vicente do Rêgo Monteiro, 269	Cordeiro	50630-710		Recife	PE
+#20181104	Jeronimo Emanuel Rosado Nogueira	emanuel.rosado@hotmail.com	84 98163 1013	Rua Almeida Castro, 998	Tirol	59015-060		Natal	RN
+#20181105	Sanderson Castro Praxedes Bandeira	sandersonpraxedes@gmail.com	84 99112 7550	Rua Iguatama, 2920	Neopolis	59088-160		Natal	RN
+#20181106	Dinarte Dantas Alvares Filho	dinafilho@hotmail.com	84 998651276	Rua Meira Brandao, 634 - AP 102	Barro Vermelho	59022-540		Natal	RN
+#20181107	Yuri Teixeira Albuquerque	yuri.albuquerque.yta@gmail.com	88 99904 4530	Vicente Siebra, 1779	Coqueiro	62500-000		Itapipoca	CE
+#20181108	Luis Henrique Santana Grangeiro	lhsgrangeiro@hotmail.com	85 98655 8454	Virgílio Távora, 2501	Aeroporto	63020-470		Juazeiro do Norte	CE
+#20181109	José Alberto Gomes de Assis	albertogomesassis@gmail.com	83 98677 4979	R. Dedicio maia, 11	Centro	58396-000		Arara	PB
+#20181110	Rodrigo M.C Andrade	rbm.maq@hotmail.com	81 99918.7777	Av. Getúlio Vargas, 209	São José	55815-105		Carpina	PE
+#20181111	Rodrigo Maciel Cavalcanti de Andrade Filho	rbm.maq@hotmail.com	81 99918.7777	Av. Getúlio Vargas, 209	São José	55815-105		Carpina	PE
+#20181112	Breno José F.L Cavalcanti de Andrade	rbm.maq@hotmail.com	81 99918.7777	Av. Getúlio Vargas, 209	São José	55815-105		Carpina	PE
+#20181113	Joaquim Ferreira Passos Neto	jpassos76@hotmail.com	85 99741 0666	Rua Elisiário Mendes	Parque Iracema	60824-180		Fortaleza	CE
+#20181114	Cleovan Herbertt da Silva	cleovanherbertt@icloud.com	82 98889.6263	Rua Salvador Costa, 65	Feitosa	57042-500		Maceió	AL
+#20181115	Juno Vicente Duarte	cleovanherbertt@icloud.com	82 98889.6263	Rua Salvador Costa, 65	Feitosa	57042-500		Maceió	AL
+#20181116	Alceu Figueiredo Neto	ameliajoias@hotmail.com	85 98826 8434	Av Dom Luís, 500 - loja 205	Meireles	60160-230		Fortaleza	CE
+#20181117	Romeu da SIlva Nunes Martins	romeununes@gmail.com	98 98283 2305	Rua Clodomir Cardoso, 351	Centro	65076-000		Presidente Dutra	MA
+#20181118	Osmar dos Santos	osmar@eudmar.com.br	71 99104 1696	Av da França, 164 - Ed. Futurus - sala 202	Comercio	40010-000		Salvador	BA
+#20181119	Rodrigo Cavalcanti	rodrigorbcavalcanti@gmail.con	81 99225 5051	Rua Visconde de Ouro Preto, 51 - AP 2101	Casa Forte	52061-430		Recife	PE
+#20181120	Marlon Antonio de Oliveira	antoniomarlon0606@gmail.com	11 97556 8264	Rua Takeji Shimmyo, 77 A	Cerejeiras	07432-590		Arujá	SP
+#20181121	José Wilton de Sousa	arteempapeljj@hotmail.com	85 98883 2488	Rua Curupaiti, 340	Praia do Futuro	60182-540		Fortaleza	CE
+#20181122	Paulo Germano Cabral Guerra	79paulogermano@gmail.com	81 99913 1775	Rua Professor Osias Ribeiro, 61	Boa viagem	51111-100		Recife	PE
+#20181123	Vitor Andrade Accioly Guimarães	vetvitor@gmail.com	74 99998 7577	Rua 2 de Julho, 60	Centro	44720-000		Miguel Calmon	BA
+#20181124	Jorge Anastácio de Araújo	anastacio.jorge@hotmail.com	83 99957 1651	Rua Professora Maria Lianza, 296, ap 101	Jardim Cidade Universitária	58052-320		João Pessoa	PB
+#20181125	Gustavo Cavalcanti  Vaz Galindo	gcvgalindo@hotmail.com	82 98126 1277	Rua Tabelião Luiz Vieira de Barros, 297	Juca Sampaio	57603-090		Palmeira dos Índios	AL
+#20181126	Márcio Lúcio Ferreira de Souza	marcioluciof8@gmail.com	82 99992 4923	Rua Cônego C. Carvalho, 43	São José	57500-000		Santana do Ipanema	AL
+#20181128	Paulo Roberto Sampaio Serra	paulosampaiolocutor@hotmail.com	85 99978 0238	Rua Severiano Martins, 86 - Apt 08	Centro	62700-000		Canindé	CE
+#20181129	José Evandro de Melo Silva		81 99261.9198	Rua Inês Carmelita, 206	Centro	55140-000		Tacaimbó	PE
+#20181130	João Carlos Gama Batista	carlosgama05@gmail.com	11 99407 0203	Rua Cônego Januario 165, AP 41 Bloco 02	Ipiranga	04201-050		São Paulo	SP
+#20181131	Jorge Amin Bacila Neto	jorge@organact.com.br		Stred Gen. Walter da Costa Reis, 165		81290-260		Curitiba	PR
+#20181132	Victor Miranda Hunka	victormirandahunka@hotmail.com	81 9963 0000	Rua Vandick Pinto Filgueiras, 95	Tambauzinho	58042-110		João Pessoa	PB
+#20181133	Fabricio Lima Morais	fabriciodacarga@gmail.com	75 99179 6752	Rua do México, 1680	Tomba	44090-640		Feira de Santana	BA
+#20181134	Julio Cesar Pacheco Figueiredo	juliofigueiredo@guarautos.com.br	85 98143 6868	Av. Rui Barbosa, 475 - Apto 1202	Meireles	60115-220		Fortaleza	CE
+#20181135	Bruno Camilo Ribeiro	brunocamiloribeiro@hotmail.com	87 98806 1533	Rua Eng. Arthur Rios de Cerqueira, 321	Colônia Imperial	56328-830		Petrolina	PE
+#20181136	Emerson Souza Pinheiro	emersonsorin@hotmail.com	71 99299 5622	Rua Direta do Arraial, 433-ap 301 BL451-C Cond Vila das Palmeiras	Arraial do retiro	41204-115		Salvador	BA
+#20181137	José Ramos dos Santos Neto	mr_joseneto@hotmail.com	84 99689 1213	Av Getúlio Vargas, 558	Petrópolis	59012-360		Natal	RN
+#20181138	Pedro Paulo Paiva dos Reis	pedrop.paiva5@gmail.com	84 99675 9422	Rua Antonio Elisbao, 435	João de Barros	59390-000		Lagoa Nova	RN
+#20181139	Romualdo Toscano Leão	romualdotoscano@hotmail.com	83 99115 0308	Rua Juarez Guerra, 33	Centro	58280-000		Mamanguape	PB
+#20181140	Ítalo Coutinho	italocoutinho89@hotmail.com	85 99925 9089	Av. 7 de Setembro, 682	Centro	63640-000		Independência	CE
+#20181141	Wlisses Mota da Silva	wlly_sha@hotmail.com	75 99903 0149	Av. Lomanto Júnior, 285	Vaquejada	48700-000		Serrinha	BA
+#20181142	Emanuel de Albuquerque Batista	emanuel@pancristal.com	81 97116 1007	Rua Monsenhor Luiz Ferreira Lima, 77	Centro	55750-000		Surubim	PE
+#20181143	Hugo Rosa Cavalcanti de Andrade	hcveiculos@ig.com.br	81 99920 2000	Rua Baltazar Pinto, 353	Sta Terezinha	55812-030		Carpina	PE
+#20181144	Angelo José Oliveira Vasconcelos	angelojovasconcelos@yahoo.com.br	85 98172 8815	Rua das Carnaúbas, 750 - casa 17	Passaré	60743-780		Fortaleza	CE
+#20181145	Luiz Pereira de Oliveira Neto	luizoliveira@coinpaconstrutora.com.br	83 98130 4046	Av. Max Zagel, 270	Camboinha II	58101-312		Cabedelo	PB
+#20181146	Luiz Gustavo Santos de Carvalho	luizgustavossc@hotmail.com	84 99637 9525	Rua Capitão Florêncio, 27	Centro	59395-000		Cerro Corá	RN
+#20181147	Tercio Luiz Santos de Carvalho	luizgustavossc@hotmail.com	84 99813 1730	Rua Capitão Florêncio, 35A	Centro	59395-000		Cerro Corá	RN
+#20181148	Ezequiel S. Xenofonte Neto	exenofonte@gmail.com	98 98176 1300	Rua dos Bentivis, 3 - AP 701, Cond Montepascoal	Ponta do Farol	65077-160		São Luís	MA
+#20181149	Milton Guerra Barbosa Filho	milton-filho1@hotmail.com	81 99105 1206	R. Engenho Poeta,193 - AP 702	Caxangá	50800-180		Recife	PE
+#20181150	Fabio Aguiar  Pessoa	fabioaguiarpessoa@hotmail.com	85 99953 1155	Rua Tenente Amauripio, 57	Meireles	60160-090		Fortaleza	CE
+#20181151	Saulo Veras Mourão	saulomourao@yahoo.com.br	88 99732 1111	Av. Engenheiro Santana JR, 2620 - AP 1700	Cocó	60192-200		Fortaleza	CE
+#20181152	Arthur Freire	arthurfreire@granmoto.com.br	83 99105 6757	Av Severino Bezerra Cabral, 665	José Pinheiro	58407-475		Campina Grande	PB
+#20181153	Wagner Pignataro Lima	wagnerpignataro@hotmail.com	84 99660 2402	Av. Brigadeiro Gomes Ribeiro, 1323	Morro Branco	59056-520		Natal	RN
+#20181154	George Olavo Aragão	georgeolavo@hotmail.com	85 99152 5619	Rua Barão do Rio Branco, 2000	Centro	60025-061		Fortaleza	CE
+#20181155	Rodrigo Anjos Cavalcante	eneto.teles@hotmail.com	79 99812 1349	Rua Antonio Cardoso Dantas, 050	Centro	49750-000		General Maynard	SE
+#20181156	Marcelo Pessoa da Cunha Lima Junior	marcelojr25@globo.com	84 99135 0300	Av Nascimento de Castro, 1640	Lagoa Nova	59056-450		Natal	RN
+#20181157	Pablo C Gomes	pablocgomes@hotmail.com	87 99170 3553	Rua Vereador Antonio Brás Sobrinho, 493	Centro	56280-000		Araripina	PE
+#20181158	Cícero José dos Santos Junior	cicero@utuguacu.com.br	11 99596 9074	Rua José Martins de Oliveira, 202	Jardim Paulista	13310-002		Itu	SP
+#20181159	Bruno Cavalcante Britto	moriahconstrucoes@hotmail.com	98 98117 5577	Rua Santa Quiteria, Cond Villa de Latouche, Casa 02	Jardim Eldorado - Turu	65067-392		São Luís	MA
+#20181160	Marcelo Perez	marcelo@deborahbarros.net.br	81 99426 6161	Rua Dona Ines Correia de Araujo, 71	Caxangá	50800-220		Recife	PE
+#20181165	José Waldson Soares	albaniadriano@yahoo.com.br	84 99669 9254	Rua Prefeito Bevenuto Pereira, 226	Centro	59395-000		Cerro Corá	RN
+#20181166	Nei Falcão	neifalcao2@hotmail.com	92 99106 2229	Rua Cairo,  26 - Conjunto Campos Eliseos	Planalto	69046-060		Manaus	AM
+#20181167	Wanderson Pereira Maciel	wandersonmaciel21@hotmail.com	85 98152 4683	Rua Nilo Campelo, 189 casa 03	Novo Parque Iracema	61949-190		Maranguape	CE
+#20181168	Anderson Bruno	lidja_rabelo@hotmail.com	82 99191 7021	Rua Antônio Carlos, N. 02	Centro	57970-000		Novo Lino	AL
+#20181169	Henrique Moura Quintans	mourahenrique@outlook.com	83 99921 3538	Rua Juiz Amaro Bezerra, 360 - AP 602	Cabo Branco	58045-070		João Pessoa	PB
+#20181170	Alex Ferreira de Arruda	alex.arruda.2013@outlook.com	81 99713 5256	Rua Ver Armando Aleixo de Barros, 53	Dona Dom	55192-572		Santa Cruz do Capibaribe	PE
+#20181171	Maria Júlia Leal Araujo de Farias	mirella_leal@hotmail.com	81 99287 2488	Estrada das Ubaias,195 apt 703	Casa forte	52061-080		Recife	PE
+#20181172	Alexandre Cabral de Farias	mirella_leal@hotmail.com	81 99117 0944	Estrada das Ubaias, 195 apt 703	Casa Forte	52061-080		Recife	PE
+#20181173	Mirella Leal	mirella_leal@hotmail.com	81 99287 2488	Estrada das Ubaias,195 apt 703	Casa Forte	52061-080		Recife	PE
+#20181174	Raimundo Nonato Conceição de Souza	fabianadosreisesilva@gmail.com	95 99141 3619	Rua Francisco Custódio de Andrade, 1378	Tancredo Neves	69313-498		Boa Vista	RR
+#20181175	Rodrigo Soares Moreira de Sousa	rsoaresms@gmail.com	85 98664 7174	Avenida Abolição, 3090 - AP 402	Meirelles	60165-081		Fortaleza	CE
+#20181176	Luiz Miranda Moreira de Sousa	centroultrasomce@ig.com.br	85 98585 0078	Avenida Abolição, 3090 - AP 402	Meirelles	60165-081		Fortaleza	CE
+#20181177	Thúlio Alexandre Garcia de Lima	thulioalexandre@bol.com.br	95 98805 3947	Rua Alemanha, 658	Cauamé	69311-006		Boa Vista	RR
+#20181178	Dyego Simonetti Barbalho	dyegobarbalho@hotmail.com	84 99128 0688	Rua Deputado Joaquim Câmara, 226	Tirol	59015-270		Natal	RN
+#20181179	Eduardo Torres Barbalho	contato@fazendalajinha.com	84 99406 9554	Rua Deputado Joaquim Câmara, 226	Tirol	59015-270		Natal	RN
+#20181180	Paulo André Macedo Alves	andrepauloalves@hotmail.com	73 98817 3356	Rua João Amaro Gomes, 106	Vila Vargas	45993-033		Teixeira de Freitas	BA
+#20181181	Luiz Cláudio Matias Alves	lula.matias@gmail.com	84 99441 6061	Alameda dos Bosques, 750, casa 286	Parque do Jiqui	59153-155		Parnamirim	RN
+#20181182	Jackson de Sousa Araújo	shopdocavalobsb@gmail.com	61 99952 8310	Condomínio Residencial Novo Horizonte Quadra 02 conjunto 05 casa 08	Sobradinho DF	73255-904		Sobradinho DF	DF
+#20181183	Antônio Nunes de Souza Junior	ellenfpereira01@hotmail.com	87 99999 5948	Sítio Olho d’Água do Bruno	Caraibeiras	56480-000		Tacaratu	PE
+#20181184	Jefferson Diego Fabricio da Costa	diegovet.ufpb@gmail.com	83 98653 9925	Rua Eulina de Almeida, 495	Bairro Novo	58200-000		Guarabira	PB
+#20181185	Rennata Beatriz Fernandes da Silva	cartorioquezado@hotmail.com	85 99966 9179	Rua General Sampaio, 13	Centro	63360-000		Aurora	CE
+#20181186	Francisco Mota do O	neidegois16@gmail.com	85 99616 5969	Rua E casa 984 - Conj Renascer	Dias Macedo	60860-455		Fortaleza	CE
+#20181187	Agnelo Nogueira Pereira da Silva	AGNELONOGUEIRA@HOTMAIL.COM	86-999819060	Av. Elias  João Tajra, 620, AP  1102	Jockey	64049-300		Teresina	PI
+#20181188	Agnelo Nogueira Pereira da Silva	agnelonogueira@hotmail.com	86 99981 9060	Av. Elias  João Tajra, 620, AP  1102	Jockey	64049-300		Teresina	PI
+#20181189	Braulio Cabral Pinheiro da Silva	brauliopinheiroo@hotmail.com	79 99919 0909	Rua Niceu Dantas, 1097 Ed. Infinity Res	Atalaia	49037-470		Aracaju	SE
+#20181190	Antonio Jorge Santana Ramos	frivalledistribuidora@gmail.com	71 98120 1998	Av. Afranio Peixoto, 108	Praia Grande	40720-690		Salvador	BA
+#20181191	Raimundo Dinajá Gomes Alves	026.986.603-50	88 99621 1520	Rua Leon Gradvohl -  401 casa	Maraponga	60711-150		Fortaleza	CE
+#20181192	Judas Tadeu Mendes de Sousa	mendestadeu@hotmail.com	61 99952-9837	QNL 21 Bloco H Casa 15	Norte	72152-118		Taguatinga	DF
+#20181193	Marcos Cabral dos Santos	marcoscsantos84@hotmail.com	83 99187 0968 / 83 9641 5982	Fazenda Malhada	Zona Rural	58455-000		Caturité	PB
+#20181194	Harysson Macêdo	haryndamaca@hotmail.com	(88) 99999 9000	Rua Domingos Gomes da Silva, 711	Aldeota	63260-000		Brejo Santo	CE
+#20181195	Renato Dourado de Oliveira	renatodourado_adv@hotmail.com	99 9998 78038	Rua Projetada A Nº 02	Jardim Imperatriz	65907-380		Imperatriz	MA
+#20181196	Sidney Marques Fonseca Filho	sidneymffilho@gmail.com	84 99982 0702	Rua Otavio Lamartine, 441	Petrópolis	59020-050		Natal	RN
+#20181197	Francisco Edinardo da Silva	renatafgba@hotmail.com	85 99717 7948	Rua Rafael Tobias,1999 - Casa 16	Sapiranga	60833-196		Fortaleza	CE
+#20181198	Lucas da Silva Ferreira Alves	lucas_alvesferreira@outlook.com	81 99771 5755	Rua Passo da Pátria, 100 - AP 802	Universitário	55016-435		Caruaru	PE
+#20181199	Pedro Henrique Wanderley Dutra	pedrodutra2323@hotmail.com	83 9932 1241	Elvirio Soares Barbosa	São Bernardo	58865-000		São Bento	PB
+#20181200	Joaubi Figueiredo Garcia	joaubi@hotmail.com	84 9 9988-9979	Rua dos Planaltos, 2099	Pitimbu	59067-670		Natal	RN
+#20181201	Francisco Hermerson Dantas Amaral	hermesonamaral@hotmail.com	83 99999 5485	Rua Anastácio Alves de Oliveira, 33	Elesbão Gonçalves de Oliveira	58884-000		Catolé do Rocha	PB
+#20181202	Weibe Kennedy Campelo	weibecampelo@hotmail.com	84 99953 8874	Rua Amaro Duarte, 733 - Residencial Tom Jobim - Apto 406	Nova Betânia	59612-060		Mossoró	RN
+#20181203	Agnaldo Garcia de Farias Filho	075.911.724-17	82 98867 6300	Rua Dra Janete de Araújo, 34	Centro	57890-000		Ibateguara	AL
+#20181204	Luciano Sergio da Silva	lssilva68@hotmail.com	81 99206 1904	Rodovia PE 103 km 18	Centro	55665-000		Camocim de São Félix	PE
+#20181205	Leonardo Amorim de Albuquerque Ferreira Lima	leoamorim_@hotmail.com	81 97102 0213	Rua Desembargador Adolfo Ciríaco, 94	Prado	50720-280		Recife	PE
+#20181206	Anderson Clayton Costa da rocha	claytonanderson2013@hotmail.com	84 99144 6787	Rua Antônio de França, 550	Bela vista	59550-000		João Câmara	RN
+#20181207	Renatto Pimentel da Silva Coelho	renattopimentel13@hotmail.com	98 99221 1313	Av Holandeses, 02 - Qd 18 Lote 02	Ponta da Areia	65077-357		São Luís	MA
+#20181208	Paulo Antonio Cavalcanti de Morais Sobrinho	paulinho1994@gmail.com	83 99382 8384	Rua Oceano Índico, 908 - AP 691A	Intermares	58102-222		Cabedelo	PB
+#20181209	Silvan Ramos da Silva	silvan008@bol.com.br	83 99382 1996	Rua São Sebastião, 174	Centro	58287-000		Capim	PB
+#20181210	Daniel Sizino Almeida Linhares	danielsizino@hotmail.com	79 99971 3202	Av. Oviêdo Teixeira, 800 - Ap. 302	Jardins	49026-100		Aracaju	SE
+#20181211	José Josenildo da Silva Marcelino	luizgustavossc@hotmail.com	84 99859 3875	Rua José Neves de Menezes, 42	Centro	59395-000		Cerro Corá	RN
+#20181212	tereer	teste@gmail.com	(55) 5555-5555						
+#20181213	ALEXANDRE FERREIRA LIMA	alexandrepostomn@hotmail.com	88 99711 0381	RUA Rua Expedicionário Moreno, 287	Centro	62940-000		Morada Nova	CE
+#20181214	THOMÉ COSTA DE SOUZA	thomecsouza@gmail.com	79 99969 3009	RUA JOÃO RODIGUES, 83	Centro	49560-000		Moita Bonita	SE
+#20181215	Diego Galindo Sereno	diegogsereno@gmail.com	81 98884 1335	Rua do Futuro , 575	Aflitos	52050-005		Recife	PE
+#20181216	Paulo Henrique Costa Trigueiro	paulocostatrigueiro@hotmail.com	(84) 9962-5802	Rancho Trigueiro, Cx Postal 03	Ponta do Mato	59570-000		Ceará-Mirim	RN
+#20181217	Francisco Heryson de Brito	socioabvaq@gmail.com	85 99167 9322	Rua Augusto Nogueia, 182	Cajueiro da Malhada	62885-115		Horizonte	CE
+#20181218	Francisco Heryson de Brito	072.698.823-55	85 99167 9322	Rua Augusto Nogueia, 182	Cajueiro da Malhada	62885-115		Horizonte	CE
+#20181219	Igor Mota Barroso	igor.barroso@integralagro.com.br	84 99954 9502	Av. Jose Barreto da Silva, S/N	Ferreiro Torto	59280-000		Macaíba	RN
+#20181220	Jacilene Alves da Silva	429.947.994-72	84 98878 7064	Rua Dois de Fevereiro, 119	Centro	59150-000		Nova Cruz	RN
+#20181221	Jose Garcia de Lima	socioabvaq@gmail.com	85 9994 4941	Rua dos Girassois, 73	Coassu Euzebio	60184-185		Fortaleza	CE
+#20181222	Emidio Gemano Oliveira Sampaio	emidiogermano@gmail.com	(85) 9861-9525	Rua Silva Jataí, 500	Meireles	60165-070		Fortaleza	CE
+#20181223	Carlos Alberto Bezerra Lima	carlosalbertoblima@hotmail.com	85 999923322	Rua Silva Jataí, 500	Meirelles	60165-070		Fortaleza	CE
+#20181224	Gilvan Salviano de Araujo Filho	gilvansalviano@hotmail.com	83 998281449						
+#20181225	Francisco Pereira da Silva	969.007.095-91	75 99966.6733						
+#20181226	Silvana - teste	agenciamultformas@gmail.com	(83) 3322-3666						
+#20181227	Bruno Menezes Carneiro	612.928.723-22	(85) 8827-1967						
+#20181228	Adriano Matos de Freitas	028.689.303-79	(85) 8880-7584						
+#20181229	Livia de Lima Fernandes	liviadelimafernandes@gmail.com	(84) 9969-6836						
+#20181230	Bruno da Silva Prado	brunomedvet07@gmail.com	(86) 9990-3489						
+#20181231	José Leonardo Dias Diógenes	imperioimobiliariorn@gmail.com	(84) 9963-4430						
+#20181235	Galdino Cordeiro Alves	077.146.604-81	(87) 9981-0412						
+#20181236	FELIPE BRAGA SOUZA	felipe_bragas@hotmail.com	81 9-9566 3284						
+#20181237	Thargus de A. Pinho	043.292.893-69	85 99713 0606						
+#20181238	ANTONIO TRAJANO DA ROCHA NETO	antoniotrneto@hotmail.com	(81) 9828-1744						
+#20181239	Demes Chagas Diógenes	Demesdiogenes@hotmail.com	(85) 9977-7050						
+#20181240	Orlando Junio Marques de Oliveira	orlando.junio@hotnail.com	(61) 9962-4241						
+#20181241	Vicente Paulo Romcy	vicenteromcy@yahoo.com.br	85 99928.0608						
+#20181242	José Adilson Mendes Martins Filho	lucianne_rocha@hotmail.com	85 98107 0707						
+#20181243	José Vieira Costa Junior	994.996.745-34	79 99816 7740						
+#20181244	Eduardo Luciano Furtado	eduardolf2013@gmail.com	(85) 9990-2379						
+#20181245	gustavo rangel soares costa freire	gustavorangel27@yahoo.com.br	(83) 9967-8349						
+#20181246	JOSE CELSO GONÇALVES CAVALCANTI FILHO	celsocfilho@hotmail.com	(61) 9812-6016						
+#20181247	Virginia	virginiach@icloud.com	(81) 9968-4927						
+#20181248	Silésia Radija Gomes Malhado	radija.vet@hotmail.com	(71) 9643-9595						
+#20181249	Daivisson Lisboa De Souza	lisboadaivisson@gmail.com	(82) 9930-6119						
+#20181250	Lucas Viana dos santos	lucasvianna0896@gmail.com	(11) 9893-7035						
+#20181251	Marcos Roberto Ramos Bastos	servicomarb@hotmail.com.br	(75) 99903-3393						
+#20181252	Leandro Oliveira	murilopcpb@hotmail.com	(87) 9812-6464						
