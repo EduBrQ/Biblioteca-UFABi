@@ -28,6 +28,19 @@ public class AnaisCongresso implements Serializable {
 	@Column
 	private String local;
 	
+	
+	
+	public AnaisCongresso() {
+		
+	}
+
+	public AnaisCongresso(int id, String tipo, String nomeCongresso, String local) {
+		this.id = id;
+		this.tipo = tipo;
+		this.nomeCongresso = nomeCongresso;
+		this.local = local;
+	}
+
 	public int getId() {
 		return id;
 	}

@@ -29,6 +29,7 @@ public class AnaisCongressoController {
 	@Autowired
 	private AnaisCongressoService anaisCongressoService;
 
+	
 	@RequestMapping(value = "/anaisCongresso")
 	public ModelAndView listAnaisCongresso(ModelAndView model, Principal principal) throws IOException {
 		List<AnaisCongresso> listAnaisCongresso = anaisCongressoService.getAllAnaisCongressos();

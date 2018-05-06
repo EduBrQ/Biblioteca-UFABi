@@ -16,7 +16,21 @@ import javax.persistence.Table;
 @Table(name = "ALUNOS")
 public class Aluno implements Serializable {
 
+	
 	private static final long serialVersionUID = -3465813074586302847L;
+	
+	
+
+	public Aluno() {
+	
+	}
+
+	public Aluno(int id, String nomeCompleto, String telefone) {
+		this.id = id;
+		this.nomeCompleto = nomeCompleto;
+		this.telefone = telefone;
+		}
+
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

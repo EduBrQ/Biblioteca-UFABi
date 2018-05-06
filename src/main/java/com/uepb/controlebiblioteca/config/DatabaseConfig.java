@@ -33,7 +33,19 @@ public class DatabaseConfig {
     private ApplicationContext appContext;
 
 
-
+    
+//    @Bean(name = "DataSource")
+//    public HikariDataSource getDataSource(){
+//        HikariDataSource ds = new HikariDataSource();
+//        ds.setMaximumPoolSize(100);
+//        ds.setMinimumIdle(30);
+//        ds.setDriverClassName("org.h2.Driver");
+//        ds.setJdbcUrl("jdbc:h2:mem:test");
+//        ds.setUsername("root");
+//        ds.setPassword("root");
+//        return ds;
+//    }
+//
     @Bean(name = "DataSource")
     public HikariDataSource getDataSource(){
         HikariDataSource dataSource = new HikariDataSource();
@@ -42,7 +54,7 @@ public class DatabaseConfig {
         dataSource.addDataSourceProperty("portNumber", "3306");
         dataSource.addDataSourceProperty("serverName", "127.0.0.1");
         dataSource.addDataSourceProperty("user", "root");
-        dataSource.addDataSourceProperty("password", "root");
+        dataSource.addDataSourceProperty("password", "");
         return dataSource;
     }
     

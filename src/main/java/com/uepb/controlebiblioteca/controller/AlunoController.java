@@ -28,6 +28,7 @@ public class AlunoController {
 		System.out.println("AlunoController()");
 	}
 
+	
 	@Autowired
 	private AlunoService alunoService;
 	

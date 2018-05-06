@@ -35,7 +35,6 @@ public class HomeController {
 
     @RequestMapping(value = "/")
     public ModelAndView home(ModelAndView model, Principal principal){
-    	
         return principal.userDetail(model, "home");
     }
 
@@ -49,7 +48,7 @@ public class HomeController {
         return "signup";
     }
     
-    @RequestMapping("logout")
+    @RequestMapping(value = "/logout")
     public String logout(HttpSession session) {
     	session.invalidate();
     	return "redirect:login";
