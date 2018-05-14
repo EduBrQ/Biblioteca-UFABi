@@ -16,26 +16,43 @@ import javax.persistence.Table;
 @Table(name = "ALUNOS")
 public class Aluno implements Serializable {
 
-	
 	private static final long serialVersionUID = -3465813074586302847L;
-	
-	
 
 	public Aluno() {
-	
+
 	}
 
 	public Aluno(int id, String nomeCompleto, String telefone) {
 		this.id = id;
 		this.nomeCompleto = nomeCompleto;
 		this.telefone = telefone;
-		}
+	}
 
+	public String getStrAno() {
+		return ano.toString().substring(2, 4); // verificar
+	}
+
+	public String getIdAlunoStr() {
+		if (this.getId() >= 0 && this.getId() < 10) {
+			return "00" + this.getId();
+		} else if (this.getId() > 9 && this.getId() < 100) {
+			return "0" + this.getId();
+		} else {
+			return this.getId() + "";
+		}
+	}
+
+	public void gerarMatricula() {
+		this.matricula = this.curso.getLetraNivel() + 
+				this.curso.getSigla() + "-" + 
+				("" + this.ano).substring(2, 4)
+				+ this.periodo + getIdAlunoStr();
+	}
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Column
 	private String nomeCompleto;
 
@@ -44,37 +61,37 @@ public class Aluno implements Serializable {
 
 	@Column
 	private String endereco;
-	
+
 	@Column
 	private String cpf;
 
 	@Column
 	private String rg;
-	
+
 	@Column
 	private String nomeMae;
-	
+
 	@Column
 	private String nomePai;
 
 	@Column
 	private String naturalidade;
-	
+
 	@Column
 	private Date ano;
-	
+
 	@Column
 	private String periodo;
-	
+
 	@Column
 	private String senha;
-	
+
 	@Column
 	private String matricula;
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
 	private Curso curso;
-	
+
 	public Date getAno() {
 		return ano;
 	}

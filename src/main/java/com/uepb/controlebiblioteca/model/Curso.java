@@ -2,7 +2,6 @@ package com.uepb.controlebiblioteca.model;
 
 import java.io.Serializable;
 
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,7 +29,25 @@ public class Curso implements Serializable {
 
 	@Column
 	private String nivel;
-	
+
+	@Column
+	private String sigla;
+
+	public String getLetraNivel() {
+
+		return nivel.substring(0, 1).toUpperCase();
+
+	}
+
+	public String getSigla() {
+		return sigla;
+	}
+
+	public void setSigla(String sigla) {
+		this.sigla = sigla.toUpperCase();
+		
+	}
+
 	public int getId() {
 		return id;
 	}
