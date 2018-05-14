@@ -35,47 +35,47 @@ import static org.springframework.security.test.web.servlet.setup.SecurityMockMv
 
 
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@WebAppConfiguration
-@ContextConfiguration(classes = BaseTestConfig.class)
-@WithMockUser(username = "treze", roles = { "USER", "ADMIN" })
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@WebAppConfiguration
+//@ContextConfiguration(classes = BaseTestConfig.class)
+//@WithMockUser(username = "treze", roles = { "USER", "ADMIN" })
 
 public class AlunoControllerTest {
 	
-	@InjectMocks
-	AlunoController alunoController;
-	
-	@Mock
-	AlunoService alunoService;
-	
-	@Spy
-	List<Aluno> alunos = new ArrayList<Aluno>();
-	
-	@Spy
-	ModelAndView model;
-	
-	@Spy
-	Principal principal;
-	
-	
-	@Autowired
-	private WebApplicationContext wac;
-
-	private MockMvc mockMvc;
-
-	@Before
-	public void init() {
-		mockMvc = MockMvcBuilders.webAppContextSetup(wac).defaultRequest(get("/")).apply(springSecurity()).build();
-	}
-
-
-	@Test
-	public void testListAluno() throws Exception {
-		mockMvc.perform(get("/alunos")).andExpect(status().isOk()).andExpect(view().name("alunos/index"));
-		
-		
-
-	}
+//	@InjectMocks
+//	AlunoController alunoController;
+//	
+//	@Mock
+//	AlunoService alunoService;
+//	
+//	@Spy
+//	List<Aluno> alunos = new ArrayList<Aluno>();
+//	
+//	@Spy
+//	ModelAndView model;
+//	
+//	@Spy
+//	Principal principal;
+//	
+//	
+//	@Autowired
+//	private WebApplicationContext wac;
+//
+//	private MockMvc mockMvc;
+//
+//	@Before
+//	public void init() {
+//		mockMvc = MockMvcBuilders.webAppContextSetup(wac).defaultRequest(get("/")).apply(springSecurity()).build();
+//	}
+//
+//
+//	@Test
+//	public void testListAluno() throws Exception {
+//		mockMvc.perform(get("/alunos")).andExpect(status().isOk()).andExpect(view().name("alunos/index"));
+//		
+//		
+//
+//	}
 	
 //	@Test
 //	public void testAllAlunos() throws Exception {

@@ -34,29 +34,29 @@ public class DatabaseConfig {
 
 
     
+    @Bean(name = "DataSource")
+    public DataSource getDataSource() {
+        HikariDataSource ds = new HikariDataSource();
+        ds.setMaximumPoolSize(100);
+        ds.setMinimumIdle(30);
+        ds.setDriverClassName("org.h2.Driver");
+        ds.setJdbcUrl("jdbc:h2:mem:test");
+        ds.setUsername("root");
+        ds.setPassword("root");
+        return ds;
+    }
+    
 //    @Bean(name = "DataSource")
 //    public HikariDataSource getDataSource(){
-//        HikariDataSource ds = new HikariDataSource();
-//        ds.setMaximumPoolSize(100);
-//        ds.setMinimumIdle(30);
-//        ds.setDriverClassName("org.h2.Driver");
-//        ds.setJdbcUrl("jdbc:h2:mem:test");
-//        ds.setUsername("root");
-//        ds.setPassword("root");
-//        return ds;
+//        HikariDataSource dataSource = new HikariDataSource();
+//        dataSource.setDataSourceClassName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource");
+//        dataSource.addDataSourceProperty("databaseName", "controle_biblioteca");
+//        dataSource.addDataSourceProperty("portNumber", "3306");
+//        dataSource.addDataSourceProperty("serverName", "127.0.0.1");
+//        dataSource.addDataSourceProperty("user", "root");
+//        dataSource.addDataSourceProperty("password", "");
+//        return dataSource;
 //    }
-//
-    @Bean(name = "DataSource")
-    public HikariDataSource getDataSource(){
-        HikariDataSource dataSource = new HikariDataSource();
-        dataSource.setDataSourceClassName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource");
-        dataSource.addDataSourceProperty("databaseName", "controle_biblioteca");
-        dataSource.addDataSourceProperty("portNumber", "3306");
-        dataSource.addDataSourceProperty("serverName", "127.0.0.1");
-        dataSource.addDataSourceProperty("user", "root");
-        dataSource.addDataSourceProperty("password", "");
-        return dataSource;
-    }
     
     @Bean
     public HibernateTransactionManager transactionManager() {
