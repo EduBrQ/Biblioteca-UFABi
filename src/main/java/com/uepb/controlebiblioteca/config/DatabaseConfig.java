@@ -4,6 +4,7 @@ import com.uepb.controlebiblioteca.model.Aluno;
 import com.uepb.controlebiblioteca.model.AnaisCongresso;
 import com.uepb.controlebiblioteca.model.AppUser;
 import com.uepb.controlebiblioteca.model.Curso;
+import com.uepb.controlebiblioteca.model.Emprestimo;
 import com.uepb.controlebiblioteca.model.Funcionario;
 import com.uepb.controlebiblioteca.model.Livro;
 import com.uepb.controlebiblioteca.model.MidiasEletronicas;
@@ -34,29 +35,29 @@ public class DatabaseConfig {
 
 
     
-    @Bean(name = "DataSource")
-    public DataSource getDataSource() {
-        HikariDataSource ds = new HikariDataSource();
-        ds.setMaximumPoolSize(100);
-        ds.setMinimumIdle(30);
-        ds.setDriverClassName("org.h2.Driver");
-        ds.setJdbcUrl("jdbc:h2:mem:test");
-        ds.setUsername("root");
-        ds.setPassword("root");
-        return ds;
-    }
-    
 //    @Bean(name = "DataSource")
-//    public HikariDataSource getDataSource(){
-//        HikariDataSource dataSource = new HikariDataSource();
-//        dataSource.setDataSourceClassName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource");
-//        dataSource.addDataSourceProperty("databaseName", "controle_biblioteca");
-//        dataSource.addDataSourceProperty("portNumber", "3306");
-//        dataSource.addDataSourceProperty("serverName", "127.0.0.1");
-//        dataSource.addDataSourceProperty("user", "root");
-//        dataSource.addDataSourceProperty("password", "");
-//        return dataSource;
+//    public DataSource getDataSource() {
+//        HikariDataSource ds = new HikariDataSource();
+//        ds.setMaximumPoolSize(100);
+//        ds.setMinimumIdle(30);
+//        ds.setDriverClassName("org.h2.Driver");
+//        ds.setJdbcUrl("jdbc:h2:mem:test");
+//        ds.setUsername("root");
+//        ds.setPassword("root");
+//        return ds;
 //    }
+    
+    @Bean(name = "DataSource")
+    public HikariDataSource getDataSource(){
+        HikariDataSource dataSource = new HikariDataSource();
+        dataSource.setDataSourceClassName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource");
+        dataSource.addDataSourceProperty("databaseName", "controle_biblioteca");
+        dataSource.addDataSourceProperty("portNumber", "3306");
+        dataSource.addDataSourceProperty("serverName", "127.0.0.1");
+        dataSource.addDataSourceProperty("user", "root");
+        dataSource.addDataSourceProperty("password", "");
+        return dataSource;
+    }
     
     @Bean
     public HibernateTransactionManager transactionManager() {
@@ -79,7 +80,8 @@ public class DatabaseConfig {
                 Revista.class,
                 TrabalhosConclusao.class,
                 Livro.class,
-                Funcionario.class
+                Funcionario.class,
+                Emprestimo.class
         );
 
         Properties properties = new Properties();

@@ -1,12 +1,17 @@
 package com.uepb.controlebiblioteca.model;
 
 import java.io.Serializable;
+import java.util.List;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,29 +23,19 @@ public class Emprestimo implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column
-	private String aluno_id;
-	
-	public int getId() {
-		return id;
-	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
+	@ManyToOne
+	@JoinColumn(name = "aluno_id", nullable = false)
+	private Aluno aluno;
 
-	public String getAluno_id() {
-		return aluno_id;
-	}
+	@ManyToMany(cascade = { CascadeType.ALL })
+	@JoinTable(name = "itens_emprestimo", joinColumns = { @JoinColumn(name = "emprestimo_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "item_id") })
+	List<ItemAcervo> projects;
 
-	public void setAluno_id(String aluno_id) {
-		this.aluno_id = aluno_id;
-	}
-	public boolean verificaPendencia() { //n implementado
+	public boolean verificaPendencia() { // n implementado
 		return false;
-		
+
 	}
-	
 
 }

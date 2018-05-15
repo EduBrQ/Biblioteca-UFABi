@@ -2,6 +2,7 @@ package com.uepb.controlebiblioteca.model;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -26,27 +28,6 @@ public class Aluno implements Serializable {
 		this.id = id;
 		this.nomeCompleto = nomeCompleto;
 		this.telefone = telefone;
-	}
-
-	public String getStrAno() {
-		return ano.toString().substring(2, 4); // verificar
-	}
-
-	public String getIdAlunoStr() {
-		if (this.getId() >= 0 && this.getId() < 10) {
-			return "00" + this.getId();
-		} else if (this.getId() > 9 && this.getId() < 100) {
-			return "0" + this.getId();
-		} else {
-			return this.getId() + "";
-		}
-	}
-
-	public void gerarMatricula() {
-		this.matricula = this.curso.getLetraNivel() + 
-				this.curso.getSigla() + "-" + 
-				("" + this.ano).substring(2, 4)
-				+ this.periodo + getIdAlunoStr();
 	}
 
 	@Id
@@ -91,6 +72,25 @@ public class Aluno implements Serializable {
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private Curso curso;
+
+	@OneToMany(mappedBy = "aluno")
+	private List<Emprestimo> emprestimos;
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+
+	public List<Emprestimo> getEmprestimos() {
+		return emprestimos;
+	}
+
+	public void setEmprestimos(List<Emprestimo> emprestimos) {
+		this.emprestimos = emprestimos;
+	}
 
 	public Date getAno() {
 		return ano;
@@ -195,4 +195,24 @@ public class Aluno implements Serializable {
 	public void setNaturalidade(String naturalidade) {
 		this.naturalidade = naturalidade;
 	}
+
+	public String getStrAno() {
+		return ano.toString().substring(2, 4); // verificar
+	}
+
+	public String getIdAlunoStr() {
+		if (this.getId() >= 0 && this.getId() < 10) {
+			return "00" + this.getId();
+		} else if (this.getId() > 9 && this.getId() < 100) {
+			return "0" + this.getId();
+		} else {
+			return this.getId() + "";
+		}
+	}
+
+	public void gerarMatricula() {
+		this.matricula = this.curso.getLetraNivel() + this.curso.getSigla() + "-" + ("" + this.ano).substring(2, 4)
+				+ this.periodo + getIdAlunoStr();
+	}
+
 }
