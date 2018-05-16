@@ -40,6 +40,12 @@
 										modelAttribute="livro">
 										<form:hidden path="id" />
 										<div class="form-group">
+											<label class="form-label">Título</label>
+											<div class="controls">
+												<form:input class="form-control" path="titulo" />
+											</div>
+										</div>
+										<div class="form-group">
 											<label class="form-label">IBS</label>
 											<div class="controls">
 												<form:input class="form-control" path="ibs" />

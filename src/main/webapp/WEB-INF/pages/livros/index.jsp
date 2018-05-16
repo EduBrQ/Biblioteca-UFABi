@@ -46,12 +46,9 @@
 								<table class="table table-hover table-condensed" id="example">
 									<thead>
 										<tr>
-											<th>ID</th>
+											<th>Titulo</th>
 											<th>Área do Conhecimento</th>
 											<th>Edição</th>
-											<th>Editora</th>
-											<th>IBS</th>
-											<th>N° de Páginas</th>
 											<th>Tema</th>
 											<th>Ações</th>
 										</tr>
@@ -59,12 +56,9 @@
 									<tbody>
 										<c:forEach var="livro" items="${listLivro}">
 											<tr>
-												<td>${livro.id}</td>
+												<td>${livro.titulo}</td>
 												<td>${livro.areaConhecimento}</td>
 												<td>${livro.edicao}</td>
-												<td>${livro.editora}</td>
-												<td>${livro.ibs}</td>
-												<td>${livro.numPaginas}</td>
 												<td>${livro.tema}</td>
 												<td><a href="editLivro?id=${livro.id}">Edit</a>
 													&nbsp;&nbsp;&nbsp;&nbsp; <a

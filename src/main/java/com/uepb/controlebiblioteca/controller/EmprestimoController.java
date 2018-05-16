@@ -13,8 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.uepb.controlebiblioteca.model.Aluno;
+import com.uepb.controlebiblioteca.model.AnaisCongresso;
 import com.uepb.controlebiblioteca.model.Emprestimo;
 import com.uepb.controlebiblioteca.model.Livro;
+import com.uepb.controlebiblioteca.model.MidiasEletronicas;
+import com.uepb.controlebiblioteca.model.Revista;
+import com.uepb.controlebiblioteca.model.TrabalhosConclusao;
+import com.uepb.controlebiblioteca.service.AlunoService;
 import com.uepb.controlebiblioteca.service.AnaisCongressoService;
 import com.uepb.controlebiblioteca.service.EmprestimoService;
 import com.uepb.controlebiblioteca.service.LivroService;
@@ -31,7 +37,9 @@ public class EmprestimoController {
 	public EmprestimoController() {
 		System.out.println("EmprestimoController()");
 	}
-
+	
+	@Autowired
+	private AlunoService alunosService;
 	
 	@Autowired
 	private EmprestimoService emprestimoService;
@@ -46,10 +54,10 @@ public class EmprestimoController {
 	private RevistaService revistaService;
 	
 	@Autowired
-	private MidiasEletronicasService eletronicasService;
+	private MidiasEletronicasService midiasEletronicasService;
 	
 	@Autowired
-	private TrabalhosConclusaoService conclusaoService;
+	private TrabalhosConclusaoService trabalhosConclusaoService;
 
 	@RequestMapping(value = "/emprestimos")
 	public ModelAndView listEmprestimo(ModelAndView model, Principal principal) throws IOException {
@@ -62,10 +70,23 @@ public class EmprestimoController {
 	@RequestMapping(value = "/newEmprestimo", method = RequestMethod.GET)
 	public ModelAndView newContact(ModelAndView model, Principal principal) {
 		List<Livro> livros = livroService.getAllLivros();
+		List<Revista> revistas = revistaService.getAllRevistas();
+		List<TrabalhosConclusao> trabalhosConclusao = trabalhosConclusaoService.getAllTrabalhosConclusaos();
+		List<AnaisCongresso> anaisCongresso = anaisCongressoService.getAllAnaisCongressos();
+		List<MidiasEletronicas> midiasEletronicas = midiasEletronicasService.getAllMidiasEletronicass();
+		
+		List<Aluno> alunos = alunosService.getAllAlunos();
+		
 		Emprestimo emprestimo = new Emprestimo();
 		model = principal.userDetail(model, "emprestimos/form");
+		
+		model.addObject("alunos", alunos);
 		model.addObject("emprestimo", emprestimo);
 		model.addObject("livros", livros);
+		model.addObject("revistas", revistas);
+		model.addObject("trabalhosConclusao", trabalhosConclusao);
+		model.addObject("anaisCongresso", anaisCongresso);
+		model.addObject("midiasEletronicas", midiasEletronicas);
 		return model;
 	}
 

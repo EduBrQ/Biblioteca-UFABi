@@ -5,6 +5,18 @@
 <head>
 <jsp:include page="../template/header.jsp" />
 </head>
+<style>
+#mainselection {
+	overflow: hidden;
+	width: 350px;
+	-moz-border-radius: 9px 9px 9px 9px;
+	-webkit-border-radius: 9px 9px 9px 9px;
+	border-radius: 9px 9px 9px 9px;
+	box-shadow: 1px 1px 11px #330033;
+	background: #58B14C url("http://i62.tinypic.com/15xvbd5.png") no-repeat
+		scroll 319px center;
+}
+</style>
 <body>
 	<jsp:include page="../template/topnavbar.jsp" />
 
@@ -44,95 +56,117 @@
 									<div class="col-md-6 col-sm-6 col-xs-6">
 										<form:hidden path="id" />
 
-										<div class="form-group">
-											<label class="form-label">Nome Completo</label>
-											<div class="controls">
-												<form:input class="form-control" path="nomeCompleto" />
-											</div>
+
+
+										<div id="mainselection" class="form-group">
+											<select style="width: 100%" class="select2-container"
+													name="itemEmprestimo_id" id="itemEmprestimo">
+													<option value="">-- Item de Emprestimo --</option>
+													<option value="livro">Livro</option>
+													<option value="revista">Revista</option>
+													<option value="analCongresso">Anal de Congresso</option>
+													<option value="midiaEletronica">Mídia Eletrônica</option>
+													<option value="trabalhoConclusao">Trabalho de
+														Conclusão</option>
+												</select>
+											</select>
 										</div>
-
-										<div class="form-group">
-											<label class="form-label">Telefone</label>
-											<div class="controls">
-												<form:input class="form-control" path="telefone" />
-											</div>
+										
+										<div id="mainselection" class="form-group">
+											<select style="width: 100%" class="select2-container"
+												name="aluno_id" id="aluno">
+												<option style="font: bold" value="">-- Selecione o Aluno --</option>
+												<c:forEach items="${alunos}" var="livro">
+													<option value="${aluno.id}"><c:out
+															value="${aluno.nomeCompleto}"></c:out>
+													</option>
+												</c:forEach>
+											</select>
 										</div>
-
-										<div class="form-group">
-											<label class="form-label">Endereço</label>
+										<%-- <div class="form-group">
+											<label class="form-label">Aluno</label>
 											<div class="controls">
-												<form:input class="form-control" path="endereco" />
+												<select style="width: 100%" class="select2-container"
+													name="aluno_id" id="aluno">
+													<option value="">** Selecione o Aluno **</option>
+													<c:forEach items="${alunos}" var="livro">
+														<option value="${aluno.id}"><c:out
+																value="${aluno.nomeCompleto}"></c:out>
+														</option>
+													</c:forEach>
+												</select>
 											</div>
-										</div>
-
-
-										<div class="form-group">
-											<label class="form-label">Cpf</label>
-											<div class="controls">
-												<form:input class="form-control" path="cpf" />
-											</div>
-										</div>
-
-										<div class="form-group">
-											<label class="form-label">Rg</label>
-											<div class="controls">
-												<form:input class="form-control" path="rg" />
-											</div>
-										</div>
-
-										<div class="form-group">
-											<label class="form-label">Naturalidade</label>
-											<div class="controls">
-												<form:input class="form-control" path="naturalidade" />
-											</div>
-										</div>
-
-									</div>
-
-									<div class="col-md-6 col-sm-6 col-xs-6">
-										<div class="form-group">
-											<label class="form-label">Nome da Mãe</label>
-											<div class="controls">
-												<form:input class="form-control" path="nomeMae" />
-											</div>
-										</div>
-
-										<div class="form-group">
-											<label class="form-label">Nome do Pai</label>
-											<div class="controls">
-												<form:input class="form-control" path="nomePai" />
-											</div>
-										</div>
-
-										<div class="form-group">
-											<label class="form-label">Ano</label>
-											<div class="controls">
-												<form:input class="form-control" path="ano" />
-											</div>
-										</div>
-
-										<div class="form-group">
-											<label class="form-label">Periodo</label>
-											<div class="controls">
-												<form:input class="form-control" path="periodo" />
-											</div>
-										</div>
-
-										<div class="form-group">
-											<label class="form-label">Senha</label>
-											<div class="controls">
-												<form:input class="form-control" path="senha" />
-											</div>
-										</div>
+										</div> --%>
 
 										<div class="form-group">
 											<label class="form-label">Livro</label>
 											<div class="controls">
-												<select style="width: 100%" class="select2-container" name="livro_id"  id="source">
+												<select style="width: 100%" class="select2-container"
+													name="livro_id" id="livro">
 													<option value="">** Selecione o Livro **</option>
 													<c:forEach items="${livros}" var="livro">
 														<option value="${livro.id}"><c:out
-																value="${livro.nome}"></c:out>
+																value="${livro.titulo}"></c:out>
+														</option>
+													</c:forEach>
+												</select>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="form-label">Revista</label>
+											<div class="controls">
+												<select style="width: 100%" class="select2-container"
+													name="revista_id" id="revista">
+													<option value="">** Selecione a Revista **</option>
+													<c:forEach items="${revistas}" var="livro">
+														<option value="${revista.id}"><c:out
+																value="${revista.nome}"></c:out>
+														</option>
+													</c:forEach>
+												</select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="form-label">Trabalhos de Conclusão</label>
+											<div class="controls">
+												<select style="width: 100%" class="select2-container"
+													name="trabalhoConclusao_id" id="trabalhoConclusao">
+													<option value="">** Selecione o Trabalho de
+														Conclusão **</option>
+													<c:forEach items="${trabalhosConclusao}" var="livro">
+														<option value="${trabalhoConclusao.id}"><c:out
+																value="${trabalhoConclusao.nome}"></c:out>
+														</option>
+													</c:forEach>
+												</select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="form-label">Anais de Congresso</label>
+											<div class="controls">
+												<select style="width: 100%" class="select2-container"
+													name="analCongresso_id" id="analCongresso">
+													<option value="">** Selecione o Anal de Congresso
+														**</option>
+													<c:forEach items="${anaisCongresso}" var="livro">
+														<option value="${analCongresso.id}"><c:out
+																value="${analCongresso.nome}"></c:out>
+														</option>
+													</c:forEach>
+												</select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="form-label">Mídias Eletrônicas</label>
+											<div class="controls">
+												<select style="width: 100%" class="select2-container"
+													name="midiaEletronica_id" id="midiaEletronica">
+													<option value="">** Selecione a Mídia Eletrônica
+														**</option>
+													<c:forEach items="${midiasEletronicas}" var="livro">
+														<option value="${midiaEletronicas.id}"><c:out
+																value="${midiaEletronicas.nome}"></c:out>
 														</option>
 													</c:forEach>
 												</select>

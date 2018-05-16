@@ -64,6 +64,11 @@
 			<li><a href="/ControleBiblioteca/funcionarios"> <i class="material-icons">panorama_horizontal</i>
 					<span class="title">Funcionários</span> <span
 					class="label label-important bubble-only pull-right "></span>
+			</a>
+			</li>
+					<li><a href="/ControleBiblioteca/emprestimos"> <i class="material-icons">panorama_horizontal</i>
+					<span class="title">Empréstimos</span> <span
+					class="label label-important bubble-only pull-right "></span>
 			</a></li>
 		</ul>
 

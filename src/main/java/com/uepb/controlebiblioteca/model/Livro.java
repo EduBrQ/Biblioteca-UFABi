@@ -30,6 +30,17 @@ public class Livro implements Serializable {
 	private String ibs; //  Variavel string ibs do livro.
 
 	@Column
+	private String titulo; // Variavel string editora do livro.
+	
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	@Column
 	private String editora; // Variavel string editora do livro.
 
 	@Column
@@ -41,15 +52,12 @@ public class Livro implements Serializable {
 	@Column
 	private String areaConhecimento; // Variavel string area de conhecimento do livro.
 	
-	@Column
-<<<<<<< HEAD
-	private String tema;
 	
 	@OneToMany(mappedBy = "aluno")
 	private List<Emprestimo> emprestimos;
-=======
+
 	private String tema; // Variavel string tema do livro.
->>>>>>> d798c7c1d4a0418508ca923720a2609b1fb57175
+
 
 	public int getId() {
 		return id;
