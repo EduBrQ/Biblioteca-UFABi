@@ -11,6 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * Livro representa os itens do tipo Livro que poderão ser cadastrados no sistema.
+ * @author Eduardo Borba
+ *
+ */
 @Entity
 @Table(name = "LIVROS")
 public class Livro implements Serializable {
@@ -19,28 +24,32 @@ public class Livro implements Serializable {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int id; // Variavel inteira id do livro, gerando automaticamente.
 	
 	@Column
-	private String ibs;
+	private String ibs; //  Variavel string ibs do livro.
 
 	@Column
-	private String editora;
+	private String editora; // Variavel string editora do livro.
 
 	@Column
-	private int edicao;
+	private int edicao; // Variavel inteira edicao do livro.
 	
 	@Column
-	private int numPaginas;
+	private int numPaginas; // Variavel inteira número de páginas do livro.
 
 	@Column
-	private String areaConhecimento;
+	private String areaConhecimento; // Variavel string area de conhecimento do livro.
 	
 	@Column
+<<<<<<< HEAD
 	private String tema;
 	
 	@OneToMany(mappedBy = "aluno")
 	private List<Emprestimo> emprestimos;
+=======
+	private String tema; // Variavel string tema do livro.
+>>>>>>> d798c7c1d4a0418508ca923720a2609b1fb57175
 
 	public int getId() {
 		return id;

@@ -8,7 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+/**
+ * Funcionarios representa qualquer usuario do tipo funcionario cadastrado no sistema.
+ * @author Eduardo Borba
+ *
+ */
 @Entity
 @Table(name = "FUNCIONARIOS")
 public class Funcionario implements Serializable {
@@ -17,28 +21,28 @@ public class Funcionario implements Serializable {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int id; // id unico do funcionario
 	
 	@Column
-	private String nome;
+	private String nome; // nome do funcionario
 
 	@Column
-	private String senha;
+	private String senha; // senha do funcionario
+
+	@Column(nullable = false, unique = true)
+	private String cpf; // cpf do funcionario, unico e não nulo.
+	
+	@Column
+	private String naturalidade; // naturalidade do funcionario
 
 	@Column
-	private String cpf;
+	private String endereco; //  endereço do funcionario
 	
-	@Column
-	private String naturalidade;
-
-	@Column
-	private String endereco;
+	@Column(unique = true)
+	private String telefone; // telefone do funcionario, único.
 	
-	@Column
-	private String telefone;
-	
-	@Column
-	private String email;
+	@Column(unique = true)
+	private String email; // email do funcionario, único
 	
 	public int getId() {
 		return id;

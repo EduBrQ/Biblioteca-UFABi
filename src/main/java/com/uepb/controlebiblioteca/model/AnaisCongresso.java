@@ -11,22 +11,27 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "ANAIS_CONGRESSO")
+/**
+ * AnaisCongresso representa .
+ * @author Eduardo Borba
+ *
+ */
 public class AnaisCongresso implements Serializable {
 
 	private static final long serialVersionUID = 2L;
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int id; // Variável inteira de id de um item anaisCongresso, é gerada automaticamente.
 	
 	@Column
-	private String tipo;
+	private String tipo; // Variável String referente ao tipo de anaisCongresso.
 
 	@Column
-	private String nomeCongresso;
+	private String nomeCongresso; // Variável String referente ao nome desse anaisCongresso.
 
 	@Column
-	private String local;
+	private String local; // Variável String referente ao local de origem desse anaisCongresso.
 	
 	
 	
@@ -34,6 +39,13 @@ public class AnaisCongresso implements Serializable {
 		
 	}
 
+	/**
+	 * Constroi e inicializa um AnalCongresso com os atributos - id, tipo, nomeCongresso, local.
+	 * @param id
+	 * @param tipo
+	 * @param nomeCongresso
+	 * @param local
+	 */
 	public AnaisCongresso(int id, String tipo, String nomeCongresso, String local) {
 		this.id = id;
 		this.tipo = tipo;

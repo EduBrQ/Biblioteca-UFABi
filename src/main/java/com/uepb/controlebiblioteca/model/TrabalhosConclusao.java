@@ -9,6 +9,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * TrabalhosConclusao representa a estrutura do objeto trabalho de conclusao 
+ * que poderá ser manipulada no sistema por um usuario com autorização.
+ * @author Eduardo Borba
+ *
+ */
 @Entity
 @Table(name = "TRABALHOS_CONCLUSAO")
 public class TrabalhosConclusao implements Serializable {
@@ -17,10 +23,10 @@ public class TrabalhosConclusao implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int id; // variavel inteira id do trabalho de conclusao.
 	
 	@Column
-	private String tipo;
+	private String tipo;  // variavel string tipo do trabalho de conclusao.
 
 	@Column
 	private String local;

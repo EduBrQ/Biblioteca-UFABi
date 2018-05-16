@@ -9,6 +9,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Revistas representa a estrutura do objeto revista 
+ * que poderá ser manipulada no sistema por um usuario com autorização.
+ * @author Eduardo Borba
+ *
+ */
 @Entity
 @Table(name = "REVISTAS")
 public class Revista implements Serializable {
@@ -17,16 +23,16 @@ public class Revista implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int id; // variavel inteira id da revista.
 	
 	@Column
-	private String editora;
+	private String editora; // variavel string da editora da revista.
 
 	@Column
-	private int edicao;
+	private int edicao;// variavel inteira da edicao da revista.
 	
 	@Column
-	private int numPaginas;
+	private int numPaginas;// variavel inteira do numero de paginas da revista.
 
 	public int getId() {
 		return id;
