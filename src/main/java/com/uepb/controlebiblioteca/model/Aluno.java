@@ -2,7 +2,6 @@ package com.uepb.controlebiblioteca.model;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,12 +9,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "ALUNOS")
+
+/**
+ * Aluno representa qualquer usuario do tipo aluno que realize cadastro no sistema.
+ * @author Eduardo Borba
+ *
+ */
 public class Aluno implements Serializable {
 
 	private static final long serialVersionUID = -3465813074586302847L;
@@ -23,6 +27,13 @@ public class Aluno implements Serializable {
 	public Aluno() {
 
 	}
+	
+	/**
+	 * Constroi e inicializa um Aluno com os atributos - id, nomeCompleto, telefone.
+	 * @param id
+	 * @param nomeCompleto
+	 * @param telefone
+	 */
 
 	public Aluno(int id, String nomeCompleto, String telefone) {
 		this.id = id;
@@ -30,67 +41,80 @@ public class Aluno implements Serializable {
 		this.telefone = telefone;
 	}
 
+	/**
+	 * 
+	 * Este metodo retorna os dois ultimos digitos do ano de nascimento do usuario
+	 */
+	public String getStrAno() {
+		return ano.toString().substring(2, 4); // verificar
+	}
+	
+	/**
+	 * 
+	 * Este metodo retorna o id do aluno formatado para montar a matricula
+	 */
+	public String getIdAlunoStr() {
+		if (this.getId() >= 0 && this.getId() < 10) {
+			return "00" + this.getId();
+		} else if (this.getId() > 9 && this.getId() < 100) {
+			return "0" + this.getId();
+		} else {
+			return this.getId() + "";
+		}
+	}
+	
+	/**
+	 * Este metodo gera o código de matricula do aluno no formato determinado
+	 */
+	public void gerarMatricula() {
+		this.matricula = this.curso.getLetraNivel() + 
+				this.curso.getSigla() + "-" + 
+				("" + this.ano).substring(2, 4)
+				+ this.periodo + getIdAlunoStr();
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int id;  // Variável inteira de id de aluno, é gerada automaticamente.
 
 	@Column
-	private String nomeCompleto;
+	private String nomeCompleto; // Variável String onde será atribuido o nome completo do aluno.
 
 	@Column
-	private String telefone;
+	private String telefone; // Variável String onde será atribuida o telefone do aluno.
 
 	@Column
-	private String endereco;
+	private String endereco; // Variável String onde será atribuido o endereço do aluno.
 
 	@Column
-	private String cpf;
+	private String cpf; // Variável String onde será atribuido o cpf do aluno.
 
 	@Column
-	private String rg;
+	private String rg; // Variável String onde será atribuido o rg do aluno.
 
 	@Column
-	private String nomeMae;
+	private String nomeMae; // Variável String onde será atribuido nome da mãe do aluno
 
 	@Column
-	private String nomePai;
+	private String nomePai; // Variável String onde será atribuido nome do pai do aluno
 
 	@Column
-	private String naturalidade;
+	private String naturalidade; // Variável String onde será atribuida a naturalidade do aluno
 
 	@Column
-	private Date ano;
+	private Date ano; // Variável Date onde será atribuido o ano de nascimento do aluno.
 
 	@Column
-	private String periodo;
+	private String periodo; // Variável String onde será atribuido o periodo atual do curso do aluno
 
 	@Column
-	private String senha;
+	private String senha; // Variável String onde será atribuida a senha de acesso do aluno
 
 	@Column
-	private String matricula;
+	private String matricula; // Variável String onde será atribuida a matricula do aluno pelo metodo gerarMatricula.
 
-	@OneToOne(cascade = CascadeType.ALL)
-	private Curso curso;
-
-	@OneToMany(mappedBy = "aluno")
-	private List<Emprestimo> emprestimos;
-
-	public Curso getCurso() {
-		return curso;
-	}
-
-	public void setCurso(Curso curso) {
-		this.curso = curso;
-	}
-
-	public List<Emprestimo> getEmprestimos() {
-		return emprestimos;
-	}
-
-	public void setEmprestimos(List<Emprestimo> emprestimos) {
-		this.emprestimos = emprestimos;
-	}
+	@OneToOne(cascade = CascadeType.ALL) 
+	private Curso curso; // Define a variavel curso ligada a aluno como cascade, caso o curso seja deletado, o aluno também será.
 
 	public Date getAno() {
 		return ano;
@@ -195,24 +219,4 @@ public class Aluno implements Serializable {
 	public void setNaturalidade(String naturalidade) {
 		this.naturalidade = naturalidade;
 	}
-
-	public String getStrAno() {
-		return ano.toString().substring(2, 4); // verificar
-	}
-
-	public String getIdAlunoStr() {
-		if (this.getId() >= 0 && this.getId() < 10) {
-			return "00" + this.getId();
-		} else if (this.getId() > 9 && this.getId() < 100) {
-			return "0" + this.getId();
-		} else {
-			return this.getId() + "";
-		}
-	}
-
-	public void gerarMatricula() {
-		this.matricula = this.curso.getLetraNivel() + this.curso.getSigla() + "-" + ("" + this.ano).substring(2, 4)
-				+ this.periodo + getIdAlunoStr();
-	}
-
 }

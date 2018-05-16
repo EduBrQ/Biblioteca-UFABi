@@ -1,19 +1,19 @@
 package com.uepb.controlebiblioteca.model;
 
 import java.io.Serializable;
-import java.util.List;
 
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * Emprestimo representa ...
+ * @author Eduardo Borba
+ *
+ */
 @Entity
 @Table(name = "EMPRESTIMOS")
 public class Emprestimo implements Serializable {
@@ -22,20 +22,30 @@ public class Emprestimo implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-
-	@ManyToOne
-	@JoinColumn(name = "aluno_id", nullable = false)
-	private Aluno aluno;
-
-	@ManyToMany(cascade = { CascadeType.ALL })
-	@JoinTable(name = "itens_emprestimo", joinColumns = { @JoinColumn(name = "emprestimo_id") }, inverseJoinColumns = {
-			@JoinColumn(name = "item_id") })
-	List<ItemAcervo> projects;
-
-	public boolean verificaPendencia() { // n implementado
-		return false;
-
+	private int id; // variavel inteira id de emprestimo.
+	
+	@Column
+	private int aluno_id; // id do aluno que realizou o emprestimo.
+	
+	public int getId() {
+		return id;
 	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getAluno_id() {
+		return aluno_id;
+	}
+
+	public void setAluno_id(int aluno_id) {
+		this.aluno_id = aluno_id;
+	}
+	public boolean verificaPendencia() { //n implementado - Bolleano para marcar se o emprestimo com entrega pendente.
+		return false;
+		
+	}
+	
 
 }

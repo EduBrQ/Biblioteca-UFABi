@@ -9,33 +9,38 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Livro representa os itens do tipo Livro que poderão ser cadastrados no sistema.
+ * @author Eduardo Borba
+ *
+ */
 @Entity
 @Table(name = "LIVROS")
-public class Livro implements Serializable, ItemAcervo {
+public class Livro implements Serializable {
 
 	private static final long serialVersionUID = -3465813074586302847L;
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int id; // Variavel inteira id do livro, gerando automaticamente.
 	
 	@Column
-	private String ibs;
+	private String ibs; //  Variavel string ibs do livro.
 
 	@Column
-	private String editora;
+	private String editora; // Variavel string editora do livro.
 
 	@Column
-	private int edicao;
+	private int edicao; // Variavel inteira edicao do livro.
 	
 	@Column
-	private int numPaginas;
+	private int numPaginas; // Variavel inteira número de páginas do livro.
 
 	@Column
-	private String areaConhecimento;
+	private String areaConhecimento; // Variavel string area de conhecimento do livro.
 	
 	@Column
-	private String tema;
+	private String tema; // Variavel string tema do livro.
 
 	public int getId() {
 		return id;

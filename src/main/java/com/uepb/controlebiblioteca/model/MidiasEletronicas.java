@@ -9,6 +9,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * MidiasEletronicas representa uma generalizacao dos diferentes
+ * tipos de midias eletronicas, a variavel 'tipo' define essa caracteristica.
+ * @author Eduardo Borba
+ *
+ */
 @Entity
 @Table(name = "MIDIAS_ELETRONICAS")
 public class MidiasEletronicas implements Serializable {
@@ -17,16 +23,16 @@ public class MidiasEletronicas implements Serializable {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int id; // variavel inteira id da midia eletronica, gerado automaticamente.
 	
 	@Column
-	private String tipo;
+	private String tipo; // variavel string do tipo da midia eletronica, DVD, CD, etc.
 
 	@Column
-	private String titulo;
+	private String titulo; // variavel string do titulo da midia eletronica.
 
 	@Column
-	private Date dataGravacao;
+	private Date dataGravacao; // variavel Date da midia eletronica, diz respeito a data em que a midia foi gravada.  
 	
 	public int getId() {
 		return id;
