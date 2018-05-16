@@ -1,17 +1,19 @@
 package com.uepb.controlebiblioteca.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "LIVROS")
-public class Livro implements Serializable, ItemAcervo {
+public class Livro implements Serializable {
 
 	private static final long serialVersionUID = -3465813074586302847L;
 
@@ -36,6 +38,9 @@ public class Livro implements Serializable, ItemAcervo {
 	
 	@Column
 	private String tema;
+	
+	@OneToMany(mappedBy = "aluno")
+	private List<Emprestimo> emprestimos;
 
 	public int getId() {
 		return id;
