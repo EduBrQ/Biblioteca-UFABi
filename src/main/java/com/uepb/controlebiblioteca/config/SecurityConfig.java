@@ -14,7 +14,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.uepb.controlebiblioteca.service.impl.UserDetailsServiceImpl;
 
-
+/**
+ * SecurityConfig representa os metodos de segurança web e sua configuração.
+ * @author Eduardo Borba
+ *
+ */
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -28,11 +32,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
 	}
-
+	/**
+	 * Nesse método definimos as pastas que quisermos ignorar ...
+	 */
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring().antMatchers("/resources/**");
 	}
 
+	/**
+	 * Nesse método definimos as rotas "/signup" e "/login" como permitidas para todos os niveis de acesso.
+	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/signup").permitAll().and().authorizeRequests().anyRequest()

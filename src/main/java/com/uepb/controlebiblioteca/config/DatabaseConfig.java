@@ -23,7 +23,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-
+/**
+ * DatabaseConfig representa as configuracoes de banco de dados do sistema
+ * @author Eduardo Borba
+ *
+ */
 @Configuration
 @EnableTransactionManagement
 public class DatabaseConfig {
@@ -46,7 +50,10 @@ public class DatabaseConfig {
 //        ds.setPassword("root");
 //        return ds;
 //    }
-    
+    /**
+     * Metodo que retorna os parametros para configurar a fonte de dados
+     * @return dataSource
+     */
     @Bean(name = "DataSource")
     public HikariDataSource getDataSource(){
         HikariDataSource dataSource = new HikariDataSource();
@@ -58,19 +65,29 @@ public class DatabaseConfig {
         dataSource.addDataSourceProperty("password", "");
         return dataSource;
     }
-    
+    /**
+     * Metodo de implementação para uma única SessionFactory do Hibernate. 
+     * Vincula uma Sessão do Hibernate da factory especificada, 
+     * permitindo potencialmente uma Session por factory.
+     * 
+     */
     @Bean
     public HibernateTransactionManager transactionManager() {
         HibernateTransactionManager manager = new HibernateTransactionManager();
         manager.setSessionFactory(hibernate5SessionFactoryBean().getObject());
         return manager;
     }
-
+    
+    /**
+     * é uma FactoryBean <SessionFactory>. 
+     * Cria uma instância SessionFactory local.
+     * Especifica as classes de entidade anotadas para registrar com essa SessionFactory do Hibernate.
+     */
     @Bean
     public LocalSessionFactoryBean hibernate5SessionFactoryBean(){
         LocalSessionFactoryBean localSessionFactoryBean = new LocalSessionFactoryBean();
         localSessionFactoryBean.setDataSource((DataSource) appContext.getBean("DataSource"));
-        localSessionFactoryBean.setAnnotatedClasses(
+        localSessionFactoryBean.setAnnotatedClasses( // Especifica as classes de entidade anotadas para registrar com esta SessionFactory do Hibernate.
                 AppUser.class,
                 UserRole.class,
                 Aluno.class,
@@ -83,12 +100,16 @@ public class DatabaseConfig {
                 Funcionario.class,
                 Emprestimo.class
         );
-
+        
+        /**
+         * Define as propriedades de conversação entre o hibernate e uma fonte de dados.
+         * 
+         */
         Properties properties = new Properties();
         properties.put("hibernate.dialect","org.hibernate.dialect.MySQLDialect");
         properties.put("hibernate.hbm2ddl.auto","update");
         properties.put("hibernate.show_sql","true");
-
+        
         localSessionFactoryBean.setHibernateProperties(properties);
         return localSessionFactoryBean;
     }
