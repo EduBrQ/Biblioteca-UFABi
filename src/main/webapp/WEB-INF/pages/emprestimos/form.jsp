@@ -19,14 +19,14 @@
 						<p>Você está Aqui</p>
 					</li>
 					<li><a href="#">Início</a></li>
-					<li><a href="#">Alunos</a></li>
-					<li><a href="#" class="active">Cadastrar Alunos</a></li>
+					<li><a href="#">Emprestimos</a></li>
+					<li><a href="#" class="active">Cadastrar Emprestimos</a></li>
 				</ul>
 				<div class="page-title">
 					<i class="icon-custom-left"></i>
 					<h3>
 						Controle de Biblioteca - <span class="semi-bold">Cadastrar
-							Alunos</span>
+							Emprestimos</span>
 					</h3>
 
 				</div>
@@ -34,13 +34,13 @@
 				<div class="col-md-12">
 					<div class="grid simple">
 						<div class="grid-title no-border">
-							<h4>Cadastro de Alunos</h4>
+							<h4>Cadastro de Emprestimos</h4>
 						</div>
 						<div class="grid-body no-border">
 							<div class="row">
 
-								<form:form method="POST" action="saveAluno"
-									modelAttribute="aluno">
+								<form:form method="POST" action="saveEmprestimo"
+									modelAttribute="emprestimo">
 									<div class="col-md-6 col-sm-6 col-xs-6">
 										<form:hidden path="id" />
 
@@ -126,13 +126,13 @@
 										</div>
 
 										<div class="form-group">
-											<label class="form-label">Curso</label>
+											<label class="form-label">Livro</label>
 											<div class="controls">
-												<select style="width: 100%" class="select2-container" name="curso_id"  id="source">
-													<option value="">** Selecione o Curso **</option>
-													<c:forEach items="${cursos}" var="curso">
-														<option value="${curso.id}"><c:out
-																value="${curso.nome}"></c:out>
+												<select style="width: 100%" class="select2-container" name="livro_id"  id="source">
+													<option value="">** Selecione o Livro **</option>
+													<c:forEach items="${livros}" var="livro">
+														<option value="${livro.id}"><c:out
+																value="${livro.nome}"></c:out>
 														</option>
 													</c:forEach>
 												</select>

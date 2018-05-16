@@ -21,22 +21,22 @@
 						<p>Você está Aqui</p>
 					</li>
 					<li><a href="#">Início</a></li>
-					<li><a href="#" class="active">Alunos</a></li>
+					<li><a href="#" class="active">Emprestimos</a></li>
 				</ul>
 				<div class="page-title">
 					<i class="icon-custom-left"></i>
 					<h3>
-						Controle de Biblioteca - <span class="semi-bold">Alunos</span>
+						Controle de Biblioteca - <span class="semi-bold">Emprestimos</span>
 					</h3>
-					<a class="btn btn-info float-rigth" href="newAluno">Cadastrar
-						Aluno</a>
+					<a class="btn btn-info float-rigth" href="newEmprestimo">Cadastrar
+						Emprestimo</a>
 				</div>
 
 				<div class="row-fluid">
 					<div class="span12">
 						<div class="grid simple ">
 							<div class="grid-title">
-								<h4>Listagem de Alunos</h4>
+								<h4>Listagem de Emprestimos</h4>
 
 							</div>
 
@@ -57,20 +57,20 @@
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach var="aluno" items="${listAluno}">
+										<c:forEach var="emprestimo" items="${listEmprestimo}">
 											<tr>
-												<td>${aluno.id}</td>
-												<td>${aluno.nomeCompleto}</td>
-												<td>${aluno.telefone}</td>
-												<td>${aluno.endereco}</td>
-												<td>${aluno.cpf}</td>
-												<td>${aluno.rg}</td>
-												<td>${aluno.nomeMae}</td>
-												<td>${aluno.nomePai}</td>
-												<td>${aluno.naturalidade}</td>
-												<td><a href="editAluno?id=${aluno.id}">Edit</a>
+												<td>${emprestimo.id}</td>
+												<td>${emprestimo.nomeCompleto}</td>
+												<td>${emprestimo.telefone}</td>
+												<td>${emprestimo.endereco}</td>
+												<td>${emprestimo.cpf}</td>
+												<td>${emprestimo.rg}</td>
+												<td>${emprestimo.nomeMae}</td>
+												<td>${emprestimo.nomePai}</td>
+												<td>${emprestimo.naturalidade}</td>
+												<td><a href="editEmprestimo?id=${emprestimo.id}">Edit</a>
 													&nbsp;&nbsp;&nbsp;&nbsp; <a
-													href="deleteAluno?id=${aluno.id}">Delete</a></td>
+													href="deleteEmprestimo?id=${emprestimo.id}">Delete</a></td>
 
 											</tr>
 										</c:forEach>
