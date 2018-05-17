@@ -41,7 +41,7 @@ public class Emprestimo implements Serializable {
 	private Aluno aluno;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	private Livro curso;
+	private Livro livro;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private Revista revista;
@@ -67,6 +67,52 @@ public class Emprestimo implements Serializable {
 		return false;
 		
 	}
-	
 
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
+
+	public Livro getLivro() {
+		return livro;
+	}
+
+	public void setLivro(Livro livro) {
+		this.livro = livro;
+	}
+
+	public Revista getRevista() {
+		return revista;
+	}
+
+	public void setRevista(Revista revista) {
+		this.revista = revista;
+	}
+
+	public MidiasEletronicas getMidiaEletronica() {
+		return midiaEletronica;
+	}
+
+	public void setMidiaEletronica(MidiasEletronicas midiaEletronica) {
+		this.midiaEletronica = midiaEletronica;
+	}
+
+	public TrabalhosConclusao getTrabalhosConcusao() {
+		return trabalhosConcusao;
+	}
+
+	public void setTrabalhosConcusao(TrabalhosConclusao trabalhosConcusao) {
+		this.trabalhosConcusao = trabalhosConcusao;
+	}
+
+	public AnaisCongresso getAnaisCongresso() {
+		return anaisCongresso;
+	}
+
+	public void setAnaisCongresso(AnaisCongresso anaisCongresso) {
+		this.anaisCongresso = anaisCongresso;
+	}
 }

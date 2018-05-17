@@ -45,14 +45,8 @@
 									<thead>
 										<tr>
 											<th>ID</th>
-											<th>Nome</th>
-											<th>Telefone</th>
-											<th>Endereço</th>
-											<th>Cpf</th>
-											<th>Rg</th>
-											<th>Pai</th>
-											<th>Mãe</th>
-											<th>Naturalidade</th>
+											<th>Aluno</th>
+											<th>Item</th>
 											<th>Ações</th>
 										</tr>
 									</thead>
@@ -60,14 +54,8 @@
 										<c:forEach var="emprestimo" items="${listEmprestimo}">
 											<tr>
 												<td>${emprestimo.id}</td>
-												<td>${emprestimo.nomeCompleto}</td>
-												<td>${emprestimo.telefone}</td>
-												<td>${emprestimo.endereco}</td>
-												<td>${emprestimo.cpf}</td>
-												<td>${emprestimo.rg}</td>
-												<td>${emprestimo.nomeMae}</td>
-												<td>${emprestimo.nomePai}</td>
-												<td>${emprestimo.naturalidade}</td>
+												<td>${emprestimo.aluno.nomeCompleto}</td>
+												<td>${emprestimo.livro.titulo}</td>
 												<td><a href="editEmprestimo?id=${emprestimo.id}">Edit</a>
 													&nbsp;&nbsp;&nbsp;&nbsp; <a
 													href="deleteEmprestimo?id=${emprestimo.id}">Delete</a></td>

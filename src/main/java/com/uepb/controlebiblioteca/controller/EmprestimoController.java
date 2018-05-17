@@ -116,9 +116,8 @@ public class EmprestimoController {
 		List<TrabalhosConclusao> trabalhosConclusao = trabalhosConclusaoService.getAllTrabalhosConclusaos();
 		List<AnaisCongresso> anaisCongresso = anaisCongressoService.getAllAnaisCongressos();
 		List<MidiasEletronicas> midiasEletronicas = midiasEletronicasService.getAllMidiasEletronicass();
-		
 		List<Aluno> alunos = alunosService.getAllAlunos();
-		
+				
 		Emprestimo emprestimo = new Emprestimo();
 		model = principal.userDetail(model, "emprestimos/form");
 		
@@ -141,7 +140,7 @@ public class EmprestimoController {
 	@RequestMapping(value = "/saveEmprestimo", method = RequestMethod.POST)
 	public ModelAndView saveEmprestimo(@ModelAttribute Emprestimo emprestimo) {
 		if (emprestimo.getId() == 0) { 
-			System.out.println(emprestimo);
+			System.out.println(emprestimo.toString());
 			emprestimoService.addEmprestimo(emprestimo);
 		} else {
 			emprestimoService.updateEmprestimo(emprestimo);

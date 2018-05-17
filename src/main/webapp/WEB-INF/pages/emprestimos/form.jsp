@@ -52,7 +52,7 @@
 												name="aluno_id" id="aluno">
 												<option style="font: bold" value="">-- Selecione o
 													Aluno --</option>
-												<c:forEach items="${alunos}" var="livro">
+												<c:forEach items="${alunos}" var="aluno">
 													<option value="${aluno.id}"><c:out
 															value="${aluno.nomeCompleto}"></c:out>
 													</option>
@@ -97,7 +97,7 @@
 												<select style="width: 100%" class="select2-container"
 													name="revista_id" id="revista">
 													<option value="">** Selecione a Revista **</option>
-													<c:forEach items="${revistas}" var="livro">
+													<c:forEach items="${revistas}" var="revista">
 														<option value="${revista.id}"><c:out
 																value="${revista.editora}"></c:out>
 														</option>
@@ -112,7 +112,7 @@
 													name="trabalhoConclusao_id" id="trabalhoConclusao">
 													<option value="">** Selecione o Trabalho de
 														Conclusão **</option>
-													<c:forEach items="${trabalhosConclusao}" var="livro">
+													<c:forEach items="${trabalhosConclusao}" var="trabalhoConclusao">
 														<option value="${trabalhoConclusao.id}"><c:out
 																value="${trabalhoConclusao.tipo}"></c:out>
 														</option>
@@ -127,7 +127,7 @@
 													name="analCongresso_id" id="analCongresso">
 													<option value="">** Selecione o Anal de Congresso
 														**</option>
-													<c:forEach items="${anaisCongresso}" var="livro">
+													<c:forEach items="${anaisCongresso}" var="analCongresso">
 														<option value="${analCongresso.id}"><c:out
 																value="${analCongresso.nomeCongresso}"></c:out>
 														</option>
@@ -142,9 +142,9 @@
 													name="midiaEletronica_id" id="midiaEletronica">
 													<option value="">** Selecione a Mídia Eletrônica
 														**</option>
-													<c:forEach items="${midiasEletronicas}" var="livro">
-														<option value="${midiaEletronicas.id}"><c:out
-																value="${midiaEletronicas.titulo}"></c:out>
+													<c:forEach items="${midiasEletronicas}" var="midiaEletronica">
+														<option value="${midiaEletronica.id}"><c:out
+																value="${midiaEletronica.titulo}"></c:out>
 														</option>
 													</c:forEach>
 												</select>

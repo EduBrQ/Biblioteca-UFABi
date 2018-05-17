@@ -62,7 +62,7 @@ public class DatabaseConfig {
         dataSource.addDataSourceProperty("portNumber", "3306");
         dataSource.addDataSourceProperty("serverName", "127.0.0.1");
         dataSource.addDataSourceProperty("user", "root");
-        dataSource.addDataSourceProperty("password", "admin");
+        dataSource.addDataSourceProperty("password", "root");
         return dataSource;
     }
     /**
