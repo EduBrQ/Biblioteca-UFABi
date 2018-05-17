@@ -5,18 +5,7 @@
 <head>
 <jsp:include page="../template/header.jsp" />
 </head>
-<style>
-#mainselection {
-	overflow: hidden;
-	width: 350px;
-	-moz-border-radius: 9px 9px 9px 9px;
-	-webkit-border-radius: 9px 9px 9px 9px;
-	border-radius: 9px 9px 9px 9px;
-	box-shadow: 1px 1px 11px #330033;
-	background: #58B14C url("http://i62.tinypic.com/15xvbd5.png") no-repeat
-		scroll 319px center;
-}
-</style>
+
 <body>
 	<jsp:include page="../template/topnavbar.jsp" />
 
@@ -57,25 +46,12 @@
 										<form:hidden path="id" />
 
 
-
 										<div id="mainselection" class="form-group">
-											<select style="width: 100%" class="select2-container"
-													name="itemEmprestimo_id" id="itemEmprestimo">
-													<option value="">-- Item de Emprestimo --</option>
-													<option value="livro">Livro</option>
-													<option value="revista">Revista</option>
-													<option value="analCongresso">Anal de Congresso</option>
-													<option value="midiaEletronica">Mídia Eletrônica</option>
-													<option value="trabalhoConclusao">Trabalho de
-														Conclusão</option>
-												</select>
-											</select>
-										</div>
-										
-										<div id="mainselection" class="form-group">
+										<label class="form-label">Alunos</label>
 											<select style="width: 100%" class="select2-container"
 												name="aluno_id" id="aluno">
-												<option style="font: bold" value="">-- Selecione o Aluno --</option>
+												<option style="font: bold" value="">-- Selecione o
+													Aluno --</option>
 												<c:forEach items="${alunos}" var="livro">
 													<option value="${aluno.id}"><c:out
 															value="${aluno.nomeCompleto}"></c:out>
@@ -83,22 +59,24 @@
 												</c:forEach>
 											</select>
 										</div>
-										<%-- <div class="form-group">
-											<label class="form-label">Aluno</label>
-											<div class="controls">
-												<select style="width: 100%" class="select2-container"
-													name="aluno_id" id="aluno">
-													<option value="">** Selecione o Aluno **</option>
-													<c:forEach items="${alunos}" var="livro">
-														<option value="${aluno.id}"><c:out
-																value="${aluno.nomeCompleto}"></c:out>
-														</option>
-													</c:forEach>
-												</select>
-											</div>
-										</div> --%>
 
-										<div class="form-group">
+										<div id="mainselection" class="form-group">
+										<label class="form-label">Itens de Empréstimo</label>
+											<select style="width: 100%" class="select2-container"
+												name="itemEmprestimo_id" id="itemEmprestimo">
+												<option value="">-- Item de Emprestimo --</option>
+												<option value="itemLivro">Livro</option>
+												<option value="itemRevista">Revista</option>
+												<option value="itemAnalCongresso">Anal de Congresso</option>
+												<option value="itemMidiaEletronica">Mídia Eletrônica</option>
+												<option value="itemTrabalhoConclusao">Trabalho de
+													Conclusão</option>
+											</select> </select>
+										</div>
+
+
+
+										<div class="form-group acervo" id="itemLivro" hidden>
 											<label class="form-label">Livro</label>
 											<div class="controls">
 												<select style="width: 100%" class="select2-container"
@@ -113,7 +91,7 @@
 											</div>
 										</div>
 
-										<div class="form-group">
+										<div class="form-group acervo" id="itemRevista" hidden>
 											<label class="form-label">Revista</label>
 											<div class="controls">
 												<select style="width: 100%" class="select2-container"
@@ -121,13 +99,13 @@
 													<option value="">** Selecione a Revista **</option>
 													<c:forEach items="${revistas}" var="livro">
 														<option value="${revista.id}"><c:out
-																value="${revista.nome}"></c:out>
+																value="${revista.editora}"></c:out>
 														</option>
 													</c:forEach>
 												</select>
 											</div>
 										</div>
-										<div class="form-group">
+										<div class="form-group acervo" id="itemTrabalhoConclusao" hidden>
 											<label class="form-label">Trabalhos de Conclusão</label>
 											<div class="controls">
 												<select style="width: 100%" class="select2-container"
@@ -136,13 +114,13 @@
 														Conclusão **</option>
 													<c:forEach items="${trabalhosConclusao}" var="livro">
 														<option value="${trabalhoConclusao.id}"><c:out
-																value="${trabalhoConclusao.nome}"></c:out>
+																value="${trabalhoConclusao.tipo}"></c:out>
 														</option>
 													</c:forEach>
 												</select>
 											</div>
 										</div>
-										<div class="form-group">
+										<div class="form-group acervo" id="itemAnalCongresso" hidden>
 											<label class="form-label">Anais de Congresso</label>
 											<div class="controls">
 												<select style="width: 100%" class="select2-container"
@@ -151,13 +129,13 @@
 														**</option>
 													<c:forEach items="${anaisCongresso}" var="livro">
 														<option value="${analCongresso.id}"><c:out
-																value="${analCongresso.nome}"></c:out>
+																value="${analCongresso.nomeCongresso}"></c:out>
 														</option>
 													</c:forEach>
 												</select>
 											</div>
 										</div>
-										<div class="form-group">
+										<div class="form-group acervo" id="itemMidiaEletronica" hidden>
 											<label class="form-label">Mídias Eletrônicas</label>
 											<div class="controls">
 												<select style="width: 100%" class="select2-container"
@@ -166,7 +144,7 @@
 														**</option>
 													<c:forEach items="${midiasEletronicas}" var="livro">
 														<option value="${midiaEletronicas.id}"><c:out
-																value="${midiaEletronicas.nome}"></c:out>
+																value="${midiaEletronicas.titulo}"></c:out>
 														</option>
 													</c:forEach>
 												</select>
@@ -190,6 +168,12 @@
 	</div>
 	<jsp:include page="../template/footer.jsp" />
 
+	<script type="text/javascript">
+		$("#itemEmprestimo").change(function() {
+			$('.acervo').hide();
+			$('#'+$(this).val()).show();
+		});
+	</script>
 </body>
 </html>
 
