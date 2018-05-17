@@ -17,6 +17,11 @@ import com.uepb.controlebiblioteca.model.Curso;
 import com.uepb.controlebiblioteca.service.CursoService;
 import com.uepb.controlebiblioteca.util.Principal;
 
+/**
+ * CursoController representa os serviços de controle de crud de Cursos.
+ * @author Eduardo Borba
+ *
+ */
 @Controller
 public class CursoController {
 
@@ -25,10 +30,20 @@ public class CursoController {
 	public CursoController() {
 		System.out.println("CursoController()");
 	}
-
+	/**
+	 * Define a interface cursoService para essa classe.
+	 */
 	@Autowired
 	private CursoService cursoService;
 
+	/**
+	 * rota [/cursos], e retorna 
+	 * uma view com o modelo definido [carregar todos os cursos.
+	 * 
+	 * @param model - modelo de rota de view.
+	 * @param principal - rota principal definida pelo parametro passado.
+	 * @throws IOException - tratamento de exceção.
+	 */
 	@RequestMapping(value = "/cursos")
 	public ModelAndView listCurso(ModelAndView model, Principal principal) throws IOException {
 
@@ -38,6 +53,12 @@ public class CursoController {
 		return model;
 	}
 
+
+	/**
+	 * Metodo de retorno de view, rota: [/newCurso]. 
+	 * Criar um novo curso.
+	 *
+	 */
 	@RequestMapping(value = "/newCurso", method = RequestMethod.GET)
 	public ModelAndView newContact(ModelAndView model, Principal principal) {
 		Curso curso = new Curso();
@@ -46,6 +67,15 @@ public class CursoController {
 		return model;
 	}
 
+	/**
+	 * rota: [/saveCurso].
+	 * Salva dados referente a um curso. 
+	 * 
+	 * @param curso - curso como parametro de comparacao, para saber 
+	 * se irá adicionar um novo curso ou se irá apenas atualizar algum existente.
+	 * 
+	 * @return - retorna a view /cursos.
+	 */
 	@RequestMapping(value = "/saveCurso", method = RequestMethod.POST)
 	public ModelAndView saveCurso(@ModelAttribute Curso curso) {
 		if (curso.getId() == 0) { // if curso id is 0 then creating the
@@ -57,6 +87,12 @@ public class CursoController {
 		return new ModelAndView("redirect:/cursos");
 	}
 
+	/**
+	 * rota: [/deleteCurso].
+	 * Deleta o curso.
+	 * @param cursoId - usa como parametro de busca o id 
+	 * do curso passado, e deleta o curso referente.
+	 */
 	@RequestMapping(value = "/deleteCurso", method = RequestMethod.GET)
 	public ModelAndView deleteCurso(HttpServletRequest request) {
 		int cursoId = Integer.parseInt(request.getParameter("id"));
@@ -64,6 +100,13 @@ public class CursoController {
 		return new ModelAndView("redirect:/cursos");
 	}
 
+	/**
+	 * rota: [/editCurso]
+	 * Edita o curso selecionado.
+	 * @param cursoId - usa como parametro de busca o id do curso passado, 
+	 * carrega os dados referentes e mostra a view com os dados para editar.
+	 * 
+	 */
 	@RequestMapping(value = "/editCurso", method = RequestMethod.GET)
 	public ModelAndView editContact(HttpServletRequest request) {	
 		int cursoId = Integer.parseInt(request.getParameter("id"));	

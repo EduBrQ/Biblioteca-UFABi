@@ -17,6 +17,11 @@ import com.uepb.controlebiblioteca.model.Livro;
 import com.uepb.controlebiblioteca.service.LivroService;
 import com.uepb.controlebiblioteca.util.Principal;
 
+/**
+ * LivroController representa os serviços de controle de crud de Livros.
+ * @author Eduardo Borba
+ *
+ */
 @Controller
 public class LivroController {
 
@@ -26,9 +31,17 @@ public class LivroController {
 		System.out.println("LivroController()");
 	}
 
+	/**
+	 * Atribui a interface LivroService a livroService
+	 */
 	@Autowired
 	private LivroService livroService;
 
+	/**
+	 * Metodo que possui como rota [/livros], e retorna 
+	 * uma view com o modelo definido [carregando todos os livros].
+	 * 
+	 */
 	@RequestMapping(value = "/livros")
 	public ModelAndView listLivro(ModelAndView model, Principal principal) throws IOException {
 		List<Livro> listLivro = livroService.getAllLivros();
@@ -37,6 +50,10 @@ public class LivroController {
 		return model;
 	}
 	
+	/**
+	 * Metodo que cria uma nova instancia do tipo Livro,
+	 * retorna uma view com formularios em aberto dos atributos de Livro.
+	 */
 	@RequestMapping(value = "/newLivro", method = RequestMethod.GET)
 	public ModelAndView newContact(ModelAndView model, Principal principal) {
 		Livro livro = new Livro();
@@ -45,6 +62,11 @@ public class LivroController {
 		return model;
 	}
 
+	/**
+	 * Metodo para salvar os dados preenchidos de Livro
+	 * Se o parametro passado - idLivro for igual 0 entao: addLivro
+	 * Se idLivro for diferente de 0 entao: updateLivro 
+	 */
 	@RequestMapping(value = "/saveLivro", method = RequestMethod.POST)
 	public ModelAndView saveLivro(@ModelAttribute Livro livro) {
 		if (livro.getId() == 0) { // if livro id is 0 then creating the
@@ -56,13 +78,23 @@ public class LivroController {
 		return new ModelAndView("redirect:/livros");
 	}
 
+	/**
+	 * Metodo para deletar uma instancia deLivro
+	 * recebe como parametro um idLivro e deleta o Livro relacionado.
+	 */
 	@RequestMapping(value = "/deleteLivro", method = RequestMethod.GET)
 	public ModelAndView deleteLivro(HttpServletRequest request) {
 		int livroId = Integer.parseInt(request.getParameter("id"));
 		livroService.deleteLivro(livroId);
 		return new ModelAndView("redirect:/livros");
 	}
-
+	
+	/**
+	 * Metodo para editar um registro de um Livro cadastrado
+	 * Busca o livro pelo idLivro
+	 * Carrega a tela de formulario com os dados do livro selecionado
+	 * Possibilita a edicao e salva as alteracoes
+	 */
 	@RequestMapping(value = "/editLivro", method = RequestMethod.GET)
 	public ModelAndView editContact(HttpServletRequest request) {
 		int livroId = Integer.parseInt(request.getParameter("id"));

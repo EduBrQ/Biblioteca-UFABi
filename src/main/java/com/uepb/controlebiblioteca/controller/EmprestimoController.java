@@ -29,6 +29,12 @@ import com.uepb.controlebiblioteca.service.RevistaService;
 import com.uepb.controlebiblioteca.service.TrabalhosConclusaoService;
 import com.uepb.controlebiblioteca.util.Principal;
 
+/**
+ * EmprestimoController representa os serviços de controle de Emprestimos.
+ * 
+ * @author Eduardo Borba
+ *
+ */
 @Controller
 public class EmprestimoController {
 
@@ -38,27 +44,56 @@ public class EmprestimoController {
 		System.out.println("EmprestimoController()");
 	}
 	
+	/**
+	 * Inicializa nesta classe a interface alunosService
+	 */
 	@Autowired
 	private AlunoService alunosService;
 	
+	/**
+	 * Inicializa nesta classe a interface emprestimoService
+	 */
 	@Autowired
 	private EmprestimoService emprestimoService;
 	
+	/**
+	 * Inicializa nesta classe a interface livroService
+	 */
 	@Autowired
 	private LivroService livroService;
 	
+	/**
+	 * Inicializa nesta classe a interface anaisCongressoService
+	 */
 	@Autowired
 	private AnaisCongressoService anaisCongressoService;
 	
+	/**
+	 * Inicializa nesta classe a interface revistaService
+	 */
 	@Autowired
 	private RevistaService revistaService;
 	
+	/**
+	 * Inicializa nesta classe a interface midiasEletronicasService
+	 */
 	@Autowired
 	private MidiasEletronicasService midiasEletronicasService;
 	
+	/**
+	 * Inicializa nesta classe a interface trabalhosConclusaoService
+	 */
 	@Autowired
 	private TrabalhosConclusaoService trabalhosConclusaoService;
 
+	/**
+	 * rota [/emprestimos], e retorna 
+	 * uma view com o modelo definido [carregar todos os emprestimos abertos].
+	 * 
+	 * @param model - modelo de rota de view.
+	 * @param principal - rota principal definida pelo parametro passado.
+	 * @throws IOException - tratamento de exceção.
+	 */
 	@RequestMapping(value = "/emprestimos")
 	public ModelAndView listEmprestimo(ModelAndView model, Principal principal) throws IOException {
 		List<Emprestimo> listEmprestimo = emprestimoService.getAllEmprestimos();
@@ -67,6 +102,13 @@ public class EmprestimoController {
 		return model;
 	}
 	
+	/**
+	 * Metodo de retorno de view, rota: [/newEmprestimo]. 
+	 * Criar um novo emprestimo.
+	 * Lista todos os tipos de itens cadastrados que podem ser emprestados.
+	 * Lista com todos os alunos cadastrados.
+	 *
+	 */
 	@RequestMapping(value = "/newEmprestimo", method = RequestMethod.GET)
 	public ModelAndView newContact(ModelAndView model, Principal principal) {
 		List<Livro> livros = livroService.getAllLivros();
@@ -90,10 +132,15 @@ public class EmprestimoController {
 		return model;
 	}
 
+	/**
+	 * rota: [/saveEmprestimo].
+	 * Salva dados referente a um emprestimo. 
+	 * @param emprestimo.getId - Id do emprestimo como parametro de comparacao, 
+	 * para saber se vai add um novo emprestimo ou atualizar
+	 */
 	@RequestMapping(value = "/saveEmprestimo", method = RequestMethod.POST)
 	public ModelAndView saveEmprestimo(@ModelAttribute Emprestimo emprestimo) {
-		if (emprestimo.getId() == 0) { // if emprestimo id is 0 then creating the
-			// emprestimo other updating the emprestimo
+		if (emprestimo.getId() == 0) { 
 			System.out.println(emprestimo);
 			emprestimoService.addEmprestimo(emprestimo);
 		} else {
@@ -102,6 +149,13 @@ public class EmprestimoController {
 		return new ModelAndView("redirect:/emprestimos");
 	}
 
+	/**
+	 * rota: /deleteEmprestimo
+	 * Deleta um emprestimo pelo id inserido
+	 * 
+	 * @param id_Emprestimo
+	 * @return view atualizada de emprestimos.
+	 */
 	@RequestMapping(value = "/deleteEmprestimo", method = RequestMethod.GET)
 	public ModelAndView deleteEmprestimo(HttpServletRequest request) {
 		int emprestimoId = Integer.parseInt(request.getParameter("id"));
@@ -109,6 +163,13 @@ public class EmprestimoController {
 		return new ModelAndView("redirect:/emprestimos");
 	}
 
+	/**
+	 * rota: /editEmprestimo
+	 * Carrega um emprestimo pelo id passado e então carrega seus dados em uma view para ser alterado.
+	 *
+	 * @param id_Emprestimo
+	 * @return
+	 */
 	@RequestMapping(value = "/editEmprestimo", method = RequestMethod.GET)
 	public ModelAndView editContact(HttpServletRequest request) {
 		int emprestimoId = Integer.parseInt(request.getParameter("id"));

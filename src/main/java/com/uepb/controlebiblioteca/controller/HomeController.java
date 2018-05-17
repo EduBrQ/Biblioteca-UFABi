@@ -23,43 +23,76 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+/**
+ * HomeController representa as acoes de controle de autenticacoes de usuarios
+ * @author Eduardo Borba
+ *
+ */
 @Controller
 public class HomeController {
 
+	/**
+	 * Atribuicao da interface AppUserService
+	 */
     @Autowired
     AppUserService appUserService;
 
+    /**
+     * Atribuicao da interface UserRoleService
+     */
     @Autowired
     UserRoleService userRoleService;
 
 
+    /**
+     * Este método retorna uma pagina inicial
+     * rota: /
+     */
     @RequestMapping(value = "/")
     public ModelAndView home(ModelAndView model, Principal principal){
         return principal.userDetail(model, "home");
     }
 
+    /**
+     * Este método retorna uma pagina de login
+     * rota: /login
+     */
     @RequestMapping(value = "/login")
     public String login(){
         return "login";
     }
 
+
+    /**
+     * Este método retorna uma pagina de registro
+     * rota: /signup
+     */
     @RequestMapping(value = "/signup")
     public String signup(){
         return "signup";
     }
-    
+
+    /**
+     * Este método retorna uma pagina de login invalidando a sessao de acesso do usuario atual
+     * rota: /logout
+     */
     @RequestMapping(value = "/logout")
     public String logout(HttpSession session) {
     	session.invalidate();
     	return "redirect:login";
     }
 
+    /**
+     * 
+     * rota: /test
+     */
     @RequestMapping(value = "/test")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public String test(){
         return "home";
     }
 
+    
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String signupForm(@RequestParam String userName, @RequestParam String password){
         UserRole role = userRoleService.getRoleUser();
