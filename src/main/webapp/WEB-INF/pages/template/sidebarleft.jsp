@@ -27,13 +27,13 @@
 					class="material-icons">refresh</i></a></span>
 		</p>
 		<ul>
-			<li><a href="/ControleBiblioteca/"> <i class="material-icons">home</i>
-					<span class="title">Início</span> <span
+			<li><a href="/ControleBiblioteca/"> <i
+					class="material-icons">home</i> <span class="title">Início</span> <span
 					class="label label-important bubble-only pull-right "></span>
 			</a></li>
-			<li><a href="/ControleBiblioteca/livros"> <i class="material-icons">local_library</i>
-					<span class="title">Livros</span> <span
-					class="label label-important bubble-only pull-right "></span>
+			<li><a href="/ControleBiblioteca/livros"> <i
+					class="material-icons">local_library</i> <span class="title">Livros</span>
+					<span class="label label-important bubble-only pull-right "></span>
 			</a></li>
 			<li><a href="/ControleBiblioteca/anaisCongresso"> <i
 					class="material-icons">chrome_reader_mode</i> <span class="title">Anais
@@ -49,26 +49,29 @@
 					class="material-icons">euro_symbol</i> <span class="title">Trabalhos</span>
 					<span class="label label-important bubble-only pull-right "></span>
 			</a></li>
-			<li><a href="/ControleBiblioteca/revistas"> <i class="material-icons">book</i>
-					<span class="title">Revistas</span> <span
-					class="label label-important bubble-only pull-right "></span>
+			<li><a href="/ControleBiblioteca/revistas"> <i
+					class="material-icons">book</i> <span class="title">Revistas</span>
+					<span class="label label-important bubble-only pull-right "></span>
 			</a></li>
-			<li><a href="/ControleBiblioteca/cursos"> <i class="material-icons">category</i>
-					<span class="title">Cursos</span> <span
-					class="label label-important bubble-only pull-right "></span>
+			<li><a href="/ControleBiblioteca/cursos"> <i
+					class="material-icons">category</i> <span class="title">Cursos</span>
+					<span class="label label-important bubble-only pull-right "></span>
 			</a></li>
-			<li><a href="/ControleBiblioteca/alunos"> <i class="material-icons">school</i>
-					<span class="title">Alunos</span> <span
-					class="label label-important bubble-only pull-right "></span>
+			<li><a href="/ControleBiblioteca/alunos"> <i
+					class="material-icons">school</i> <span class="title">Alunos</span>
+					<span class="label label-important bubble-only pull-right "></span>
 			</a></li>
-			<li><a href="/ControleBiblioteca/funcionarios"> <i class="material-icons">group</i>
-					<span class="title">Funcionários</span> <span
-					class="label label-important bubble-only pull-right "></span>
-			</a>
-			</li>
-					<li><a href="/ControleBiblioteca/emprestimos"> <i class="material-icons">compare_arrows</i>
-					<span class="title">Empréstimos</span> <span
-					class="label label-important bubble-only pull-right "></span>
+			<li><a href="/ControleBiblioteca/funcionarios"> <i
+					class="material-icons">group</i> <span class="title">Funcionários</span>
+					<span class="label label-important bubble-only pull-right "></span>
+			</a></li>
+			<li><a href="/ControleBiblioteca/reservas"> <i
+					class="material-icons">compare_arrows</i> <span class="title">Reservas</span>
+					<span class="label label-important bubble-only pull-right "></span>
+			</a></li>
+			<li><a href="/ControleBiblioteca/emprestimos"> <i
+					class="material-icons">compare_arrows</i> <span class="title">Empréstimos</span>
+					<span class="label label-important bubble-only pull-right "></span>
 			</a></li>
 		</ul>
 

@@ -129,14 +129,14 @@
 										<div class="form-group">
 											<label class="form-label">Curso</label>
 											<div class="controls">
-												<select style="width: 100%" class="select2-container" name="curso_id"  id="source">
+												<form:select path="curso.id" id="source"
+													class="select2-container" style="width: 100%">
 													<option value="">** Selecione o Curso **</option>
-													<c:forEach items="${cursos}" var="curso">
-														<option value="${curso.id}"><c:out
-																value="${curso.nome}"></c:out>
-														</option>
+													<c:forEach items="${cursos}" var="mCurso">
+														<option value="${mCurso.id}"
+															${aluno.curso.id eq mCurso.id ? 'selected' : ''}>${mCurso.nome}</option>
 													</c:forEach>
-												</select>
+												</form:select>
 											</div>
 										</div>
 									</div>

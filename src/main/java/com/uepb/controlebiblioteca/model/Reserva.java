@@ -2,11 +2,15 @@ package com.uepb.controlebiblioteca.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -15,18 +19,34 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "EMPRESTIMOS")
+@Table(name = "RESERVAS")
 public class Reserva implements Serializable {
 
 	private static final long serialVersionUID = -3465813074586302847L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id; // variavel inteira do id da reserva, gerada automaticamente
+	private int id; // variavel inteira id de emprestimo.
 	
-	@Column
-	private String aluno_id; // variavel inteira id do aluno que iniciou a reserva.
+	@ManyToOne
+	@JoinColumn(name = "aluno_id", nullable = false)
+	private Aluno aluno;
 
+	@OneToOne(cascade = CascadeType.ALL)
+	private Livro livro;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	private Revista revista;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	private MidiasEletronicas midiaEletronica;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	private TrabalhosConclusao trabalhosConcusao;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	private AnaisCongresso anaisCongresso;
+	
 	public int getId() {
 		return id;
 	}
@@ -35,12 +55,57 @@ public class Reserva implements Serializable {
 		this.id = id;
 	}
 
-	public String getAluno_id() {
-		return aluno_id;
+	public boolean verificaPendencia() { //n implementado - Bolleano para marcar se o emprestimo com entrega pendente.
+		return false;
+		
 	}
 
-	public void setAluno_id(String aluno_id) {
-		this.aluno_id = aluno_id;
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
+
+	public Livro getLivro() {
+		return livro;
+	}
+
+	public void setLivro(Livro livro) {
+		this.livro = livro;
+	}
+
+	public Revista getRevista() {
+		return revista;
+	}
+
+	public void setRevista(Revista revista) {
+		this.revista = revista;
+	}
+
+	public MidiasEletronicas getMidiaEletronica() {
+		return midiaEletronica;
+	}
+
+	public void setMidiaEletronica(MidiasEletronicas midiaEletronica) {
+		this.midiaEletronica = midiaEletronica;
+	}
+
+	public TrabalhosConclusao getTrabalhosConcusao() {
+		return trabalhosConcusao;
+	}
+
+	public void setTrabalhosConcusao(TrabalhosConclusao trabalhosConcusao) {
+		this.trabalhosConcusao = trabalhosConcusao;
+	}
+
+	public AnaisCongresso getAnaisCongresso() {
+		return anaisCongresso;
+	}
+
+	public void setAnaisCongresso(AnaisCongresso anaisCongresso) {
+		this.anaisCongresso = anaisCongresso;
 	}
 
 }

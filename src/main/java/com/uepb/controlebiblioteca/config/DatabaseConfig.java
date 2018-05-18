@@ -8,6 +8,7 @@ import com.uepb.controlebiblioteca.model.Emprestimo;
 import com.uepb.controlebiblioteca.model.Funcionario;
 import com.uepb.controlebiblioteca.model.Livro;
 import com.uepb.controlebiblioteca.model.MidiasEletronicas;
+import com.uepb.controlebiblioteca.model.Reserva;
 import com.uepb.controlebiblioteca.model.Revista;
 import com.uepb.controlebiblioteca.model.TrabalhosConclusao;
 import com.uepb.controlebiblioteca.model.UserRole;
@@ -62,7 +63,7 @@ public class DatabaseConfig {
         dataSource.addDataSourceProperty("portNumber", "3306");
         dataSource.addDataSourceProperty("serverName", "127.0.0.1");
         dataSource.addDataSourceProperty("user", "root");
-        dataSource.addDataSourceProperty("password", "root");
+        dataSource.addDataSourceProperty("password", "");
         return dataSource;
     }
     /**
@@ -98,6 +99,7 @@ public class DatabaseConfig {
                 TrabalhosConclusao.class,
                 Livro.class,
                 Funcionario.class,
+                Reserva.class,
                 Emprestimo.class
         );
         

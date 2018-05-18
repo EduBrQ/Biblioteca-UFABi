@@ -219,4 +219,14 @@ public class Aluno implements Serializable {
 	public void setNaturalidade(String naturalidade) {
 		this.naturalidade = naturalidade;
 	}
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+	
+	
 }

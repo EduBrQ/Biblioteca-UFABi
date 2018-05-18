@@ -118,10 +118,12 @@ public class AlunoController {
 	@RequestMapping(value = "/editAluno", method = RequestMethod.GET)
 	public ModelAndView editContact(HttpServletRequest request) {
 		int alunoId = Integer.parseInt(request.getParameter("id"));
-		Aluno aluno = alunoService.getAluno(alunoId);		
+		Aluno aluno = alunoService.getAluno(alunoId);	
+		List<Curso> cursos = cursoService.getAllCursos();
 		Principal principal = new Principal();		
 		ModelAndView model = new ModelAndView();		
 		model = principal.userDetail(model, "alunos/form");
+		model.addObject("cursos", cursos);
 		model.addObject("aluno", aluno);
 		return model;
 	}
