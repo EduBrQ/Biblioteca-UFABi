@@ -72,7 +72,7 @@
 													Eletrônica</option>
 												<option value="itemTrabalhoConclusao">Trabalho de
 													Conclusão</option>
-											</select> </select>
+											</select>
 										</div>
 
 
@@ -82,80 +82,64 @@
 											<div class="controls">
 												<form:select class="select2-container" path="livro.id"
 													id="livro">
-													<option value="">** Selecione o Livro **</option>
 													<c:forEach var="livro" items="${livros}">
 														<option value="${livro.id}">${livro.titulo}</option>
 													</c:forEach>
 												</form:select>
 											</div>
 										</div>
-										
-										<div class="form-group acervo" id="itemRevista" hidden>
+
+									<div class="form-group acervo" id="itemRevista" hidden>
 											<label class="form-label">Revista</label>
 											<div class="controls">
 												<form:select class="select2-container" path="revista.id"
 													id="revista">
-													<option value="">** Selecione a Revista **</option>
 													<c:forEach var="revista" items="${revistas}">
 														<option value="${revista.id}">${revista.editora}</option>
 													</c:forEach>
 												</form:select>
 											</div>
 										</div>
-										
+										<%-- 	
 
-										<%--
-										<div class="form-group acervo" id="itemTrabalhoConclusao"
-											hidden>
+										<div class="form-group acervo" id="itemTrabalhoConclusao" hidden>
 											<label class="form-label">Trabalhos de Conclusão</label>
 											<div class="controls">
-												<form:select style="width: 100%" class="select2-container"
-													path="trabalhosConclusao.id" id="trabalhoConclusao">
-													<option value="">** Selecione o Trabalho de
-														Conclusão **</option>
-													<c:forEach items="${trabalhosConclusao}"
-														var="trabalhoConclusao">
-														<option value="${trabalhoConclusao.id}"><c:out
-																value="${trabalhoConclusao.tipo}"></c:out>
-														</option>
+												<form:select class="select2-container" path="trabalhoConclusao.id"
+													id="trabalhoConclusao">
+													<c:forEach var="trabalhoConclusao" items="${trabalhosConclusao}">
+														<option value="${trabalhoConclusao.id}">${trabalhoConclusao.tipo}</option>
 													</c:forEach>
 												</form:select>
 											</div>
 										</div>
+										
 										<div class="form-group acervo" id="itemAnalCongresso" hidden>
 											<label class="form-label">Anais de Congresso</label>
 											<div class="controls">
-												<form:select style="width: 100%" class="select2-container"
-													path="anaisCongresso.id" id="analCongresso">
-													<option value="">** Selecione o Anal de Congresso
-														**</option>
-													<c:forEach items="${anaisCongresso}" var="analCongresso">
-														<option value="${analCongresso.id}"><c:out
-																value="${analCongresso.nomeCongresso}"></c:out>
-														</option>
+												<form:select class="select2-container" path="analCongresso.id"
+													id="analCongresso">
+													<c:forEach var="analCongresso" items="${anaisCongresso}">
+														<option value="${analCongresso.id}">${analCongresso.nomeCongresso}</option>
 													</c:forEach>
 												</form:select>
 											</div>
 										</div>
+										
 										<div class="form-group acervo" id="itemMidiaEletronica" hidden>
 											<label class="form-label">Mídias Eletrônicas</label>
 											<div class="controls">
-												<form:select style="width: 100%" class="select2-container"
-													path="midiaEletronica.id" id="midiaEletronica">
-													<option value="">** Selecione a Mídia Eletrônica
-														**</option>
-													<c:forEach items="${midiasEletronicas}"
-														var="midiaEletronica">
-														<option value="${midiaEletronica.id}"><c:out
-																value="${midiaEletronica.titulo}"></c:out>
-														</option>
+												<form:select class="select2-container" path="midiaEletronica.id"
+													id="midiaEletronica">
+													<c:forEach var="midiaEletronica" items="${midiasEletronicas}">
+														<option value="${midiaEletronica.id}">${midiaEletronica.tipo}</option>
 													</c:forEach>
 												</form:select>
 											</div>
 										</div>
-									</div>
- --%>
+										 --%>
 
+				
 
 										<input type="submit" class="btn btn-info pull-left"
 											value="Enviar" />
