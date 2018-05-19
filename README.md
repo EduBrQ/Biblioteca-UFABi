@@ -18,7 +18,7 @@ Sistema que permitira o controle de emprestimos de livro
 
 ### Banco de Dados
 ```bash
-Crie no banco a tabela "controle_biblioteca" (sem aspas)
+Crie um banco controle_biblioteca
 ```
 
 ### Iniciando
