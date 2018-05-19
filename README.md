@@ -5,9 +5,7 @@ Sistema que permitira o controle de emprestimos de livro
 
 ## Estrutura do sistema
 
-- Abaixo temos o Diagrama de DomÃ­nios das Classes:
-
-![alt text](https://drive.google.com/file/d/1uUK5ykafRjM2lbrfOCSwCtkP3XGkqOVO/view?usp=sharing)
+- Abaixo temos o Diagrama de Domínios das Classes:
 
 
 ## Instrucoes
@@ -19,7 +17,7 @@ Sistema que permitira o controle de emprestimos de livro
 
 ### Banco de Dados
 ```bash
-Crie no banco a tabela "controle_biblioteca" (sem aspas)
+Crie o banco "controle_biblioteca" (sem aspas)
 ```
 
 ### Iniciando
@@ -30,3 +28,7 @@ Crie no banco a tabela "controle_biblioteca" (sem aspas)
 - Maven Clean & Maven Install
 - Run on Server - Tomcat 7.0
 ```
+
+[[https://bitbucket.org/pabliciotgg/controle-de-biblioteca/diagrama.jpeg|alt=octocat]]
+
+[[https://bitbucket.org/pabliciotgg/controle-de-biblioteca/diagrama.jpg|alt=octocat]]
