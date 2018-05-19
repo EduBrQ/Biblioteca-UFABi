@@ -47,6 +47,7 @@
 											<th>ID</th>
 											<th>Aluno</th>
 											<th>Item</th>
+											<th>Data da Reserva</th>
 											<th>Ações</th>
 										</tr>
 									</thead>
@@ -56,6 +57,7 @@
 												<td>${reserva.id}</td>
 												<td>${reserva.aluno.nomeCompleto}</td>
 												<td>${reserva.livro.titulo}</td>
+												<td>${reserva.dataReserva}</td>
 												<td><a href="editReserva?id=${reserva.id}">Edit</a>
 													&nbsp;&nbsp;&nbsp;&nbsp; <a
 													href="deleteReserva?id=${reserva.id}">Delete</a></td>

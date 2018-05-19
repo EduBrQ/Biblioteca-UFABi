@@ -158,6 +158,12 @@
 										</div>
 
 
+										<div class="form-group">
+											<label class="form-label">Reservar até o dia</label>
+											<div class="controls">
+												<form:input type="date" class="form-control" path="dataReserva" />
+											</div>
+										</div>
 
 
 										<input type="submit" class="btn btn-info pull-left"

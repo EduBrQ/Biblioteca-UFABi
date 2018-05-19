@@ -1,6 +1,7 @@
 package com.uepb.controlebiblioteca.model;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,7 +15,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
- * Reserva representa a reserva feita por um usuario ao selecionar o livro que deseja separar para reserva.
+ * Reserva representa a reserva feita por um usuario ao selecionar o livro que
+ * deseja separar para reserva.
+ * 
  * @author Eduardo Borba
  *
  */
@@ -27,26 +30,30 @@ public class Reserva implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id; // variavel inteira id de emprestimo.
+
+	@Column
+	private Date dataReserva;
+
 	
 	@ManyToOne
 	@JoinColumn(name = "aluno_id", nullable = false)
 	private Aluno aluno;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne()
 	private Livro livro;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne()
 	private Revista revista;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne()
 	private MidiasEletronicas midiaEletronica;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne()
 	private TrabalhosConclusao trabalhoConclusao;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne()
 	private AnaisCongresso analCongresso;
-	
+
 	public int getId() {
 		return id;
 	}
@@ -55,10 +62,19 @@ public class Reserva implements Serializable {
 		this.id = id;
 	}
 
-	public boolean verificaPendencia() { //n implementado - Bolleano para marcar se o emprestimo com entrega pendente.
+	public boolean verificaPendencia() { // n implementado - Bolleano para marcar se o emprestimo com entrega pendente.
 		return false;
-		
+
 	}
+	
+	public Date getDataReserva() {
+		return dataReserva;
+	}
+
+	public void setDataReserva(Date dataReserva) {
+		this.dataReserva = dataReserva;
+	}
+
 
 	public Aluno getAluno() {
 		return aluno;

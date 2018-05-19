@@ -47,6 +47,7 @@
 											<th>ID</th>
 											<th>Aluno</th>
 											<th>Item</th>
+											<th>Data do Emprestimo</th>
 											<th>Ações</th>
 										</tr>
 									</thead>
@@ -56,6 +57,7 @@
 												<td>${emprestimo.id}</td>
 												<td>${emprestimo.aluno.nomeCompleto}</td>
 												<td>${emprestimo.livro.titulo}</td>
+												<td>${emprestimo.dataEmprestimo}</td>
 												<td><a href="editEmprestimo?id=${emprestimo.id}">Edit</a>
 													&nbsp;&nbsp;&nbsp;&nbsp; <a
 													href="deleteEmprestimo?id=${emprestimo.id}">Delete</a></td>

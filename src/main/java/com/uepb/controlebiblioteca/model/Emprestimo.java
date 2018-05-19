@@ -1,6 +1,8 @@
 package com.uepb.controlebiblioteca.model;
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.time.LocalDateTime;
 
 import com.uepb.controlebiblioteca.model.Revista;
 import com.uepb.controlebiblioteca.model.MidiasEletronicas;
@@ -19,10 +21,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 /**
  * Emprestimo representa ...
+ * 
  * @author Eduardo Borba
  *
  */
@@ -35,7 +39,18 @@ public class Emprestimo implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id; // variavel inteira id de emprestimo.
+
+	@Column
+	private Date dataEmprestimo;
 	
+	public Date getDataEmprestimo() {
+		return dataEmprestimo;
+	}
+
+	public void setDataEmprestimo(Date dataEmprestimo) {
+		this.dataEmprestimo = dataEmprestimo;
+	}
+
 	@ManyToOne
 	@JoinColumn(name = "aluno_id", nullable = false)
 	private Aluno aluno;
@@ -54,7 +69,7 @@ public class Emprestimo implements Serializable {
 
 	@OneToOne()
 	private AnaisCongresso analCongresso;
-	
+
 	public int getId() {
 		return id;
 	}
@@ -63,9 +78,9 @@ public class Emprestimo implements Serializable {
 		this.id = id;
 	}
 
-	public boolean verificaPendencia() { //n implementado - Bolleano para marcar se o emprestimo com entrega pendente.
+	public boolean verificaPendencia() { // n implementado - Bolleano para marcar se o emprestimo com entrega pendente.
 		return false;
-		
+
 	}
 
 	public Aluno getAluno() {
@@ -115,4 +130,6 @@ public class Emprestimo implements Serializable {
 	public void setAnalCongresso(AnaisCongresso analCongresso) {
 		this.analCongresso = analCongresso;
 	}
+
+	
 }

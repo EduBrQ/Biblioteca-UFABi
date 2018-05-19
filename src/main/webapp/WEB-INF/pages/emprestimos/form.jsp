@@ -155,6 +155,14 @@
 												</form:select>
 											</div>
 										</div>
+										
+										
+										<div class="form-group">
+											<label class="form-label">Data de Emprestimo</label>
+											<div class="controls">
+												<form:input type="date" class="form-control" path="dataEmprestimo" />
+											</div>
+										</div>
 
 
 
