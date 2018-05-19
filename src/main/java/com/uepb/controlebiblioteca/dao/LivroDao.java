@@ -4,6 +4,11 @@ import java.util.List;
 
 import com.uepb.controlebiblioteca.model.Livro;
 
+/**
+ * Interface que define os metodos que podem ser utilizados implementando a mesma.
+ * @author Eduardo Borba
+ *
+ */
 public interface LivroDao {
 
 	public void addLivro(Livro livro);

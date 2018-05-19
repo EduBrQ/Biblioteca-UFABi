@@ -76,70 +76,88 @@
 										</div>
 
 
-
 										<div class="form-group acervo" id="itemLivro" hidden>
 											<label class="form-label">Livro</label>
 											<div class="controls">
-												<form:select class="select2-container" path="livro.id"
-													id="livro">
+
+												<form:select id="itemLivro" class="select2-container"
+													path="livro.id">
 													<c:forEach var="livro" items="${livros}">
+														<option class="form-group acervo2" id="itemLivro" value="">--
+															Selecione um Livro --</option>
 														<option value="${livro.id}">${livro.titulo}</option>
+														<%-- <c:out value="${livro.id}"></c:out> --%>
+													</c:forEach>
+												</form:select>
+
+											</div>
+										</div>
+
+										<div class="form-group acervo" id="itemRevista" hidden>
+											<label class="form-label">Revista</label>
+											<div class="controls">
+
+												<form:select id="itemRevista" class="select2-container"
+													path="revista.id">
+													<c:forEach var="revista" items="${revistas}">
+														<option class="form-group acervo2" id="itemRevista"
+															value="">-- Selecione uma Revista --</option>
+														<option value="${revista.id}">${revista.editora}</option>
+
 													</c:forEach>
 												</form:select>
 											</div>
 										</div>
 
-									<div class="form-group acervo" id="itemRevista" hidden>
-											<label class="form-label">Revista</label>
-											<div class="controls">
-												<form:select class="select2-container" path="revista.id"
-													id="revista">
-													<c:forEach var="revista" items="${revistas}">
-														<option value="${revista.id}">${revista.editora}</option>
-													</c:forEach>
-												</form:select>
-											</div>
-										</div>
-										<%-- 	
 
 										<div class="form-group acervo" id="itemTrabalhoConclusao" hidden>
 											<label class="form-label">Trabalhos de Conclusão</label>
 											<div class="controls">
-												<form:select class="select2-container" path="trabalhoConclusao.id"
-													id="trabalhoConclusao">
-													<c:forEach var="trabalhoConclusao" items="${trabalhosConclusao}">
+												<form:select class="select2-container"
+													path="trabalhoConclusao.id" id="trabalhoConclusao">
+													<c:forEach var="trabalhoConclusao"
+														items="${trabalhosConclusao}">
+														<option class="form-group acervo2"
+															id="itemTrabalhoConclusao" value="">-- Selecione
+															um T. Conclusao --</option>
 														<option value="${trabalhoConclusao.id}">${trabalhoConclusao.tipo}</option>
 													</c:forEach>
 												</form:select>
 											</div>
 										</div>
-										
+
 										<div class="form-group acervo" id="itemAnalCongresso" hidden>
 											<label class="form-label">Anais de Congresso</label>
 											<div class="controls">
-												<form:select class="select2-container" path="analCongresso.id"
-													id="analCongresso">
+												<form:select class="select2-container"
+													path="analCongresso.id" id="analCongresso">
 													<c:forEach var="analCongresso" items="${anaisCongresso}">
+														<option class="form-group acervo2" id="itemAnalCongresso"
+															value="">-- Selecione um An. de Congresso --</option>
 														<option value="${analCongresso.id}">${analCongresso.nomeCongresso}</option>
 													</c:forEach>
 												</form:select>
 											</div>
 										</div>
-										
+
 										<div class="form-group acervo" id="itemMidiaEletronica" hidden>
 											<label class="form-label">Mídias Eletrônicas</label>
 											<div class="controls">
-												<form:select class="select2-container" path="midiaEletronica.id"
-													id="midiaEletronica">
-													<c:forEach var="midiaEletronica" items="${midiasEletronicas}">
+												<form:select class="select2-container"
+													path="midiaEletronica.id" id="midiaEletronica">
+													<c:forEach var="midiaEletronica"
+														items="${midiasEletronicas}">
+														<option class="form-group acervo2"
+															id="itemMidiaEletronica" value="">-- Selecione
+															uma Midia Elet. --</option>
 														<option value="${midiaEletronica.id}">${midiaEletronica.tipo}</option>
 													</c:forEach>
 												</form:select>
 											</div>
 										</div>
-										 --%>
 
-				
+
+
 
 										<input type="submit" class="btn btn-info pull-left"
 											value="Enviar" />
@@ -155,9 +173,14 @@
 	<jsp:include page="../template/footer.jsp" />
 
 	<script type="text/javascript">
-		$("#itemEmprestimo").change(function() {
+			$("#itemEmprestimo").change(function() {
 			$('.acervo').hide();
 			$('#' + $(this).val()).show();
+		});
+		$("#itemEmprestimo").change(function() {
+			$('.acervo2').attr("disabled", "disabled");
+			$('#' + $(this)).removeAttr("disabled");
+
 		});
 	</script>
 </body>

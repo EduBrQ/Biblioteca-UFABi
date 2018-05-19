@@ -4,6 +4,11 @@ import java.util.List;
 
 import com.uepb.controlebiblioteca.model.MidiasEletronicas;
 
+/**
+ * Interface que define os metodos que podem ser utilizados implementando a mesma.
+ * @author Eduardo Borba
+ *
+ */
 public interface MidiasEletronicasDao {
 
 	public void addMidiasEletronicas(MidiasEletronicas midiasEletronicas);

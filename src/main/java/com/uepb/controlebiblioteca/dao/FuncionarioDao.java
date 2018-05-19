@@ -4,6 +4,11 @@ import java.util.List;
 
 import com.uepb.controlebiblioteca.model.Funcionario;
 
+/**
+ * Interface que define os metodos que podem ser utilizados implementando a mesma.
+ * @author Eduardo Borba
+ *
+ */
 public interface FuncionarioDao {
 
 	public void addFuncionario(Funcionario funcionario);

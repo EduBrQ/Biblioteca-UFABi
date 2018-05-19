@@ -1,4 +1,12 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+<style>
+#janela{
+	width: 60%;
+	
+}
+</style>
+
 <html>
 <head>
 <jsp:include page="../template/header.jsp" />
@@ -34,7 +42,7 @@
 							<h4>Cadastro de Livros</h4>
 						</div>
 						<div class="grid-body no-border">
-							<div class="row">
+							<div class="row" id="janela">
 								<div class="col-md-8 col-sm-8 col-xs-8">
 									<form:form method="POST" action="saveLivro"
 										modelAttribute="livro">

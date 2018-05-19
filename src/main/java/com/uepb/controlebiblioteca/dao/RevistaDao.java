@@ -4,6 +4,11 @@ import java.util.List;
 
 import com.uepb.controlebiblioteca.model.Revista;
 
+/**
+ * Interface que define os metodos que podem ser utilizados implementando a mesma.
+ * @author Eduardo Borba
+ *
+ */
 public interface RevistaDao {
 
 	public void addRevista(Revista livro);

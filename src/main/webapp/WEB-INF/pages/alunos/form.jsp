@@ -1,6 +1,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<style>
+#janela{
+	width: 60%;
+	
+}
+</style>
 <html>
 <head>
 <jsp:include page="../template/header.jsp" />
@@ -37,12 +42,13 @@
 						<div class="grid-title no-border">
 							<h4>Cadastro de Alunos</h4>
 						</div>
-						<div class="grid-body no-border">
-							<div class="row">
+						<div class="grid-body no-border" >
+							<div class="row" id="janela" >
 
 								<form:form method="POST" action="saveAluno"
 									modelAttribute="aluno">
 									<div class="col-md-6 col-sm-6 col-xs-6">
+									
 										<form:hidden path="id" />
 
 										<div class="form-group">
@@ -126,25 +132,35 @@
 											</div>
 										</div>
 
+
 										<div class="form-group">
+										
+											
+											
+												
 											<label class="form-label">Curso</label>
+											<!-- <button>+</button> -->
 											<div class="controls">
 												<form:select path="curso.id" id="source"
 													class="select2-container" style="width: 100%">
+
 													<option value="">** Selecione o Curso **</option>
 													<c:forEach items="${cursos}" var="mCurso">
 														<option value="${mCurso.id}"
 															${aluno.curso.id eq mCurso.id ? 'selected' : ''}>${mCurso.nome}</option>
 													</c:forEach>
+
 												</form:select>
+
 											</div>
+
 										</div>
+
 									</div>
-
-
 
 									<input type="submit" class="btn btn-info pull-left"
 										value="Enviar" />
+
 
 								</form:form>
 

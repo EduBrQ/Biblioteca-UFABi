@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -113,7 +115,7 @@ public class Aluno implements Serializable {
 	@Column
 	private String matricula; // Variável String onde será atribuida a matricula do aluno pelo metodo gerarMatricula.
 
-	@OneToOne(cascade = CascadeType.ALL) 
+	@ManyToOne
 	private Curso curso; // Define a variavel curso ligada a aluno como cascade, caso o curso seja deletado, o aluno também será.
 
 	public Date getAno() {

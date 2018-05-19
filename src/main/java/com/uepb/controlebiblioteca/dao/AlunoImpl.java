@@ -8,6 +8,11 @@ import org.springframework.stereotype.Repository;
 
 import com.uepb.controlebiblioteca.model.Aluno;
 
+/**
+ * AlunoImpl implementa AlunoDao e define as funcionalidades de cada método.
+ * @author Eduardo Borba
+ *
+ */
 @Repository
 public class AlunoImpl implements AlunoDao {
 

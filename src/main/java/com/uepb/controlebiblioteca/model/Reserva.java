@@ -42,10 +42,10 @@ public class Reserva implements Serializable {
 	private MidiasEletronicas midiaEletronica;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	private TrabalhosConclusao trabalhosConcusao;
+	private TrabalhosConclusao trabalhoConclusao;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	private AnaisCongresso anaisCongresso;
+	private AnaisCongresso analCongresso;
 	
 	public int getId() {
 		return id;
@@ -92,20 +92,20 @@ public class Reserva implements Serializable {
 		this.midiaEletronica = midiaEletronica;
 	}
 
-	public TrabalhosConclusao getTrabalhosConcusao() {
-		return trabalhosConcusao;
+	public TrabalhosConclusao getTrabalhoConclusao() {
+		return trabalhoConclusao;
 	}
 
-	public void setTrabalhosConcusao(TrabalhosConclusao trabalhosConcusao) {
-		this.trabalhosConcusao = trabalhosConcusao;
+	public void setTrabalhoConclusao(TrabalhosConclusao trabalhoConclusao) {
+		this.trabalhoConclusao = trabalhoConclusao;
 	}
 
-	public AnaisCongresso getAnaisCongresso() {
-		return anaisCongresso;
+	public AnaisCongresso getAnalCongresso() {
+		return analCongresso;
 	}
 
-	public void setAnaisCongresso(AnaisCongresso anaisCongresso) {
-		this.anaisCongresso = anaisCongresso;
+	public void setAnalCongresso(AnaisCongresso analCongresso) {
+		this.analCongresso = analCongresso;
 	}
 
 }

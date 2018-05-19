@@ -6,13 +6,19 @@ Sistema que permitira o controle de emprestimos de livro
 
 - Baixe o repositorio
 
-- Importe o Banco de Dados
+- Na pasta "\.settings" Modifique o arquivo "org.eclipse.wst.common.project.facet.core.xml",
+- na seguinte linha: <installed facet="jst.web" version="3.1"/>  para  <installed facet="jst.web" version="3.0"/>
+
+### Importe o Banco de Dados
 ```bash
-Obs.: arquivo "dbweb.sql" esta localizado na raiz do projeto
+Obs.: arquivo "controle_biblioteca.sql" esta localizado na raiz do projeto
 ```
 
-- Execute os Testes
+### Iniciando
+
+#### Em Run As:
+
 ```bash
-Obs.: como os testes sempre irão interagir com o elemento de id=1, 
-é necessário limpar as tabelas para zerar o autoincrement.
+- Maven Clean & Maven Install
+- Run on Server - Tomcat 7.0
 ```
