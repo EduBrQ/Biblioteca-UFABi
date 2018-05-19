@@ -40,35 +40,35 @@ public class DatabaseConfig {
 
 
     
-//    @Bean(name = "DataSource")
-//    public DataSource getDataSource() {
-//        HikariDataSource ds = new HikariDataSource();
-//        ds.setMaximumPoolSize(100);
-//        ds.setMinimumIdle(30);
-//        ds.setDriverClassName("org.h2.Driver");
-//        ds.setJdbcUrl("jdbc:h2:mem:test");
-//        ds.setUsername("root");
-//        ds.setPassword("root");
-//        return ds;
-//    }
+    @Bean(name = "DataSource")
+    public DataSource getDataSource() {
+        HikariDataSource ds = new HikariDataSource();
+        ds.setMaximumPoolSize(100);
+        ds.setMinimumIdle(30);
+        ds.setDriverClassName("org.h2.Driver");
+        ds.setJdbcUrl("jdbc:h2:mem:test");
+        ds.setUsername("root");
+        ds.setPassword("root");
+        return ds;
+    }
     /**
      * Metodo que retorna os parametros para configurar a fonte de dados
      * @return dataSource
      */
-    @Bean(name = "DataSource")
-    public HikariDataSource getDataSource(){
-        HikariDataSource dataSource = new HikariDataSource();
-        dataSource.setDataSourceClassName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource");
-        dataSource.addDataSourceProperty("databaseName", "controle_biblioteca");
-        dataSource.addDataSourceProperty("portNumber", "3306");
-        dataSource.addDataSourceProperty("serverName", "127.0.0.1");
-        dataSource.addDataSourceProperty("user", "root");
-        dataSource.addDataSourceProperty("password", "");
-        return dataSource;
-    }
+//    @Bean(name = "DataSource")
+//    public HikariDataSource getDataSource(){
+//        HikariDataSource dataSource = new HikariDataSource();
+//        dataSource.setDataSourceClassName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource");
+//        dataSource.addDataSourceProperty("databaseName", "controle_biblioteca");
+//        dataSource.addDataSourceProperty("portNumber", "3306");
+//        dataSource.addDataSourceProperty("serverName", "127.0.0.1");
+//        dataSource.addDataSourceProperty("user", "root");
+//        dataSource.addDataSourceProperty("password", "");
+//        return dataSource;
+//    }
     /**
-     * Metodo de implementação para uma única SessionFactory do Hibernate. 
-     * Vincula uma Sessão do Hibernate da factory especificada, 
+     * Metodo de implementaï¿½ï¿½o para uma ï¿½nica SessionFactory do Hibernate. 
+     * Vincula uma Sessï¿½o do Hibernate da factory especificada, 
      * permitindo potencialmente uma Session por factory.
      * 
      */
@@ -80,8 +80,8 @@ public class DatabaseConfig {
     }
     
     /**
-     * é uma FactoryBean <SessionFactory>. 
-     * Cria uma instância SessionFactory local.
+     * ï¿½ uma FactoryBean <SessionFactory>. 
+     * Cria uma instï¿½ncia SessionFactory local.
      * Especifica as classes de entidade anotadas para registrar com essa SessionFactory do Hibernate.
      */
     @Bean
@@ -104,7 +104,7 @@ public class DatabaseConfig {
         );
         
         /**
-         * Define as propriedades de conversação entre o hibernate e uma fonte de dados.
+         * Define as propriedades de conversaï¿½ï¿½o entre o hibernate e uma fonte de dados.
          * 
          */
         Properties properties = new Properties();
