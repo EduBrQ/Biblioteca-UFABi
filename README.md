@@ -5,9 +5,9 @@ Sistema que permitira o controle de emprestimos de livro
 
 ## Estrutura do sistema
 
-- Abaixo temos o Diagrama de DomÃ­nios das Classes:
+- Abaixo temos o Diagrama de Domínios das Classes:
 
-![alt text](https://drive.google.com/file/d/1uUK5ykafRjM2lbrfOCSwCtkP3XGkqOVO/view?usp=sharing)
+[https://bitbucket.org/pabliciotgg/controle-de-biblioteca/src/master/diagrama.jpeg]
 
 
 ## Instrucoes
