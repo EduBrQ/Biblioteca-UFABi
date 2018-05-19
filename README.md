@@ -22,3 +22,5 @@ Obs.: arquivo "controle_biblioteca.sql" esta localizado na raiz do projeto
 - Maven Clean & Maven Install
 - Run on Server - Tomcat 7.0
 ```
+
+![Alt text](relative/path/to/diagrama.jpg?raw=true "Diagrama")
