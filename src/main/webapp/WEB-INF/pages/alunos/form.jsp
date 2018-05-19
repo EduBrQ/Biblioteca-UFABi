@@ -114,7 +114,7 @@
 										<div class="form-group">
 											<label class="form-label">Ano</label>
 											<div class="controls">
-												<form:input class="form-control" path="ano" />
+												<form:input type="date" class="form-control" path="ano" />
 											</div>
 										</div>
 
