@@ -23,4 +23,4 @@ Obs.: arquivo "controle_biblioteca.sql" esta localizado na raiz do projeto
 - Run on Server - Tomcat 7.0
 ```
 
-![Alt text](relative/path/to/diagrama.jpg?raw=true "Diagrama")
+![Alt text](diagrama.jpg?raw=true "Diagrama")
