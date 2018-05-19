@@ -15,11 +15,11 @@ public class UserRoleServiceImpl implements UserRoleService {
     private SessionFactory sessionFactory;
 
     @Transactional
-    public UserRole getRoleUser() {
+    public UserRole getRoleUser(String roleName) {
         return (UserRole) sessionFactory
                 .getCurrentSession()
                 .createCriteria(UserRole.class)
-                .add(Restrictions.eq("roleName", "ROLE_USER"))
+                .add(Restrictions.eq("roleName", roleName))
                 .uniqueResult();
     }
 }

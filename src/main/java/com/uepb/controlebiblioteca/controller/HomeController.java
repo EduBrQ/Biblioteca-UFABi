@@ -94,8 +94,10 @@ public class HomeController {
 
     
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String signupForm(@RequestParam String userName, @RequestParam String password){
-        UserRole role = userRoleService.getRoleUser();
+    public String signupForm(@RequestParam String userName, 
+    		@RequestParam String password,
+    		@RequestParam String roleName){
+        UserRole role = userRoleService.getRoleUser(roleName);
         List<UserRole> roles = new ArrayList<>();
         roles.add(role);
 

@@ -16,10 +16,22 @@
 						</label>
 					</div>
 					<div>
-						<label>Senha <input class="form-control"
-							type="password" name="password" />
+						<label>Senha <input class="form-control" type="password"
+							name="password" />
 						</label>
 					</div>
+
+					<div class="form-group">
+						<label class="form-label">Roles</label> <select
+							style="width: 100%" class="select2-container"
+							name="roleName">
+							<option value="">-- Selecione a Role do Usuário --</option>
+							<option value="ADMIN">ADMIN</option>
+							<option value="FUNCIONARIO">FUNCIONARIO</option>
+							<option value="ALUNO">ALUNO</option>
+						</select>
+					</div>
+
 					<div>
 						<input class="btn btn-primary" type="submit" value="Enviar" />
 					</div>

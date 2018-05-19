@@ -2,7 +2,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <html>
 <jsp:include page="../template/header.jsp" />
 <body>
@@ -69,8 +70,10 @@
 												<td>${aluno.nomePai}</td>
 												<td>${aluno.naturalidade}</td>
 												<td><a href="editAluno?id=${aluno.id}">Edit</a>
-													&nbsp;&nbsp;&nbsp;&nbsp; <a
-													href="deleteAluno?id=${aluno.id}">Delete</a></td>
+													&nbsp;&nbsp;&nbsp;&nbsp; 
+													<sec:authorize access="hasRole('ADMIN')">
+														<a href="deleteAluno?id=${aluno.id}">Delete</a>
+													</sec:authorize></td>
 
 											</tr>
 										</c:forEach>

@@ -56,7 +56,26 @@
 											<tr>
 												<td>${emprestimo.id}</td>
 												<td>${emprestimo.aluno.nomeCompleto}</td>
-												<td>${emprestimo.livro.titulo}</td>
+													<c:if test="${not empty emprestimo.livro.titulo}">
+												    <td>${emprestimo.livro.titulo}</td>
+												</c:if>
+												
+												<c:if test="${not empty emprestimo.revista.editora}">
+												    <td>${emprestimo.revista.editora}</td>
+												</c:if>
+												
+												
+												<c:if test="${not empty emprestimo.midiaEletronica.titulo}">
+												    <td>${emprestimo.midiaEletronica.titulo}</td>
+												</c:if>
+												
+												<c:if test="${not empty emprestimo.trabalhoConclusao.tipo}">
+												    <td>${emprestimo.trabalhoConclusao.tipo}</td>
+												</c:if>
+												
+												<c:if test="${not empty emprestimo.analCongresso.tipo}">
+												    <td>${emprestimo.analCongresso.tipo}</td>
+												</c:if>
 												<td>${emprestimo.dataEmprestimo}</td>
 												<td><a href="editEmprestimo?id=${emprestimo.id}">Edit</a>
 													&nbsp;&nbsp;&nbsp;&nbsp; <a

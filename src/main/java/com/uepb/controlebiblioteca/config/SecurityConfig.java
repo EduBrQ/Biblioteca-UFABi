@@ -32,6 +32,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
 	}
+	
+	@Autowired
+    public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication().withUser("aluno").password("123").roles("USER");
+        auth.inMemoryAuthentication().withUser("funcionario").password("123").roles("FUNCIONARIO");
+        auth.inMemoryAuthentication().withUser("admin").password("123").roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("root").password("123").roles("ADMIN");
+    }
+	
 	/**
 	 * Nesse método definimos as pastas que quisermos ignorar ...
 	 */

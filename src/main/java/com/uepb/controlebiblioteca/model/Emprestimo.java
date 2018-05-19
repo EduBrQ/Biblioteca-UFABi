@@ -55,19 +55,19 @@ public class Emprestimo implements Serializable {
 	@JoinColumn(name = "aluno_id", nullable = false)
 	private Aluno aluno;
 
-	@OneToOne()
+	@OneToOne(cascade = CascadeType.REMOVE)
 	private Livro livro;
 
-	@OneToOne()
+	@OneToOne(cascade = CascadeType.REMOVE)
 	private Revista revista;
 
-	@OneToOne()
+	@OneToOne(cascade = CascadeType.REMOVE)
 	private MidiasEletronicas midiaEletronica;
 
-	@OneToOne()
+	@OneToOne(cascade = CascadeType.REMOVE)
 	private TrabalhosConclusao trabalhoConclusao;
 
-	@OneToOne()
+	@OneToOne(cascade = CascadeType.REMOVE)
 	private AnaisCongresso analCongresso;
 
 	public int getId() {
