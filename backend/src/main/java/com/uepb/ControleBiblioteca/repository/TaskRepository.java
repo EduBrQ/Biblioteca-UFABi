@@ -8,4 +8,6 @@ import com.uepb.ControleBiblioteca.entities.Task;
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
+	Task findOne(Long id);
+	
 }
