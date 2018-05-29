@@ -14,25 +14,22 @@ import com.uepb.ControleBiblioteca.entities.Task;
 import com.uepb.ControleBiblioteca.exception.TaskException;
 import com.uepb.ControleBiblioteca.repository.TaskRepository;
 
-
 @Service
 public class TaskService implements ITaskService {
-	
-	private static final Logger LOG = LoggerFactory.getLogger(TaskController.class);
 
+	private static final Logger LOG = LoggerFactory.getLogger(TaskController.class);
 
 	@Autowired
 	private TaskRepository taskRepository;
-	
+
 	public TaskService(TaskRepository taskRepository) {
 		this.taskRepository = taskRepository;
 	}
-	
+
 	@Override
 	public List<Task> findAll() {
 		return this.taskRepository.findAll();
 	}
-	
 
 	@Override
 	public Task create(Task task) {
@@ -41,30 +38,45 @@ public class TaskService implements ITaskService {
 
 	@Override
 	public Task findOne(Long id) {
-		  Optional<Task> todoResult = taskRepository.findById(id);
-	        return todoResult.orElseThrow(() -> new TaskException("Error"));
+		Optional<Task> todoResult = taskRepository.findById(id);
+		return todoResult.orElseThrow(() -> new TaskException("Error"));
 	}
-	
-	
+
 	@Override
 	public void remove(Long id) {
 		if (this.taskRepository.existsById(id)) {
 			this.taskRepository.deleteById(id);
 		}
 	}
-	
-    @Transactional(readOnly = true, rollbackFor = {TaskException.class})
-    @Override
-    public Task findById(Long id) throws TaskException {
-    	LOG.debug("Finding a to-do entry with id: {}", id);
 
-        Task found = taskRepository.findOne(id);
-        LOG.debug("Found to-do entry: {}", found);
+	@Transactional(readOnly = true, rollbackFor = { TaskException.class })
+	@Override
+	public Task findById(Long id) throws TaskException {
+		LOG.debug("Finding a to-do entry with id: {}", id);
 
-        if (found == null) {
-            throw new TaskException("No to-entry found with id: " + id);
-        }
+		Task found = taskRepository.findOne(id);
+		LOG.debug("Found to-do entry: {}", found);
 
-        return found;
-    }
+		if (found == null) {
+			throw new TaskException("No to-entry found with id: " + id);
+		}
+
+		return found;
+	}
+
+	@Override
+	public Task update(Task taskDetails, Long Id) {
+
+		LOG.debug("Finding a to-do entry with id: {}", Id);
+
+		Task task = taskRepository.findById(Id).orElseThrow(() -> new TaskException("Error"));
+
+		task.setDone(taskDetails.getDone());
+
+		task.setName(taskDetails.getName());
+
+		Task updatedTask = taskRepository.save(task);
+
+		return updatedTask;
+	}
 }
