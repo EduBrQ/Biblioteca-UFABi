@@ -17,38 +17,38 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.uepb.ControleBiblioteca.entities.Usuarios;
-import com.uepb.ControleBiblioteca.exception.UsuariosException;
-import com.uepb.ControleBiblioteca.repository.UsuariosRepository;
-import com.uepb.ControleBiblioteca.services.IUsuariosService;
+import com.uepb.ControleBiblioteca.entities.Usuario;
+import com.uepb.ControleBiblioteca.exception.UsuarioException;
+import com.uepb.ControleBiblioteca.repository.UsuarioRepository;
+import com.uepb.ControleBiblioteca.services.IUsuarioService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/usuarios")
-@Api(value = "API Rest - Usuarios Endpoint")
+@Api(value = "API Rest - Usuario Endpoint")
 public class UsuarioController {
 
 	private static final Logger LOG = LoggerFactory.getLogger(UsuarioController.class);
 
 	@Autowired
-	private IUsuariosService usuariosService;
+	private IUsuarioService usuariosService;
 
-	public UsuariosController(IUsuariosService usuariosService) {
+	public UsuarioController(IUsuarioService usuariosService) {
 		this.usuariosService = usuariosService;
 	}
 
 	@GetMapping
 	@ApiOperation(value = "Busca todos os dados do banco.")
-	public List<Usuarios> findAll() {
+	public List<Usuario> findAll() {
 		LOG.warn("THIAGO PABLICIO CABRAL DA SILVA...");
 		return this.usuariosService.findAll();
 	}
 
 	@GetMapping("/{id}")
 	@ApiOperation(value = "Busca um dado do banco através do id.")
-	public Usuarios findOne(@PathVariable("id") Integer id) {
+	public Usuario findOne(@PathVariable("id") Integer id) {
 		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
 		return this.usuariosService.findOne(id);
 	}
@@ -56,15 +56,15 @@ public class UsuarioController {
 	@PostMapping
 	@ResponseBody
 	@ApiOperation(value = "Cria um dado no banco.")
-	public Usuarios create(@RequestBody Usuarios usuarios) {
+	public Usuario create(@RequestBody Usuario usuarios) {
 		LOG.error("THIAGO PABLICIO CABRAL DA SILVA...");
 		return this.usuariosService.create(usuarios);
 	}
 
-	// Update a Usuarios
+	// Update a Usuario
 	@PutMapping("/{id}")
 	@ApiOperation(value = "Edita um dado do Banco através id.")
-	public Usuarios update(@PathVariable(value = "id") Integer id, @RequestBody Usuarios usuariosDetails) {
+	public Usuario update(@PathVariable(value = "id") Integer id, @RequestBody Usuario usuariosDetails) {
 		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
 		return this.usuariosService.update(usuariosDetails, id);
 	}
