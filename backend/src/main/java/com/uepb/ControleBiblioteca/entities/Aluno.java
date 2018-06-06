@@ -15,7 +15,7 @@ public class Aluno {
 		@Id
 		@Column(name="id")
 		@GeneratedValue
-		private int id;
+		private Long id;
 		
 		@Column(name="matricula")
 		private String matricula;
@@ -148,10 +148,10 @@ public class Aluno {
 		public void setNivel(String nivel) {
 			this.nivel = nivel;
 		}
-		public int getId() {
+		public Long getId() {
 			return id;
 		}
-		public void setId(int id) {
+		public void setId(Long id) {
 			this.id = id;
 		}
 

@@ -1,9 +1,9 @@
 package com.uepb.ControleBiblioteca.taskTest;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
@@ -11,10 +11,14 @@ import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
-
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.uepb.ControleBiblioteca.entities.Task;
@@ -26,61 +30,81 @@ public class TaskServiceTest {
 
 	@Mock
 	private TaskService taskService;
-	
+
 	@Mock
 	private TaskRepository taskRepository;
 
-	@Test
-	public void addNewTaskServiceTest() {
-		Task task1 = new Task();
-		task1.setId(1L);
-		task1.setName("claudio");
-		task1.setDone(true);
-		taskService.create(task1);		
-		when(taskService.findById(1L)).thenReturn(task1);
-		Task actual = taskService.findById(1L);		
-		assertThat(actual, is(task1));
-	}
-	
-	@Test
-	public void deleteServiceTest() {
-		Task task1 = new Task();
-		task1.setId(1L);
-		task1.setName("claudio");
-		task1.setDone(true);
-		taskService.create(task1);
-        when(taskRepository.findOne(task1.getId())).thenReturn(task1);
-        taskService.remove(1L);      
-        assertNull(taskService.findById(1L));       
+	@Before
+	public void setUp() {
+		taskRepository = mock(TaskRepository.class);
+		taskService = new TaskService(taskRepository);
 	}
 
+	@Test
+	public void addNewTaskServiceTest() {
+		Task task = new Task(1L, "OI", false);
+		taskService.create(task);
+		ArgumentCaptor<Task> taskArgument = ArgumentCaptor.forClass(Task.class);
+		verify(taskRepository, times(1)).save(taskArgument.capture());
+		verifyNoMoreInteractions(taskRepository);
+		Task model = taskArgument.getValue();
+		assertThat(model.getName(), is(task.getName()));
+		assertThat(model.getId(), is(task.getId()));
+	}
 	
+//
+//	@Test
+//	public void deleteServiceTest() {
+//		Task task = new Task(1L, "OI", false);
+//		when(taskRepository.findOne(1L)).thenReturn(task);
+//
+//		taskService.remove(1L);
+//
+//        verify(taskRepository, times(1)).findById(1L);
+//        verify(taskRepository, times(2)).delete(task);
+//        verifyNoMoreInteractions(taskRepository);
+//
+//	}
+
 	@Test
 	public void findAllServiceTest() {
 		List<Task> models = new ArrayList<>();
-		when(taskService.findAll()).thenReturn(models);
+		when(taskRepository.findAll()).thenReturn(models);
 		List<Task> actual = taskService.findAll();
-		verify(taskService, times(1)).findAll();
+		verify(taskRepository, times(1)).findAll();
 		verifyNoMoreInteractions(taskRepository);
 		assertThat(actual, is(models));
 	}
 
-	@Test
-	public void testFindByIdService() {
-		Task task = new Task(1L, "OI", false);
-		when(taskService.findById(1L)).thenReturn(task);
-		Task actual = taskService.findById(1L);
-		assertThat(actual, is(task));
-	}
-	
-	@Test
-	public void testUpdateService() {
-		Task task = new Task(1L, "OI", false);
-		when(taskService.findById(1L)).thenReturn(task);
-		task.setName("Modf");
-		this.taskRepository.save(task);
-		task = this.taskService.findById(1L);
-		assertEquals("Modf", task.getName());
-	}
+
+//	@Test
+//	public void testFindByIdService() {
+//		Task task = new Task(1L, "OI", false);
+//		when(taskService.findById(1L)).thenReturn(task);
+//		Task actual = taskService.findById(1L);
+//		verify(taskRepository, times(1)).findById(1L);
+//		verifyNoMoreInteractions(taskRepository);
+//		assertThat(actual, is(task));
+//	}
+
+
+//	@Test
+//	public void update_TodoEntryFound_ShouldUpdateTodoEntry() throws TodoNotFoundException {
+//		TodoDTO dto = new TodoDTOBuilder().id(ID).description(DESCRIPTION_UPDATED).title(TITLE_UPDATED).build();
+//
+//		Todo model = new TodoBuilder().id(ID).description(DESCRIPTION).title(TITLE).build();
+//
+//		when(repositoryMock.findOne(dto.getId())).thenReturn(model);
+//
+//		Todo actual = service.update(dto);
+//
+//		verify(repositoryMock, times(1)).findOne(dto.getId());
+//		verifyNoMoreInteractions(repositoryMock);
+//
+//		assertThat(model.getId(), is(dto.getId()));
+//		assertThat(model.getDescription(), is(dto.getDescription()));
+//		assertThat(model.getTitle(), is(dto.getTitle()));
+//	}
+
 
 }

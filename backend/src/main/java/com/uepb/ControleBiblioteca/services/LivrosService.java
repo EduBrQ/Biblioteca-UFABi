@@ -9,74 +9,80 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.uepb.ControleBiblioteca.controller.TaskController;
-import com.uepb.ControleBiblioteca.entities.Task;
-import com.uepb.ControleBiblioteca.exception.TaskException;
-import com.uepb.ControleBiblioteca.repository.TaskRepository;
+import com.uepb.ControleBiblioteca.controller.LivrosController;
+import com.uepb.ControleBiblioteca.entities.Livros;
+import com.uepb.ControleBiblioteca.exception.LivrosException;
+import com.uepb.ControleBiblioteca.repository.LivrosRepository;
 
 @Service
-public class LivrosService implements ITaskService {
+public class LivrosService implements ILivrosService {
 
-	private static final Logger LOG = LoggerFactory.getLogger(TaskController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(LivrosController.class);
 
 	@Autowired
-	private TaskRepository taskRepository;
+	private LivrosRepository livrosRepository;
 
-	public LivrosService(TaskRepository taskRepository) {
-		this.taskRepository = taskRepository;
+	public LivrosService(LivrosRepository livrosRepository) {
+		this.livrosRepository = livrosRepository;
 	}
 
 	@Override
-	public List<Task> findAll() {
-		return this.taskRepository.findAll();
+	public List<Livros> findAll() {
+		return this.livrosRepository.findAll();
 	}
 
 	@Override
-	public Task create(Task task) {
-		return this.taskRepository.save(task);
+	public Livros create(Livros livros) {
+		return this.livrosRepository.save(livros);
 	}
 
 	@Override
-	public Task findOne(Long id) {
-		Optional<Task> todoResult = taskRepository.findById(id);
-		return todoResult.orElseThrow(() -> new TaskException("Error"));
+	public Livros findOne(Integer id) {
+		Optional<Livros> todoResult = livrosRepository.findById(id);
+		return todoResult.orElseThrow(() -> new LivrosException("Error"));
 	}
 
 	@Override
-	public void remove(Long id) {
-		if (this.taskRepository.existsById(id)) {
-			this.taskRepository.deleteById(id);
+	public void remove(Integer id) {
+		if (this.livrosRepository.existsById(id)) {
+			this.livrosRepository.deleteById(id);
 		}
 	}
 
-	@Transactional(readOnly = true, rollbackFor = { TaskException.class })
+	@Transactional(readOnly = true, rollbackFor = { LivrosException.class })
 	@Override
-	public Task findById(Long id) throws TaskException {
+	public Livros findById(Integer id) throws LivrosException {
 		LOG.debug("Finding a to-do entry with id: {}", id);
 
-		Task found = taskRepository.findOne(id);
+		Livros found = livrosRepository.findOne(id);
 		LOG.debug("Found to-do entry: {}", found);
 
 		if (found == null) {
-			throw new TaskException("No to-entry found with id: " + id);
+			throw new LivrosException("No to-entry found with id: " + id);
 		}
 
 		return found;
 	}
 
 	@Override
-	public Task update(Task taskDetails, Long Id) {
+	public Livros update(Livros livrosDetails, Integer Id) {
 
 		LOG.debug("Finding a to-do entry with id: {}", Id);
 
-		Task task = taskRepository.findById(Id).orElseThrow(() -> new TaskException("Error"));
+		Livros livros = livrosRepository.findById(Id).orElseThrow(() -> new LivrosException("Error"));
+		
+		livros.setAnoPublicacao(livros.getAnoPublicacao());
+		livros.setAreaConhecimento(livros.getAreaConhecimento());
+		livros.setAutores(livros.getAutores());
+		livros.setEdicao(livros.getEdicao());
+		livros.setEditora(livros.getEditora());
+		livros.setISBN(livros.getISBN());
+		livros.setNumeroPaginas(livros.getNumeroPaginas());
+		livros.setTipoTema(livros.getTipoTema());
+		livros.setTitulo(livros.getTitulo());
 
-		task.setDone(taskDetails.getDone());
+		Livros updatedLivros = livrosRepository.save(livros);
 
-		task.setName(taskDetails.getName());
-
-		Task updatedTask = taskRepository.save(task);
-
-		return updatedTask;
+		return updatedLivros;
 	}
 }

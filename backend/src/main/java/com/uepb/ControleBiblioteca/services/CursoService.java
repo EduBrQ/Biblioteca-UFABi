@@ -9,74 +9,76 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.uepb.ControleBiblioteca.controller.TaskController;
-import com.uepb.ControleBiblioteca.entities.Task;
-import com.uepb.ControleBiblioteca.exception.TaskException;
-import com.uepb.ControleBiblioteca.repository.TaskRepository;
+import com.uepb.ControleBiblioteca.controller.CursoController;
+import com.uepb.ControleBiblioteca.entities.Curso;
+import com.uepb.ControleBiblioteca.exception.CursoException;
+import com.uepb.ControleBiblioteca.repository.CursoRepository;
 
 @Service
-public class CursoService implements ITaskService {
+public class CursoService implements ICursoService {
 
-	private static final Logger LOG = LoggerFactory.getLogger(TaskController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(CursoController.class);
 
 	@Autowired
-	private TaskRepository taskRepository;
+	private CursoRepository cursoRepository;
 
-	public CursoService(TaskRepository taskRepository) {
-		this.taskRepository = taskRepository;
+	public CursoService(CursoRepository cursoRepository) {
+		this.cursoRepository = cursoRepository;
 	}
 
 	@Override
-	public List<Task> findAll() {
-		return this.taskRepository.findAll();
+	public List<Curso> findAll() {
+		return this.cursoRepository.findAll();
 	}
 
 	@Override
-	public Task create(Task task) {
-		return this.taskRepository.save(task);
+	public Curso create(Curso curso) {
+		return this.cursoRepository.save(curso);
 	}
 
 	@Override
-	public Task findOne(Long id) {
-		Optional<Task> todoResult = taskRepository.findById(id);
-		return todoResult.orElseThrow(() -> new TaskException("Error"));
+	public Curso findOne(Integer id) {
+		Optional<Curso> todoResult = cursoRepository.findById(id);
+		return todoResult.orElseThrow(() -> new CursoException("Error"));
 	}
 
 	@Override
-	public void remove(Long id) {
-		if (this.taskRepository.existsById(id)) {
-			this.taskRepository.deleteById(id);
+	public void remove(Integer id) {
+		if (this.cursoRepository.existsById(id)) {
+			this.cursoRepository.deleteById(id);
 		}
 	}
 
-	@Transactional(readOnly = true, rollbackFor = { TaskException.class })
+	@Transactional(readOnly = true, rollbackFor = { CursoException.class })
 	@Override
-	public Task findById(Long id) throws TaskException {
+	public Curso findById(Integer id) throws CursoException {
 		LOG.debug("Finding a to-do entry with id: {}", id);
 
-		Task found = taskRepository.findOne(id);
+		Curso found = cursoRepository.findOne(id);
 		LOG.debug("Found to-do entry: {}", found);
 
 		if (found == null) {
-			throw new TaskException("No to-entry found with id: " + id);
+			throw new CursoException("No to-entry found with id: " + id);
 		}
 
 		return found;
 	}
 
 	@Override
-	public Task update(Task taskDetails, Long Id) {
+	public Curso update(Curso cursoDetails, Integer Id) {
 
 		LOG.debug("Finding a to-do entry with id: {}", Id);
 
-		Task task = taskRepository.findById(Id).orElseThrow(() -> new TaskException("Error"));
+		Curso curso = cursoRepository.findById(Id).orElseThrow(() -> new CursoException("Error"));
 
-		task.setDone(taskDetails.getDone());
+		curso.setNome(cursoDetails.getNome());
 
-		task.setName(taskDetails.getName());
+		curso.setArea(cursoDetails.getArea());
 
-		Task updatedTask = taskRepository.save(task);
+		curso.setTipo(cursoDetails.getTipo());
 
-		return updatedTask;
+		Curso updatedCurso = cursoRepository.save(curso);
+
+		return updatedCurso;
 	}
 }

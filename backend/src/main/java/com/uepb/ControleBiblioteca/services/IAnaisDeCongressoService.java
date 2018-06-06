@@ -1,6 +1,7 @@
 package com.uepb.ControleBiblioteca.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.uepb.ControleBiblioteca.entities.AnaisDeCongresso;
 import com.uepb.ControleBiblioteca.exception.AnaisDeCongressoException;
@@ -8,10 +9,11 @@ import com.uepb.ControleBiblioteca.exception.AnaisDeCongressoException;
 public interface IAnaisDeCongressoService {
 
 	List<AnaisDeCongresso> findAll();
-	AnaisDeCongresso findOne(Integer id);
-	AnaisDeCongresso create(AnaisDeCongresso aluno);
-	AnaisDeCongresso update(AnaisDeCongresso aluno, Integer Id);
-	public void remove(Integer id);
-    public AnaisDeCongresso findById(Integer id) throws AnaisDeCongressoException;
+	
+	AnaisDeCongresso create(AnaisDeCongresso anaisDeCongresso);
+	AnaisDeCongresso update(AnaisDeCongresso anaisDeCongresso, Long Id);
+	public void remove(Long id);
+    
+	Optional<AnaisDeCongresso> findOne(Long id);
 
 }

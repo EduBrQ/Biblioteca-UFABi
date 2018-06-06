@@ -1,6 +1,7 @@
 package com.uepb.ControleBiblioteca.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -48,7 +49,7 @@ public class AnaisDeCongressoController {
 
 	@GetMapping("/{id}")
 	@ApiOperation(value = "Busca um dado do banco através do id.")
-	public AnaisDeCongresso findOne(@PathVariable("id") Integer id) {
+	public Optional<AnaisDeCongresso> findOne(@PathVariable("id") Long id) {
 		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
 		return this.anaisDeCongressoService.findOne(id);
 	}
@@ -64,7 +65,7 @@ public class AnaisDeCongressoController {
 	// Update a AnaisDeCongresso
 	@PutMapping("/{id}")
 	@ApiOperation(value = "Edita um dado do Banco através id.")
-	public AnaisDeCongresso update(@PathVariable(value = "id") Integer id, @RequestBody AnaisDeCongresso anaisDeCongressoDetails) {
+	public AnaisDeCongresso update(@PathVariable(value = "id") Long id, @RequestBody AnaisDeCongresso anaisDeCongressoDetails) {
 		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
 		return this.anaisDeCongressoService.update(anaisDeCongressoDetails, id);
 	}
@@ -72,7 +73,7 @@ public class AnaisDeCongressoController {
 
 	@DeleteMapping("/{id}")
 	@ApiOperation(value = "Remove um dado do Banco através id.")
-	public void remove(@PathVariable("id") Integer id) {
+	public void remove(@PathVariable("id") Long id) {
 		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
 		this.anaisDeCongressoService.remove(id);
 	}

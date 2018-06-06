@@ -9,74 +9,78 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.uepb.ControleBiblioteca.controller.TaskController;
-import com.uepb.ControleBiblioteca.entities.Task;
-import com.uepb.ControleBiblioteca.exception.TaskException;
-import com.uepb.ControleBiblioteca.repository.TaskRepository;
+import com.uepb.ControleBiblioteca.controller.TrabalhosDeConclusaoController;
+import com.uepb.ControleBiblioteca.entities.TrabalhosDeConclusao;
+import com.uepb.ControleBiblioteca.exception.TrabalhosDeConclusaoException;
+import com.uepb.ControleBiblioteca.repository.TrabalhosDeConclusaoRepository;
 
 @Service
-public class TrabalhosDeConclusaoService implements ITaskService {
+public class TrabalhosDeConclusaoService implements ITrabalhosDeConclusaoService {
 
-	private static final Logger LOG = LoggerFactory.getLogger(TaskController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(TrabalhosDeConclusaoController.class);
 
 	@Autowired
-	private TaskRepository taskRepository;
+	private TrabalhosDeConclusaoRepository trabalhosDeConclusaoRepository;
 
-	public TrabalhosDeConclusaoService(TaskRepository taskRepository) {
-		this.taskRepository = taskRepository;
+	public TrabalhosDeConclusaoService(TrabalhosDeConclusaoRepository trabalhosDeConclusaoRepository) {
+		this.trabalhosDeConclusaoRepository = trabalhosDeConclusaoRepository;
 	}
 
 	@Override
-	public List<Task> findAll() {
-		return this.taskRepository.findAll();
+	public List<TrabalhosDeConclusao> findAll() {
+		return this.trabalhosDeConclusaoRepository.findAll();
 	}
 
 	@Override
-	public Task create(Task task) {
-		return this.taskRepository.save(task);
+	public TrabalhosDeConclusao create(TrabalhosDeConclusao trabalhosDeConclusao) {
+		return this.trabalhosDeConclusaoRepository.save(trabalhosDeConclusao);
 	}
 
 	@Override
-	public Task findOne(Long id) {
-		Optional<Task> todoResult = taskRepository.findById(id);
-		return todoResult.orElseThrow(() -> new TaskException("Error"));
+	public TrabalhosDeConclusao findOne(Integer id) {
+		Optional<TrabalhosDeConclusao> todoResult = trabalhosDeConclusaoRepository.findById(id);
+		return todoResult.orElseThrow(() -> new TrabalhosDeConclusaoException("Error"));
 	}
 
 	@Override
-	public void remove(Long id) {
-		if (this.taskRepository.existsById(id)) {
-			this.taskRepository.deleteById(id);
+	public void remove(Integer id) {
+		if (this.trabalhosDeConclusaoRepository.existsById(id)) {
+			this.trabalhosDeConclusaoRepository.deleteById(id);
 		}
 	}
 
-	@Transactional(readOnly = true, rollbackFor = { TaskException.class })
+	@Transactional(readOnly = true, rollbackFor = { TrabalhosDeConclusaoException.class })
 	@Override
-	public Task findById(Long id) throws TaskException {
+	public TrabalhosDeConclusao findById(Integer id) throws TrabalhosDeConclusaoException {
 		LOG.debug("Finding a to-do entry with id: {}", id);
 
-		Task found = taskRepository.findOne(id);
+		TrabalhosDeConclusao found = trabalhosDeConclusaoRepository.findOne(id);
 		LOG.debug("Found to-do entry: {}", found);
 
 		if (found == null) {
-			throw new TaskException("No to-entry found with id: " + id);
+			throw new TrabalhosDeConclusaoException("No to-entry found with id: " + id);
 		}
 
 		return found;
 	}
 
 	@Override
-	public Task update(Task taskDetails, Long Id) {
+	public TrabalhosDeConclusao update(TrabalhosDeConclusao trabalhosDeConclusaoDetails, Integer Id) {
 
 		LOG.debug("Finding a to-do entry with id: {}", Id);
 
-		Task task = taskRepository.findById(Id).orElseThrow(() -> new TaskException("Error"));
+		TrabalhosDeConclusao trabalhosDeConclusao = trabalhosDeConclusaoRepository.findById(Id).orElseThrow(() -> new TrabalhosDeConclusaoException("Error"));
+		
+		trabalhosDeConclusao.setAnoDefesa(trabalhosDeConclusao.getAnoDefesa());
+		trabalhosDeConclusao.setAutores(trabalhosDeConclusao.getAutores());
+		trabalhosDeConclusao.setEdicao(trabalhosDeConclusao.getEdicao());
+		trabalhosDeConclusao.setLocal(trabalhosDeConclusao.getLocal());
+		trabalhosDeConclusao.setOrientadores(trabalhosDeConclusao.getOrientadores());
+		trabalhosDeConclusao.setTipoTcc(trabalhosDeConclusao.getTipoTcc());
+		trabalhosDeConclusao.setTitulo(trabalhosDeConclusao.getTitulo());
+		
+		TrabalhosDeConclusao updatedTrabalhosDeConclusao = trabalhosDeConclusaoRepository.save(trabalhosDeConclusao);
 
-		task.setDone(taskDetails.getDone());
-
-		task.setName(taskDetails.getName());
-
-		Task updatedTask = taskRepository.save(task);
-
-		return updatedTask;
+		return updatedTrabalhosDeConclusao;
 	}
 }

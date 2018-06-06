@@ -9,10 +9,10 @@ import com.uepb.ControleBiblioteca.exception.TaskException;
 public interface ITaskService {
 
 	List<Task> findAll();
-	Task findOne(Long id);
+	Optional<Task> findOne(Long id);
 	Task create(Task task);
 	Task update(Task task, Long Id);
 	public void remove(Long id);
-    public Task findById(Long id) throws TaskException;
+//    public Task findById(Long id) throws TaskException;
 
 }

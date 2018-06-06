@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.uepb.ControleBiblioteca.controller.AnaisDeCongressoController;
 import com.uepb.ControleBiblioteca.entities.AnaisDeCongresso;
+import com.uepb.ControleBiblioteca.entities.AnaisDeCongresso;
 import com.uepb.ControleBiblioteca.exception.AnaisDeCongressoException;
 import com.uepb.ControleBiblioteca.repository.AnaisDeCongressoRepository;
 
@@ -37,35 +38,21 @@ public class AnaisDeCongressoService implements IAnaisDeCongressoService {
 	}
 
 	@Override
-	public AnaisDeCongresso findOne(Integer id) {
-		Optional<AnaisDeCongresso> todoResult = anaisDeCongressoRepository.findById(id);
-		return todoResult.orElseThrow(() -> new AnaisDeCongressoException("Error"));
+	public Optional<AnaisDeCongresso> findOne(Long id) {
+		return this.anaisDeCongressoRepository.findById(id);
 	}
 
 	@Override
-	public void remove(Integer id) {
+	public void remove(Long id) {
 		if (this.anaisDeCongressoRepository.existsById(id)) {
 			this.anaisDeCongressoRepository.deleteById(id);
 		}
 	}
 
-	@Transactional(readOnly = true, rollbackFor = { AnaisDeCongressoException.class })
-	@Override
-	public AnaisDeCongresso findById(Integer id) throws AnaisDeCongressoException {
-		LOG.debug("Finding a to-do entry with id: {}", id);
-
-		AnaisDeCongresso found = anaisDeCongressoRepository.findOne(id);
-		LOG.debug("Found to-do entry: {}", found);
-
-		if (found == null) {
-			throw new AnaisDeCongressoException("No to-entry found with id: " + id);
-		}
-
-		return found;
-	}
+	
 
 	@Override
-	public AnaisDeCongresso update(AnaisDeCongresso anaisDeCongressoDetails, Integer Id) {
+	public AnaisDeCongresso update(AnaisDeCongresso anaisDeCongressoDetails, Long Id) {
 
 		LOG.debug("Finding a to-do entry with id: {}", Id);
 

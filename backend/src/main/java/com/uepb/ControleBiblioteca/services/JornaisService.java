@@ -9,74 +9,74 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.uepb.ControleBiblioteca.controller.TaskController;
-import com.uepb.ControleBiblioteca.entities.Task;
-import com.uepb.ControleBiblioteca.exception.TaskException;
-import com.uepb.ControleBiblioteca.repository.TaskRepository;
+import com.uepb.ControleBiblioteca.controller.JornaisController;
+import com.uepb.ControleBiblioteca.entities.Jornais;
+import com.uepb.ControleBiblioteca.exception.JornaisException;
+import com.uepb.ControleBiblioteca.repository.JornaisRepository;
 
 @Service
-public class JornaisService implements ITaskService {
+public class JornaisService implements IJornaisService {
 
-	private static final Logger LOG = LoggerFactory.getLogger(TaskController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(JornaisController.class);
 
 	@Autowired
-	private TaskRepository taskRepository;
+	private JornaisRepository jornaisRepository;
 
-	public JornaisService(TaskRepository taskRepository) {
-		this.taskRepository = taskRepository;
+	public JornaisService(JornaisRepository jornaisRepository) {
+		this.jornaisRepository = jornaisRepository;
 	}
 
 	@Override
-	public List<Task> findAll() {
-		return this.taskRepository.findAll();
+	public List<Jornais> findAll() {
+		return this.jornaisRepository.findAll();
 	}
 
 	@Override
-	public Task create(Task task) {
-		return this.taskRepository.save(task);
+	public Jornais create(Jornais jornais) {
+		return this.jornaisRepository.save(jornais);
 	}
 
 	@Override
-	public Task findOne(Long id) {
-		Optional<Task> todoResult = taskRepository.findById(id);
-		return todoResult.orElseThrow(() -> new TaskException("Error"));
+	public Jornais findOne(Integer id) {
+		Optional<Jornais> todoResult = jornaisRepository.findById(id);
+		return todoResult.orElseThrow(() -> new JornaisException("Error"));
 	}
 
 	@Override
-	public void remove(Long id) {
-		if (this.taskRepository.existsById(id)) {
-			this.taskRepository.deleteById(id);
+	public void remove(Integer id) {
+		if (this.jornaisRepository.existsById(id)) {
+			this.jornaisRepository.deleteById(id);
 		}
 	}
 
-	@Transactional(readOnly = true, rollbackFor = { TaskException.class })
+	@Transactional(readOnly = true, rollbackFor = { JornaisException.class })
 	@Override
-	public Task findById(Long id) throws TaskException {
+	public Jornais findById(Integer id) throws JornaisException {
 		LOG.debug("Finding a to-do entry with id: {}", id);
 
-		Task found = taskRepository.findOne(id);
+		Jornais found = jornaisRepository.findOne(id);
 		LOG.debug("Found to-do entry: {}", found);
 
 		if (found == null) {
-			throw new TaskException("No to-entry found with id: " + id);
+			throw new JornaisException("No to-entry found with id: " + id);
 		}
 
 		return found;
 	}
 
 	@Override
-	public Task update(Task taskDetails, Long Id) {
+	public Jornais update(Jornais jornaisDetails, Integer Id) {
 
 		LOG.debug("Finding a to-do entry with id: {}", Id);
 
-		Task task = taskRepository.findById(Id).orElseThrow(() -> new TaskException("Error"));
+		Jornais jornais = jornaisRepository.findById(Id).orElseThrow(() -> new JornaisException("Error"));
+		
+		jornais.setDataPublicacao(jornais.getDataPublicacao());
+		jornais.setEdicao(jornais.getEdicao());
+		jornais.setTitulo(jornais.getTitulo());
 
-		task.setDone(taskDetails.getDone());
+		Jornais updatedJornais = jornaisRepository.save(jornais);
 
-		task.setName(taskDetails.getName());
-
-		Task updatedTask = taskRepository.save(task);
-
-		return updatedTask;
+		return updatedJornais;
 	}
 }

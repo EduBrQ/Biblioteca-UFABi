@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.uepb.ControleBiblioteca.controller.AlunoController;
 import com.uepb.ControleBiblioteca.entities.Aluno;
+import com.uepb.ControleBiblioteca.entities.Task;
 import com.uepb.ControleBiblioteca.exception.AlunoException;
 import com.uepb.ControleBiblioteca.repository.AlunoRepository;
 
@@ -37,35 +38,21 @@ public class AlunoService implements IAlunoService {
 	}
 
 	@Override
-	public Aluno findOne(Integer id) {
-		Optional<Aluno> todoResult = alunoRepository.findById(id);
-		return todoResult.orElseThrow(() -> new AlunoException("Error"));
+	public Optional<Aluno> findOne(Long id) {
+		return this.alunoRepository.findById(id);
 	}
 
 	@Override
-	public void remove(Integer id) {
+	public void remove(Long id) {
 		if (this.alunoRepository.existsById(id)) {
 			this.alunoRepository.deleteById(id);
 		}
 	}
 
-	@Transactional(readOnly = true, rollbackFor = { AlunoException.class })
-	@Override
-	public Aluno findById(Integer id) throws AlunoException {
-		LOG.debug("Finding a to-do entry with id: {}", id);
-
-		Aluno found = alunoRepository.findOne(id);
-		LOG.debug("Found to-do entry: {}", found);
-
-		if (found == null) {
-			throw new AlunoException("No to-entry found with id: " + id);
-		}
-
-		return found;
-	}
+	
 
 	@Override
-	public Aluno update(Aluno alunoDetails, Integer Id) {
+	public Aluno update(Aluno alunoDetails, Long Id) {
 
 		LOG.debug("Finding a to-do entry with id: {}", Id);
 

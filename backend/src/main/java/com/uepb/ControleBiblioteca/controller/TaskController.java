@@ -1,6 +1,7 @@
 package com.uepb.ControleBiblioteca.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -48,7 +49,7 @@ public class TaskController {
 
 	@GetMapping("/{id}")
 	@ApiOperation(value = "Busca um dado do banco através do id.")
-	public Task findOne(@PathVariable("id") Long id) {
+	public Optional<Task> findOne(@PathVariable("id") Long id) {
 		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
 		return this.taskService.findOne(id);
 	}

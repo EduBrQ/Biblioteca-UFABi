@@ -6,9 +6,8 @@ import org.springframework.stereotype.Repository;
 import com.uepb.ControleBiblioteca.entities.AnaisDeCongresso;
 
 @Repository
-public interface AnaisDeCongressoRepository extends JpaRepository<AnaisDeCongresso, Integer> {
+public interface AnaisDeCongressoRepository extends JpaRepository<AnaisDeCongresso, Long> {
 
-	AnaisDeCongresso findOne(int id);
-	AnaisDeCongresso update(AnaisDeCongresso anaisDeCongresso, int id);
+	
 	
 }

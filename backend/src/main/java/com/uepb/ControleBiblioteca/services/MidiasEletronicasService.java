@@ -9,74 +9,75 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.uepb.ControleBiblioteca.controller.TaskController;
-import com.uepb.ControleBiblioteca.entities.Task;
-import com.uepb.ControleBiblioteca.exception.TaskException;
-import com.uepb.ControleBiblioteca.repository.TaskRepository;
+import com.uepb.ControleBiblioteca.controller.MidiasEletronicasController;
+import com.uepb.ControleBiblioteca.entities.MidiasEletronicas;
+import com.uepb.ControleBiblioteca.exception.MidiasEletronicasException;
+import com.uepb.ControleBiblioteca.repository.MidiasEletronicasRepository;
 
 @Service
-public class MidiasEletronicasService implements ITaskService {
+public class MidiasEletronicasService implements IMidiasEletronicasService {
 
-	private static final Logger LOG = LoggerFactory.getLogger(TaskController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(MidiasEletronicasController.class);
 
 	@Autowired
-	private TaskRepository taskRepository;
+	private MidiasEletronicasRepository midiasEletronicasRepository;
 
-	public MidiasEletronicasService(TaskRepository taskRepository) {
-		this.taskRepository = taskRepository;
+	public MidiasEletronicasService(MidiasEletronicasRepository midiasEletronicasRepository) {
+		this.midiasEletronicasRepository = midiasEletronicasRepository;
 	}
 
 	@Override
-	public List<Task> findAll() {
-		return this.taskRepository.findAll();
+	public List<MidiasEletronicas> findAll() {
+		return this.midiasEletronicasRepository.findAll();
 	}
 
 	@Override
-	public Task create(Task task) {
-		return this.taskRepository.save(task);
+	public MidiasEletronicas create(MidiasEletronicas midiasEletronicas) {
+		return this.midiasEletronicasRepository.save(midiasEletronicas);
 	}
 
 	@Override
-	public Task findOne(Long id) {
-		Optional<Task> todoResult = taskRepository.findById(id);
-		return todoResult.orElseThrow(() -> new TaskException("Error"));
+	public MidiasEletronicas findOne(Integer id) {
+		Optional<MidiasEletronicas> todoResult = midiasEletronicasRepository.findById(id);
+		return todoResult.orElseThrow(() -> new MidiasEletronicasException("Error"));
 	}
 
 	@Override
-	public void remove(Long id) {
-		if (this.taskRepository.existsById(id)) {
-			this.taskRepository.deleteById(id);
+	public void remove(Integer id) {
+		if (this.midiasEletronicasRepository.existsById(id)) {
+			this.midiasEletronicasRepository.deleteById(id);
 		}
 	}
 
-	@Transactional(readOnly = true, rollbackFor = { TaskException.class })
+	@Transactional(readOnly = true, rollbackFor = { MidiasEletronicasException.class })
 	@Override
-	public Task findById(Long id) throws TaskException {
+	public MidiasEletronicas findById(Integer id) throws MidiasEletronicasException {
 		LOG.debug("Finding a to-do entry with id: {}", id);
 
-		Task found = taskRepository.findOne(id);
+		MidiasEletronicas found = midiasEletronicasRepository.findOne(id);
 		LOG.debug("Found to-do entry: {}", found);
 
 		if (found == null) {
-			throw new TaskException("No to-entry found with id: " + id);
+			throw new MidiasEletronicasException("No to-entry found with id: " + id);
 		}
 
 		return found;
 	}
 
 	@Override
-	public Task update(Task taskDetails, Long Id) {
+	public MidiasEletronicas update(MidiasEletronicas midiasEletronicasDetails, Integer Id) {
 
 		LOG.debug("Finding a to-do entry with id: {}", Id);
 
-		Task task = taskRepository.findById(Id).orElseThrow(() -> new TaskException("Error"));
+		MidiasEletronicas midiasEletronicas = midiasEletronicasRepository.findById(Id).orElseThrow(() -> new MidiasEletronicasException("Error"));
+		
 
-		task.setDone(taskDetails.getDone());
+		midiasEletronicas.setDataDeGravacao(midiasEletronicas.getDataDeGravacao());
+		midiasEletronicas.setTipoMidia(midiasEletronicas.getTipoMidia());
+		midiasEletronicas.setTitulo(midiasEletronicas.getTitulo());
+		
+		MidiasEletronicas updatedMidiasEletronicas = midiasEletronicasRepository.save(midiasEletronicas);
 
-		task.setName(taskDetails.getName());
-
-		Task updatedTask = taskRepository.save(task);
-
-		return updatedTask;
+		return updatedMidiasEletronicas;
 	}
 }

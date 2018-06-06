@@ -37,9 +37,8 @@ public class TaskService implements ITaskService {
 	}
 
 	@Override
-	public Task findOne(Long id) {
-		Optional<Task> todoResult = taskRepository.findById(id);
-		return todoResult.orElseThrow(() -> new TaskException("Error"));
+	public Optional<Task> findOne(Long id) {
+		return this.taskRepository.findById(id);
 	}
 
 	@Override
@@ -49,20 +48,20 @@ public class TaskService implements ITaskService {
 		}
 	}
 
-	@Transactional(readOnly = true, rollbackFor = { TaskException.class })
-	@Override
-	public Task findById(Long id) throws TaskException {
-		LOG.debug("Finding a to-do entry with id: {}", id);
-
-		Task found = taskRepository.findOne(id);
-		LOG.debug("Found to-do entry: {}", found);
-
-		if (found == null) {
-			throw new TaskException("No to-entry found with id: " + id);
-		}
-
-		return found;
-	}
+//	@Transactional(readOnly = true, rollbackFor = { TaskException.class })
+//	@Override
+//	public Task findById(Long id) throws TaskException {
+//		LOG.debug("Finding a to-do entry with id: {}", id);
+//
+//		Task found = taskRepository.findOne(id);
+//		LOG.debug("Found to-do entry: {}", found);
+//
+//		if (found == null) {
+//			throw new TaskException("No to-entry found with id: " + id);
+//		}
+//
+//		return found;
+//	}
 
 	@Override
 	public Task update(Task taskDetails, Long Id) {

@@ -1,6 +1,7 @@
 package com.uepb.ControleBiblioteca.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -48,7 +49,7 @@ public class AlunoController {
 
 	@GetMapping("/{id}")
 	@ApiOperation(value = "Busca um dado do banco através do id.")
-	public Aluno findOne(@PathVariable("id") Integer id) {
+	public Optional<Aluno> findOne(@PathVariable("id") Long id) {
 		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
 		return this.alunoService.findOne(id);
 	}
@@ -64,7 +65,7 @@ public class AlunoController {
 	// Update a Aluno
 	@PutMapping("/{id}")
 	@ApiOperation(value = "Edita um dado do Banco através id.")
-	public Aluno update(@PathVariable(value = "id") Integer id, @RequestBody Aluno alunoDetails) {
+	public Aluno update(@PathVariable(value = "id") Long id, @RequestBody Aluno alunoDetails) {
 		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
 		return this.alunoService.update(alunoDetails, id);
 	}
@@ -72,7 +73,7 @@ public class AlunoController {
 
 	@DeleteMapping("/{id}")
 	@ApiOperation(value = "Remove um dado do Banco através id.")
-	public void remove(@PathVariable("id") Integer id) {
+	public void remove(@PathVariable("id") Long id) {
 		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
 		this.alunoService.remove(id);
 	}
