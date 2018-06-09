@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.uepb.ControleBiblioteca.controller.MidiasEletronicasController;
+import com.uepb.ControleBiblioteca.entities.Aluno;
 import com.uepb.ControleBiblioteca.entities.MidiasEletronicas;
 import com.uepb.ControleBiblioteca.exception.MidiasEletronicasException;
 import com.uepb.ControleBiblioteca.repository.MidiasEletronicasRepository;
@@ -35,37 +36,22 @@ public class MidiasEletronicasService implements IMidiasEletronicasService {
 	public MidiasEletronicas create(MidiasEletronicas midiasEletronicas) {
 		return this.midiasEletronicasRepository.save(midiasEletronicas);
 	}
-
+	
 	@Override
-	public MidiasEletronicas findOne(Integer id) {
-		Optional<MidiasEletronicas> todoResult = midiasEletronicasRepository.findById(id);
-		return todoResult.orElseThrow(() -> new MidiasEletronicasException("Error"));
+	public Optional<MidiasEletronicas> findOne(Long id) {
+		return this.midiasEletronicasRepository.findById(id);
 	}
 
 	@Override
-	public void remove(Integer id) {
+	public void remove(Long id) {
 		if (this.midiasEletronicasRepository.existsById(id)) {
 			this.midiasEletronicasRepository.deleteById(id);
 		}
 	}
 
-	@Transactional(readOnly = true, rollbackFor = { MidiasEletronicasException.class })
+	
 	@Override
-	public MidiasEletronicas findById(Integer id) throws MidiasEletronicasException {
-		LOG.debug("Finding a to-do entry with id: {}", id);
-
-		MidiasEletronicas found = midiasEletronicasRepository.findOne(id);
-		LOG.debug("Found to-do entry: {}", found);
-
-		if (found == null) {
-			throw new MidiasEletronicasException("No to-entry found with id: " + id);
-		}
-
-		return found;
-	}
-
-	@Override
-	public MidiasEletronicas update(MidiasEletronicas midiasEletronicasDetails, Integer Id) {
+	public MidiasEletronicas update(MidiasEletronicas midiasEletronicasDetails, Long Id) {
 
 		LOG.debug("Finding a to-do entry with id: {}", Id);
 

@@ -6,9 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.uepb.ControleBiblioteca.entities.Jornais;
 
 @Repository
-public interface JornaisRepository extends JpaRepository<Jornais, Integer> {
+public interface JornaisRepository extends JpaRepository<Jornais, Long> {
 
-	Jornais findOne(int id);
-	Jornais update(Jornais jornais, Long id);
 	
 }

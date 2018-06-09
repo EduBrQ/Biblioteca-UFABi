@@ -1,6 +1,7 @@
 package com.uepb.ControleBiblioteca.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -48,7 +49,7 @@ public class TrabalhosDeConclusaoController {
 
 	@GetMapping("/{id}")
 	@ApiOperation(value = "Busca um dado do banco através do id.")
-	public TrabalhosDeConclusao findOne(@PathVariable("id") Integer id) {
+	public Optional<TrabalhosDeConclusao> findOne(@PathVariable("id") Long id) {
 		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
 		return this.trabalhosDeConclusaoService.findOne(id);
 	}
@@ -64,7 +65,7 @@ public class TrabalhosDeConclusaoController {
 	// Update a TrabalhosDeConclusao
 	@PutMapping("/{id}")
 	@ApiOperation(value = "Edita um dado do Banco através id.")
-	public TrabalhosDeConclusao update(@PathVariable(value = "id") Integer id, @RequestBody TrabalhosDeConclusao trabalhosDeConclusaoDetails) {
+	public TrabalhosDeConclusao update(@PathVariable(value = "id") Long id, @RequestBody TrabalhosDeConclusao trabalhosDeConclusaoDetails) {
 		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
 		return this.trabalhosDeConclusaoService.update(trabalhosDeConclusaoDetails, id);
 	}
@@ -72,7 +73,7 @@ public class TrabalhosDeConclusaoController {
 
 	@DeleteMapping("/{id}")
 	@ApiOperation(value = "Remove um dado do Banco através id.")
-	public void remove(@PathVariable("id") Integer id) {
+	public void remove(@PathVariable("id") Long id) {
 		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
 		this.trabalhosDeConclusaoService.remove(id);
 	}

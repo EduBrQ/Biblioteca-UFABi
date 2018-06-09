@@ -1,17 +1,18 @@
 package com.uepb.ControleBiblioteca.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.uepb.ControleBiblioteca.entities.TrabalhosDeConclusao;
 import com.uepb.ControleBiblioteca.exception.TrabalhosDeConclusaoException;
 
 public interface ITrabalhosDeConclusaoService {
-	
+
 	List<TrabalhosDeConclusao> findAll();
-	TrabalhosDeConclusao findOne(Integer id);
+	Optional<TrabalhosDeConclusao> findOne(Long id);
 	TrabalhosDeConclusao create(TrabalhosDeConclusao trabalhosDeConclusao);
-	TrabalhosDeConclusao update(TrabalhosDeConclusao trabalhosDeConclusao, Integer Id);
-	public void remove(Integer id);
-    public TrabalhosDeConclusao findById(Integer id) throws TrabalhosDeConclusaoException;
+	TrabalhosDeConclusao update(TrabalhosDeConclusao trabalhosDeConclusao, Long Id);
+	public void remove(Long id);
+//    public TrabalhosDeConclusao findById(Long id) throws TrabalhosDeConclusaoException;
 
 }

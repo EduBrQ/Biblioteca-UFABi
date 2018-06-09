@@ -6,9 +6,8 @@ import org.springframework.stereotype.Repository;
 import com.uepb.ControleBiblioteca.entities.Curso;
 
 @Repository
-public interface CursoRepository extends JpaRepository<Curso, Integer> {
+public interface CursoRepository extends JpaRepository<Curso, Long> {
 
-	Curso findOne(int id);
-	Curso update(Curso curso, int id);
+
 	
 }

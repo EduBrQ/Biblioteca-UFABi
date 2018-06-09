@@ -23,7 +23,7 @@ public class Curso {
 	@Id
 	@Column(name="id")
 	@GeneratedValue
-	private int id;
+	private Long id;
 	
 	@Column(name="nome")
 	private String nome;
@@ -48,12 +48,12 @@ public class Curso {
 	/**
 	 * Getters and Seters.
 	 */
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

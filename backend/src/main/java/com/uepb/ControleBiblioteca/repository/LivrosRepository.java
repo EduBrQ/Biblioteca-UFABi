@@ -6,9 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.uepb.ControleBiblioteca.entities.Livros;
 
 @Repository
-public interface LivrosRepository extends JpaRepository<Livros, Integer> {
+public interface LivrosRepository extends JpaRepository<Livros, Long> {
 
-	Livros findOne(int id);
-	Livros update(Livros livros, int id);
 	
 }

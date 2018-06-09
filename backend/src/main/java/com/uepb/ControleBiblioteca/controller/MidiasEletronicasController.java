@@ -1,6 +1,7 @@
 package com.uepb.ControleBiblioteca.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -48,7 +49,7 @@ public class MidiasEletronicasController {
 
 	@GetMapping("/{id}")
 	@ApiOperation(value = "Busca um dado do banco através do id.")
-	public MidiasEletronicas findOne(@PathVariable("id") Integer id) {
+	public Optional<MidiasEletronicas> findOne(@PathVariable("id") Long id) {
 		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
 		return this.midiasEletronicasService.findOne(id);
 	}
@@ -64,7 +65,7 @@ public class MidiasEletronicasController {
 	// Update a MidiasEletronicas
 	@PutMapping("/{id}")
 	@ApiOperation(value = "Edita um dado do Banco através id.")
-	public MidiasEletronicas update(@PathVariable(value = "id") Integer id, @RequestBody MidiasEletronicas midiasEletronicasDetails) {
+	public MidiasEletronicas update(@PathVariable(value = "id") Long id, @RequestBody MidiasEletronicas midiasEletronicasDetails) {
 		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
 		return this.midiasEletronicasService.update(midiasEletronicasDetails, id);
 	}
@@ -72,7 +73,7 @@ public class MidiasEletronicasController {
 
 	@DeleteMapping("/{id}")
 	@ApiOperation(value = "Remove um dado do Banco através id.")
-	public void remove(@PathVariable("id") Integer id) {
+	public void remove(@PathVariable("id") Long id) {
 		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
 		this.midiasEletronicasService.remove(id);
 	}

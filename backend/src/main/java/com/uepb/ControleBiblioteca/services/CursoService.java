@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.uepb.ControleBiblioteca.controller.CursoController;
 import com.uepb.ControleBiblioteca.entities.Curso;
+import com.uepb.ControleBiblioteca.entities.Task;
 import com.uepb.ControleBiblioteca.exception.CursoException;
 import com.uepb.ControleBiblioteca.repository.CursoRepository;
 
@@ -37,44 +38,28 @@ public class CursoService implements ICursoService {
 	}
 
 	@Override
-	public Curso findOne(Integer id) {
-		Optional<Curso> todoResult = cursoRepository.findById(id);
-		return todoResult.orElseThrow(() -> new CursoException("Error"));
+	public Optional<Curso> findOne(Long id) {
+		return this.cursoRepository.findById(id);
 	}
 
 	@Override
-	public void remove(Integer id) {
+	public void remove(Long id) {
 		if (this.cursoRepository.existsById(id)) {
 			this.cursoRepository.deleteById(id);
 		}
 	}
 
-	@Transactional(readOnly = true, rollbackFor = { CursoException.class })
-	@Override
-	public Curso findById(Integer id) throws CursoException {
-		LOG.debug("Finding a to-do entry with id: {}", id);
-
-		Curso found = cursoRepository.findOne(id);
-		LOG.debug("Found to-do entry: {}", found);
-
-		if (found == null) {
-			throw new CursoException("No to-entry found with id: " + id);
-		}
-
-		return found;
-	}
+	
 
 	@Override
-	public Curso update(Curso cursoDetails, Integer Id) {
+	public Curso update(Curso cursoDetails, Long Id) {
 
 		LOG.debug("Finding a to-do entry with id: {}", Id);
 
 		Curso curso = cursoRepository.findById(Id).orElseThrow(() -> new CursoException("Error"));
-
+		
 		curso.setNome(cursoDetails.getNome());
-
 		curso.setArea(cursoDetails.getArea());
-
 		curso.setTipo(cursoDetails.getTipo());
 
 		Curso updatedCurso = cursoRepository.save(curso);

@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.uepb.ControleBiblioteca.controller.LivrosController;
 import com.uepb.ControleBiblioteca.entities.Livros;
+import com.uepb.ControleBiblioteca.entities.Task;
 import com.uepb.ControleBiblioteca.exception.LivrosException;
 import com.uepb.ControleBiblioteca.repository.LivrosRepository;
 
@@ -37,50 +38,35 @@ public class LivrosService implements ILivrosService {
 	}
 
 	@Override
-	public Livros findOne(Integer id) {
-		Optional<Livros> todoResult = livrosRepository.findById(id);
-		return todoResult.orElseThrow(() -> new LivrosException("Error"));
+	public Optional<Livros> findOne(Long id) {
+		return this.livrosRepository.findById(id);
 	}
 
 	@Override
-	public void remove(Integer id) {
+	public void remove(Long id) {
 		if (this.livrosRepository.existsById(id)) {
 			this.livrosRepository.deleteById(id);
 		}
 	}
 
-	@Transactional(readOnly = true, rollbackFor = { LivrosException.class })
-	@Override
-	public Livros findById(Integer id) throws LivrosException {
-		LOG.debug("Finding a to-do entry with id: {}", id);
-
-		Livros found = livrosRepository.findOne(id);
-		LOG.debug("Found to-do entry: {}", found);
-
-		if (found == null) {
-			throw new LivrosException("No to-entry found with id: " + id);
-		}
-
-		return found;
-	}
+	
 
 	@Override
-	public Livros update(Livros livrosDetails, Integer Id) {
+	public Livros update(Livros livrosDetails, Long Id) {
 
 		LOG.debug("Finding a to-do entry with id: {}", Id);
 
 		Livros livros = livrosRepository.findById(Id).orElseThrow(() -> new LivrosException("Error"));
 		
-		livros.setAnoPublicacao(livros.getAnoPublicacao());
-		livros.setAreaConhecimento(livros.getAreaConhecimento());
-		livros.setAutores(livros.getAutores());
-		livros.setEdicao(livros.getEdicao());
-		livros.setEditora(livros.getEditora());
-		livros.setISBN(livros.getISBN());
-		livros.setNumeroPaginas(livros.getNumeroPaginas());
-		livros.setTipoTema(livros.getTipoTema());
-		livros.setTitulo(livros.getTitulo());
-
+		livros.setAnoPublicacao(livrosDetails.getAnoPublicacao());
+		livros.setAreaConhecimento(livrosDetails.getAreaConhecimento());
+		livros.setAutores(livrosDetails.getAutores());
+		livros.setEdicao(livrosDetails.getEdicao());
+		livros.setEditora(livrosDetails.getEditora());
+		livros.setISBN(livrosDetails.getISBN());
+		livros.setNumeroPaginas(livrosDetails.getNumeroPaginas());
+		livros.setTipoTema(livrosDetails.getTipoTema());
+		livros.setTitulo(livrosDetails.getTitulo());
 		Livros updatedLivros = livrosRepository.save(livros);
 
 		return updatedLivros;

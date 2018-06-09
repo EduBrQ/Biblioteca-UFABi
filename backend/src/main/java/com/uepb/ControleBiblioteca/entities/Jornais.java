@@ -24,7 +24,7 @@ public class Jornais {
 	@Id
 	@Column(name="id")
 	@GeneratedValue
-	private int id;
+	private Long id;
 	
 	
 	@Column(name="titulo")
@@ -44,10 +44,10 @@ public class Jornais {
 	
 	//GETTERS E SETTERS
 			
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

@@ -6,9 +6,8 @@ import org.springframework.stereotype.Repository;
 import com.uepb.ControleBiblioteca.entities.TrabalhosDeConclusao;
 
 @Repository
-public interface TrabalhosDeConclusaoRepository extends JpaRepository<TrabalhosDeConclusao, Integer> {
+public interface TrabalhosDeConclusaoRepository extends JpaRepository<TrabalhosDeConclusao, Long> {
 
-	TrabalhosDeConclusao findOne(int id);
-	TrabalhosDeConclusao update(TrabalhosDeConclusao trabalhosDeConclusao, int id);
+	
 	
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.uepb.ControleBiblioteca.controller.TrabalhosDeConclusaoController;
+import com.uepb.ControleBiblioteca.entities.Aluno;
 import com.uepb.ControleBiblioteca.entities.TrabalhosDeConclusao;
 import com.uepb.ControleBiblioteca.exception.TrabalhosDeConclusaoException;
 import com.uepb.ControleBiblioteca.repository.TrabalhosDeConclusaoRepository;
@@ -37,35 +38,20 @@ public class TrabalhosDeConclusaoService implements ITrabalhosDeConclusaoService
 	}
 
 	@Override
-	public TrabalhosDeConclusao findOne(Integer id) {
-		Optional<TrabalhosDeConclusao> todoResult = trabalhosDeConclusaoRepository.findById(id);
-		return todoResult.orElseThrow(() -> new TrabalhosDeConclusaoException("Error"));
+	public Optional<TrabalhosDeConclusao> findOne(Long id) {
+		return this.trabalhosDeConclusaoRepository.findById(id);
 	}
 
 	@Override
-	public void remove(Integer id) {
+	public void remove(Long id) {
 		if (this.trabalhosDeConclusaoRepository.existsById(id)) {
 			this.trabalhosDeConclusaoRepository.deleteById(id);
 		}
 	}
 
-	@Transactional(readOnly = true, rollbackFor = { TrabalhosDeConclusaoException.class })
+	
 	@Override
-	public TrabalhosDeConclusao findById(Integer id) throws TrabalhosDeConclusaoException {
-		LOG.debug("Finding a to-do entry with id: {}", id);
-
-		TrabalhosDeConclusao found = trabalhosDeConclusaoRepository.findOne(id);
-		LOG.debug("Found to-do entry: {}", found);
-
-		if (found == null) {
-			throw new TrabalhosDeConclusaoException("No to-entry found with id: " + id);
-		}
-
-		return found;
-	}
-
-	@Override
-	public TrabalhosDeConclusao update(TrabalhosDeConclusao trabalhosDeConclusaoDetails, Integer Id) {
+	public TrabalhosDeConclusao update(TrabalhosDeConclusao trabalhosDeConclusaoDetails, Long Id) {
 
 		LOG.debug("Finding a to-do entry with id: {}", Id);
 

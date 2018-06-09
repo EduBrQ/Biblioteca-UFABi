@@ -6,9 +6,8 @@ import org.springframework.stereotype.Repository;
 import com.uepb.ControleBiblioteca.entities.MidiasEletronicas;
 
 @Repository
-public interface MidiasEletronicasRepository extends JpaRepository<MidiasEletronicas, Integer> {
+public interface MidiasEletronicasRepository extends JpaRepository<MidiasEletronicas, Long> {
 
-	MidiasEletronicas findOne(int id);
-	MidiasEletronicas update(MidiasEletronicas midiasEletronicas, int id);
+	
 	
 }
