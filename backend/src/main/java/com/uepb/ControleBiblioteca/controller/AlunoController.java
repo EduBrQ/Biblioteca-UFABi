@@ -1,6 +1,7 @@
 package com.uepb.ControleBiblioteca.controller;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -8,6 +9,7 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +29,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8081")
 @RequestMapping("/alunos")
 @Api(value = "API Rest - Aluno Endpoint")
 public class AlunoController {
@@ -42,7 +45,7 @@ public class AlunoController {
 
 	@GetMapping
 	@ApiOperation(value = "Busca todos os dados do banco.")
-	public List<Aluno> findAll() {
+	public @ResponseBody List<Aluno> findAll() {
 		LOG.warn("THIAGO PABLICIO CABRAL DA SILVA...");
 		return this.alunoService.findAll();
 	}
