@@ -11,7 +11,6 @@ const AlunosService = {
     return http.put(`/alunos/${item.id}`, item)
   },
   create: item => {
-    console.log(item)
     return http.post(`/alunos`, item)
   },
   delete: id => {
