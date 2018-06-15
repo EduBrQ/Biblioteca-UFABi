@@ -2,20 +2,20 @@
   <div>
     <v-card>
       <v-card-title>
-        Mídias Eletrônicas
+        MidiasEletronicas
         <v-spacer></v-spacer>
         <v-text-field append-icon="search" label="Buscar" single-line hide-details v-model="search"></v-text-field>
       </v-card-title>
-      <v-data-table :headers="headers" :items="alunos" :search="search">
+      <v-data-table :headers="headers" :items="midiasEletronicas" :search="search">
         <template slot="items" slot-scope="props">
-                <td class="text-xs-left">{{ props.item.nome }}</td>
-                <td class="text-xs-left">{{ props.item.cpf }}</td>
-                <td class="text-xs-left">{{ props.item.matricula }}</td>
+                <td class="text-xs-left">{{ props.item.titulo }}</td>
+                <td class="text-xs-left">{{ props.item.dataDeGravacao }}</td>
+                <td class="text-xs-left">{{ props.item.tipoMidia }}</td>
                 <td class="justify-center layout px-0">
-                  <v-btn icon class="mx-0" @click="editAluno(props.item.id)">
+                  <v-btn icon class="mx-0" @click="editMidiasEletronicas(props.item.id)">
                     <v-icon color="teal">edit</v-icon>
                   </v-btn>
-                  <v-btn icon class="mx-0" @click="deleteAluno(props.item.id)">
+                  <v-btn icon class="mx-0" @click="deleteMidiasEletronicas(props.item.id)">
                     <v-icon color="pink">delete</v-icon>
                   </v-btn>
                 </td>
@@ -28,22 +28,22 @@
 
   <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="800px">
-      <v-btn slot="activator" color="primary" dark>Novo Aluno</v-btn>
+      <v-btn slot="activator" color="primary" dark>Novo MidiasEletronicas</v-btn>
       <v-card>
         <v-card-title>
-          <span class="headline">Cadastrar Alunos</span>
+          <span class="headline">Cadastrar MidiasEletronicas</span>
         </v-card-title>
         <v-card-text>
           <v-container grid-list-md>
             <v-layout wrap>
               <v-flex xs12>
-                <v-text-field v-model="alunoCreate.nome" label="Nome"></v-text-field>
+                <v-text-field v-model="midiasEletronicasCreate.titulo" label="Titulo"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="alunoCreate.cpf" label="CPF"></v-text-field>
+                <v-text-field v-model="midiasEletronicasCreate.dataDeGravacao" label="Data de Gravação"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="alunoCreate.matricula" label="Matrícula"></v-text-field>
+                <v-text-field v-model="midiasEletronicasCreate.tipoMidia" label="Tipo de Mídia"></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>
@@ -51,7 +51,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="blue darken-1" flat @click="close">Fechar</v-btn>
-          <v-btn color="blue darken-1" flat  @click="saveAluno">Salvar</v-btn>
+          <v-btn color="blue darken-1" flat  @click="saveMidiasEletronicas">Salvar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -63,22 +63,22 @@
   import MidiasEletronicasService from '../../services/midiasEletronicasService'
   
   export default {
-    name: 'AlunoComponent',
+    name: 'MidiasEletronicasComponent',
   
     data() {
       return {
         search: '',
         headers: [{
-            text: 'Nome',
-            value: 'nome'
+            text: 'Titulo',
+            value: 'titulo'
           },
           {
-            text: 'Cpf',
-            value: 'cpf'
+            text: 'Data de Gravação',
+            value: 'dataDeGravacao'
           },
           {
-            text: 'Matricula',
-            value: 'matricula'
+            text: 'Tipo de Mídia',
+            value: 'tipoMidia'
           },
           {
             text: 'Ações',
@@ -86,65 +86,65 @@
             sortable: true
           }
         ],
-        alunos: [],
-        alunoCreate: {},
+        midiasEletronicas: [],
+        midiasEletronicasCreate: {},
         dialog: false
       }
     },
     ready() {
-      this.getAllAlunos()
+      this.getAllMidiasEletronicas()
     },
     mounted() {
-      this.getAllAlunos()
+      this.getAllMidiasEletronicas()
     },
   
     methods: {
       close() {
         this.dialog = false
       },
-      getAllAlunos() {
+      getAllMidiasEletronicas() {
         MidiasEletronicasService.getAll().then(data => {
-          this.alunos = data.data
+          this.midiasEletronicas = data.data
         }).catch(e => {
           console.log(e)
         })
       },
-      getAlunoById(id) {
+      getMidiasEletronicasById(id) {
         MidiasEletronicasService.getById(id).then(data => {
-          this.alunoCreate = data.data
+          this.midiasEletronicasCreate = data.data
         }).catch(e => {
           console.log(e)
         })
       },
-      saveAluno() {
-        if (this.alunoCreate.id != null) {
-          console.log(this.alunoCreate)
-          MidiasEletronicasService.edit(this.alunoCreate).then(data => {
+      saveMidiasEletronicas() {
+        if (this.midiasEletronicasCreate.id != null) {
+          console.log(this.midiasEletronicasCreate)
+          MidiasEletronicasService.edit(this.midiasEletronicasCreate).then(data => {
             console.log('editado com sucesso', data)
-            this.getAllAlunos()
+            this.getAllMidiasEletronicas()
           }).catch(e => {
             console.log(e)
           })
         } else {
-          MidiasEletronicasService.create(this.alunoCreate).then(data => {
+          MidiasEletronicasService.create(this.midiasEletronicasCreate).then(data => {
             console.log('criado com sucesso', data)
-            this.getAllAlunos()
+            this.getAllMidiasEletronicas()
           }).catch(e => {
             console.log(e)
           })
         }
-        this.alunoCreate = {}
-        this.alunos = []
+        this.midiasEletronicasCreate = {}
+        this.midiasEletronicas = []
         this.dialog = false
       },
-      editAluno(id) {
+      editMidiasEletronicas(id) {
         this.dialog = true
-        this.getAlunoById(id)
+        this.getMidiasEletronicasById(id)
       },
-      deleteAluno(id) {
+      deleteMidiasEletronicas(id) {
         MidiasEletronicasService.delete(id).then(data => {
-          this.alunos = []
-          this.getAllAlunos()
+          this.midiasEletronicas = []
+          this.getAllMidiasEletronicas()
         }).catch(e => {
           console.log(e)
         })

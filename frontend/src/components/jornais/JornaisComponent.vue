@@ -6,16 +6,16 @@
         <v-spacer></v-spacer>
         <v-text-field append-icon="search" label="Buscar" single-line hide-details v-model="search"></v-text-field>
       </v-card-title>
-      <v-data-table :headers="headers" :items="alunos" :search="search">
+      <v-data-table :headers="headers" :items="jornais" :search="search">
         <template slot="items" slot-scope="props">
-                <td class="text-xs-left">{{ props.item.nome }}</td>
-                <td class="text-xs-left">{{ props.item.cpf }}</td>
-                <td class="text-xs-left">{{ props.item.matricula }}</td>
+                <td class="text-xs-left">{{ props.item.titulo }}</td>
+                <td class="text-xs-left">{{ props.item.edicao }}</td>
+                <td class="text-xs-left">{{ props.item.dataPublicacao }}</td>
                 <td class="justify-center layout px-0">
-                  <v-btn icon class="mx-0" @click="editAluno(props.item.id)">
+                  <v-btn icon class="mx-0" @click="editJornais(props.item.id)">
                     <v-icon color="teal">edit</v-icon>
                   </v-btn>
-                  <v-btn icon class="mx-0" @click="deleteAluno(props.item.id)">
+                  <v-btn icon class="mx-0" @click="deleteJornais(props.item.id)">
                     <v-icon color="pink">delete</v-icon>
                   </v-btn>
                 </td>
@@ -28,22 +28,22 @@
 
   <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="800px">
-      <v-btn slot="activator" color="primary" dark>Novo Aluno</v-btn>
+      <v-btn slot="activator" color="primary" dark>Novo Jornais</v-btn>
       <v-card>
         <v-card-title>
-          <span class="headline">Cadastrar Alunos</span>
+          <span class="headline">Cadastrar Jornais</span>
         </v-card-title>
         <v-card-text>
           <v-container grid-list-md>
             <v-layout wrap>
               <v-flex xs12>
-                <v-text-field v-model="alunoCreate.nome" label="Nome"></v-text-field>
+                <v-text-field v-model="jornaisCreate.titulo" label="Titulo"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="alunoCreate.cpf" label="CPF"></v-text-field>
+                <v-text-field v-model="jornaisCreate.edicao" label="Edição"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="alunoCreate.matricula" label="Matrícula"></v-text-field>
+                <v-text-field v-model="jornaisCreate.dataPublicacao" label="Publicação"></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>
@@ -51,7 +51,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="blue darken-1" flat @click="close">Fechar</v-btn>
-          <v-btn color="blue darken-1" flat  @click="saveAluno">Salvar</v-btn>
+          <v-btn color="blue darken-1" flat  @click="saveJornais">Salvar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -63,22 +63,22 @@
   import JornaisService from '../../services/jornaisService'
   
   export default {
-    name: 'AlunoComponent',
+    name: 'JornaisComponent',
   
     data() {
       return {
         search: '',
         headers: [{
-            text: 'Nome',
-            value: 'nome'
+            text: 'Titulo',
+            value: 'titulo'
           },
           {
-            text: 'Cpf',
-            value: 'cpf'
+            text: 'Edição',
+            value: 'edicao'
           },
           {
-            text: 'Matricula',
-            value: 'matricula'
+            text: 'Publicação',
+            value: 'dataPublicacao'
           },
           {
             text: 'Ações',
@@ -86,65 +86,65 @@
             sortable: true
           }
         ],
-        alunos: [],
-        alunoCreate: {},
+        jornais: [],
+        jornaisCreate: {},
         dialog: false
       }
     },
     ready() {
-      this.getAllAlunos()
+      this.getAllJornais()
     },
     mounted() {
-      this.getAllAlunos()
+      this.getAllJornais()
     },
   
     methods: {
       close() {
         this.dialog = false
       },
-      getAllAlunos() {
+      getAllJornais() {
         JornaisService.getAll().then(data => {
-          this.alunos = data.data
+          this.jornais = data.data
         }).catch(e => {
           console.log(e)
         })
       },
-      getAlunoById(id) {
+      getJornaisById(id) {
         JornaisService.getById(id).then(data => {
-          this.alunoCreate = data.data
+          this.jornaisCreate = data.data
         }).catch(e => {
           console.log(e)
         })
       },
-      saveAluno() {
-        if (this.alunoCreate.id != null) {
-          console.log(this.alunoCreate)
-          JornaisService.edit(this.alunoCreate).then(data => {
+      saveJornais() {
+        if (this.jornaisCreate.id != null) {
+          console.log(this.jornaisCreate)
+          JornaisService.edit(this.jornaisCreate).then(data => {
             console.log('editado com sucesso', data)
-            this.getAllAlunos()
+            this.getAllJornais()
           }).catch(e => {
             console.log(e)
           })
         } else {
-          JornaisService.create(this.alunoCreate).then(data => {
+          JornaisService.create(this.jornaisCreate).then(data => {
             console.log('criado com sucesso', data)
-            this.getAllAlunos()
+            this.getAllJornais()
           }).catch(e => {
             console.log(e)
           })
         }
-        this.alunoCreate = {}
-        this.alunos = []
+        this.jornaisCreate = {}
+        this.jornais = []
         this.dialog = false
       },
-      editAluno(id) {
+      editJornais(id) {
         this.dialog = true
-        this.getAlunoById(id)
+        this.getJornaisById(id)
       },
-      deleteAluno(id) {
+      deleteJornais(id) {
         JornaisService.delete(id).then(data => {
-          this.alunos = []
-          this.getAllAlunos()
+          this.jornais = []
+          this.getAllJornais()
         }).catch(e => {
           console.log(e)
         })

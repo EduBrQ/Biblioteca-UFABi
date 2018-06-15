@@ -6,16 +6,16 @@
         <v-spacer></v-spacer>
         <v-text-field append-icon="search" label="Buscar" single-line hide-details v-model="search"></v-text-field>
       </v-card-title>
-      <v-data-table :headers="headers" :items="alunos" :search="search">
+      <v-data-table :headers="headers" :items="cursos" :search="search">
         <template slot="items" slot-scope="props">
                 <td class="text-xs-left">{{ props.item.nome }}</td>
-                <td class="text-xs-left">{{ props.item.cpf }}</td>
-                <td class="text-xs-left">{{ props.item.matricula }}</td>
+                <td class="text-xs-left">{{ props.item.area }}</td>
+                <td class="text-xs-left">{{ props.item.tipo }}</td>
                 <td class="justify-center layout px-0">
-                  <v-btn icon class="mx-0" @click="editAluno(props.item.id)">
+                  <v-btn icon class="mx-0" @click="editCursos(props.item.id)">
                     <v-icon color="teal">edit</v-icon>
                   </v-btn>
-                  <v-btn icon class="mx-0" @click="deleteAluno(props.item.id)">
+                  <v-btn icon class="mx-0" @click="deleteCursos(props.item.id)">
                     <v-icon color="pink">delete</v-icon>
                   </v-btn>
                 </td>
@@ -28,22 +28,22 @@
 
   <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="800px">
-      <v-btn slot="activator" color="primary" dark>Novo Aluno</v-btn>
+      <v-btn slot="activator" color="primary" dark>Novo Cursos</v-btn>
       <v-card>
         <v-card-title>
-          <span class="headline">Cadastrar Alunos</span>
+          <span class="headline">Cadastrar Cursos</span>
         </v-card-title>
         <v-card-text>
           <v-container grid-list-md>
             <v-layout wrap>
               <v-flex xs12>
-                <v-text-field v-model="alunoCreate.nome" label="Nome"></v-text-field>
+                <v-text-field v-model="cursosCreate.nome" label="Nome"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="alunoCreate.cpf" label="CPF"></v-text-field>
+                <v-text-field v-model="cursosCreate.area" label="Area"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="alunoCreate.matricula" label="Matrícula"></v-text-field>
+                <v-text-field v-model="cursosCreate.tipo" label="Tipo"></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>
@@ -51,7 +51,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="blue darken-1" flat @click="close">Fechar</v-btn>
-          <v-btn color="blue darken-1" flat  @click="saveAluno">Salvar</v-btn>
+          <v-btn color="blue darken-1" flat  @click="saveCursos">Salvar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -63,7 +63,7 @@
   import CursosService from '../../services/cursosService'
   
   export default {
-    name: 'AlunoComponent',
+    name: 'CursosComponent',
   
     data() {
       return {
@@ -73,12 +73,12 @@
             value: 'nome'
           },
           {
-            text: 'Cpf',
-            value: 'cpf'
+            text: 'Area',
+            value: 'area'
           },
           {
-            text: 'Matricula',
-            value: 'matricula'
+            text: 'Tipo',
+            value: 'tipo'
           },
           {
             text: 'Ações',
@@ -86,65 +86,65 @@
             sortable: true
           }
         ],
-        alunos: [],
-        alunoCreate: {},
+        cursos: [],
+        cursosCreate: {},
         dialog: false
       }
     },
     ready() {
-      this.getAllAlunos()
+      this.getAllCursos()
     },
     mounted() {
-      this.getAllAlunos()
+      this.getAllCursos()
     },
   
     methods: {
       close() {
         this.dialog = false
       },
-      getAllAlunos() {
+      getAllCursos() {
         CursosService.getAll().then(data => {
-          this.alunos = data.data
+          this.cursos = data.data
         }).catch(e => {
           console.log(e)
         })
       },
-      getAlunoById(id) {
+      getCursosById(id) {
         CursosService.getById(id).then(data => {
-          this.alunoCreate = data.data
+          this.cursosCreate = data.data
         }).catch(e => {
           console.log(e)
         })
       },
-      saveAluno() {
-        if (this.alunoCreate.id != null) {
-          console.log(this.alunoCreate)
-          CursosService.edit(this.alunoCreate).then(data => {
+      saveCursos() {
+        if (this.cursosCreate.id != null) {
+          console.log(this.cursosCreate)
+          CursosService.edit(this.cursosCreate).then(data => {
             console.log('editado com sucesso', data)
-            this.getAllAlunos()
+            this.getAllCursos()
           }).catch(e => {
             console.log(e)
           })
         } else {
-          CursosService.create(this.alunoCreate).then(data => {
+          CursosService.create(this.cursosCreate).then(data => {
             console.log('criado com sucesso', data)
-            this.getAllAlunos()
+            this.getAllCursos()
           }).catch(e => {
             console.log(e)
           })
         }
-        this.alunoCreate = {}
-        this.alunos = []
+        this.cursosCreate = {}
+        this.cursos = []
         this.dialog = false
       },
-      editAluno(id) {
+      editCursos(id) {
         this.dialog = true
-        this.getAlunoById(id)
+        this.getCursosById(id)
       },
-      deleteAluno(id) {
+      deleteCursos(id) {
         CursosService.delete(id).then(data => {
-          this.alunos = []
-          this.getAllAlunos()
+          this.cursos = []
+          this.getAllCursos()
         }).catch(e => {
           console.log(e)
         })

@@ -22,7 +22,7 @@ public class Funcionario {
 	@Id
 	@Column(name="id")
 	@GeneratedValue
-	private int id;
+	private Long id;
 	
 	@Column(name="cpf")
 	private String cpf;
@@ -64,11 +64,11 @@ public class Funcionario {
 		this.rg = rg;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

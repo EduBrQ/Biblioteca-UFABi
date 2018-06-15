@@ -6,16 +6,16 @@
         <v-spacer></v-spacer>
         <v-text-field append-icon="search" label="Buscar" single-line hide-details v-model="search"></v-text-field>
       </v-card-title>
-      <v-data-table :headers="headers" :items="alunos" :search="search">
+      <v-data-table :headers="headers" :items="anaisCongresso" :search="search">
         <template slot="items" slot-scope="props">
-                <td class="text-xs-left">{{ props.item.nome }}</td>
-                <td class="text-xs-left">{{ props.item.cpf }}</td>
-                <td class="text-xs-left">{{ props.item.matricula }}</td>
+                <td class="text-xs-left">{{ props.item.titulo }}</td>
+                <td class="text-xs-left">{{ props.item.tipoAnal }}</td>
+                <td class="text-xs-left">{{ props.item.edicao }}</td>
                 <td class="justify-center layout px-0">
-                  <v-btn icon class="mx-0" @click="editAluno(props.item.id)">
+                  <v-btn icon class="mx-0" @click="editAnaisCongresso(props.item.id)">
                     <v-icon color="teal">edit</v-icon>
                   </v-btn>
-                  <v-btn icon class="mx-0" @click="deleteAluno(props.item.id)">
+                  <v-btn icon class="mx-0" @click="deleteAnaisCongresso(props.item.id)">
                     <v-icon color="pink">delete</v-icon>
                   </v-btn>
                 </td>
@@ -28,22 +28,22 @@
 
   <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="800px">
-      <v-btn slot="activator" color="primary" dark>Novo Aluno</v-btn>
+      <v-btn slot="activator" color="primary" dark>Novo Anal de Congresso</v-btn>
       <v-card>
         <v-card-title>
-          <span class="headline">Cadastrar Alunos</span>
+          <span class="headline">Cadastrar Anal de Congresso</span>
         </v-card-title>
         <v-card-text>
           <v-container grid-list-md>
             <v-layout wrap>
               <v-flex xs12>
-                <v-text-field v-model="alunoCreate.nome" label="Nome"></v-text-field>
+                <v-text-field v-model="anaisCongressoCreate.titulo" label="Titulo"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="alunoCreate.cpf" label="CPF"></v-text-field>
+                <v-text-field v-model="anaisCongressoCreate.tipoAnal" label="Tipo"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="alunoCreate.matricula" label="Matrícula"></v-text-field>
+                <v-text-field v-model="anaisCongressoCreate.edicao" label="Edição"></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>
@@ -51,7 +51,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="blue darken-1" flat @click="close">Fechar</v-btn>
-          <v-btn color="blue darken-1" flat  @click="saveAluno">Salvar</v-btn>
+          <v-btn color="blue darken-1" flat  @click="saveAnaisCongresso">Salvar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -63,22 +63,22 @@
   import AnaisCongressoService from '../../services/anaisCongressoService'
   
   export default {
-    name: 'AlunoComponent',
+    name: 'AnaisCongressoComponent',
   
     data() {
       return {
         search: '',
         headers: [{
-            text: 'Nome',
-            value: 'nome'
+            text: 'Titulo',
+            value: 'titulo'
           },
           {
-            text: 'Cpf',
-            value: 'cpf'
+            text: 'Tipo',
+            value: 'tipoAnal'
           },
           {
-            text: 'Matricula',
-            value: 'matricula'
+            text: 'Edição',
+            value: 'edicao'
           },
           {
             text: 'Ações',
@@ -86,65 +86,65 @@
             sortable: true
           }
         ],
-        alunos: [],
-        alunoCreate: {},
+        anaisCongresso: [],
+        anaisCongressoCreate: {},
         dialog: false
       }
     },
     ready() {
-      this.getAllAlunos()
+      this.getAllAnaisCongresso()
     },
     mounted() {
-      this.getAllAlunos()
+      this.getAllAnaisCongresso()
     },
   
     methods: {
       close() {
         this.dialog = false
       },
-      getAllAlunos() {
-        AlunosService.getAll().then(data => {
-          this.alunos = data.data
+      getAllAnaisCongresso() {
+        AnaisCongressoService.getAll().then(data => {
+          this.anaisCongresso = data.data
         }).catch(e => {
           console.log(e)
         })
       },
-      getAlunoById(id) {
-        AlunosService.getById(id).then(data => {
-          this.alunoCreate = data.data
+      getAnaisCongressoById(id) {
+        AnaisCongressoService.getById(id).then(data => {
+          this.anaisCongressoCreate = data.data
         }).catch(e => {
           console.log(e)
         })
       },
-      saveAluno() {
-        if (this.alunoCreate.id != null) {
-          console.log(this.alunoCreate)
-          AlunosService.edit(this.alunoCreate).then(data => {
+      saveAnaisCongresso() {
+        if (this.anaisCongressoCreate.id != null) {
+          console.log(this.anaisCongressoCreate)
+          AnaisCongressoService.edit(this.anaisCongressoCreate).then(data => {
             console.log('editado com sucesso', data)
-            this.getAllAlunos()
+            this.getAllAnaisCongresso()
           }).catch(e => {
             console.log(e)
           })
         } else {
-          AlunosService.create(this.alunoCreate).then(data => {
+          AnaisCongressoService.create(this.anaisCongressoCreate).then(data => {
             console.log('criado com sucesso', data)
-            this.getAllAlunos()
+            this.getAllAnaisCongresso()
           }).catch(e => {
             console.log(e)
           })
         }
-        this.alunoCreate = {}
-        this.alunos = []
+        this.anaisCongressoCreate = {}
+        this.anaisCongresso = []
         this.dialog = false
       },
-      editAluno(id) {
+      editAnaisCongresso(id) {
         this.dialog = true
-        this.getAlunoById(id)
+        this.getAnaisCongressoById(id)
       },
-      deleteAluno(id) {
-        AlunosService.delete(id).then(data => {
-          this.alunos = []
-          this.getAllAlunos()
+      deleteAnaisCongresso(id) {
+        AnaisCongressoService.delete(id).then(data => {
+          this.anaisCongresso = []
+          this.getAllAnaisCongresso()
         }).catch(e => {
           console.log(e)
         })

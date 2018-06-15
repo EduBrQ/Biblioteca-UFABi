@@ -14,13 +14,13 @@ public class AnaisDeCongresso {
 	@Id
 	@Column(name="id")
 	@GeneratedValue
-	private int id;
+	private Long id;
 	
 	@Column(name="ano_publicacao")
 	private int anoPublicacao;
 	
 	@Column(name="tipo_anal")
-	private int tipoAnal;
+	private String tipoAnal;
 	
 	@Column(name="titulo")
 	private String 	titulo;
@@ -51,10 +51,10 @@ public class AnaisDeCongresso {
 	 * Getters and Seters.
 	 */
 	
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getAutores() {
@@ -69,10 +69,10 @@ public class AnaisDeCongresso {
 	public void setAnoPublicacao(int anoPublicacao) {
 		this.anoPublicacao = anoPublicacao;
 	}
-	public int getTipoAnal() {
+	public String getTipoAnal() {
 		return tipoAnal;
 	}
-	public void setTipoAnal(int tipoAnal) {
+	public void setTipoAnal(String tipoAnal) {
 		this.tipoAnal = tipoAnal;
 	}
 	public String getOrientadores() {

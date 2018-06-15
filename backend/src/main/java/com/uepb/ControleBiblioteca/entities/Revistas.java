@@ -13,7 +13,7 @@ public class Revistas {
 	@Id
 	@Column(name = "id")
 	@GeneratedValue
-	private int id;
+	private Long id;
 
 	@Column(name = "numero_paginas")
 	private int numeroPaginas;
@@ -61,11 +61,11 @@ public class Revistas {
 		this.numeroPaginas = numeroPaginas;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

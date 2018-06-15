@@ -6,16 +6,19 @@
         <v-spacer></v-spacer>
         <v-text-field append-icon="search" label="Buscar" single-line hide-details v-model="search"></v-text-field>
       </v-card-title>
-      <v-data-table :headers="headers" :items="alunos" :search="search">
+      <v-data-table :headers="headers" :items="revistas" :search="search">
         <template slot="items" slot-scope="props">
-                <td class="text-xs-left">{{ props.item.nome }}</td>
-                <td class="text-xs-left">{{ props.item.cpf }}</td>
-                <td class="text-xs-left">{{ props.item.matricula }}</td>
+               
+                <td class="text-xs-left">{{ props.item.titulo }}</td>
+                <td class="text-xs-left">{{ props.item.numeroPaginas }}</td>
+                <td class="text-xs-left">{{ props.item.edicao }}</td>
+                <td class="text-xs-left">{{ props.item.dataPublicacao }}</td>
+                <td class="text-xs-left">{{ props.item.editora }}</td>
                 <td class="justify-center layout px-0">
-                  <v-btn icon class="mx-0" @click="editAluno(props.item.id)">
+                  <v-btn icon class="mx-0" @click="editRevistas(props.item.id)">
                     <v-icon color="teal">edit</v-icon>
                   </v-btn>
-                  <v-btn icon class="mx-0" @click="deleteAluno(props.item.id)">
+                  <v-btn icon class="mx-0" @click="deleteRevistas(props.item.id)">
                     <v-icon color="pink">delete</v-icon>
                   </v-btn>
                 </td>
@@ -28,22 +31,28 @@
 
   <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="800px">
-      <v-btn slot="activator" color="primary" dark>Novo Aluno</v-btn>
+      <v-btn slot="activator" color="primary" dark>Novo Revistas</v-btn>
       <v-card>
         <v-card-title>
-          <span class="headline">Cadastrar Alunos</span>
+          <span class="headline">Cadastrar Revistas</span>
         </v-card-title>
         <v-card-text>
           <v-container grid-list-md>
             <v-layout wrap>
-              <v-flex xs12>
-                <v-text-field v-model="alunoCreate.nome" label="Nome"></v-text-field>
+              <v-flex xs12 >
+                <v-text-field v-model="revistasCreate.titulo" label="Titulo"></v-text-field>
+              </v-flex>
+               <v-flex xs12 sm6 md4>
+                <v-text-field v-model="revistasCreate.numeroPaginas" label="Nº Páginas"></v-text-field>
+              </v-flex>
+               <v-flex xs12 sm6 md4>
+                <v-text-field v-model="revistasCreate.edicao" label="Edição"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="alunoCreate.cpf" label="CPF"></v-text-field>
+                <v-text-field v-model="revistasCreate.dataPublicacao" label="Publicação"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="alunoCreate.matricula" label="Matrícula"></v-text-field>
+                <v-text-field v-model="revistasCreate.editora" label="Editora"></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>
@@ -51,7 +60,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="blue darken-1" flat @click="close">Fechar</v-btn>
-          <v-btn color="blue darken-1" flat  @click="saveAluno">Salvar</v-btn>
+          <v-btn color="blue darken-1" flat  @click="saveRevistas">Salvar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -63,22 +72,30 @@
   import RevistasService from '../../services/revistasService'
   
   export default {
-    name: 'AlunoComponent',
+    name: 'RevistasComponent',
   
     data() {
       return {
         search: '',
         headers: [{
-            text: 'Nome',
-            value: 'nome'
+            text: 'Titulo',
+            value: 'titulo'
           },
           {
-            text: 'Cpf',
-            value: 'cpf'
+            text: 'Nº Páginas',
+            value: 'numeroPaginas'
           },
           {
-            text: 'Matricula',
-            value: 'matricula'
+            text: 'Edição',
+            value: 'edicao'
+          },
+          {
+            text: 'Publicação',
+            value: 'dataPublicacao'
+          },
+              {
+            text: 'Editora',
+            value: 'editora'
           },
           {
             text: 'Ações',
@@ -86,65 +103,65 @@
             sortable: true
           }
         ],
-        alunos: [],
-        alunoCreate: {},
+        revistas: [],
+        revistasCreate: {},
         dialog: false
       }
     },
     ready() {
-      this.getAllAlunos()
+      this.getAllRevistas()
     },
     mounted() {
-      this.getAllAlunos()
+      this.getAllRevistas()
     },
   
     methods: {
       close() {
         this.dialog = false
       },
-      getAllAlunos() {
+      getAllRevistas() {
         RevistasService.getAll().then(data => {
-          this.alunos = data.data
+          this.revistas = data.data
         }).catch(e => {
           console.log(e)
         })
       },
-      getAlunoById(id) {
+      getRevistasById(id) {
         RevistasService.getById(id).then(data => {
-          this.alunoCreate = data.data
+          this.revistasCreate = data.data
         }).catch(e => {
           console.log(e)
         })
       },
-      saveAluno() {
-        if (this.alunoCreate.id != null) {
-          console.log(this.alunoCreate)
-          RevistasService.edit(this.alunoCreate).then(data => {
+      saveRevistas() {
+        if (this.revistasCreate.id != null) {
+          console.log(this.revistasCreate)
+          RevistasService.edit(this.revistasCreate).then(data => {
             console.log('editado com sucesso', data)
-            this.getAllAlunos()
+            this.getAllRevistas()
           }).catch(e => {
             console.log(e)
           })
         } else {
-          RevistasService.create(this.alunoCreate).then(data => {
+          RevistasService.create(this.revistasCreate).then(data => {
             console.log('criado com sucesso', data)
-            this.getAllAlunos()
+            this.getAllRevistas()
           }).catch(e => {
             console.log(e)
           })
         }
-        this.alunoCreate = {}
-        this.alunos = []
+        this.revistasCreate = {}
+        this.revistas = []
         this.dialog = false
       },
-      editAluno(id) {
+      editRevistas(id) {
         this.dialog = true
-        this.getAlunoById(id)
+        this.getRevistasById(id)
       },
-      deleteAluno(id) {
+      deleteRevistas(id) {
         RevistasService.delete(id).then(data => {
-          this.alunos = []
-          this.getAllAlunos()
+          this.revistas = []
+          this.getAllRevistas()
         }).catch(e => {
           console.log(e)
         })
