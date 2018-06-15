@@ -1,28 +1,20 @@
+<script>
+  import LayoutComponent from '@/components/LayoutComponent';
+  export default {
+    name: 'app',
+    components: { LayoutComponent },
+    data: () => {
+      return {};
+    },
+  };
+</script>
+
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <alunos></alunos>
-    <router-view/>
+    <LayoutComponent></LayoutComponent>
   </div>
 </template>
 
-<script>
-import AlunoComponent from '@/components/AlunoComponent'
-  export default {
-    name: 'app',
-    components: {
-      AlunoComponent
-    }
-  }
-</script>
 
 <style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-  }
 </style>

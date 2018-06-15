@@ -3,9 +3,17 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import AlunoComponent from '@/components/AlunoComponent'
-Vue.component('alunos', AlunoComponent)
 Vue.config.productionTip = false
+
+import Vuetify from 'vuetify'
+Vue.use(Vuetify)
+
+
+import AlunoComponent from '@/components/AlunoComponent'
+
+
+Vue.component('alunos', AlunoComponent)
+
 
 /* eslint-disable no-new */
 new Vue({

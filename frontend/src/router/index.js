@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import 'popper.js'
+import 'jquery'
+import 'bootstrap';
 import AlunoComponent from '@/components/AlunoComponent'
+
 
 Vue.use(Router)
 
@@ -16,9 +20,9 @@ export default new Router({
     },
   routes: [
     {
-      path: '/'
-      // name: 'AlunoComponent',
-      // component: AlunoComponent
+      path: '/alunos',
+      name: 'AlunoComponent',
+      component: AlunoComponent
     }
   ] 
 })
