@@ -20,7 +20,7 @@ public class AnaisDeCongresso {
 	private int anoPublicacao;
 	
 	@Column(name="tipo_anal")
-	private String tipoAnal;
+	private int tipoAnal;
 	
 	@Column(name="titulo")
 	private String 	titulo;
@@ -69,10 +69,10 @@ public class AnaisDeCongresso {
 	public void setAnoPublicacao(int anoPublicacao) {
 		this.anoPublicacao = anoPublicacao;
 	}
-	public String getTipoAnal() {
+	public int getTipoAnal() {
 		return tipoAnal;
 	}
-	public void setTipoAnal(String tipoAnal) {
+	public void setTipoAnal(int tipoAnal) {
 		this.tipoAnal = tipoAnal;
 	}
 	public String getOrientadores() {

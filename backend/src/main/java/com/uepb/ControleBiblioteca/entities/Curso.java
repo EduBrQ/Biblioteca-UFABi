@@ -32,7 +32,7 @@ public class Curso {
 	private String area;
 	
 	@Column(name="tipo")
-	private String tipo;
+	private int tipo;
 	
 	
 	
@@ -78,12 +78,12 @@ public class Curso {
 	}
 
 
-	public String getTipo() {
+	public int getTipo() {
 		return tipo;
 	}
 
 
-	public void setTipo(String tipo) {
+	public void setTipo(int tipo) {
 		this.tipo = tipo;
 	}
 

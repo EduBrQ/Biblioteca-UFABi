@@ -1,21 +1,72 @@
 <template>
   <div>
+  <v-layout row justify-center>
+    <v-dialog v-model="dialog" persistent max-width="800px">
+      <v-btn slot="activator" round color="primary" dark>+</v-btn>
+      <v-card>
+        <v-card-title>
+          <span class="headline">Cadastrar Livros</span>
+        </v-card-title>
+        <v-card-text>
+          <v-container grid-list-md>
+            <v-layout wrap>
+              <v-flex xs12>
+                <v-text-field v-model="livrosCreate.titulo" label="Titulo"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md4>
+                <v-text-field v-model="livrosCreate.edicao" label="Edição"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md4>
+                <v-text-field v-model="livrosCreate.anoPublicacao" label="Publicação"></v-text-field>
+              </v-flex>
+               <v-flex xs12 sm6 md4>
+                <v-text-field v-model="livrosCreate.autores" label="autores"></v-text-field>
+              </v-flex>
+               <v-flex xs12 sm6 md4>
+                <v-text-field v-model="livrosCreate.editora" label="editora"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md4>
+                <v-text-field v-model="livrosCreate.numeroPaginas" label="numeroPaginas"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md4>
+                <v-text-field v-model="livrosCreate.areaConhecimento" label="areaConhecimento"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md4>
+                <v-text-field v-model="livrosCreate.tipoTema" label="tipoTema"></v-text-field>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="blue darken-1" flat @click="close">Fechar</v-btn>
+          <v-btn color="blue darken-1" flat  @click="saveLivros">Salvar</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-layout>
     <v-card>
       <v-card-title>
-        Jornais
+        Livros
         <v-spacer></v-spacer>
         <v-text-field append-icon="search" label="Buscar" single-line hide-details v-model="search"></v-text-field>
       </v-card-title>
-      <v-data-table :headers="headers" :items="jornais" :search="search">
+      <v-data-table :headers="headers" :items="livros" :search="search">
         <template slot="items" slot-scope="props">
                 <td class="text-xs-left">{{ props.item.titulo }}</td>
                 <td class="text-xs-left">{{ props.item.edicao }}</td>
-                <td class="text-xs-left">{{ props.item.dataPublicacao }}</td>
+                <td class="text-xs-left">{{ props.item.anoPublicacao }}</td>
+                <td class="text-xs-left">{{ props.item.autores }}</td>
+                <td class="text-xs-left">{{ props.item.editora }}</td>
+                <td class="text-xs-left">{{ props.item.numeroPaginas }}</td>
+                <td class="text-xs-left">{{ props.item.areaConhecimento }}</td>
+                <td class="text-xs-left">{{ props.item.tipoTema }}</td>
+              
                 <td class="justify-center layout px-0">
-                  <v-btn icon class="mx-0" @click="editJornais(props.item.id)">
+                  <v-btn icon class="mx-0" @click="editLivros(props.item.id)">
                     <v-icon color="teal">edit</v-icon>
                   </v-btn>
-                  <v-btn icon class="mx-0" @click="deleteJornais(props.item.id)">
+                  <v-btn icon class="mx-0" @click="deleteLivros(props.item.id)">
                     <v-icon color="pink">delete</v-icon>
                   </v-btn>
                 </td>
@@ -26,44 +77,15 @@
       </v-data-table>
     </v-card>
 
-  <v-layout row justify-center>
-    <v-dialog v-model="dialog" persistent max-width="800px">
-      <v-btn slot="activator" color="primary" dark>Novo Jornais</v-btn>
-      <v-card>
-        <v-card-title>
-          <span class="headline">Cadastrar Jornais</span>
-        </v-card-title>
-        <v-card-text>
-          <v-container grid-list-md>
-            <v-layout wrap>
-              <v-flex xs12>
-                <v-text-field v-model="jornaisCreate.titulo" label="Titulo"></v-text-field>
-              </v-flex>
-              <v-flex xs12 sm6 md4>
-                <v-text-field v-model="jornaisCreate.edicao" label="Edição"></v-text-field>
-              </v-flex>
-              <v-flex xs12 sm6 md4>
-                <v-text-field v-model="jornaisCreate.dataPublicacao" label="Publicação"></v-text-field>
-              </v-flex>
-            </v-layout>
-          </v-container>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" flat @click="close">Fechar</v-btn>
-          <v-btn color="blue darken-1" flat  @click="saveJornais">Salvar</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-  </v-layout>
+  
   </div>
 </template>
 
 <script>
-  import JornaisService from '../../services/jornaisService'
+  import LivrosService from '../../services/livrosService'
   
   export default {
-    name: 'JornaisComponent',
+    name: 'LivrosComponent',
   
     data() {
       return {
@@ -77,8 +99,29 @@
             value: 'edicao'
           },
           {
-            text: 'Publicação',
-            value: 'dataPublicacao'
+            text: 'Data',
+            value: 'anoPublicacao'
+          },
+           {
+            text: 'Autores',
+            value: 'autores'
+          },
+         
+           {
+            text: 'Editora',
+            value: 'editora'
+          },
+          {
+            text: 'Pag.',
+            value: 'numeroPaginas'
+          },
+           {
+            text: 'Area',
+            value: 'areaConhecimento'
+          },
+          {
+            text: 'Tipo Tema',
+            value: 'tipoTema'
           },
           {
             text: 'Ações',
@@ -86,65 +129,65 @@
             sortable: true
           }
         ],
-        jornais: [],
-        jornaisCreate: {},
+        livros: [],
+        livrosCreate: {},
         dialog: false
       }
     },
     ready() {
-      this.getAllJornais()
+      this.getAllLivros()
     },
     mounted() {
-      this.getAllJornais()
+      this.getAllLivros()
     },
   
     methods: {
       close() {
         this.dialog = false
       },
-      getAllJornais() {
-        JornaisService.getAll().then(data => {
-          this.jornais = data.data
+      getAllLivros() {
+        LivrosService.getAll().then(data => {
+          this.livros = data.data
         }).catch(e => {
           console.log(e)
         })
       },
-      getJornaisById(id) {
-        JornaisService.getById(id).then(data => {
-          this.jornaisCreate = data.data
+      getLivrosById(id) {
+        LivrosService.getById(id).then(data => {
+          this.livrosCreate = data.data
         }).catch(e => {
           console.log(e)
         })
       },
-      saveJornais() {
-        if (this.jornaisCreate.id != null) {
-          console.log(this.jornaisCreate)
-          JornaisService.edit(this.jornaisCreate).then(data => {
+      saveLivros() {
+        if (this.livrosCreate.id != null) {
+          console.log(this.livrosCreate)
+          LivrosService.edit(this.livrosCreate).then(data => {
             console.log('editado com sucesso', data)
-            this.getAllJornais()
+            this.getAllLivros()
           }).catch(e => {
             console.log(e)
           })
         } else {
-          JornaisService.create(this.jornaisCreate).then(data => {
+          LivrosService.create(this.livrosCreate).then(data => {
             console.log('criado com sucesso', data)
-            this.getAllJornais()
+            this.getAllLivros()
           }).catch(e => {
             console.log(e)
           })
         }
-        this.jornaisCreate = {}
-        this.jornais = []
+        this.livrosCreate = {}
+        this.livros = []
         this.dialog = false
       },
-      editJornais(id) {
+      editLivros(id) {
         this.dialog = true
-        this.getJornaisById(id)
+        this.getLivrosById(id)
       },
-      deleteJornais(id) {
-        JornaisService.delete(id).then(data => {
-          this.jornais = []
-          this.getAllJornais()
+      deleteLivros(id) {
+        LivrosService.delete(id).then(data => {
+          this.livros = []
+          this.getAllLivros()
         }).catch(e => {
           console.log(e)
         })

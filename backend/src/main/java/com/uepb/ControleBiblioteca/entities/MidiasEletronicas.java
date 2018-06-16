@@ -24,7 +24,7 @@ public class MidiasEletronicas {
 	private String dataDeGravacao;
 
 	@Column(name = "tipo_de_midia")
-	private String tipoMidia;
+	private int tipoMidia;
 
 	// CONSTRUTOR
 	public MidiasEletronicas() {
@@ -41,11 +41,11 @@ public class MidiasEletronicas {
 		this.id = id;
 	}
 
-	public String getTipoMidia() {
+	public int getTipoMidia() {
 		return tipoMidia;
 	}
 
-	public void setTipoMidia(String tipoMidia) {
+	public void setTipoMidia(int tipoMidia) {
 		this.tipoMidia = tipoMidia;
 	}
 
