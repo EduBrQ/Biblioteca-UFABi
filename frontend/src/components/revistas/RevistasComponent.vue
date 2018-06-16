@@ -20,7 +20,7 @@
                 <v-text-field v-model="revistasCreate.edicao" label="Edição"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field type="date" v-model="revistasCreate.dataPublicacao" label="Data de Publicação"></v-text-field>
+                <v-text-field type="text" v-model="revistasCreate.dataPublicacao" label="Data de Publicação"></v-text-field>
               </v-flex>
               <v-flex xs12>
                 <v-text-field v-model="revistasCreate.editora" label="Editora"></v-text-field>

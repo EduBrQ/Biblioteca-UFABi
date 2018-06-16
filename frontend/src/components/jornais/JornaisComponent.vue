@@ -17,7 +17,7 @@
                 <v-text-field v-model="jornaisCreate.edicao" label="Edição"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field type="date" v-model="jornaisCreate.dataPublicacao" label="Publicação"></v-text-field>
+                <v-text-field type="text" v-model="jornaisCreate.dataPublicacao" label="Publicação"></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>

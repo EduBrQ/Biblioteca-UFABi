@@ -16,7 +16,7 @@
                 <v-text-field v-model="trabalhosConclusaoCreate.titulo" label="Título do TCC"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field type="date" v-model="trabalhosConclusaoCreate.anoDefesa" label="Ano de Defesa"></v-text-field>
+                <v-text-field type="text" v-model="trabalhosConclusaoCreate.anoDefesa" label="Ano de Defesa"></v-text-field>
               </v-flex>
                <v-flex xs12 sm6 md4>
                 <v-select :items="items" v-model="trabalhosConclusaoCreate.tipoTcc" label="Tipo de TCC" 

@@ -14,7 +14,7 @@
                 <v-text-field v-model="midiasEletronicasCreate.titulo" label="Titulo"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field type="date" v-model="midiasEletronicasCreate.dataDeGravacao" label="Data de Gravação"></v-text-field>
+                <v-text-field type="text" v-model="midiasEletronicasCreate.dataDeGravacao" label="Data de Gravação"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
                 <v-select :items="items" v-model="midiasEletronicasCreate.tipoMidia" label="Tipo" 
