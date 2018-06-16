@@ -10,11 +10,11 @@ Sistema que permitira o controle de emprestimos de livro
 
 - Abaixo temos o Diagrama de Domínios das Classes:
 
-![picture](https://bitbucket.org/pabliciotgg/controle-de-biblioteca/raw/bf57b6393694557616b463e582137ec716d7d9af/diagrama.jpeg)
+![picture](https://bitbucket.org/pabliciotgg/controle-de-biblioteca/raw/a5502e4db27931d24a2d6d1d92a3a7bcfc2df088/diagrama.jpeg)
 
 ## Instrucoes
 
-- Baixe o repositori
+- Baixe o repositorio
 
 - Na pasta "\.settings" Modifique o arquivo "org.eclipse.wst.common.project.facet.core.xml",
 - na seguinte linha: <installed facet="jst.web" version="3.1"/>  para  <installed facet="jst.web" version="3.0"/>
