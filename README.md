@@ -14,7 +14,7 @@ Sistema que permitira o controle de emprestimos de livro
 
 ## Instrucoes
 
-- Baixe o repositorio
+- Baixe o repositori
 
 - Na pasta "\.settings" Modifique o arquivo "org.eclipse.wst.common.project.facet.core.xml",
 - na seguinte linha: <installed facet="jst.web" version="3.1"/>  para  <installed facet="jst.web" version="3.0"/>
