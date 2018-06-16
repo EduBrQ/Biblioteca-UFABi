@@ -9,7 +9,7 @@ Esta é uma solução construída com as seguintes tecnologias:
 
 - Abaixo temos o Diagrama de Domínios das Classes:
 
-![picture](https://bitbucket.org/pabliciotgg/controle-de-biblioteca/raw/a5502e4db27931d24a2d6d1d92a3a7bcfc2df088/diagrama.jpeg)
+![picture](https://raw.githubusercontent.com/EduBrQ/Biblioteca-UFABi/master/diagrama.jpeg)
 
 ## Instrucoes de configuração
 
