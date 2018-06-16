@@ -7,11 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.uepb.ControleBiblioteca.controller.CursoController;
 import com.uepb.ControleBiblioteca.entities.Curso;
-import com.uepb.ControleBiblioteca.entities.Task;
 import com.uepb.ControleBiblioteca.exception.CursoException;
 import com.uepb.ControleBiblioteca.repository.CursoRepository;
 
@@ -53,7 +51,7 @@ public class CursoService implements ICursoService {
 
 	@Override
 	public Curso update(Curso cursoDetails, Long Id) {
-
+		
 		LOG.debug("Finding a to-do entry with id: {}", Id);
 
 		Curso curso = cursoRepository.findById(Id).orElseThrow(() -> new CursoException("Error"));

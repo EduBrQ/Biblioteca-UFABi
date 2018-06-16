@@ -7,10 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.uepb.ControleBiblioteca.controller.MidiasEletronicasController;
-import com.uepb.ControleBiblioteca.entities.Aluno;
 import com.uepb.ControleBiblioteca.entities.MidiasEletronicas;
 import com.uepb.ControleBiblioteca.exception.MidiasEletronicasException;
 import com.uepb.ControleBiblioteca.repository.MidiasEletronicasRepository;

@@ -20,7 +20,7 @@ public class AnaisDeCongresso {
 	private int anoPublicacao;
 	
 	@Column(name="tipo_anal")
-	private int tipoAnal;
+	private String tipoAnal;
 	
 	@Column(name="titulo")
 	private String 	titulo;
@@ -41,10 +41,18 @@ public class AnaisDeCongresso {
 	private String local;
 	
 	
+	
+	public AnaisDeCongresso(Long id, String nomeCongresso, String local) {
+		this.id = id;
+		this.nomeCongresso = nomeCongresso;
+		this.local = local;
+	}
+
 	/**
 	 * Constructor method
 	 */
 	public AnaisDeCongresso()	{
+		
 	}
 	
 	/**
@@ -69,10 +77,10 @@ public class AnaisDeCongresso {
 	public void setAnoPublicacao(int anoPublicacao) {
 		this.anoPublicacao = anoPublicacao;
 	}
-	public int getTipoAnal() {
+	public String getTipoAnal() {
 		return tipoAnal;
 	}
-	public void setTipoAnal(int tipoAnal) {
+	public void setTipoAnal(String tipoAnal) {
 		this.tipoAnal = tipoAnal;
 	}
 	public String getOrientadores() {

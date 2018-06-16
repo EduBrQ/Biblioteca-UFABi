@@ -32,10 +32,18 @@ public class Curso {
 	private String area;
 	
 	@Column(name="tipo")
-	private int tipo;
+	private String tipo;
 	
 	
 	
+	public Curso(Long id, String nome, String area) {
+		this.id = id;
+		this.nome = nome;
+		this.area = area;
+	}
+
+
+
 	/**
 	 * Constructor method
 	 */
@@ -78,12 +86,12 @@ public class Curso {
 	}
 
 
-	public int getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
 
 
-	public void setTipo(int tipo) {
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 

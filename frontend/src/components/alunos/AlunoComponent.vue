@@ -4,10 +4,10 @@
   <v-layout row justify-center>
   
     <v-dialog v-model="dialog" persistent max-width="800px">
-      <v-btn slot="activator" round color="primary" dark>+</v-btn>
+      <v-btn slot="activator" round color="primary" dark>Cadastrar Aluno</v-btn>
       <v-card>
         <v-card-title>
-          <span class="headline">Cadastrar Alunos</span>
+          <span class="headline">Cadastrar Aluno</span>
         </v-card-title>
         <v-card-text>
           <v-container grid-list-md>
@@ -22,22 +22,24 @@
                 <v-text-field v-model="alunoCreate.matricula" label="Matrícula"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="alunoCreate.rg" label="rg"></v-text-field>
+                <v-text-field v-model="alunoCreate.rg" label="RG"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="alunoCreate.naturalidade" label="naturalidade"></v-text-field>
+                <v-text-field v-model="alunoCreate.naturalidade" label="Naturalidade"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="alunoCreate.nomemae" label="nomemae"></v-text-field>
+                <v-text-field v-model="alunoCreate.nomemae" label="Nome da mãe"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
                 <v-text-field v-model="alunoCreate.ano" label="Nascimento"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="alunoCreate.nivel" label="nivel"></v-text-field>
+                <v-select :items="items" v-model="alunoCreate.nivel" label="Nível" 
+                  class="input-group-focused" item-label="text" item-value="value"
+                ></v-select>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="alunoCreate.email" label="email"></v-text-field>
+                <v-text-field v-model="alunoCreate.email" label="E-mail"></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>
@@ -140,7 +142,13 @@
         ],
         alunos: [],
         alunoCreate: {},
-        dialog: false
+        dialog: false,
+        items:[
+          {text: 'Graduação', value: 'Graduação'},
+          {text: 'Pós-Graduação', value: 'Pós-Graduação'},
+          {text: 'Mestrado', value: 'Mestrado'},
+          {text: 'Doutorado', value: 'Doutorado'}
+        ]
       }
     },
     ready() {
@@ -202,4 +210,3 @@
     }
   }
 </script>
-

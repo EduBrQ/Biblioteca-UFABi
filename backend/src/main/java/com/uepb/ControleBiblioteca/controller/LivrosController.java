@@ -3,11 +3,10 @@ package com.uepb.ControleBiblioteca.controller;
 import java.util.List;
 import java.util.Optional;
 
-import javax.validation.Valid;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,14 +18,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.uepb.ControleBiblioteca.entities.Livros;
-import com.uepb.ControleBiblioteca.exception.LivrosException;
-import com.uepb.ControleBiblioteca.repository.LivrosRepository;
 import com.uepb.ControleBiblioteca.services.ILivrosService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8081")
 @RequestMapping("/livros")
 @Api(value = "API Rest - Livros Endpoint")
 public class LivrosController {
@@ -43,14 +41,14 @@ public class LivrosController {
 	@GetMapping
 	@ApiOperation(value = "Busca todos os dados do banco.")
 	public List<Livros> findAll() {
-		LOG.warn("THIAGO PABLICIO CABRAL DA SILVA...");
+		LOG.info("busta todos od registros no banco...");
 		return this.livrosService.findAll();
 	}
 
 	@GetMapping("/{id}")
 	@ApiOperation(value = "Busca um dado do banco através do id.")
 	public Optional<Livros> findOne(@PathVariable("id") Long id) {
-		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
+		LOG.info("cria um registro no banco...");
 		return this.livrosService.findOne(id);
 	}
 
@@ -58,7 +56,7 @@ public class LivrosController {
 	@ResponseBody
 	@ApiOperation(value = "Cria um dado no banco.")
 	public Livros create(@RequestBody Livros livros) {
-		LOG.error("THIAGO PABLICIO CABRAL DA SILVA...");
+		LOG.info("edita um registro no banco...");
 		return this.livrosService.create(livros);
 	}
 
@@ -66,7 +64,7 @@ public class LivrosController {
 	@PutMapping("/{id}")
 	@ApiOperation(value = "Edita um dado do Banco através id.")
 	public Livros update(@PathVariable(value = "id") Long id, @RequestBody Livros livrosDetails) {
-		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
+		LOG.info("edita um registro no banco...");
 		return this.livrosService.update(livrosDetails, id);
 	}
 	
@@ -74,7 +72,7 @@ public class LivrosController {
 	@DeleteMapping("/{id}")
 	@ApiOperation(value = "Remove um dado do Banco através id.")
 	public void remove(@PathVariable("id") Long id) {
-		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
+		LOG.info("remove um registro no banco...");
 		this.livrosService.remove(id);
 	}
 

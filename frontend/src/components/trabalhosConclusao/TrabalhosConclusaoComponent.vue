@@ -3,7 +3,7 @@
   <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="800px">
       
-        <v-btn slot="activator" round color="primary" dark>+</v-btn>
+        <v-btn slot="activator" round color="primary" dark>Cadastrar novo TCC</v-btn>
        
         <v-card>
         <v-card-title>
@@ -12,41 +12,43 @@
         <v-card-text>
           <v-container grid-list-md>
             <v-layout wrap>
-              <v-flex xs12 >
-                <v-text-field v-model="trabalhosConclusaoCreate.anoDefesa" label="Ano Defesa"></v-text-field>
-              </v-flex>
-               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="trabalhosConclusaoCreate.tipoTcc" label="Tipo Tcc"></v-text-field>
-              </v-flex>
-               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="trabalhosConclusaoCreate.titulo" label="titulo"></v-text-field>
+              <v-flex xs12>
+                <v-text-field v-model="trabalhosConclusaoCreate.titulo" label="Título do TCC"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="trabalhosConclusaoCreate.edicao" label="edicao"></v-text-field>
-              </v-flex>
-              <v-flex xs12 sm6 md4>
-                <v-text-field v-model="trabalhosConclusaoCreate.autores" label="autores"></v-text-field>
+                <v-text-field type="date" v-model="trabalhosConclusaoCreate.anoDefesa" label="Ano de Defesa"></v-text-field>
               </v-flex>
                <v-flex xs12 sm6 md4>
-                <v-text-field v-model="trabalhosConclusaoCreate.orientadores" label="orientadores"></v-text-field>
+                <v-select :items="items" v-model="trabalhosConclusaoCreate.tipoTcc" label="Tipo de TCC" 
+                  class="input-group-focused" item-label="text" item-value="value"
+                ></v-select>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="trabalhosConclusaoCreate.local" label="local"></v-text-field>
+                <v-text-field type="number" v-model="trabalhosConclusaoCreate.edicao" label="Edição"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md4>
+                <v-text-field v-model="trabalhosConclusaoCreate.autores" label="Autores"></v-text-field>
+              </v-flex>
+               <v-flex xs12 sm6 md4>
+                <v-text-field v-model="trabalhosConclusaoCreate.orientadores" label="Orientadores"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md4>
+                <v-text-field v-model="trabalhosConclusaoCreate.local" label="Local"></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" flat @click="close">Fechar</v-btn>
-          <v-btn color="blue darken-1" flat  @click="saveTrabalhosConclusao">Salvar</v-btn>
+          <v-btn color="error" @click="close">Fechar</v-btn>
+          <v-btn color="success"  @click="saveTrabalhosConclusao">Salvar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
   </v-layout>
     <v-card>
       <v-card-title>
-        TrabalhosConclusao
+        Trabalhos de Conclusao
         <v-spacer></v-spacer>
         <v-text-field append-icon="search" label="Buscar" single-line hide-details v-model="search"></v-text-field>
       </v-card-title>
@@ -124,7 +126,12 @@
         ],
         trabalhosConclusao: [],
         trabalhosConclusaoCreate: {},
-        dialog: false
+        dialog: false,
+        items:[
+          {text: 'Monografia', value: '0'},
+          {text: 'Tese', value: '1'},
+          {text: 'Dissertação', value: '2'}
+        ]
       }
     },
     ready() {
@@ -153,6 +160,7 @@
         })
       },
       saveTrabalhosConclusao() {
+        console.log(this.trabalhosConclusaoCreate)
         if (this.trabalhosConclusaoCreate.id != null) {
           console.log(this.trabalhosConclusaoCreate)
           TrabalhosConclusaoService.edit(this.trabalhosConclusaoCreate).then(data => {

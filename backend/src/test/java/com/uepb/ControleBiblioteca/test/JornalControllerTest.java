@@ -1,4 +1,4 @@
-package com.uepb.ControleBiblioteca.taskTest;
+package com.uepb.ControleBiblioteca.test;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
@@ -23,38 +23,38 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.uepb.ControleBiblioteca.controller.TaskController;
-import com.uepb.ControleBiblioteca.entities.Task;
-import com.uepb.ControleBiblioteca.services.TaskService;
+import com.uepb.ControleBiblioteca.controller.JornaisController;
+import com.uepb.ControleBiblioteca.entities.Jornais;
+import com.uepb.ControleBiblioteca.services.JornaisService;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(controllers = TaskController.class)
-public class TaskControllerTest {
+@WebMvcTest(controllers = JornaisController.class)
+public class JornalControllerTest {
 
 	@Autowired
 	private MockMvc mock;
 	
 	@MockBean
-	private TaskService taskService;
+	private JornaisService jornaisService;
 	
 	@Test
 	public void findAllTest() throws Exception {
-		Task task1 = new Task((long)1, "Leonan", true);
-		List<Task> mockPeople = Arrays.asList(task1);
+		Jornais jornais1 = new Jornais(1L, "JPB", "Manhã");
+		List<Jornais> mockPeople = Arrays.asList(jornais1);
 		ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-		String mockTaskJSON = ow.writeValueAsString(mockPeople);	
-		when(taskService.findAll()).thenReturn(mockPeople);
-		mock.perform(get("/tasks")
+		String mockJornaisJSON = ow.writeValueAsString(mockPeople);	
+		when(jornaisService.findAll()).thenReturn(mockPeople);
+		mock.perform(get("/jornais")
 					.contentType(MediaType.APPLICATION_JSON_UTF8))
 		.andExpect(status().is(200))
-		.andExpect(content().json(mockTaskJSON));
+		.andExpect(content().json(mockJornaisJSON));
 	}
 	
 	
 	@Test
 	public void findOneTest() throws Exception {
-		   Task task1 = new Task();
-	       mock.perform(get("/tasks" + "/{id}", task1.getId())
+		   Jornais jornais1 = new Jornais();
+	       mock.perform(get("/jornais" + "/{id}", jornais1.getId())
 	               .contentType(MediaType.APPLICATION_JSON_UTF8))
 	               .andExpect(status().isOk());
 	}
@@ -62,33 +62,33 @@ public class TaskControllerTest {
 	
 
 	@Test
-	public void createNewTaskTest() throws Exception {
-		Task mockTask = new Task((long) 10, "Erik", false);
-		when(taskService.create(any(Task.class))).thenReturn(mockTask);
+	public void createNewJornaisTest() throws Exception {
+		Jornais mockJornais = new Jornais(1L, "JPB", "Manhã");
+		when(jornaisService.create(any(Jornais.class))).thenReturn(mockJornais);
 		ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-		String mockTaskJSON = ow.writeValueAsString(mockTask);
-		mock.perform(post("/tasks")
+		String mockJornaisJSON = ow.writeValueAsString(mockJornais);
+		mock.perform(post("/jornais")
 					.contentType(MediaType.APPLICATION_JSON_UTF8)
 					.accept(MediaType.APPLICATION_JSON_UTF8)
-					.content(mockTaskJSON))
+					.content(mockJornaisJSON))
 		.andExpect(status().isOk())
-		.andExpect(content().json(mockTaskJSON));
-		verify(taskService).create(any(Task.class));		
+		.andExpect(content().json(mockJornaisJSON));
+		verify(jornaisService).create(any(Jornais.class));		
 	}
 	
 	@Test
-	public void removeTask() throws Exception {
-		mock.perform(delete("/tasks" + "/{id}", new Long(1)))
+	public void removeJornais() throws Exception {
+		mock.perform(delete("/jornais" + "/{id}", new Long(1)))
 			.andExpect(status().is(200));
 	}
 	
 	@Test
-	public void createNewTaskAndFailTest() throws Exception {
-		Task mockTask = new Task((long) 1, "56", true);
-		when(taskService.create(any(Task.class))).thenReturn(mockTask);
+	public void createNewJornaisAndFailTest() throws Exception {
+		Jornais mockJornais = new Jornais(1L, "JPB", "Manhã");
+		when(jornaisService.create(any(Jornais.class))).thenReturn(mockJornais);
 		ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-		String json = ow.writeValueAsString(mockTask);
-		mock.perform(post("/tasks")
+		String json = ow.writeValueAsString(mockJornais);
+		mock.perform(post("/jornais")
 				.contentType(MediaType.APPLICATION_JSON_UTF8)
 				.accept(MediaType.APPLICATION_JSON_UTF8)
 				.content(json))

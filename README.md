@@ -1,34 +1,54 @@
-## Controle de Biblioteca
+## Controle de Biblioteca - Sprint 4
 
-Sistema que permitira o controle de emprestimos de livro
-
-## Vers�o Sprint 3
- https://bitbucket.org/pabliciotgg/controle-de-biblioteca/src/v2.0.0/
+Esta é uma solução construída com as seguintes tecnologias:
+- Vue.js
+- Spring Boot
 
 
 ## Estrutura do sistema
 
-- Abaixo temos o Diagrama de Dom�nios das Classes:
+- Abaixo temos o Diagrama de Domínios das Classes:
 
 ![picture](https://bitbucket.org/pabliciotgg/controle-de-biblioteca/raw/a5502e4db27931d24a2d6d1d92a3a7bcfc2df088/diagrama.jpeg)
 
-## Instrucoes
+## Instrucoes de configuração
 
-- Baixe o repositorio
-
-- Na pasta "\.settings" Modifique o arquivo "org.eclipse.wst.common.project.facet.core.xml",
-- na seguinte linha: <installed facet="jst.web" version="3.1"/>  para  <installed facet="jst.web" version="3.0"/>
-
-### Banco de Dados
-```bash
-Crie um banco controle_biblioteca
+- Baixe o repositorio:
+```
+     git clone https://bitbucket.org/pabliciotgg/controle-de-biblioteca/src
 ```
 
-### Iniciando
+- Crie o banco de dados, configure o backend e o frontend de acordo com as instruções a seguir:
 
-#### Em Run As:
+### Banco de Dados
+- Crie um banco de dados mysql contendo o nome "controle_biblioteca"
 
-```bash
-- Maven Clean & Maven Install
-- Run on Server - Tomcat 7.0
+### Backend
+- Importe o Projeto
+- Atualize o Gradle
+
+### Frontend
+
+- Abra o terminal na pasta "frontend" e execute o comando abaixo para instalar as dependências:
+```
+  npm install
+```
+
+
+## Executando
+
+- Primeiro, execute o backend no Spring
+
+- A seguir execute através do seguinte comando:
+```
+  npm start
+```
+- Abra o navegador e entre no link http://localhost:8080/
+
+
+### Documentaçãoo
+
+- Com o projeto SpringBoot rodando digite a seguinte url:
+```
+  http://localhost:8080/swagger-ui.html
 ```

@@ -7,11 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.uepb.ControleBiblioteca.controller.AlunoController;
 import com.uepb.ControleBiblioteca.entities.Aluno;
-import com.uepb.ControleBiblioteca.entities.Task;
 import com.uepb.ControleBiblioteca.exception.AlunoException;
 import com.uepb.ControleBiblioteca.repository.AlunoRepository;
 

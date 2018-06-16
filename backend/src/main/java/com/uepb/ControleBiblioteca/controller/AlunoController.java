@@ -4,8 +4,6 @@ import java.util.List;
 
 import java.util.Optional;
 
-import javax.validation.Valid;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +19,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.uepb.ControleBiblioteca.entities.Aluno;
-import com.uepb.ControleBiblioteca.exception.AlunoException;
-import com.uepb.ControleBiblioteca.repository.AlunoRepository;
 import com.uepb.ControleBiblioteca.services.IAlunoService;
 
 import io.swagger.annotations.Api;
@@ -46,14 +42,14 @@ public class AlunoController {
 	@GetMapping
 	@ApiOperation(value = "Busca todos os dados do banco.")
 	public @ResponseBody List<Aluno> findAll() {
-		LOG.warn("THIAGO PABLICIO CABRAL DA SILVA...");
+		LOG.info("Buscou todos os alunos...");
 		return this.alunoService.findAll();
 	}
 
 	@GetMapping("/{id}")
 	@ApiOperation(value = "Busca um dado do banco através do id.")
 	public Optional<Aluno> findOne(@PathVariable("id") Long id) {
-		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
+		LOG.info("Troxe um aluno do banco...");
 		return this.alunoService.findOne(id);
 	}
 
@@ -61,7 +57,7 @@ public class AlunoController {
 	@ResponseBody
 	@ApiOperation(value = "Cria um dado no banco.")
 	public Aluno create(@RequestBody Aluno aluno) {
-		LOG.error("THIAGO PABLICIO CABRAL DA SILVA...");
+		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
 		return this.alunoService.create(aluno);
 	}
 
@@ -69,7 +65,7 @@ public class AlunoController {
 	@PutMapping("/{id}")
 	@ApiOperation(value = "Edita um dado do Banco através id.")
 	public Aluno update(@PathVariable(value = "id") Long id, @RequestBody Aluno alunoDetails) {
-		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
+		LOG.info("Editou um aluno...");
 		return this.alunoService.update(alunoDetails, id);
 	}
 	
@@ -77,7 +73,7 @@ public class AlunoController {
 	@DeleteMapping("/{id}")
 	@ApiOperation(value = "Remove um dado do Banco através id.")
 	public void remove(@PathVariable("id") Long id) {
-		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
+		LOG.info("Removeu um aluno...");
 		this.alunoService.remove(id);
 	}
 

@@ -2,7 +2,7 @@
   <div>
   <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="800px">
-      <v-btn slot="activator" round color="primary" dark>+</v-btn>
+      <v-btn slot="activator" round color="primary" dark>Cadastrar Jornal</v-btn>
       <v-card>
         <v-card-title>
           <span class="headline">Cadastrar Jornais</span>
@@ -17,15 +17,15 @@
                 <v-text-field v-model="jornaisCreate.edicao" label="Edição"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="jornaisCreate.dataPublicacao" label="Publicação"></v-text-field>
+                <v-text-field type="date" v-model="jornaisCreate.dataPublicacao" label="Publicação"></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" flat @click="close">Fechar</v-btn>
-          <v-btn color="blue darken-1" flat  @click="saveJornais">Salvar</v-btn>
+          <v-btn color="error" @click="close">Fechar</v-btn>
+          <v-btn color="success"  @click="saveJornais">Salvar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>

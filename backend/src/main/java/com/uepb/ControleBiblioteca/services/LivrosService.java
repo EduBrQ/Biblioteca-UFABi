@@ -7,11 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.uepb.ControleBiblioteca.controller.LivrosController;
 import com.uepb.ControleBiblioteca.entities.Livros;
-import com.uepb.ControleBiblioteca.entities.Task;
 import com.uepb.ControleBiblioteca.exception.LivrosException;
 import com.uepb.ControleBiblioteca.repository.LivrosRepository;
 

@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import com.uepb.ControleBiblioteca.entities.MidiasEletronicas;
-import com.uepb.ControleBiblioteca.exception.MidiasEletronicasException;
 
 public interface IMidiasEletronicasService {
 
@@ -13,6 +12,5 @@ public interface IMidiasEletronicasService {
 	MidiasEletronicas create(MidiasEletronicas midiasEletronicas);
 	MidiasEletronicas update(MidiasEletronicas midiasEletronicas, Long Id);
 	public void remove(Long id);
-//    public MidiasEletronicas findById(Long id) throws MidiasEletronicasException;
 
 }

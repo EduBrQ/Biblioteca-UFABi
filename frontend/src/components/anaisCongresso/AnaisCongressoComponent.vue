@@ -2,7 +2,7 @@
   <div>
   <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="800px">
-      <v-btn slot="activator" round color="primary" dark>+</v-btn>
+      <v-btn slot="activator" round color="primary" dark>Cadastrar Anal</v-btn>
       <v-card>
         <v-card-title>
           <span class="headline">Cadastrar Anal de Congresso</span>
@@ -14,7 +14,9 @@
                 <v-text-field v-model="anaisCongressoCreate.titulo" label="Titulo"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="anaisCongressoCreate.tipoAnal" label="Tipo"></v-text-field>
+                <v-select :items="items" v-model="anaisCongressoCreate.tipoAnal" label="Tipo de Anal" 
+                  class="input-group-focused" item-label="text" item-value="value"
+                ></v-select>
               </v-flex>
               <v-flex xs12 sm6 md4>
                 <v-text-field v-model="anaisCongressoCreate.edicao" label="Edição"></v-text-field>
@@ -131,7 +133,12 @@
         ],
         anaisCongresso: [],
         anaisCongressoCreate: {},
-        dialog: false
+        dialog: false,
+        items: [
+          {text: 'Artigo', value: '0'},
+          {text: 'Pôster', value: '1'},
+          {text: 'Resumo', value: '2'},
+        ]
       }
     },
     ready() {
@@ -160,6 +167,7 @@
         })
       },
       saveAnaisCongresso() {
+        
         if (this.anaisCongressoCreate.id != null) {
           console.log(this.anaisCongressoCreate)
           AnaisCongressoService.edit(this.anaisCongressoCreate).then(data => {

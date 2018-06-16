@@ -3,11 +3,10 @@ package com.uepb.ControleBiblioteca.controller;
 import java.util.List;
 import java.util.Optional;
 
-import javax.validation.Valid;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,14 +18,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.uepb.ControleBiblioteca.entities.AnaisDeCongresso;
-import com.uepb.ControleBiblioteca.exception.AnaisDeCongressoException;
-import com.uepb.ControleBiblioteca.repository.AnaisDeCongressoRepository;
 import com.uepb.ControleBiblioteca.services.IAnaisDeCongressoService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8081")
 @RequestMapping("/anaisDeCongresso")
 @Api(value = "API Rest - AnaisDeCongresso Endpoint")
 public class AnaisDeCongressoController {
@@ -43,14 +41,14 @@ public class AnaisDeCongressoController {
 	@GetMapping
 	@ApiOperation(value = "Busca todos os dados do banco.")
 	public List<AnaisDeCongresso> findAll() {
-		LOG.warn("THIAGO PABLICIO CABRAL DA SILVA...");
+		LOG.info("recupera anais de congresso...");
 		return this.anaisDeCongressoService.findAll();
 	}
 
 	@GetMapping("/{id}")
 	@ApiOperation(value = "Busca um dado do banco através do id.")
 	public Optional<AnaisDeCongresso> findOne(@PathVariable("id") Long id) {
-		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
+		LOG.info("busca dado através do id...");
 		return this.anaisDeCongressoService.findOne(id);
 	}
 
@@ -58,7 +56,7 @@ public class AnaisDeCongressoController {
 	@ResponseBody
 	@ApiOperation(value = "Cria um dado no banco.")
 	public AnaisDeCongresso create(@RequestBody AnaisDeCongresso anaisDeCongresso) {
-		LOG.error("THIAGO PABLICIO CABRAL DA SILVA...");
+		LOG.info("criou registro no banco...");
 		return this.anaisDeCongressoService.create(anaisDeCongresso);
 	}
 
@@ -66,7 +64,7 @@ public class AnaisDeCongressoController {
 	@PutMapping("/{id}")
 	@ApiOperation(value = "Edita um dado do Banco através id.")
 	public AnaisDeCongresso update(@PathVariable(value = "id") Long id, @RequestBody AnaisDeCongresso anaisDeCongressoDetails) {
-		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
+		LOG.info("editou um registro no banco...");
 		return this.anaisDeCongressoService.update(anaisDeCongressoDetails, id);
 	}
 	
@@ -74,7 +72,7 @@ public class AnaisDeCongressoController {
 	@DeleteMapping("/{id}")
 	@ApiOperation(value = "Remove um dado do Banco através id.")
 	public void remove(@PathVariable("id") Long id) {
-		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
+		LOG.info("removeu um registro do banco...");
 		this.anaisDeCongressoService.remove(id);
 	}
 

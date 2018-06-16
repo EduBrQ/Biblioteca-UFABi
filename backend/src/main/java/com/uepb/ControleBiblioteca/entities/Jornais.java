@@ -37,6 +37,13 @@ public class Jornais {
 	private String 	dataPublicacao;
 	 
 	
+	
+	public Jornais(Long id, String titulo, String edicao) {
+		this.id = id;
+		this.titulo = titulo;
+		this.edicao = edicao;
+	}
+
 	//CONSTRUTOR
 	public Jornais() {
 		

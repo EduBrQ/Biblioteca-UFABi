@@ -2,45 +2,45 @@
   <div>
   <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="800px">
-      <v-btn slot="activator" round color="primary" dark>+</v-btn>
+      <v-btn slot="activator" round color="primary" dark>Cadastrar Livro</v-btn>
       <v-card>
         <v-card-title>
-          <span class="headline">Cadastrar Livros</span>
+          <span class="headline">Cadastrar Livro</span>
         </v-card-title>
         <v-card-text>
           <v-container grid-list-md>
             <v-layout wrap>
               <v-flex xs12>
-                <v-text-field v-model="livrosCreate.titulo" label="Titulo"></v-text-field>
+                <v-text-field v-model="livrosCreate.titulo" label="Título do livro"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
                 <v-text-field v-model="livrosCreate.edicao" label="Edição"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="livrosCreate.anoPublicacao" label="Publicação"></v-text-field>
+                <v-text-field type="date" v-model="livrosCreate.anoPublicacao" label="Publicação"></v-text-field>
               </v-flex>
                <v-flex xs12 sm6 md4>
-                <v-text-field v-model="livrosCreate.autores" label="autores"></v-text-field>
+                <v-text-field v-model="livrosCreate.autores" label="Autores"></v-text-field>
               </v-flex>
                <v-flex xs12 sm6 md4>
-                <v-text-field v-model="livrosCreate.editora" label="editora"></v-text-field>
+                <v-text-field v-model="livrosCreate.editora" label="Editora"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="livrosCreate.numeroPaginas" label="numeroPaginas"></v-text-field>
+                <v-text-field type="number" v-model="livrosCreate.numeroPaginas" label="Número de Páginas"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="livrosCreate.areaConhecimento" label="areaConhecimento"></v-text-field>
+                <v-text-field v-model="livrosCreate.areaConhecimento" label="Área do conhecimento"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="livrosCreate.tipoTema" label="tipoTema"></v-text-field>
+                <v-text-field v-model="livrosCreate.tipoTema" label="Tipo de Tema"></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" flat @click="close">Fechar</v-btn>
-          <v-btn color="blue darken-1" flat  @click="saveLivros">Salvar</v-btn>
+          <v-btn color="error" @click="close">Fechar</v-btn>
+          <v-btn color="success" @click="saveLivros">Salvar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>

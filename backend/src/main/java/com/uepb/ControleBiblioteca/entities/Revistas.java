@@ -1,7 +1,5 @@
 package com.uepb.ControleBiblioteca.entities;
 
-import java.text.DateFormat;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,6 +27,14 @@ public class Revistas {
 
 	@Column(name = "editora")
 	private String editora;
+
+	
+	
+	public Revistas(Long id, int numeroPaginas, String titulo) {
+		this.id = id;
+		this.numeroPaginas = numeroPaginas;
+		this.titulo = titulo;
+	}
 
 	// CONSTRUTOR
 	public Revistas() {

@@ -7,12 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.uepb.ControleBiblioteca.controller.JornaisController;
-import com.uepb.ControleBiblioteca.entities.Curso;
 import com.uepb.ControleBiblioteca.entities.Jornais;
-import com.uepb.ControleBiblioteca.entities.Task;
 import com.uepb.ControleBiblioteca.exception.JornaisException;
 import com.uepb.ControleBiblioteca.repository.JornaisRepository;
 
@@ -49,8 +46,6 @@ public class JornaisService implements IJornaisService {
 			this.jornaisRepository.deleteById(id);
 		}
 	}
-
-	
 
 	@Override
 	public Jornais update(Jornais jornaisDetails, Long Id) {

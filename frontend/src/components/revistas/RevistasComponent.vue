@@ -2,7 +2,7 @@
   <div>
   <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="800px">
-     <v-btn slot="activator" round color="primary" dark>+</v-btn>
+     <v-btn slot="activator" round color="primary" dark>Cadastrar Revista</v-btn>
       <v-card>
         <v-card-title>
           <span class="headline">Cadastrar Revistas</span>
@@ -14,15 +14,15 @@
                 <v-text-field v-model="revistasCreate.titulo" label="Titulo"></v-text-field>
               </v-flex>
                <v-flex xs12 sm6 md4>
-                <v-text-field v-model="revistasCreate.numeroPaginas" label="Nº Páginas"></v-text-field>
+                <v-text-field type="number" v-model="revistasCreate.numeroPaginas" label="Número de Páginas"></v-text-field>
               </v-flex>
                <v-flex xs12 sm6 md4>
                 <v-text-field v-model="revistasCreate.edicao" label="Edição"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="revistasCreate.dataPublicacao" label="Publicação"></v-text-field>
+                <v-text-field type="date" v-model="revistasCreate.dataPublicacao" label="Data de Publicação"></v-text-field>
               </v-flex>
-              <v-flex xs12 sm6 md4>
+              <v-flex xs12>
                 <v-text-field v-model="revistasCreate.editora" label="Editora"></v-text-field>
               </v-flex>
             </v-layout>
@@ -30,8 +30,8 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" flat @click="close">Fechar</v-btn>
-          <v-btn color="blue darken-1" flat  @click="saveRevistas">Salvar</v-btn>
+          <v-btn color="error" @click="close">Fechar</v-btn>
+          <v-btn color="success"  @click="saveRevistas">Salvar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>

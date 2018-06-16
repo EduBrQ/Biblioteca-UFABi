@@ -3,11 +3,10 @@ package com.uepb.ControleBiblioteca.controller;
 import java.util.List;
 import java.util.Optional;
 
-import javax.validation.Valid;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,14 +18,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.uepb.ControleBiblioteca.entities.MidiasEletronicas;
-import com.uepb.ControleBiblioteca.exception.MidiasEletronicasException;
-import com.uepb.ControleBiblioteca.repository.MidiasEletronicasRepository;
 import com.uepb.ControleBiblioteca.services.IMidiasEletronicasService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8081")
 @RequestMapping("/midiasEletronicas")
 @Api(value = "API Rest - MidiasEletronicas Endpoint")
 public class MidiasEletronicasController {
@@ -43,14 +41,14 @@ public class MidiasEletronicasController {
 	@GetMapping
 	@ApiOperation(value = "Busca todos os dados do banco.")
 	public List<MidiasEletronicas> findAll() {
-		LOG.warn("THIAGO PABLICIO CABRAL DA SILVA...");
+		LOG.info("busca todos os registros no banco...");
 		return this.midiasEletronicasService.findAll();
 	}
 
 	@GetMapping("/{id}")
 	@ApiOperation(value = "Busca um dado do banco através do id.")
 	public Optional<MidiasEletronicas> findOne(@PathVariable("id") Long id) {
-		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
+		LOG.info("busca um registro no banco...");
 		return this.midiasEletronicasService.findOne(id);
 	}
 
@@ -58,7 +56,7 @@ public class MidiasEletronicasController {
 	@ResponseBody
 	@ApiOperation(value = "Cria um dado no banco.")
 	public MidiasEletronicas create(@RequestBody MidiasEletronicas midiasEletronicas) {
-		LOG.error("THIAGO PABLICIO CABRAL DA SILVA...");
+		LOG.info("cria um registro no banco...");
 		return this.midiasEletronicasService.create(midiasEletronicas);
 	}
 
@@ -66,7 +64,7 @@ public class MidiasEletronicasController {
 	@PutMapping("/{id}")
 	@ApiOperation(value = "Edita um dado do Banco através id.")
 	public MidiasEletronicas update(@PathVariable(value = "id") Long id, @RequestBody MidiasEletronicas midiasEletronicasDetails) {
-		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
+		LOG.info("edita um registro no banco...");
 		return this.midiasEletronicasService.update(midiasEletronicasDetails, id);
 	}
 	
@@ -74,7 +72,7 @@ public class MidiasEletronicasController {
 	@DeleteMapping("/{id}")
 	@ApiOperation(value = "Remove um dado do Banco através id.")
 	public void remove(@PathVariable("id") Long id) {
-		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
+		LOG.info("remove um registro no banco...");
 		this.midiasEletronicasService.remove(id);
 	}
 

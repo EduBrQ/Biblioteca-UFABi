@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import com.uepb.ControleBiblioteca.entities.TrabalhosDeConclusao;
-import com.uepb.ControleBiblioteca.exception.TrabalhosDeConclusaoException;
 
 public interface ITrabalhosDeConclusaoService {
 
@@ -13,6 +12,5 @@ public interface ITrabalhosDeConclusaoService {
 	TrabalhosDeConclusao create(TrabalhosDeConclusao trabalhosDeConclusao);
 	TrabalhosDeConclusao update(TrabalhosDeConclusao trabalhosDeConclusao, Long Id);
 	public void remove(Long id);
-//    public TrabalhosDeConclusao findById(Long id) throws TrabalhosDeConclusaoException;
 
 }

@@ -3,11 +3,10 @@ package com.uepb.ControleBiblioteca.controller;
 import java.util.List;
 import java.util.Optional;
 
-import javax.validation.Valid;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,64 +17,63 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.uepb.ControleBiblioteca.entities.Task;
-import com.uepb.ControleBiblioteca.exception.TaskException;
-import com.uepb.ControleBiblioteca.repository.TaskRepository;
-import com.uepb.ControleBiblioteca.services.ITaskService;
+import com.uepb.ControleBiblioteca.entities.Revistas;
+import com.uepb.ControleBiblioteca.services.IRevistasService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/tasks")
-@Api(value = "API Rest - Task Endpoint")
-public class TaskController {
+@CrossOrigin(origins = "http://localhost:8081")
+@RequestMapping("/revistas")
+@Api(value = "API Rest - Revistas Endpoint")
+public class RevistasController {
 
-	private static final Logger LOG = LoggerFactory.getLogger(TaskController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(RevistasController.class);
 
 	@Autowired
-	private ITaskService taskService;
+	private IRevistasService revistasService;
 
-	public TaskController(ITaskService taskService) {
-		this.taskService = taskService;
+	public RevistasController(IRevistasService revistasService) {
+		this.revistasService = revistasService;
 	}
 
 	@GetMapping
 	@ApiOperation(value = "Busca todos os dados do banco.")
-	public List<Task> findAll() {
-		LOG.warn("THIAGO PABLICIO CABRAL DA SILVA...");
-		return this.taskService.findAll();
+	public List<Revistas> findAll() {
+		LOG.info("busca todos os registro no banco...");
+		return this.revistasService.findAll();
 	}
 
 	@GetMapping("/{id}")
 	@ApiOperation(value = "Busca um dado do banco através do id.")
-	public Optional<Task> findOne(@PathVariable("id") Long id) {
-		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
-		return this.taskService.findOne(id);
+	public Optional<Revistas> findOne(@PathVariable("id") Long id) {
+		LOG.info("busca um registro no banco...");
+		return this.revistasService.findOne(id);
 	}
 
 	@PostMapping
 	@ResponseBody
 	@ApiOperation(value = "Cria um dado no banco.")
-	public Task create(@RequestBody Task task) {
-		LOG.error("THIAGO PABLICIO CABRAL DA SILVA...");
-		return this.taskService.create(task);
+	public Revistas create(@RequestBody Revistas revistas) {
+		LOG.info("cria um registro no banco...");
+		return this.revistasService.create(revistas);
 	}
 
-	// Update a Task
+	// Update a Revistas
 	@PutMapping("/{id}")
 	@ApiOperation(value = "Edita um dado do Banco através id.")
-	public Task update(@PathVariable(value = "id") Long Id, @RequestBody Task taskDetails) {
-		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
-		return this.taskService.update(taskDetails, Id);
+	public Revistas update(@PathVariable(value = "id") Long Id, @RequestBody Revistas revistasDetails) {
+		LOG.info("edita um registro no banco...");
+		return this.revistasService.update(revistasDetails, Id);
 	}
 	
 
 	@DeleteMapping("/{id}")
 	@ApiOperation(value = "Remove um dado do Banco através id.")
 	public void remove(@PathVariable("id") Long id) {
-		LOG.info("THIAGO PABLICIO CABRAL DA SILVA...");
-		this.taskService.remove(id);
+		LOG.info("remove um registro no banco...");
+		this.revistasService.remove(id);
 	}
 
 }

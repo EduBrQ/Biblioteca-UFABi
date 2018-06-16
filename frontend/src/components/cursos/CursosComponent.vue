@@ -2,7 +2,7 @@
   <div>
   <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="800px">
-      <v-btn slot="activator" round color="primary" dark>+</v-btn>
+      <v-btn slot="activator" round color="primary" dark>Cadastrar Curso</v-btn>
       <v-card>
         <v-card-title>
           <span class="headline">Cadastrar Cursos</span>
@@ -17,7 +17,9 @@
                 <v-text-field v-model="cursosCreate.area" label="Area"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="cursosCreate.tipo" label="Tipo"></v-text-field>
+                <v-select :items="items" v-model="cursosCreate.tipo" label="Tipo" 
+                  class="input-group-focused" item-label="text" item-value="value"
+                ></v-select>
               </v-flex>
             </v-layout>
           </v-container>
@@ -89,7 +91,13 @@
         ],
         cursos: [],
         cursosCreate: {},
-        dialog: false
+        dialog: false,
+        items:[
+          {text: 'Graduação', value: 'Graduação'},
+          {text: 'Pós-Graduação', value: 'Pós-Graduação'},
+          {text: 'Mestrado', value: 'Mestrado'},
+          {text: 'Doutorado', value: 'Doutorado'}
+        ]
       }
     },
     ready() {
@@ -118,6 +126,7 @@
         })
       },
       saveCursos() {
+        console.log(this.cursosCreate)
         if (this.cursosCreate.id != null) {
           console.log(this.cursosCreate)
           CursosService.edit(this.cursosCreate).then(data => {

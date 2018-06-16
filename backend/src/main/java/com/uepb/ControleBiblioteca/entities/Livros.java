@@ -42,6 +42,14 @@ public class Livros {
 	@Column(name = "tipo_tema")
 	private int tipoTema;
 
+	
+	
+	public Livros(Long id, String titulo, String iSBN) {
+		this.id = id;
+		this.titulo = titulo;
+		ISBN = iSBN;
+	}
+
 	// CONSTRUTOR
 	public Livros() {
 
